@@ -1,0 +1,262 @@
+body {
+  color: #202124;
+}
+
+h1 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+h5 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+h6 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* Text */
+.text-primary {
+  color: #333333;
+}
+
+.text-secondary {
+  color: #777777;
+}
+
+.text-third {
+  color: #bdbdbd;
+}
+
+.text-white {
+  color: #ececec;
+}
+
+.text-link {
+  color: #345dd4;
+}
+
+/* Background */
+.bg-web {
+  background-color: #f1f2f2;
+}
+
+/* Button */
+.btn {
+  color: white !important;
+  border-radius: 12px !important;
+  border: unset;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn-infor {
+  background-color: #edf3ff;
+}
+
+.btn-success {
+  background-color: #12a959;
+}
+
+.btn-warning {
+  background-color: #ffbd34;
+}
+
+.btn-danger {
+  background-color: #f2443c;
+}
+
+.btn-third {
+  padding: 14px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  transition: 0.7s;
+  background-size: 200% auto;
+  background-image: linear-gradient(
+    to right,
+    #19226d 23.6%,
+    #ed1c24 50%,
+    #19226d 76.4%
+  );
+}
+
+.btn-third:hover {
+  background-position: right;
+}
+
+/* Branding */
+
+.branding-primary {
+  background: #002d85;
+}
+
+.branding-secondary {
+  background: #ed1c24;
+}
+
+.branding-third {
+  background: linear-gradient(90deg, #19226d 23.6%, #ed1c24 100%);
+}
+
+/* Form */
+.input-group {
+  border: none !important;
+  border-bottom: 1px solid #c4c4c6;
+  border-radius: unset !important;
+}
+
+.input-group .input-group-prepend,
+.input-group .input-group-append {
+  border-bottom: 1px solid #c4c4c6 !important;
+}
+
+.input-group.label-transition .input-group-prepend,
+.input-group.label-transition .input-group-append {
+  transform: translateY(-1px);
+}
+
+.input-group .input-group-prepend .input-group-text,
+.input-group .input-group-append .input-group-text {
+  background-color: white;
+  border: unset !important;
+  border-radius: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.input-group .input-group-prepend .input-group-text {
+  padding-right: 8px !important;
+}
+
+.input-group .input-group-append .input-group-text {
+  padding-left: 8px !important;
+}
+
+.form-control {
+  border: unset !important;
+  border-bottom: 1px solid #c4c4c6 !important;
+  border-radius: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  padding: 8px 0 !important;
+  color: #232e48;
+}
+
+.form-control::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #232e48;
+  opacity: 1; /* Firefox */
+}
+
+.form-control:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: red;
+}
+
+.form-control::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: red;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.link {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  color: #0c65ce;
+}
+
+.link:hover {
+  opacity: 0.8;
+}
+
+.form-label {
+  position: relative;
+  display: block;
+  clear: both;
+  /*     width:400px; */
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label {
+  -webkit-transform: translateY(50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(50%);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  top: -16%;
+  cursor: text;
+  pointer-events: none;
+}
+
+.input-group.label-transition .form-label {
+  flex: 1;
+}
+
+input:focus ~ label,
+input.hascontent ~ label {
+  top: -75%;
+  color: #777;
+}
+
+.input-text-bold {
+  font-weight: bold;
+}
+
+.input-text-bold::placeholder {
+  font-style: italic;
+}
+
+.input-text-bold:not(:placeholder-shown) {
+  font-weight: bold;
+  font-style: normal;
+}
+
+@media (max-width: 575px) {
+  .btn-third {
+    padding: 8px 56px;
+  }
+}

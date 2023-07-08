@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Login | VRB</title>
+    <meta name="viewport" content="width=375px, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body class="login-page">
+    <div class="login-page-background">
+      <div class="shape01"></div>
+      <div class="shape04"></div>
+    </div>
+
+    <div class="login-page-content">
+      <div class="login-header">
+        <div class="login-container">
+          <div class="logo">
+            <a href="login.html">
+              <img src="assets/icons/logo.svg" alt="logo" />
+            </a>
+          </div>
+          <div class="switch-language">
+            <div class="language" data-lang="en" data-label="English"></div>
+            <div class="flag">
+              <img src="assets/icons/uk-flag.svg" alt="flag" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-content-page-section">
+        <div class="select-customer-type">
+          <div class="select-customer-type-inner">
+            <div
+              class="account-type-box"
+              onclick="location.href = 'login.html';"
+            >
+              <img src="assets/icons/building-4.svg" alt="enterprise" />
+              <div class="customer">
+                <div class="description">Khách hàng</div>
+                <div class="title">Doanh nghiệp</div>
+              </div>
+            </div>
+            <div class="line"></div>
+            <div
+              class="account-type-box"
+              onclick="location.href = 'login.html';"
+            >
+              <img src="assets/icons/frame.svg" alt="individual" />
+              <div class="customer">
+                <div class="description">Khách hàng</div>
+                <div class="title">Cá nhân</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="login-menu">
+          <div class="menu-item">
+            <div class="item-icon">
+              <svg>
+                <use xlink:href="./assets/icons/icons.svg#dollar-circle"></use>
+              </svg>
+            </div>
+            <div class="item-name">Tỷ giá</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-icon">
+              <svg>
+                <use xlink:href="./assets/icons/icons.svg#chart"></use>
+              </svg>
+            </div>
+            <div class="item-name">Lãi suất</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-icon">
+              <svg>
+                <use xlink:href="./assets/icons/icons.svg#map"></use>
+              </svg>
+            </div>
+            <div class="item-name">Mạng lưới</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-icon">
+              <svg>
+                <use
+                  xlink:href="./assets/icons/icons.svg#message-question"
+                ></use>
+              </svg>
+            </div>
+            <div class="item-name">Hỗ trợ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-footer">
+        <div class="login-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

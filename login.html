@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Login | VRB</title>
+    <meta name="viewport" content="width=375px, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body class="login-page">
+    <div class="login-page-background">
+      <div class="shape01"></div>
+      <div class="shape04"></div>
+    </div>
+
+    <div class="login-page-content">
+      <div class="login-header">
+        <div class="login-container">
+          <div class="logo">
+            <a href="login.html">
+              <img src="assets/icons/logo.svg" alt="logo" />
+            </a>
+          </div>
+          <div class="switch-language">
+            <div class="language">English</div>
+            <div class="flag">
+              <img src="assets/icons/uk-flag.svg" alt="flag" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-form">
+        <div class="form-title">Kính chào quý khách</div>
+        <div class="input-group label-transition">
+          <div class="form-label">
+            <input
+              type="text"
+              class="form-control input-text-bold"
+              name="username"
+            />
+            <label for="username">Tên truy cập</label>
+          </div>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <img src="assets/icons/profile.svg" alt="profile" />
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group label-transition mt-5">
+          <div class="form-label">
+            <input
+              type="password"
+              class="form-control input-text-bold"
+              name="username"
+            />
+            <label for="username">Mật khẩu</label>
+          </div>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <img src="assets/icons/lock.svg" alt="lock" />
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-end mt-5 w-100">
+          <div class="input-group label-transition flex-fill">
+            <div class="form-label">
+              <input
+                type="text"
+                class="form-control input-text-bold"
+                name="username"
+              />
+              <label for="username">Nhập mã kiểm tra</label>
+            </div>
+          </div>
+          <div class="captcha">
+            <a href="#"><img src="assets/icons/refresh.svg" alt="refresh" /></a>
+            <img
+              class="img-captcha"
+              src="assets/icons/captcha.svg"
+              alt="captcha"
+            />
+          </div>
+        </div>
+
+        <button class="btn btn-third btn-login">Đăng nhập</button>
+
+        <div class="login-form-link">
+          <a class="link" href="#">Quên mật khẩu?</a>
+          <a class="link" href="#">Đăng ký mở tài khoản</a>
+        </div>
+      </div>
+
+      <div class="login-footer">
+        <div class="login-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

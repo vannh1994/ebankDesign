@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Gilroy"), url("../fonts/Gilroy-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Gilroy"), url("../fonts/Gilroy-Bold.woff") format("woff");
+}
+
+html,
+body,
+* {
+  font-family: Gilroy, sans-serif;
+}

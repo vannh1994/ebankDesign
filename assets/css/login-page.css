@@ -1,0 +1,83 @@
+/* Login form */
+
+.login-form {
+  width: 458px;
+  display: flex;
+  padding: 48px 32px;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(10px);
+}
+
+.login-form label {
+  font-size: 14px;
+}
+
+.login-form .form-title {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-form .captcha {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: 16px;
+}
+
+.login-form .captcha .img-captcha {
+  height: 36px;
+}
+
+.login-form .show-password {
+  cursor: pointer;
+}
+
+.login-form .show-password:hover {
+  opacity: 0.8;
+}
+
+.login-form .btn-login {
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.login-form .login-form-link {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-form .login-form-link .link {
+  font-size: 14px;
+}
+
+@media (max-width: 991px) {
+}
+
+@media (max-width: 575px) {
+  .login-form {
+    padding: 24px 16px;
+    width: 328px;
+  }
+
+  .login-form .form-title {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  .login-form .btn-login {
+    margin-bottom: 12px;
+  }
+}
