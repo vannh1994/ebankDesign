@@ -75,6 +75,23 @@ h6 {
   outline: none;
 }
 
+.btn-primary {
+  background-color: #f4f7fe !important;
+  color: #002d85 !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+}
+
+.btn-primary:hover {
+  background-color: #dae0ef !important;
+  color: #012772 !important;
+}
+
+.btn-primary img {
+  margin-left: 8px;
+}
+
 .btn-infor {
   background-color: #edf3ff;
 }
@@ -259,4 +276,22 @@ input.hascontent ~ label {
   .btn-third {
     padding: 8px 56px;
   }
+}
+
+input[type="search"] {
+  padding: 12px 50px 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #ced4da;
+  outline: none !important;
+  font-size: 16px;
+  line-height: 20px;
+  appearance: none;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none"><path d="M9.80444 17.3865C5.40282 17.3865 1.81824 13.8019 1.81824 9.40027C1.81824 4.99865 5.40282 1.41406 9.80444 1.41406C14.2061 1.41406 17.7906 4.99865 17.7906 9.40027C17.7906 13.8019 14.2061 17.3865 9.80444 17.3865ZM9.80444 1.65595C5.52906 1.65595 2.06012 5.13391 2.06012 9.40027C2.06012 13.6666 5.52906 17.1446 9.80444 17.1446C14.0798 17.1446 17.5488 13.6666 17.5488 9.40027C17.5488 5.13391 14.0798 1.65595 9.80444 1.65595Z" fill="%23292D32" stroke="%238F9BB3"/><path d="M15.1741 15.3293L15.1741 15.3293L15.1731 15.3282C15.0784 15.2335 15.0784 15.0701 15.1731 14.9754C15.2677 14.8807 15.4308 14.8806 15.5256 14.975C15.5258 14.9751 15.5259 14.9752 15.526 14.9754L22.3333 21.8224L22.3343 21.8235C22.4291 21.9182 22.4291 22.0816 22.3343 22.1764C22.283 22.2277 22.2224 22.2499 22.1579 22.2499C22.0935 22.2499 22.0331 22.2278 21.9818 22.1768C21.9817 22.1766 21.9816 22.1765 21.9814 22.1764L15.1741 15.3293Z" fill="%238F9BB3" stroke="%238F9BB3"/></svg>');
+  background-position: top 12px right 16px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+
+input[type="search"]::-webkit-input-placeholder {
+  color: #8f9bb3;
 }

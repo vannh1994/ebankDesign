@@ -8,7 +8,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .login-page-background {
@@ -393,16 +393,14 @@
     justify-content: center;
   }
 
+  .login-footer .login-container {
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .login-footer .footer-menu {
-    text-align: center;
-  }
-
-  .login-footer .sns {
-    display: none;
-  }
-
-  .login-footer .footer-menu ul {
-    display: none;
+    text-align: left;
   }
 
   .login-footer .copyright {
@@ -425,6 +423,8 @@
 
   .login-footer .login-container {
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .login-footer .footer-menu {
