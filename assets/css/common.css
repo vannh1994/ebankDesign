@@ -59,6 +59,10 @@ h6 {
   color: #345dd4;
 }
 
+.text-right {
+  text-align: right !important;
+}
+
 /* Background */
 .bg-web {
   background-color: #f1f2f2;
@@ -181,7 +185,7 @@ h6 {
   padding-left: 8px !important;
 }
 
-.form-control {
+.login-page .form-control {
   border: unset !important;
   border-bottom: 1px solid #c4c4c6 !important;
   border-radius: 0;
@@ -193,13 +197,13 @@ h6 {
   color: #232e48;
 }
 
-.form-control::placeholder {
+.login-page .form-control::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #232e48;
   opacity: 1; /* Firefox */
 }
 
-.form-control:-ms-input-placeholder {
+.login-page .form-control:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: red;
 }
@@ -270,6 +274,31 @@ input.hascontent ~ label {
 .input-text-bold:not(:placeholder-shown) {
   font-weight: bold;
   font-style: normal;
+}
+
+.breadcrumb .breadcrumb-item {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #dbdbdb;
+}
+
+.breadcrumb .breadcrumb-item.active {
+  color: #fff;
+}
+
+.breadcrumb .breadcrumb-item a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.breadcrumb .breadcrumb-item .isax {
+  font-size: 20px;
+}
+
+.mt-10 {
+  margin-top: 10px !important;
 }
 
 @media (max-width: 575px) {

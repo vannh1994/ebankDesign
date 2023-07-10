@@ -141,6 +141,7 @@
   width: 42px;
   height: 42px;
   border-radius: 9999px;
+  cursor: pointer;
 }
 
 .home-container {
@@ -197,15 +198,50 @@
   flex-direction: column;
 }
 
-.home-container .account-balance .content {
+.home-container .account-balance .content-show {
+  display: none;
+}
+
+.home-container .account-balance .show-balance {
+  display: none;
+}
+
+.home-container .account-balance .hide-balance {
+  display: block;
+}
+
+.home-container .account-balance.show .show-balance {
+  display: block;
+}
+
+.home-container .account-balance.show .hide-balance {
+  display: none;
+}
+
+.home-container .account-balance.show .content {
+  display: none;
+}
+
+.home-container .account-balance.show .content-show {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  transform: translateY(-3px);
+}
+
+.home-container .account-balance .content,
+.home-container .account-balance .content-show {
   padding-top: 10px;
   line-height: 0px;
   font-size: 20px;
 }
 
-.home-container .account-balance .hide-balance {
+.home-container .account-balance .hide-balance,
+.home-container .account-balance .show-balance {
   cursor: pointer;
   margin-left: 4px;
+  width: 20px;
+  height: 20px;
 }
 
 .home-container .btn-list {
@@ -228,6 +264,19 @@
 
 .home-container .main-content {
   padding: 16px 24px 8px 24px;
+  border-radius: 24px;
+}
+
+.home-container .main-content .show-more-feature {
+  display: none;
+}
+
+.home-container .main-content.show-all .show-more-feature {
+  display: flex;
+}
+
+.home-container .main-content.show-all .show-all-btn {
+  display: none;
 }
 
 .home-container .main-content .title {

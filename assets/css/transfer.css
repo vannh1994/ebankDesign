@@ -1,0 +1,219 @@
+.transfer-card {
+  display: flex;
+  gap: 24px;
+}
+
+.transfer-area {
+  flex: 1 0;
+}
+
+.transfer-area .area-header {
+  padding: 8px;
+  border-radius: 12px;
+  background: var(--background-background-1, #f4f7fe);
+}
+
+.transfer-area .transfer-tabs {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(
+    --branding-third-gradient,
+    linear-gradient(90deg, #19226d 23.6%, #ed1c24 100%)
+  );
+}
+
+.transfer-area .transfer-tab {
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  flex: 1;
+  cursor: pointer;
+}
+
+.transfer-area .transfer-tab.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.transfer-area .area-body {
+  padding: 24px 80px;
+  display: grid;
+  gap: 24px;
+}
+
+.transfer-area .bank-select {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--gray-5, #e0e0e0);
+  cursor: pointer;
+}
+
+.transfer-area .bank-select .bank-select-placeholder {
+  font-size: 16px;
+  line-height: 20px;
+  flex: 1;
+}
+
+.transfer-area .bank-select .isax {
+  color: #777777;
+  font-size: 24px;
+}
+
+.transfer-area .bank-suggestion {
+  display: grid;
+  gap: 8px;
+  border-radius: 8px;
+  background: var(--background-background-2, #fafafa);
+  padding: 8px 16px 16px 16px;
+}
+
+.transfer-area .bank-suggestion label {
+  position: unset;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.transfer-area .bank-suggestion ul {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+  list-style: none;
+}
+
+.transfer-area .bank-suggestion ul::-webkit-scrollbar {
+  display: none;
+}
+
+.transfer-area .bank-suggestion ul li {
+  border-radius: 24px;
+  border: 1px solid var(--branding-line, #e5e5e5);
+  background: white;
+  display: flex;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.transfer-area .bank-suggestion ul li img {
+  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.contact-area {
+  border-radius: 12px;
+  border: 1px solid var(--background-background, #d9d9d9);
+  background: #fff;
+  overflow: hidden;
+}
+
+.contact-area .card-header {
+  border-bottom: 1px solid var(--gray-5, #e0e0e0);
+  background: var(--background-background-1, #f4f7fe);
+  padding: 0;
+}
+
+.contact-area .card-header ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.contact-area .card-header ul li {
+  padding: 12px 16px;
+  color: var(--text-secondary-note, #777);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  border-bottom: 2px solid var(--branding-primary-color, #f4f7fe);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-area .card-header ul li.active {
+  color: #002d85;
+  border-bottom: 2px solid var(--branding-primary-color, #002d85);
+}
+
+.contact-area .card-body {
+  padding: 16px;
+}
+
+.contact-area .input-search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.contact-area .input-search .isax {
+  font-size: 16px;
+  color: #777777;
+  position: absolute;
+  left: 12px;
+}
+
+.contact-area .input-search .form-control {
+  font-size: 12px;
+  line-height: 18px;
+  border-radius: 8px;
+  padding: 9px 12px 9px 38px;
+}
+
+.contact-area .input-search .form-control::placeholder {
+  color: var(--text-secondary-note, #777);
+}
+
+.contact-area .contact-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.contact-area .contact-item {
+  padding: 8px 0px;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.contact-area .contact-item .contact-bank {
+  border-radius: 24px;
+  border: 1px solid var(--branding-line, #e5e5e5);
+  background: white;
+  display: flex;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.contact-area .contact-item .contact-bank img {
+  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.contact-area .contact-item .contact-detail {
+  display: grid;
+  font-size: 14px;
+  line-height: 20px;
+}

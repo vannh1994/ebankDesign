@@ -1,0 +1,232 @@
+.account-detail-page .contact-area .input-search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.account-detail-page .contact-area .input-search .isax {
+  font-size: 16px;
+  color: #777777;
+  position: absolute;
+  left: 12px;
+}
+
+.account-detail-page .contact-area .input-search .form-control {
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: 8px;
+  padding: 9px 12px 9px 38px;
+}
+
+.contact-area .input-search .form-control::placeholder {
+  color: var(--text-secondary-note, #777);
+}
+
+.account-detail-page .home-container {
+  margin: 24px auto !important;
+}
+
+.account-detail-page .nav-tabs {
+  justify-content: space-between;
+  border-radius: 12px 12px 0px 0px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #f4f7fe !important;
+}
+
+.account-detail-page .nav-tabs .nav-link {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #777;
+  border: unset;
+  width: 33.33%;
+  padding: 16px;
+}
+
+.account-detail-page .nav-tabs .nav-link.active {
+  color: #002d85;
+  font-weight: 600;
+  border-bottom: 2px solid #002d85;
+  background: unset;
+}
+
+.account-detail-page .account-histories {
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.account-detail-page .account-histories .history-item {
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.account-detail-page .account-histories .history-item .transfer-time {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #777;
+}
+
+.account-detail-page .account-histories .history-item .code {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #777;
+}
+
+.account-detail-page .account-histories .history-item .bill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.account-detail-page .account-histories .history-item .bill .message {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #333;
+}
+.account-detail-page .account-histories .history-item .bill .money {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #333;
+}
+
+.account-detail-page .account-histories .history-item .bill .money.red {
+  color: #ed1c24;
+}
+
+.account-detail-page .account-card {
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  background: linear-gradient(90deg, #19226d 23.6%, #ed1c24 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  scale: 1.01;
+}
+
+.account-detail-page .account-card .account-number {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.account-detail-page .account-border {
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.account-detail-page .account-card i {
+  opacity: 0.4000000059604645;
+  font-size: 40px;
+  color: white;
+}
+
+.account-detail-page .account-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 16px;
+  padding: 16px;
+}
+
+.account-detail-page .account-info .info-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 4px;
+}
+
+.account-detail-page .account-info .title {
+  font-size: 14px;
+  line-height: 18px;
+  color: #777;
+  font-weight: 500;
+  padding-top: 0;
+}
+
+.account-detail-page .account-info .info {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #333;
+  text-align: right;
+}
+
+.account-detail-page .action {
+  padding: 0 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.account-detail-page .action .default-account {
+  border-radius: 8px;
+  background: #f4f7fe;
+  padding: 8px;
+  color: #19191b;
+  width: 100%;
+}
+
+.account-detail-page .action .default-account .form-check-input {
+  width: 16px;
+  height: 16px;
+}
+
+.account-detail-page .action .default-account .form-check-label {
+  transform: translateY(3px);
+  display: block;
+  padding-left: 8px;
+}
+
+.account-detail-page .action .transfer {
+  padding-left: 4px;
+}
+
+.account-detail-page .action .transfer span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #002d85;
+  padding-left: 8px;
+  cursor: pointer;
+}
+
+.account-detail-page .action .transfer span:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 575px) {
+  .btn-export-excel {
+    display: none;
+  }
+
+  .account-detail-page .account-histories .history-item .code,
+  .account-detail-page .account-histories .history-item .transfer-time {
+    font-size: 13px;
+  }
+
+  .account-detail-page .account-histories .history-item .bill .message {
+    font-size: 14px;
+  }
+}

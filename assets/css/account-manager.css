@@ -1,0 +1,259 @@
+.home-page.page-background {
+  background: linear-gradient(0deg, #19226d 75.83%, #ed1c24 100%);
+}
+
+.home-page.page-background .page-background {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.account-page .home-container {
+  margin: 24px auto !important;
+}
+
+.home-container .breadcrumbs {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.home-container .breadcrumbs .breadcrumb {
+  padding: 0 10px;
+  margin-bottom: 0;
+  align-items: center;
+}
+
+.breadcrumb .breadcrumb-item a {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #dbdbdbba;
+}
+
+.home-container .page-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.home-container .page-title .back {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.home-container .page-title .isax {
+  font-size: 24px;
+  padding: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.home-container .page-title h2 {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 36px;
+  margin: 0;
+}
+
+.account-page .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn.btn-collapse {
+  width: 32px;
+  height: 32px;
+  border-radius: 50% !important;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.4),
+    0px 4px 16px -2px rgba(0, 0, 0, 0.12);
+}
+
+.btn.btn-collapse img {
+  width: 16px;
+  height: 16px;
+  transform: rotate(90deg);
+  transition: transform 0.5s;
+}
+
+.amount_money {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #002d85;
+}
+
+.main-content.bg-gray {
+  background-color: #fafafa;
+}
+
+.account-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.02);
+  margin-bottom: 24px;
+  cursor: pointer;
+  border: 1px solid #fff;
+  width: 100%;
+  gap: 16px;
+}
+
+.account-item:hover {
+  border: 1px solid #d9d9d9;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.4),
+    0px 4px 16px -2px rgba(0, 0, 0, 0.12);
+}
+
+.account-item .left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 50%;
+}
+
+.account-item .right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.account-item .copy {
+  cursor: pointer;
+}
+
+.account-item .badge {
+  display: none;
+}
+
+.account-item.active .badge {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+  border-radius: 12px;
+  background: #002d85;
+}
+
+.account-item .account-number {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #333;
+}
+
+.account-item .balances {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.account-item .balances .title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #777;
+}
+
+.account-item .balances .money {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #333;
+}
+
+.account-page .collapsed .header {
+  border-radius: 12px !important;
+}
+
+.account-page .collapsed .header .btn-collapse img {
+  transform: rotate(630deg);
+}
+
+.collapsed .main-content {
+  -moz-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  transition: height 1s;
+  height: 0;
+  overflow: hidden;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 767px) {
+  .account-item .account-number {
+    font-size: 14px;
+  }
+
+  .account-item .balances .title {
+    font-size: 12px;
+  }
+
+  .account-item .balances .money {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .home-container .breadcrumbs {
+    display: none;
+  }
+
+  .home-container .page-title .back {
+    display: none;
+  }
+
+  .account-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .account-item .right,
+  .account-item .left {
+    width: 100%;
+  }
+
+  .account-item .balances {
+    align-items: flex-start;
+    padding-left: 37px;
+  }
+
+  .account-item .copy {
+    transform: translateY(28px);
+  }
+
+  .account-item .to-detail {
+    transform: translateY(-10px);
+  }
+
+  .home-container .page-title {
+    gap: 4px;
+    margin-bottom: 14px;
+  }
+
+  .home-container .page-title img {
+    width: 20px;
+    height: 20px;
+  }
+}

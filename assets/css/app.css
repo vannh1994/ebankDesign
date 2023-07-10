@@ -3,4 +3,6 @@
 @import "login-page.css";
 @import "before-login-page.css";
 @import "home.css";
+@import "account-manager.css";
+@import "account-manager-detail.css";
 @import "common.css";
