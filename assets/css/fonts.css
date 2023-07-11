@@ -8,6 +8,13 @@
 @font-face {
   font-family: "Gilroy";
   font-style: normal;
+  font-weight: 500;
+  src: local("Gilroy"), url("../fonts/Gilroy-Medium.otf") format("woff");
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-style: normal;
   font-weight: 600;
   src: local("Gilroy"), url("../fonts/Gilroy-Bold.woff") format("woff");
 }
