@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Account Manager | VRB</title>
+    <meta name="viewport" content="width=375px, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="../assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Icons Css -->
+    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="../assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="../assets/css/transfer.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="home-page page-background transaction-info-page">
+    <div class="home-page-content">
+      <div class="home-header">
+        <div class="container">
+          <div class="logo-and-search">
+            <a class="logo" href="login.html">
+              <img src="../assets/icons/logo-dark.svg" alt="logo" />
+            </a>
+            <input type="search" placeholder="Tìm kiếm..." />
+          </div>
+
+          <div class="header-menu">
+            <span role="button" class="header-notifications">
+              <i class="isax isax-notification"></i>
+              <span class="number">3</span>
+            </span>
+            <span role="button" class="header-language">
+              <img src="../assets/icons/uk-flag.svg" alt="flag" />
+            </span>
+            <div class="user-menu">
+              <div class="user-menu-content">
+                <div class="user-menu-welcome">Chào buổi sáng!</div>
+                <div class="user-menu-name">Ngô Xuân Hải</div>
+              </div>
+              <div class="user-menu-avatar">
+                <img src="https://i.pravatar.cc/300" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Chuyển tiền
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="../home.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Chuyển tiền ngoài VRB</h2>
+        </div>
+
+        <div class="transaction-step">
+          <div class="step-item">
+            <div class="step">1</div>
+            <div class="text">Khởi tạo</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body p-3">
+            <div class="transfer-card-info">
+              <div class="transfer-account">
+                <div class="bank">
+                  <img src="../assets/images/banks/vrb.svg" />
+                </div>
+                <div class="account-info">
+                  <div class="account-number">00118506098</div>
+                  <div class="money">120,000,000</div>
+                </div>
+              </div>
+              <div class="receiving-account">
+                <div class="account-info">
+                  <div class="account-name">VU THI PHUONG</div>
+                  <div class="account-number">00118506098</div>
+                  <div class="bank-name">Vietcombank</div>
+                </div>
+                <div class="bank">
+                  <img src="../assets/images/banks/vcb.svg" />
+                </div>
+              </div>
+            </div>
+
+            <div class="transfer-info">
+              <h2 class="title">Thông tin giao dịch</h2>
+              <div class="input-group label-transition mt-4">
+                <div class="form-label">
+                  <input
+                    type="text"
+                    class="form-control input-text-bold"
+                    name="money"
+                  />
+                  <label for="money">Số tiền</label>
+                </div>
+                <div class="input-group-append">
+                  <div class="input-group-text">VND</div>
+                </div>
+              </div>
+
+              <div class="money-suggestion">
+                <div class="money-suggestion-item">100,000</div>
+                <div class="money-suggestion-item">200,000</div>
+                <div class="money-suggestion-item">500,000</div>
+                <div class="money-suggestion-item">1,000,000</div>
+                <div class="money-suggestion-item">5,000,000</div>
+                <div class="money-suggestion-item">10,000,000</div>
+                <div class="money-suggestion-item">20,000,000</div>
+                <div class="money-suggestion-item">30,000,000</div>
+              </div>
+
+              <div class="limit">
+                <i class="isax isax-info-circle"></i>
+                Hạn mức
+              </div>
+
+              <div class="transfer-fee">Phí chuyển khoản</div>
+              <div class="select-account-transfer-fee">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="account-transfer-fee"
+                    checked
+                  />
+                  <label class="form-check-label"> Người chuyển trả phí </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="account-transfer-fee"
+                  />
+                  <label class="form-check-label"> Người nhận trả phí </label>
+                </div>
+              </div>
+
+              <div class="input-group label-transition mt-4">
+                <div class="form-label">
+                  <input
+                    type="text"
+                    class="form-control input-text-bold"
+                    name="content"
+                  />
+                  <label for="content">Nội dung</label>
+                </div>
+              </div>
+
+              <div class="save-contact mt-4">
+                <input class="form-check-input" value="" type="checkbox" />
+                <span class="form-check-label"> Lưu danh bạ thụ hưởng </span>
+              </div>
+
+              <div
+                class="mt-3 d-flex align-items-center justify-content-center"
+              >
+                <button
+                  class="btn btn-third btn-next"
+                  onclick="location.href = 'inter-bank-step-2.html';"
+                >
+                  Tiếp tục
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-footer">
+        <div class="login-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

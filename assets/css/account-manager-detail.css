@@ -101,7 +101,7 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
-  color: #333;
+  color: #002d85;
 }
 
 .account-detail-page .account-histories .history-item .bill .money.red {
@@ -214,6 +214,12 @@
 
 .account-detail-page .action .transfer span:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .account-detail-page .main-content .row {
+    flex-direction: column-reverse;
+  }
 }
 
 @media (max-width: 575px) {

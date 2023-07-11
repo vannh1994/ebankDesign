@@ -7,6 +7,23 @@
   flex: 1 0;
 }
 
+.transfer-area .bank-logo {
+  border-radius: 999px;
+  border: 1px solid var(--branding-line, #e5e5e5);
+  background: white;
+  display: flex;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.transfer-area .bank-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
 .transfer-area .area-header {
   padding: 8px;
   border-radius: 12px;
@@ -47,6 +64,18 @@
   gap: 24px;
 }
 
+.transfer-area .bank-method {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.transfer-area .bank-method .form-check {
+  flex: 1;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
 .transfer-area .bank-select {
   display: flex;
   align-items: center;
@@ -54,6 +83,62 @@
   padding-bottom: 6px;
   border-bottom: 1px solid var(--gray-5, #e0e0e0);
   cursor: pointer;
+  position: relative;
+}
+
+.transfer-area .bank-select .bank-select-popup {
+  display: grid;
+  gap: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--branding-white, #fff);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+.transfer-area .bank-select .bank-select-input {
+  padding: 0;
+  appearance: none;
+  border: 1px solid var(--branding-boder-form, #ced4da);
+  box-shadow: none;
+  outline: none;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px 8px 8px 42px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none"><path d="M9.80444 17.3865C5.40282 17.3865 1.81824 13.8019 1.81824 9.40027C1.81824 4.99865 5.40282 1.41406 9.80444 1.41406C14.2061 1.41406 17.7906 4.99865 17.7906 9.40027C17.7906 13.8019 14.2061 17.3865 9.80444 17.3865ZM9.80444 1.65595C5.52906 1.65595 2.06012 5.13391 2.06012 9.40027C2.06012 13.6666 5.52906 17.1446 9.80444 17.1446C14.0798 17.1446 17.5488 13.6666 17.5488 9.40027C17.5488 5.13391 14.0798 1.65595 9.80444 1.65595Z" fill="%23292D32" stroke="%238F9BB3"/><path d="M15.1741 15.3293L15.1741 15.3293L15.1731 15.3282C15.0784 15.2335 15.0784 15.0701 15.1731 14.9754C15.2677 14.8807 15.4308 14.8806 15.5256 14.975C15.5258 14.9751 15.5259 14.9752 15.526 14.9754L22.3333 21.8224L22.3343 21.8235C22.4291 21.9182 22.4291 22.0816 22.3343 22.1764C22.283 22.2277 22.2224 22.2499 22.1579 22.2499C22.0935 22.2499 22.0331 22.2278 21.9818 22.1768C21.9817 22.1766 21.9816 22.1765 21.9814 22.1764L15.1741 15.3293Z" fill="%238F9BB3" stroke="%238F9BB3"/></svg>');
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: top 10px left 10px;
+  color: var(--text-primary-default, #333);
+  width: 100%;
+}
+
+.transfer-area .bank-select .bank-select-input::-webkit-input-placeholder {
+  color: var(--black-icon, #8f9bb3);
+}
+
+.transfer-area .bank-select .bank-list {
+  display: grid;
+  gap: 16px;
+  max-height: 350px;
+  overflow-y: overlay;
+}
+
+.transfer-area .bank-select .bank-list .bank-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.transfer-area .bank-select .bank-list .bank-item .bank-logo {
+  width: 40px;
+  height: 40px;
 }
 
 .transfer-area .bank-select .bank-select-placeholder {
@@ -72,20 +157,21 @@
   gap: 8px;
   border-radius: 8px;
   background: var(--background-background-2, #fafafa);
-  padding: 8px 16px 16px 16px;
+  padding: 8px 0 16px;
 }
 
 .transfer-area .bank-suggestion label {
   position: unset;
   font-size: 14px;
   line-height: 20px;
+  padding: 0 16px;
 }
 
 .transfer-area .bank-suggestion ul {
   display: flex;
   flex-wrap: nowrap;
   gap: 24px;
-  padding: 0;
+  padding: 0 16px;
   margin: 0;
   overflow-x: auto;
   list-style: none;
@@ -95,29 +181,12 @@
   display: none;
 }
 
-.transfer-area .bank-suggestion ul li {
-  border-radius: 24px;
-  border: 1px solid var(--branding-line, #e5e5e5);
-  background: white;
-  display: flex;
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.transfer-area .bank-suggestion ul li img {
-  border-radius: 24px;
-  width: 100%;
-  height: 100%;
-  object-fit: scale-down;
-}
-
 .contact-area {
   border-radius: 12px;
   border: 1px solid var(--background-background, #d9d9d9);
   background: #fff;
   overflow: hidden;
+  margin-bottom: 0;
 }
 
 .contact-area .card-header {
@@ -184,6 +253,8 @@
   display: grid;
   gap: 8px;
   margin-bottom: 8px;
+  max-height: 375px;
+  overflow-y: auto;
 }
 
 .contact-area .contact-item {

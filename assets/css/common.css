@@ -238,7 +238,7 @@ h6 {
   margin: 0 auto;
 }
 
-label {
+.login-page label {
   -webkit-transform: translateY(50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -323,4 +323,34 @@ input[type="search"] {
 
 input[type="search"]::-webkit-input-placeholder {
   color: #8f9bb3;
+}
+
+.form-check {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+}
+
+.form-check .form-check-input {
+  flex-shrink: 0;
+  font-size: 1.25em;
+  margin: 0;
+  appearance: none;
+  border-radius: 50%;
+  border: 0.125em solid var(--subtle-light, #afb1b6);
+  background: var(--white, #fff);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.form-check .form-check-input:checked {
+  border-color: var(--branding-primary-color, #0c65ce);
+  background: var(--branding-primary-color, #0c65ce);
+  box-shadow: inset 0 0 0px 0.1875em var(--white, #fff);
+}
+
+.form-check .form-check-label {
+  line-height: 1.25em;
 }

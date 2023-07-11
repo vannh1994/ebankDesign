@@ -180,15 +180,18 @@
   color: #333;
 }
 
-.account-page .collapsed .header {
+.account-page .collapsed .header,
+.account-page .collapsed-receiving-account .header {
   border-radius: 12px !important;
 }
 
-.account-page .collapsed .header .btn-collapse img {
+.account-page .collapsed .header .btn-collapse img,
+.account-page .collapsed-receiving-account .header .btn-collapse img {
   transform: rotate(630deg);
 }
 
-.collapsed .main-content {
+.collapsed .main-content,
+.collapsed-receiving-account .main-content {
   -moz-transition: height 0.5s;
   -ms-transition: height 0.5s;
   -o-transition: height 0.5s;
@@ -216,10 +219,6 @@
 
 @media (max-width: 575px) {
   .home-container .breadcrumbs {
-    display: none;
-  }
-
-  .home-container .page-title .back {
     display: none;
   }
 

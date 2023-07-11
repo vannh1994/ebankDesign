@@ -1,0 +1,52 @@
+.transfer-info-confirm-block {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background: #fafafa;
+  gap: 24px;
+}
+
+.transfer-info-confirm-block .transfer-info-confirm-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.transfer-info-confirm-block .transfer-info-confirm-item .title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #333333;
+}
+
+.transfer-info-confirm-block .transfer-info-confirm-item .value {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.qr-code-block {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.qr-code-block .qr-code-content {
+  width: 65%;
+}
+
+.qr-code-block .preview {
+  width: 35%;
+}
+
+@media (max-width: 575px) {
+  .transaction-info-page .transfer-info .title {
+    text-align: center;
+  }
+
+  .transfer-info-confirm-block .transfer-info-confirm-item {
+    flex-direction: column;
+  }
+}

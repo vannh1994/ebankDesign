@@ -5,4 +5,7 @@
 @import "home.css";
 @import "account-manager.css";
 @import "account-manager-detail.css";
+@import "transaction-step.css";
+@import "transaction-info.css";
+@import "transaction-step-1.css";
 @import "common.css";

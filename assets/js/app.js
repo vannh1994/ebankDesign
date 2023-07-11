@@ -21,6 +21,15 @@ function collapsed() {
   }
 }
 
+function collapsedReceivingAccount() {
+  const element = document.getElementById("collapsed-receiving-account");
+  if (element.classList.contains("collapsed-receiving-account")) {
+    element.classList.remove("collapsed-receiving-account");
+  } else {
+    element.classList.add("collapsed-receiving-account");
+  }
+}
+
 function toggleAccountBalance() {
   const element = document.getElementById("account-balance");
   if (element.classList.contains("show")) {

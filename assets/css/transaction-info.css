@@ -1,0 +1,267 @@
+.transaction-info-page .transfer-card-info {
+  height: 104px;
+  position: relative;
+  background: url("../images/cliparts/bg-transfer.svg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+}
+
+.transaction-info-page .transfer-card-info .transfer-account {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  height: 100%;
+  /* background: url("../images/cliparts/bg-transfer-account.svg");
+  background-size: cover;
+  background-position: center; */
+  padding: 24px;
+}
+
+.transaction-info-page .transfer-card-info .receiving-account {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  height: 100%;
+  /* background: url("../images/cliparts/bg-receiving-account.svg");
+  background-size: cover;
+  background-position: center; */
+  padding: 24px;
+}
+
+.transaction-info-page .transfer-card-info .bank {
+  background: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transaction-info-page .transfer-card-info .bank img {
+  width: 75%;
+}
+
+.transaction-info-page .transfer-card-info .account-info {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.transaction-info-page .transfer-card-info .account-info .account-name {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.transaction-info-page .transfer-card-info .account-info .account-number {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.transaction-info-page .transfer-card-info .account-info .money,
+.transaction-info-page .transfer-card-info .account-info .bank-name {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.transaction-info-page .transfer-info {
+  padding: 32px;
+}
+
+.transaction-info-page .transfer-info .title {
+  color: #333;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.transaction-info-page .form-control {
+  border: unset !important;
+  border-bottom: 1px solid #c4c4c6 !important;
+  border-radius: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  padding: 8px 0 !important;
+  color: #232e48;
+}
+
+.transaction-info-page label {
+  -webkit-transform: translateY(50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(50%);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  top: -16%;
+  cursor: text;
+  pointer-events: none;
+}
+
+.transaction-info-page .form-label {
+  max-width: 100%;
+}
+
+.transaction-info-page .input-group.label-transition .input-group-append {
+  transform: translateY(-0.5px);
+}
+
+.transaction-info-page .transfer-info .money-suggestion {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 7.352941176%;
+  row-gap: 8px;
+  margin-top: 24px;
+}
+
+.transaction-info-page .transfer-info .money-suggestion .money-suggestion-item {
+  padding: 12px 0px;
+  text-align: center;
+  border-radius: 4px;
+  background: #fafafa;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #333333;
+  cursor: pointer;
+}
+
+.transaction-info-page .transfer-info .limit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 8px;
+  gap: 4px;
+  color: #002d85;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  cursor: pointer;
+}
+
+.transaction-info-page .transfer-info .transfer-fee {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #333333;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.transaction-info-page .transfer-info .select-account-transfer-fee {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+.transaction-info-page
+  .transfer-info
+  .select-account-transfer-fee
+  .form-check
+  label {
+  position: unset;
+  transform: translateY(5px);
+}
+
+.transaction-info-page .transfer-info .select-account-transfer-fee .form-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.transaction-info-page
+  .transfer-info
+  .select-account-transfer-fee
+  .form-check
+  .form-check-input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.transaction-info-page .save-contact {
+  display: flex;
+  align-items: center;
+}
+
+.transaction-info-page .save-contact .form-check-input {
+  width: 20px;
+  height: 20px;
+  border-radius: 0.25rem;
+  margin-top: unset;
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.transaction-info-page .save-contact .form-check-label {
+  transform: translateY(3px);
+  display: block;
+  padding-left: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #777;
+}
+
+.transaction-info-page .btn-next {
+  padding: 12px 100px;
+  border-radius: 12px;
+}
+
+@media (max-width: 575px) {
+  .transaction-info-page .transfer-card-info {
+    background: unset;
+    position: unset;
+    height: unset;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .transaction-info-page .transfer-card-info .transfer-account {
+    position: unset;
+    background: url("../images/cliparts/bg-transfer-account.svg");
+    background-size: cover;
+    background-position: center;
+    height: 82px;
+    border-radius: 12px;
+  }
+
+  .transaction-info-page .transfer-card-info .receiving-account {
+    position: unset;
+    background: url("../images/cliparts/bg-receiving-account.svg");
+    background-size: cover;
+    background-position: center;
+    height: 82px;
+    border-radius: 12px;
+  }
+
+  .transaction-info-page .transfer-info .money-suggestion {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .transaction-info-page
+    .transfer-info
+    .money-suggestion
+    .money-suggestion-item {
+    font-size: 12px;
+  }
+}
