@@ -78,8 +78,9 @@
 
 .transfer-area .bank-select {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 4px;
+  height: 58px;
   padding-bottom: 6px;
   border-bottom: 1px solid var(--gray-5, #e0e0e0);
   cursor: pointer;
@@ -141,10 +142,43 @@
   height: 40px;
 }
 
+.transfer-area .bank-select .bank-selector {
+  flex: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 4px;
+}
+
+.transfer-area .bank-select .bank-selected {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.transfer-area .bank-select .bank-selected .bank-logo {
+  width: 28px;
+  height: 28px;
+}
+
+.transfer-area .bank-select .bank-selected + .bank-select-placeholder {
+  color: var(--text-secondary-note, #777);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  bottom: 40px;
+}
+
 .transfer-area .bank-select .bank-select-placeholder {
   font-size: 16px;
+  font-weight: 500;
   line-height: 20px;
-  flex: 1;
+  transition: 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: 6px;
 }
 
 .transfer-area .bank-select .isax {
@@ -179,6 +213,33 @@
 
 .transfer-area .bank-suggestion ul::-webkit-scrollbar {
   display: none;
+}
+
+.transfer-area .quick-transfer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.transfer-area .quick-transfer label {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+  flex: 1;
+}
+
+.transfer-area .quick-transfer label .title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--text-primary-default, #333);
+}
+
+.transfer-area .quick-transfer label .description {
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--text-primary-default, #333);
 }
 
 .contact-area {

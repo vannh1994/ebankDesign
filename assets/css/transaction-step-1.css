@@ -1,52 +1,81 @@
-.transfer-info-confirm-block {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 12px;
-  background: #fafafa;
-  gap: 24px;
+.transaction-info-page .home-container {
+  margin: 30px auto !important;
 }
 
-.transfer-info-confirm-block .transfer-info-confirm-item {
+.transaction-step {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 24px;
+  margin-bottom: 42px;
+}
+
+.transaction-step .step-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.transfer-info-confirm-block .transfer-info-confirm-item .title {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 20px;
+.transaction-step .step-item .step {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  color: #ed1c24;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transaction-step .step-item .text {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #fff;
+  word-break: keep-all;
+  white-space: pre;
+}
+
+.transaction-step .progress {
+  width: 100%;
+  height: 3px;
+  opacity: 0.6000000238418579;
+  background: #d9d9d9;
+}
+
+.transaction-step .progress.active {
+  background: #fff;
+  opacity: 1;
+}
+
+.transaction-info-page .limit-popup {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #edf3ff;
+  margin-top: 8px;
+  display: none;
+}
+
+.transaction-info-page .limit-popup p {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
   color: #333333;
 }
 
-.transfer-info-confirm-block .transfer-info-confirm-item .value {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 20px;
-}
-
-.qr-code-block {
-  margin-top: 32px;
-  display: flex;
-  align-items: center;
-}
-
-.qr-code-block .qr-code-content {
-  width: 65%;
-}
-
-.qr-code-block .preview {
-  width: 35%;
+.transaction-info-page .limit-popup a {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #013aa9;
 }
 
 @media (max-width: 575px) {
-  .transaction-info-page .transfer-info .title {
-    text-align: center;
-  }
-
-  .transfer-info-confirm-block .transfer-info-confirm-item {
-    flex-direction: column;
+  .transaction-step {
+    display: none;
   }
 }

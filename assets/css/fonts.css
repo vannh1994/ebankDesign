@@ -2,21 +2,28 @@
   font-family: "Gilroy";
   font-style: normal;
   font-weight: 400;
-  src: local("Gilroy"), url("../fonts/Gilroy-Light.woff") format("woff");
+  src: local("Gilroy"), url("../fonts/Gilroy-Light.otf") format("woff");
 }
 
 @font-face {
   font-family: "Gilroy";
   font-style: normal;
   font-weight: 500;
-  src: local("Gilroy"), url("../fonts/Gilroy-Medium.otf") format("woff");
+  src: local("Gilroy"), url("../fonts/Gilroy-Regular.otf") format("woff");
 }
 
 @font-face {
   font-family: "Gilroy";
   font-style: normal;
   font-weight: 600;
-  src: local("Gilroy"), url("../fonts/Gilroy-Bold.woff") format("woff");
+  src: local("Gilroy"), url("../fonts/Gilroy-Medium.otf") format("woff");
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Gilroy"), url("../fonts/Gilroy-Bold.otf") format("woff");
 }
 
 html,

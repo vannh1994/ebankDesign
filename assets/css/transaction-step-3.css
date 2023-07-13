@@ -1,0 +1,187 @@
+.transaction-step-3-page .home-container {
+  margin: 30px auto !important;
+}
+
+.transfer-success {
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.transfer-success .logo-bank {
+  text-align: center;
+}
+
+.transfer-success .logo-bank img {
+  width: 130px;
+  height: 56px;
+}
+
+.transfer-success .transaction-success {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.transfer-success .transaction-success img {
+  width: 30px;
+  height: 30px;
+}
+
+.transfer-success .transaction-success .title {
+  font-size: 24px;
+  color: #333333;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.transfer-success .time {
+  text-align: center;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-top: 16px;
+}
+
+.transfer-success .message {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #232e48;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.transfer-success .message .name,
+.transfer-success .message .money,
+.transfer-success .message .bank,
+.transfer-success .message .content {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #002d85;
+}
+
+.transfer-success .dotted-border {
+  margin-top: 24px;
+  width: 80px;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    #8f9bb3 80%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+}
+
+.transfer-success .transfer-code {
+  margin-top: 24px;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+
+.transfer-success .transfer-code span {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.transfer-success .bottom-list {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.transfer-success .bottom-list .list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+.transfer-success .bottom-list .list-item:hover {
+  background: #f4f7fe;
+}
+
+.transfer-success .bottom-list .list-item i {
+  color: #013aa9;
+  font-size: 32px;
+}
+
+.transfer-success .bottom-list .list-item span {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #777777;
+  word-break: keep-all;
+  white-space: pre;
+}
+
+.transfer-success .btn-back-to-home {
+  padding: 12px 24px !important;
+}
+
+.transfer-success .btn-third {
+  padding: 12px 86px !important;
+}
+
+.transaction-step-3-page .group-button-bottom {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+@media (max-width: 575px) {
+  .transfer-success {
+    padding: 24px 12px 12px 12px;
+  }
+
+  .transfer-success .transaction-success .title {
+    font-size: 20px;
+  }
+
+  .transfer-success .transaction-success img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .transfer-success .message {
+    font-size: 16px;
+  }
+
+  .transfer-success .bottom-list .list-item span {
+    font-size: 12px;
+  }
+
+  .transaction-step-3-page .group-button-bottom {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .transaction-step-3-page .group-button-bottom .btn {
+    width: 100%;
+  }
+
+  .transfer-success .bottom-list .list-item {
+    padding: 8px;
+  }
+
+  .transfer-success .btn-third {
+    padding: 12px 24px !important;
+  }
+}

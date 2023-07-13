@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Chuyển tiền ngoài VRB đến số tài khoản | VRB</title>
+    <title>Chuyển tiền trong VRB cùng chủ tài khoản | VRB</title>
     <meta name="viewport" content="width=375px, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
@@ -116,7 +116,7 @@
                 Chuyển tiền
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Chuyển tiền VRB đến số tài khoản
+                Chuyển tiền trong VRB cùng chủ tài khoản
               </li>
             </ol>
           </nav>
@@ -126,7 +126,7 @@
           <a class="back" href="../home.html">
             <i class="isax isax-arrow-left-2"></i>
           </a>
-          <h2>Chuyển tiền ngoài VRB</h2>
+          <h2>Chuyển tiền trong VRB cùng chủ tài khoản</h2>
         </div>
 
         <div class="transaction-step">
@@ -160,12 +160,11 @@
               </div>
               <div class="receiving-account">
                 <div class="account-info">
-                  <div class="account-name">VU THI PHUONG</div>
-                  <div class="account-number">00118506098</div>
-                  <div class="bank-name">Vietcombank</div>
+                  <div class="account-name">NGO XUAN HAI</div>
+                  <div class="account-number">00118506789</div>
                 </div>
                 <div class="bank">
-                  <img src="../assets/images/banks/vcb.svg" />
+                  <img src="../assets/images/banks/vrb.svg" />
                 </div>
               </div>
             </div>
@@ -213,27 +212,6 @@
                 </a>
               </div>
 
-              <div class="transfer-fee">Phí chuyển khoản</div>
-              <div class="select-account-transfer-fee">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="account-transfer-fee"
-                    checked
-                  />
-                  <label class="form-check-label"> Người chuyển trả phí </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="account-transfer-fee"
-                  />
-                  <label class="form-check-label"> Người nhận trả phí </label>
-                </div>
-              </div>
-
               <div class="input-group label-transition mt-4">
                 <div class="form-label">
                   <input
@@ -250,12 +228,23 @@
                 <span class="form-check-label"> Lưu danh bạ thụ hưởng </span>
               </div>
 
+              <div class="input-group label-transition mt-4">
+                <div class="form-label">
+                  <input
+                    type="text"
+                    class="form-control input-text-bold"
+                    name="content"
+                  />
+                  <label for="content">Tên gợi nhớ</label>
+                </div>
+              </div>
+
               <div
-                class="mt-3 d-flex align-items-center justify-content-center"
+                class="mt-4 d-flex align-items-center justify-content-center"
               >
                 <button
                   class="btn btn-third btn-next"
-                  onclick="location.href = 'inter-bank-step-2.html';"
+                  onclick="location.href = 'inside-bank-step-2.html';"
                 >
                   Tiếp tục
                 </button>

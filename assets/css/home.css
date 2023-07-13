@@ -144,6 +144,34 @@
   cursor: pointer;
 }
 
+.home-header .header-menu .user-menu .user-menu-avatar button {
+  border: unset;
+  background: unset;
+}
+
+.home-header .header-menu .user-menu .user-menu-avatar .dropdown-menu.show {
+  left: unset !important;
+  right: 0 !important;
+}
+
+.home-header
+  .header-menu
+  .user-menu
+  .user-menu-avatar
+  .dropdown-menu
+  .dropdown-item {
+  font-weight: 500;
+}
+
+.home-header
+  .header-menu
+  .user-menu
+  .user-menu-avatar
+  .dropdown-menu
+  .dropdown-item:hover {
+  background: #f4f7fe;
+}
+
 .home-container {
   margin: 50px auto !important;
 }
@@ -307,6 +335,8 @@
 
 .home-container .main-content .feature:hover {
   background: #f4f7fe;
+  transform: translateY(-10px);
+  transition: 0.5s;
 }
 
 .home-container .main-content .feature .feature-icon {

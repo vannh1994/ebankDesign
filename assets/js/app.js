@@ -47,3 +47,12 @@ function showAllFeature() {
     element.classList.add("show-all");
   }
 }
+
+function showLimit() {
+  const element = document.getElementById("limit");
+  if (element.classList.contains("d-block")) {
+    element.classList.remove("d-block");
+  } else {
+    element.classList.add("d-block");
+  }
+}

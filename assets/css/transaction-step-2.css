@@ -1,0 +1,176 @@
+.transaction-step-2-page .transfer-info {
+  padding: 8px 32px;
+}
+
+.transaction-step-2-page .transfer-info .title {
+  color: #333;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.transaction-step-2-page .home-container {
+  margin: 30px auto !important;
+}
+
+.transaction-step-2-page .btn-back {
+  width: 200px;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 12px 24px !important;
+}
+
+.transfer-info-confirm-block {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background: #fafafa;
+  gap: 24px;
+  text-align: center;
+}
+
+.transfer-info-confirm-block .highlight {
+  color: #002d85;
+}
+
+.transfer-info-confirm-block .transfer-info-confirm-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.transfer-info-confirm-block .transfer-info-confirm-item .title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #333333;
+}
+
+.transfer-info-confirm-block .transfer-info-confirm-item .value {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.qr-code-block {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.qr-code-block .qr-code-content {
+  width: 65%;
+}
+
+.qr-code-block .preview {
+  width: 35%;
+}
+
+.qr-code-block {
+  padding: 16px;
+  border-radius: 12px;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #eaf0fc;
+}
+
+.qr-code-block .qr-code-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 0 120px;
+}
+
+.qr-code-block .qr-code-content .description {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #333333;
+  text-align: center;
+}
+
+.qr-code-block .qr-code-content .time-expired {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #333333;
+  text-align: center;
+}
+
+.qr-code-block .qr-code-content .time-expired span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #002d85;
+}
+
+.qr-code-block .qr-code-content .qr-code {
+  text-align: center;
+}
+
+.qr-code-block .qr-code-content .qr-code img {
+  width: 128px;
+  height: 128px;
+}
+
+.qr-code-block .qr-code-content .warning {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #5c657a;
+  text-align: center;
+}
+
+.title-sp {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .qr-code-block .qr-code-content {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .qr-code-block .preview {
+    display: none;
+  }
+
+  .qr-code-block .qr-code-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .qr-code-block .qr-code-content {
+    padding: 0 16px;
+  }
+
+  .transaction-info-page .transfer-info {
+    padding: 16px 0;
+  }
+
+  .transfer-info-confirm-block .transfer-info-confirm-item .title {
+    font-size: 14px;
+  }
+
+  .transfer-info-confirm-block .transfer-info-confirm-item .value {
+    font-size: 14px;
+  }
+
+  .page-title.hide-sp h2 {
+    display: none;
+  }
+
+  .page-title.hide-sp h2.title-sp {
+    display: block;
+  }
+
+  .transaction-step-2-page .btn-back {
+    width: 100%;
+  }
+}

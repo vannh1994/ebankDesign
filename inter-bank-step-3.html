@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Chuyển tiền ngoài VRB đến số tài khoản | VRB</title>
+    <title>Chuyển tiền VRB đến số tài khoản | VRB</title>
     <meta name="viewport" content="width=375px, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
@@ -46,7 +46,7 @@
     <link href="../assets/css/transfer.css" rel="stylesheet" type="text/css" />
   </head>
 
-  <body class="home-page page-background transaction-info-page">
+  <body class="home-page page-background transaction-step-3-page">
     <div class="home-page-content">
       <div class="list-small-icons">
         <div class="item">
@@ -109,9 +109,9 @@
                 </a>
               </li>
               <li
+                onclick="location.href = 'transfer.html';"
                 class="breadcrumb-item"
                 aria-current="page"
-                onclick="location.href = 'transfer.html';"
               >
                 Chuyển tiền
               </li>
@@ -123,10 +123,11 @@
         </div>
 
         <div class="page-title">
-          <a class="back" href="../home.html">
+          <a class="back" href="inter-bank-step-1.html">
             <i class="isax isax-arrow-left-2"></i>
           </a>
-          <h2>Chuyển tiền ngoài VRB</h2>
+          <h2>Chuyển tiền VRB đến số tài khoản</h2>
+          <h2 class="title-sp">Chuyển tiền ngoài VRB</h2>
         </div>
 
         <div class="transaction-step">
@@ -134,12 +135,12 @@
             <div class="step">1</div>
             <div class="text">Khởi tạo</div>
           </div>
-          <div class="progress"></div>
+          <div class="progress active"></div>
           <div class="step-item">
             <div class="step">2</div>
             <div class="text">Xác nhận</div>
           </div>
-          <div class="progress"></div>
+          <div class="progress active"></div>
           <div class="step-item">
             <div class="step">3</div>
             <div class="text">Kết quả</div>
@@ -148,116 +149,61 @@
 
         <div class="card">
           <div class="card-body p-3">
-            <div class="transfer-card-info">
-              <div class="transfer-account">
-                <div class="bank">
-                  <img src="../assets/images/banks/vrb.svg" />
-                </div>
-                <div class="account-info">
-                  <div class="account-number">00118506098</div>
-                  <div class="money">120,000,000</div>
-                </div>
+            <div class="transfer-success">
+              <div class="logo-bank">
+                <img src="assets/icons/logo.svg" alt="logo" />
               </div>
-              <div class="receiving-account">
-                <div class="account-info">
-                  <div class="account-name">VU THI PHUONG</div>
-                  <div class="account-number">00118506098</div>
-                  <div class="bank-name">Vietcombank</div>
-                </div>
-                <div class="bank">
-                  <img src="../assets/images/banks/vcb.svg" />
-                </div>
+              <div class="transaction-success">
+                <img src="assets/icons/success.svg" alt="success" />
+                <div class="title">Giao dịch thành công</div>
               </div>
-            </div>
+              <div class="time">27/04/2023 14:05:36</div>
+              <p class="message">
+                Chuyển thành công đến
+                <span class="name">VU THI PHUONG </span> số tiền
+                <span class="money">100,000 VND</span>
+                <br />
+                ngân hàng <span class="bank">Vietcombank.</span> Nội dung
+                <span class="content">NGO XUAN HAI chuyen tien</span>
+              </p>
 
-            <div class="transfer-info">
-              <h2 class="title">Thông tin giao dịch</h2>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Số tiền</label>
-                </div>
-                <div class="input-group-append">
-                  <div class="input-group-text">VND</div>
-                </div>
+              <div class="dotted-border"></div>
+
+              <div class="transfer-code">
+                Số tham chiếu: <span class="code">358654455</span>
               </div>
 
-              <div class="money-suggestion">
-                <div class="money-suggestion-item">100,000</div>
-                <div class="money-suggestion-item">200,000</div>
-                <div class="money-suggestion-item">500,000</div>
-                <div class="money-suggestion-item">1,000,000</div>
-                <div class="money-suggestion-item">5,000,000</div>
-                <div class="money-suggestion-item">10,000,000</div>
-                <div class="money-suggestion-item">20,000,000</div>
-                <div class="money-suggestion-item">30,000,000</div>
-              </div>
-
-              <div class="limit" onclick="showLimit()">
-                <i class="isax isax-info-circle"></i>
-                Hạn mức
-              </div>
-
-              <div class="limit-popup" id="limit">
-                <p>
-                  Hạn mức tố đa còn lại trong ngày của Quý Khách là XXX VND. Hạn
-                  mức lần giao dịch là YYY VND.
-                </p>
-                <a href="#">
-                  Thay đổi hạn mức giao dịch
-                  <img src="assets/icons/arrow-down.svg" alt="arrow-down" />
-                </a>
-              </div>
-
-              <div class="transfer-fee">Phí chuyển khoản</div>
-              <div class="select-account-transfer-fee">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="account-transfer-fee"
-                    checked
-                  />
-                  <label class="form-check-label"> Người chuyển trả phí </label>
+              <div class="bottom-list">
+                <div class="list-item">
+                  <i class="isax isax-gallery"></i>
+                  <span>Lưu ảnh</span>
                 </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="account-transfer-fee"
-                  />
-                  <label class="form-check-label"> Người nhận trả phí </label>
+                <div class="list-item">
+                  <i class="isax isax-share"></i>
+                  <span>Chia sẻ</span>
+                </div>
+                <div class="list-item">
+                  <i class="isax isax-ticket-star"></i>
+                  <span>Lưu mẫu</span>
+                </div>
+                <div class="list-item">
+                  <i class="isax isax-add-circle"></i>
+                  <span>Thêm chi tiêu</span>
                 </div>
               </div>
 
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    class="form-control input-text-bold"
-                    name="content"
-                  />
-                  <label for="content">Nội dung</label>
-                </div>
-              </div>
-
-              <div class="save-contact mt-4">
-                <input class="form-check-input" value="" type="checkbox" />
-                <span class="form-check-label"> Lưu danh bạ thụ hưởng </span>
-              </div>
-
-              <div
-                class="mt-3 d-flex align-items-center justify-content-center"
-              >
+              <div class="group-button-bottom">
                 <button
-                  class="btn btn-third btn-next"
-                  onclick="location.href = 'inter-bank-step-2.html';"
+                  class="btn btn-third"
+                  onclick="location.href = 'transfer.html';"
                 >
-                  Tiếp tục
+                  Tạo giao dịch mới
+                </button>
+                <button
+                  class="btn btn-primary btn-back-to-home"
+                  onclick="location.href = 'home.html';"
+                >
+                  Về trang chủ
                 </button>
               </div>
             </div>
