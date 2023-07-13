@@ -1,0 +1,54 @@
+.transfer-inside-page .customer-input .form-control {
+  border: unset !important;
+  border-bottom: 1px solid #c4c4c6 !important;
+  border-radius: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  padding: 8px 0 !important;
+  color: #232e48;
+}
+
+.transfer-inside-page .customer-input label {
+  -webkit-transform: translateY(50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(50%);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  top: -16%;
+  cursor: text;
+  pointer-events: none;
+}
+
+.transfer-inside-page .customer-input .form-label {
+  max-width: 100%;
+}
+
+.transfer-inside-page
+  .customer-input
+  .input-group.label-transition
+  .input-group-append {
+  transform: translateY(-0.5px);
+}
+
+.transfer-area .bank-method-transfer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.transfer-area .bank-method-transfer .form-check {
+  flex: 1;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.transfer-inside-page input:focus ~ label, .transfer-inside-page input.hascontent ~ label {
+  top: -75% !important;
+  color: #777;
+}

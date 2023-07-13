@@ -44,9 +44,14 @@
       type="text/css"
     />
     <link href="../assets/css/transfer.css" rel="stylesheet" type="text/css" />
+    <link
+      href="../assets/css/transfer-inside.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
-  <body class="home-page page-background account-page">
+  <body class="home-page page-background transfer-inside-page">
     <div class="home-page-content">
       <div class="home-header">
         <div class="container">
@@ -107,7 +112,7 @@
           <a class="back" href="../home.html">
             <i class="isax isax-arrow-left-2"></i>
           </a>
-          <h2>Chuyển tiền ngoài VRB</h2>
+          <h2>Chuyển tiền trong VRB</h2>
         </div>
 
         <div class="card">
@@ -116,17 +121,17 @@
               <div class="transfer-area">
                 <div class="area-header">
                   <div class="transfer-tabs">
+                    <div class="transfer-tab active">Trong VRB</div>
                     <div
                       class="transfer-tab"
-                      onclick="location.href = 'transfer-inside.html';"
+                      onclick="location.href = 'transfer.html';"
                     >
-                      Trong VRB
+                      Ngoài VRB
                     </div>
-                    <div class="transfer-tab active">Ngoài VRB</div>
                   </div>
                 </div>
                 <div class="area-body">
-                  <div class="bank-method">
+                  <div class="bank-method-transfer">
                     <label class="form-check">
                       <input
                         class="form-check-input"
@@ -134,7 +139,7 @@
                         name="bankMethod"
                         checked
                       />
-                      <span class="form-check-label">Qua số tài khoản</span>
+                      <span class="form-check-label">Cùng chủ tài khoản</span>
                     </label>
                     <label class="form-check">
                       <input
@@ -142,152 +147,33 @@
                         type="radio"
                         name="bankMethod"
                       />
-                      <span class="form-check-label">Qua số thẻ</span>
+                      <span class="form-check-label">Khác chủ tài khoản</span>
                     </label>
                   </div>
-                  <div class="bank-select">
-                    <div class="bank-selector">
-                      <!-- Khi chọn ngân hàng thụ hưởng thì render div này lên -->
-                      <div class="bank-selected" onclick="onBankListShow()">
-                        <div class="bank-logo">
-                          <img src="../assets/images/banks/vcb.svg" />
-                        </div>
-                        <span>Vietcombank</span>
-                      </div>
-                      <!-- End -->
-                      <div
-                        class="bank-select-placeholder"
-                        onclick="onBankListShow()"
-                      >
-                        Chọn ngân hàng thụ hưởng
-                      </div>
-                    </div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="isax"
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 24 25"
-                      fill="none"
-                      onclick="onBankListShow()"
-                    >
-                      <path
-                        d="M17.92 8.30957H11.69H6.07999C5.11999 8.30957 4.63999 9.46957 5.31999 10.1496L10.5 15.3296C11.33 16.1596 12.68 16.1596 13.51 15.3296L15.48 13.3596L18.69 10.1496C19.36 9.46957 18.88 8.30957 17.92 8.30957Z"
-                        fill="currentColor"
-                      />
-                    </svg>
 
-                    <!-- Khi click vào khung chọn ngân hàng thụ hưởng thì hiển thị/render div này lên -->
-                    <div class="bank-select-popup" style="display: none">
-                      <input
-                        class="bank-select-input"
-                        placeholder="Nhập tên ngân hàng"
-                      />
-                      <div class="bank-list">
-                        <div class="bank-item" onclick="onBankListHide()">
-                          <div class="bank-logo">
-                            <img src="../assets/images/banks/vcb.svg" />
-                          </div>
-                          <div class="bank-name">
-                            <b>Vietcombank</b>
-                            <div class="text-secondary">
-                              Ngân hàng TMCP Ngoại thương Việt Nam
-                            </div>
-                          </div>
-                        </div>
-                        <div class="bank-item" onclick="onBankListHide()">
-                          <div class="bank-logo">
-                            <img src="../assets/images/banks/vcb.svg" />
-                          </div>
-                          <div class="bank-name">
-                            <b>Vietcombank</b>
-                            <div class="text-secondary">
-                              Ngân hàng TMCP Ngoại thương Việt Nam
-                            </div>
-                          </div>
-                        </div>
-                        <div class="bank-item" onclick="onBankListHide()">
-                          <div class="bank-logo">
-                            <img src="../assets/images/banks/vcb.svg" />
-                          </div>
-                          <div class="bank-name">
-                            <b>Vietcombank</b>
-                            <div class="text-secondary">
-                              Ngân hàng TMCP Ngoại thương Việt Nam
-                            </div>
-                          </div>
-                        </div>
-                        <div class="bank-item" onclick="onBankListHide()">
-                          <div class="bank-logo">
-                            <img src="../assets/images/banks/vcb.svg" />
-                          </div>
-                          <div class="bank-name">
-                            <b>Vietcombank</b>
-                            <div class="text-secondary">
-                              Ngân hàng TMCP Ngoại thương Việt Nam
-                            </div>
-                          </div>
-                        </div>
-                        <div class="bank-item" onclick="onBankListHide()">
-                          <div class="bank-logo">
-                            <img src="../assets/images/banks/vcb.svg" />
-                          </div>
-                          <div class="bank-name">
-                            <b>Vietcombank</b>
-                            <div class="text-secondary">
-                              Ngân hàng TMCP Ngoại thương Việt Nam
-                            </div>
-                          </div>
-                        </div>
-                        <div class="bank-item" onclick="onBankListHide()">
-                          <div class="bank-logo">
-                            <img src="../assets/images/banks/vcb.svg" />
-                          </div>
-                          <div class="bank-name">
-                            <b>Vietcombank</b>
-                            <div class="text-secondary">
-                              Ngân hàng TMCP Ngoại thương Việt Nam
-                            </div>
-                          </div>
+                  <div class="customer-input">
+                    <div class="input-group label-transition">
+                      <div class="form-label">
+                        <input
+                          type="text"
+                          class="form-control input-text-bold"
+                          name="username"
+                        />
+                        <label for="username">Số tài khoản</label>
+                      </div>
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <a href="#">kiểm tra</a>
                         </div>
                       </div>
                     </div>
-                    <!-- End -->
                   </div>
-                  <div class="bank-suggestion">
-                    <label>Gợi ý</label>
-                    <ul>
-                      <li class="bank-logo" onclick="showBankSelected()">
-                        <img src="../assets/images/banks/vcb.svg" />
-                      </li>
-                      <li class="bank-logo" onclick="showBankSelected()">
-                        <img src="../assets/images/banks/tpb.svg" />
-                      </li>
-                      <li class="bank-logo" onclick="showBankSelected()">
-                        <img src="../assets/images/banks/vietinbank.svg" />
-                      </li>
-                      <li class="bank-logo" onclick="showBankSelected()">
-                        <img src="../assets/images/banks/vpb.svg" />
-                      </li>
-                      <li class="bank-logo" onclick="showBankSelected()">
-                        <img src="../assets/images/banks/vcb.svg" />
-                      </li>
-                      <li class="bank-logo" onclick="showBankSelected()">
-                        <img src="../assets/images/banks/tpb.svg" />
-                      </li>
-                      <li class="bank-logo" onclick="showBankSelected()">
-                        <img src="../assets/images/banks/vietinbank.svg" />
-                      </li>
-                      <li class="bank-logo" onclick="showBankSelected()">
-                        <img src="../assets/images/banks/vpb.svg" />
-                      </li>
-                    </ul>
-                  </div>
+
                   <div class="d-flex justify-content-end">
                     <button
                       type="button"
                       class="btn btn-third"
-                      onclick="location.href = 'inter-bank-step-1.html';"
+                      onclick="location.href = 'inside-bank-step-1.html';"
                     >
                       Tiếp tục
                     </button>
