@@ -146,6 +146,25 @@
   gap: 16px;
 }
 
+.transfer-error {
+  padding: 36px;
+}
+
+.transfer-error .icon {
+  text-align: center;
+}
+
+.transfer-error .icon i {
+  font-size: 100px;
+  color: #ed1c24;
+}
+
+.transfer-error .message {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 24px;
+}
+
 @media (max-width: 575px) {
   .transfer-success {
     padding: 24px 12px 12px 12px;

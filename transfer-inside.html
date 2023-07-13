@@ -17,22 +17,6 @@
       type="text/css"
     />
 
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-
     <!-- Icons Css -->
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
@@ -44,16 +28,22 @@
       type="text/css"
     />
     <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
-    <link
-      href="assets/css/transfer-inside.css"
-      rel="stylesheet"
-      type="text/css"
-    />
   </head>
 
-  <body class="home-page page-background transfer-inside-page">
-    <div class="home-page-content">
-      <div class="home-header">
+  <body class="child-page page-background account-page transfer-inside-page">
+    <div class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+      <div class="header">
         <div class="container">
           <div class="logo-and-search">
             <a class="logo" href="login.html">
@@ -76,14 +66,16 @@
                 <div class="user-menu-name">Ngô Xuân Hải</div>
               </div>
               <div class="user-menu-avatar">
-                <button data-toggle="dropdown">
-                  <img src="https://i.pravatar.cc/300" />
-                </button>
                 <div class="dropdown">
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Tài khoản</a>
-                    <a class="dropdown-item" href="login.html">Đăng xuất</a>
-                  </div>
+                  <button type="button" data-bs-toggle="dropdown">
+                    <img src="assets/images/cliparts/avatar.jpeg" />
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Tài khoản</a></li>
+                    <li>
+                      <a class="dropdown-item" href="login.html">Đăng xuất</a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -116,7 +108,7 @@
         </div>
 
         <div class="card">
-          <div class="card-body p-3">
+          <div class="card-body p-0">
             <div class="transfer-card">
               <div class="transfer-area">
                 <div class="area-header">
@@ -131,7 +123,7 @@
                   </div>
                 </div>
                 <div class="area-body">
-                  <div class="bank-method-transfer">
+                  <div class="bank-method">
                     <label class="form-check">
                       <input
                         class="form-check-input"
@@ -163,9 +155,18 @@
                       </div>
                       <div class="input-group-append">
                         <div class="input-group-text">
-                          <a href="#">kiểm tra</a>
+                          <a href="#">Kiểm tra</a>
                         </div>
                       </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group label-transition">
+                    <div class="form-label w-100">
+                      <div class="hascontent py-2 account-name">
+                        NGO XUAN HAI
+                      </div>
+                      <label>Tên người nhận</label>
                     </div>
                   </div>
 
@@ -181,79 +182,91 @@
                 </div>
               </div>
 
-              <div class="card contact-area">
-                <div class="card-header">
-                  <ul>
-                    <li class="active">Danh sách NTH</li>
-                    <li>Gần đây</li>
-                    <li>Mẫu lưu</li>
-                  </ul>
-                </div>
-                <div class="card-body">
-                  <div class="input-search">
-                    <i class="isax isax-search-normal-1"></i>
-                    <input
-                      placeholder="Tìm kiếm danh bạ"
-                      class="form-control"
-                    />
+              <div class="contact-area">
+                <div class="card">
+                  <div class="card-title d-sm-none">
+                    <h5>Quản lý danh bạ và mẫu</h5>
+                    <i
+                      class="isax isax-close-circle"
+                      onclick="hideContactArea()"
+                    ></i>
                   </div>
-                  <div class="contact-list">
-                    <div class="contact-item">
-                      <div class="contact-bank">
-                        <img src="assets/icons/logo-dark.svg" />
-                      </div>
-                      <div class="contact-detail">
-                        <b>NGO MAI TRANG</b>
-                        <b>05000210000471</b>
-                        <div class="text-muted">VRB</div>
-                      </div>
-                    </div>
-                    <div class="contact-item">
-                      <div class="contact-bank">
-                        <img src="assets/images/banks/tpb.svg" />
-                      </div>
-                      <div class="contact-detail">
-                        <b>NGO MAI TRANG</b>
-                        <b>05000210000471</b>
-                        <div class="text-muted">TIEN PHONG BANK</div>
-                      </div>
-                    </div>
-                    <div class="contact-item">
-                      <div class="contact-bank">
-                        <img src="assets/images/banks/vcb.svg" />
-                      </div>
-                      <div class="contact-detail">
-                        <b>NGO MAI TRANG</b>
-                        <b>05000210000471</b>
-                        <div class="text-muted">TIEN PHONG BANK</div>
-                      </div>
-                    </div>
-                    <div class="contact-item">
-                      <div class="contact-bank">
-                        <img src="assets/images/banks/vpb.svg" />
-                      </div>
-                      <div class="contact-detail">
-                        <b>NGO MAI TRANG</b>
-                        <b>05000210000471</b>
-                        <div class="text-muted">TIEN PHONG BANK</div>
-                      </div>
-                    </div>
+                  <div class="card-header">
+                    <ul>
+                      <li class="active">Danh sách NTH</li>
+                      <li>Gần đây</li>
+                      <li>Mẫu lưu</li>
+                    </ul>
                   </div>
-                  <button type="button" class="btn btn-third w-100">
-                    Quản lý danh bạ và mẫu
-                  </button>
+                  <div class="card-body">
+                    <div class="input-search">
+                      <i class="isax isax-search-normal-1"></i>
+                      <input
+                        placeholder="Tìm kiếm danh bạ"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="contact-list">
+                      <div class="contact-item">
+                        <div class="contact-bank">
+                          <img src="assets/icons/logo-dark.svg" />
+                        </div>
+                        <div class="contact-detail">
+                          <b>NGO MAI TRANG</b>
+                          <b>05000210000471</b>
+                          <div class="text-muted">VRB</div>
+                        </div>
+                      </div>
+                      <div class="contact-item">
+                        <div class="contact-bank">
+                          <img src="assets/images/banks/tpb.svg" />
+                        </div>
+                        <div class="contact-detail">
+                          <b>NGO MAI TRANG</b>
+                          <b>05000210000471</b>
+                          <div class="text-muted">TIEN PHONG BANK</div>
+                        </div>
+                      </div>
+                      <div class="contact-item">
+                        <div class="contact-bank">
+                          <img src="assets/images/banks/vcb.svg" />
+                        </div>
+                        <div class="contact-detail">
+                          <b>NGO MAI TRANG</b>
+                          <b>05000210000471</b>
+                          <div class="text-muted">TIEN PHONG BANK</div>
+                        </div>
+                      </div>
+                      <div class="contact-item">
+                        <div class="contact-bank">
+                          <img src="assets/images/banks/vpb.svg" />
+                        </div>
+                        <div class="contact-detail">
+                          <b>NGO MAI TRANG</b>
+                          <b>05000210000471</b>
+                          <div class="text-muted">TIEN PHONG BANK</div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn-third col-lg-12 mx-auto"
+                    >
+                      Quản lý danh bạ và mẫu
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="sp-contact">
+          <div class="sp-contact" onclick="showContactArea()">
             <img src="assets/icons/book.svg" />
           </div>
         </div>
       </div>
 
-      <div class="login-footer">
+      <div class="footer">
         <div class="login-container">
           <div class="footer-menu d-lg-flex flex-column gap-1">
             <ul>
@@ -294,6 +307,9 @@
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
     <script>
       const bankSelected = document.querySelector(".bank-selected");
       const bankSelectedParent = bankSelected.parentElement;
@@ -312,6 +328,28 @@
       function onBankListHide() {
         showBankSelected();
         document.querySelector(".bank-select-popup").style.display = "none";
+      }
+
+      toggleContactArea();
+
+      window.addEventListener("resize", toggleContactArea);
+
+      function toggleContactArea() {
+        if (window.innerWidth < 576) {
+          hideContactArea();
+        } else {
+          showContactArea();
+        }
+      }
+
+      function showContactArea() {
+        const contactArea = document.querySelector(".contact-area");
+        contactArea.style.display = null;
+      }
+
+      function hideContactArea() {
+        const contactArea = document.querySelector(".contact-area");
+        contactArea.style.display = "none";
       }
     </script>
   </body>

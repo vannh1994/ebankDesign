@@ -25,6 +25,20 @@
   color: #333;
   text-align: center;
   margin-bottom: 32px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.login-form .form-title i {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.login-form .form-title i:hover {
+  transform: translateX(-10px);
 }
 
 .login-form .captcha {
@@ -59,6 +73,11 @@
 
 .login-form .login-form-link .link {
   font-size: 14px;
+}
+
+.login-form .input-group.label-transition .input-group-prepend,
+.login-form .input-group.label-transition .input-group-append {
+  transform: translateY(-3px) !important;
 }
 
 @media (max-width: 991px) {

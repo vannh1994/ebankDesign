@@ -119,7 +119,7 @@
 }
 
 .transaction-info-page .input-group.label-transition .input-group-append {
-  transform: translateY(-0.5px);
+  transform: translateY(-2.5px);
 }
 
 .transaction-info-page .transfer-info .money-suggestion {
@@ -140,6 +140,14 @@
   line-height: 20px;
   color: #333333;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.transaction-info-page
+  .transfer-info
+  .money-suggestion
+  .money-suggestion-item:hover {
+  text-decoration: underline;
 }
 
 .transaction-info-page .transfer-info .limit {
@@ -153,7 +161,11 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
+}
+
+.transaction-info-page .transfer-info .limit span {
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .transaction-info-page .transfer-info .transfer-fee {

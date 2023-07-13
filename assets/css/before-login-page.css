@@ -132,9 +132,13 @@
   background: #f4f7fe;
 }
 
-.login-content-page-section .select-customer-type .account-type-box img {
-  width: 68px;
-  height: 68px;
+.login-content-page-section .select-customer-type .account-type-box:hover i {
+  color: #002d85;
+}
+
+.login-content-page-section .select-customer-type .account-type-box i {
+  font-size: 68px;
+  color: #013aa9;
 }
 
 .login-content-page-section .select-customer-type .account-type-box .customer {
@@ -211,13 +215,8 @@
   transition-property: background, color;
 }
 
-.login-menu .menu-item .item-icon svg {
-  display: block;
-}
-
-.login-menu .menu-item .item-icon img {
-  max-width: 100%;
-  max-height: 100%;
+.login-menu .menu-item .item-icon i {
+  font-size: 48px;
 }
 
 .login-menu .menu-item .item-name {
@@ -225,81 +224,6 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
-}
-
-.login-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.3);
-  color: white;
-  margin-top: auto;
-}
-
-.login-footer .login-container {
-  flex-wrap: wrap;
-  gap: 8px 16px;
-}
-
-.login-footer ul {
-  display: flex;
-  gap: 16px;
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 4px;
-}
-
-.login-footer ul li a {
-  font-size: 14px;
-  line-height: 18px;
-  color: white;
-}
-
-.login-footer ul li a:hover {
-  text-decoration: underline !important;
-}
-
-.login-footer .copyright {
-  font-size: 14px;
-  line-height: 18px;
-  opacity: 0.7;
-}
-
-.login-footer .sns {
-  display: flex;
-  gap: 8px;
-}
-
-.login-footer .sns a {
-  display: flex;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  cursor: pointer;
-  align-items: center;
-}
-
-.login-footer .sns img {
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-}
-
-.login-footer .sns .hotline {
-  padding: 0 16px 0 4px;
-}
-
-.login-footer .sns .hotline .title {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 18px;
-}
-
-.login-footer .sns .hotline .phone {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 20px;
-  letter-spacing: 2.5px;
 }
 
 @media (max-width: 1365px) {
@@ -350,9 +274,8 @@
     padding: 16px;
   }
 
-  .login-content-page-section .select-customer-type .account-type-box img {
-    width: 52px;
-    height: 52px;
+  .login-content-page-section .select-customer-type .account-type-box i {
+    font-size: 52px;
   }
 
   .login-content-page-section .select-customer-type .line {
@@ -388,24 +311,6 @@
     font-size: 21px;
     line-height: 30px;
   }
-
-  .login-footer {
-    justify-content: center;
-  }
-
-  .login-footer .login-container {
-    justify-content: center;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .login-footer .footer-menu {
-    text-align: left;
-  }
-
-  .login-footer .copyright {
-    font-size: 14px;
-  }
 }
 
 @media (max-width: 767px) {
@@ -415,32 +320,6 @@
 
   .login-page-background .shape03 {
     left: 20%;
-  }
-
-  .login-footer {
-    justify-content: center;
-  }
-
-  .login-footer .login-container {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .login-footer .footer-menu {
-    text-align: center;
-  }
-
-  .login-footer .copyright {
-    font-size: 12px;
-  }
-
-  .login-footer .sns {
-    display: none;
-  }
-
-  .login-footer .footer-menu ul {
-    display: none;
   }
 }
 
@@ -478,9 +357,8 @@
     flex-basis: 200px;
   }
 
-  .login-content-page-section .select-customer-type .account-type-box img {
-    width: 40px;
-    height: 40px;
+  .login-content-page-section .select-customer-type .account-type-box i {
+    font-size: 40px;
   }
 
   .login-content-page-section .login-menu {
@@ -506,6 +384,10 @@
     width: 60px;
     height: 60px;
     padding: 14px;
+  }
+
+  .login-menu .menu-item .item-icon i {
+    font-size: 32px;
   }
 
   .login-menu .menu-item .item-name {
@@ -534,13 +416,5 @@
 
   .login-container {
     padding: 8px 24px;
-  }
-
-  .login-footer .copyright .copyright-name {
-    display: block;
-  }
-
-  .login-footer .copyright .divider {
-    display: none;
   }
 }

@@ -74,6 +74,21 @@
   color: #013aa9;
 }
 
+.max-length-count {
+  width: 100%;
+  text-align: right;
+  color: #777777;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+@media (max-width: 767px) {
+  .max-length-count {
+    display: none;
+  }
+}
+
 @media (max-width: 575px) {
   .transaction-step {
     display: none;

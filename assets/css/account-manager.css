@@ -1,14 +1,3 @@
-.home-page.page-background {
-  background: linear-gradient(0deg, #19226d 75.83%, #ed1c24 100%);
-}
-
-.home-page.page-background .page-background {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-}
-
 .account-page .home-container {
   margin: 24px auto !important;
 }

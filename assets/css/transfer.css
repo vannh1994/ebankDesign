@@ -1,10 +1,14 @@
+.home-container > .card {
+  overflow: hidden;
+}
+
 .transfer-card {
   display: flex;
-  gap: 24px;
 }
 
 .transfer-area {
   flex: 1 0;
+  padding: 16px;
 }
 
 .transfer-area .bank-logo {
@@ -98,6 +102,7 @@
   border-radius: 8px;
   background: var(--branding-white, #fff);
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
+  z-index: 1;
 }
 
 .transfer-area .bank-select .bank-select-input {
@@ -242,7 +247,23 @@
   color: var(--text-primary-default, #333);
 }
 
+.transfer-area .quick-transfer .form-check.form-switch {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.transfer-area .account-name {
+  color: var(--branding-primary-color, #002d85);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
 .contact-area {
+  padding: 16px 16px 16px 8px;
+}
+
+.contact-area .card {
   border-radius: 12px;
   border: 1px solid var(--background-background, #d9d9d9);
   background: #fff;
@@ -274,6 +295,8 @@
   border-bottom: 2px solid var(--branding-primary-color, #f4f7fe);
   cursor: pointer;
   transition: 0.3s;
+  flex: 1;
+  white-space: nowrap;
 }
 
 .contact-area .card-header ul li.active {
@@ -354,13 +377,47 @@
   display: none;
 }
 
+.transfer-inside-page .input-group.label-transition .input-group-prepend,
+.transfer-inside-page .input-group.label-transition .input-group-append {
+  transform: translateY(-2.5px);
+}
+
 @media (max-width: 991px) {
   .transfer-card {
     flex-direction: column;
   }
 
+  .transfer-area {
+    padding: 24px 24px 0;
+  }
+
   .transfer-area .area-body {
+    gap: 16px;
+  }
+
+  .contact-area {
+    background: var(--background-bg-web, #f1f2f2);
     padding: 24px;
+  }
+
+  .contact-area .card-body {
+    padding: 16px 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .transfer-area .area-body {
+    max-width: 512px;
+    margin: auto;
+    padding: 16px;
+  }
+
+  .transfer-area {
+    padding: 16px 16px 0;
+  }
+
+  .contact-area {
+    padding: 16px;
   }
 }
 
@@ -380,19 +437,77 @@
     justify-content: center;
   }
 
-  .contact-area {
-    display: none;
-  }
-
   .transfer-area .area-body {
-    padding: 24px 4px;
+    padding: 24px 8px;
   }
 
   .transfer-area .bank-method-transfer {
     gap: 4px;
   }
 
-  .form-check-label {
-    font-size: 12px;
+  .transfer-area .form-check-label {
+    font-size: 14px;
+  }
+
+  .transfer-area .quick-transfer label .title {
+    font-size: 14px;
+  }
+
+  .contact-area {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 1;
+  }
+
+  .contact-area .card {
+    width: 100%;
+    height: calc(100vh - 70px);
+    border-radius: 12px 12px 0px 0px;
+    gap: 16px;
+    padding-top: 16px;
+  }
+
+  .contact-area .card .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  .contact-area .contact-list {
+    flex: 1;
+    grid-auto-rows: 75px;
+    max-height: unset;
+  }
+
+  .contact-area .card-title {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .contact-area .card-title h5 {
+    color: var(--black-primary-default, #232e48);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 0;
+  }
+
+  .contact-area .card-title .isax {
+    color: #5c657a;
+    font-size: 32px;
+    cursor: pointer;
   }
 }

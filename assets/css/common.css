@@ -163,11 +163,6 @@ h6 {
   border-bottom: 1px solid #c4c4c6 !important;
 }
 
-.input-group.label-transition .input-group-prepend,
-.input-group.label-transition .input-group-append {
-  transform: translateY(-1px);
-}
-
 .input-group .input-group-prepend .input-group-text,
 .input-group .input-group-append .input-group-text {
   background-color: white;
@@ -233,8 +228,6 @@ h6 {
   position: relative;
   display: block;
   clear: both;
-  /*     width:400px; */
-  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -251,16 +244,6 @@ h6 {
   top: -16%;
   cursor: text;
   pointer-events: none;
-}
-
-.input-group.label-transition .form-label {
-  flex: 1;
-}
-
-input:focus ~ label,
-input.hascontent ~ label {
-  top: -75%;
-  color: #777;
 }
 
 .input-text-bold {
@@ -299,12 +282,6 @@ input.hascontent ~ label {
 
 .mt-10 {
   margin-top: 10px !important;
-}
-
-@media (max-width: 575px) {
-  .btn-third {
-    padding: 8px 56px;
-  }
 }
 
 input[type="search"] {
@@ -353,4 +330,84 @@ input[type="search"]::-webkit-input-placeholder {
 
 .form-check:not(.form-switch) .form-check-label {
   line-height: 1.25em;
+}
+
+.form-check.form-switch .form-check-input {
+  width: 2.5em;
+  height: 1.5em;
+  padding: 0.25em;
+  border-radius: 9999px;
+}
+
+.form-check.form-switch .form-check-input:checked {
+  background-color: var(--branding-primary-color, #002d85);
+}
+
+.input-group.label-transition {
+  padding-top: 18px;
+}
+
+.input-group.label-transition .form-label {
+  flex: 1;
+}
+
+.input-group.label-transition input:focus ~ label,
+.input-group.label-transition .hascontent ~ label {
+  top: -75%;
+  color: #777;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: inherit;
+}
+
+.input-group.label-transition label {
+  transform: translateY(50%);
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  top: -16%;
+  cursor: text;
+  pointer-events: none;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+.input-group.label-transition .form-control {
+  border: unset !important;
+  border-bottom: 1px solid #c4c4c6 !important;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 6px 0 !important;
+  color: #232e48;
+}
+
+.input-group.label-transition .input-group-prepend,
+.input-group.label-transition .input-group-append {
+  transform: translateY(-2px);
+}
+
+.page-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.child-page.page-background {
+  background: linear-gradient(0deg, #19226d 75.83%, #ed1c24 100%);
+}
+
+.child-page.page-background .page-background {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+@media (max-width: 575px) {
+  .btn-third {
+    padding: 8px 56px;
+  }
 }

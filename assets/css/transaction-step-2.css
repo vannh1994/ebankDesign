@@ -143,6 +143,10 @@
   .qr-code-block .qr-code-content {
     width: 100%;
   }
+
+  .transaction-step-2-page .transfer-info {
+    padding: 8px;
+  }
 }
 
 @media (max-width: 575px) {
