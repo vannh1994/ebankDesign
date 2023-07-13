@@ -350,6 +350,10 @@
   line-height: 20px;
 }
 
+.sp-contact {
+  display: none;
+}
+
 @media (max-width: 991px) {
   .transfer-card {
     flex-direction: column;
@@ -361,7 +365,34 @@
 }
 
 @media (max-width: 575px) {
+  .sp-contact {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .contact-area {
     display: none;
+  }
+
+  .transfer-area .area-body {
+    padding: 24px 4px;
+  }
+
+  .transfer-area .bank-method-transfer {
+    gap: 4px;
+  }
+
+  .form-check-label {
+    font-size: 12px;
   }
 }

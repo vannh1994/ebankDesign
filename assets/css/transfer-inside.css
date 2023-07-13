@@ -1,3 +1,7 @@
+.transfer-inside-page .home-container {
+  margin: 30px auto !important;
+}
+
 .transfer-inside-page .customer-input .form-control {
   border: unset !important;
   border-bottom: 1px solid #c4c4c6 !important;
@@ -48,7 +52,8 @@
   margin-bottom: 0;
 }
 
-.transfer-inside-page input:focus ~ label, .transfer-inside-page input.hascontent ~ label {
+.transfer-inside-page input:focus ~ label,
+.transfer-inside-page input.hascontent ~ label {
   top: -75% !important;
   color: #777;
 }
