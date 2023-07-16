@@ -12,21 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function collapsed() {
-  const element = document.getElementById("collapsed");
-  if (element.classList.contains("collapsed")) {
-    element.classList.remove("collapsed");
+function collapsed(section) {
+  const element = document.getElementById(section);
+  if (element.classList.contains(section)) {
+    element.classList.remove(section);
   } else {
-    element.classList.add("collapsed");
-  }
-}
-
-function collapsedReceivingAccount() {
-  const element = document.getElementById("collapsed-receiving-account");
-  if (element.classList.contains("collapsed-receiving-account")) {
-    element.classList.remove("collapsed-receiving-account");
-  } else {
-    element.classList.add("collapsed-receiving-account");
+    element.classList.add(section);
   }
 }
 

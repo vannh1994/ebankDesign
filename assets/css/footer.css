@@ -73,6 +73,15 @@
   margin-bottom: 4px;
 }
 
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding: 14px 40px;
+  width: 100%;
+}
+
 @media (max-width: 991px) {
   .footer {
     justify-content: center;
@@ -128,5 +137,9 @@
 
   .footer .copyright .divider {
     display: none;
+  }
+
+  .footer-container {
+    padding: 8px 24px;
   }
 }

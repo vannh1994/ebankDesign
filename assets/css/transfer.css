@@ -1,7 +1,3 @@
-.home-container > .card {
-  overflow: hidden;
-}
-
 .transfer-card {
   display: flex;
 }
@@ -152,6 +148,7 @@
   display: flex;
   flex-direction: column-reverse;
   gap: 4px;
+  height: 100%;
 }
 
 .transfer-area .bank-select .bank-selected {
@@ -510,4 +507,15 @@
     font-size: 32px;
     cursor: pointer;
   }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
 }

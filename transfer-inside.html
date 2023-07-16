@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Account Manager | VRB</title>
-    <meta name="viewport" content="width=375px, initial-scale=1.0" />
+    <title>Chuyển tiền trong VRB | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
     <!-- App favicon -->
@@ -31,7 +31,7 @@
   </head>
 
   <body class="child-page page-background account-page transfer-inside-page">
-    <div class="page-content">
+    <div id="app" class="page-content">
       <div class="list-small-icons">
         <div class="item">
           <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
@@ -43,7 +43,7 @@
           <img src="assets/icons/message-question.svg" alt="message-question" />
         </div>
       </div>
-      <div class="header">
+      <div class="header-fixed">
         <div class="container">
           <div class="logo-and-search">
             <a class="logo" href="login.html">
@@ -83,6 +83,10 @@
         </div>
       </div>
 
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
       <div class="container home-container">
         <div class="breadcrumbs">
           <nav aria-label="breadcrumb">
@@ -116,7 +120,7 @@
                     <div class="transfer-tab active">Trong VRB</div>
                     <div
                       class="transfer-tab"
-                      onclick="location.href = 'transfer.html';"
+                      onclick="location.href = 'transfer-inter.html';"
                     >
                       Ngoài VRB
                     </div>
@@ -153,11 +157,6 @@
                         />
                         <label for="username">Số tài khoản</label>
                       </div>
-                      <div class="input-group-append">
-                        <div class="input-group-text">
-                          <a href="#">Kiểm tra</a>
-                        </div>
-                      </div>
                     </div>
                   </div>
 
@@ -193,12 +192,27 @@
                   </div>
                   <div class="card-header">
                     <ul>
-                      <li class="active">Danh sách NTH</li>
-                      <li>Gần đây</li>
-                      <li>Mẫu lưu</li>
+                      <li
+                        :class="{ active: activeIndex ===  0 }"
+                        @click="activeIndex = 0"
+                      >
+                        Danh sách NTH
+                      </li>
+                      <li
+                        :class="{ active: activeIndex ===  1 }"
+                        @click="activeIndex = 1"
+                      >
+                        Gần đây
+                      </li>
+                      <li
+                        :class="{ active: activeIndex ===  2 }"
+                        @click="activeIndex = 2"
+                      >
+                        Mẫu lưu
+                      </li>
                     </ul>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body" v-if="activeIndex ===  0">
                     <div class="input-search">
                       <i class="isax isax-search-normal-1"></i>
                       <input
@@ -255,6 +269,70 @@
                       Quản lý danh bạ và mẫu
                     </button>
                   </div>
+                  <div class="card-body" v-if="activeIndex ===  1">
+                    <div class="input-search">
+                      <i class="isax isax-search-normal-1"></i>
+                      <input
+                        placeholder="Tìm kiếm danh bạ"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="contact-list">
+                      <div class="contact-item">
+                        <div class="contact-bank">
+                          <img src="assets/icons/logo-dark.svg" />
+                        </div>
+                        <div class="contact-detail">
+                          <b>NGO MAI TRANG</b>
+                          <b>05000210000471</b>
+                          <div class="text-muted">VRB</div>
+                        </div>
+                      </div>
+                      <div class="contact-item">
+                        <div class="contact-bank">
+                          <img src="assets/images/banks/tpb.svg" />
+                        </div>
+                        <div class="contact-detail">
+                          <b>NGO MAI TRANG</b>
+                          <b>05000210000471</b>
+                          <div class="text-muted">TIEN PHONG BANK</div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn-third col-lg-12 mx-auto"
+                    >
+                      Quản lý danh bạ và mẫu
+                    </button>
+                  </div>
+                  <div class="card-body" v-if="activeIndex ===  2">
+                    <div class="input-search">
+                      <i class="isax isax-search-normal-1"></i>
+                      <input
+                        placeholder="Tìm kiếm danh bạ"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="contact-list">
+                      <div class="contact-item">
+                        <div class="contact-bank">
+                          <img src="assets/icons/logo-dark.svg" />
+                        </div>
+                        <div class="contact-detail">
+                          <b>NGO MAI TRANG</b>
+                          <b>05000210000471</b>
+                          <div class="text-muted">VRB</div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn-third col-lg-12 mx-auto"
+                    >
+                      Quản lý danh bạ và mẫu
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -267,7 +345,7 @@
       </div>
 
       <div class="footer">
-        <div class="login-container">
+        <div class="footer-container">
           <div class="footer-menu d-lg-flex flex-column gap-1">
             <ul>
               <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
@@ -311,25 +389,6 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
     <script>
-      const bankSelected = document.querySelector(".bank-selected");
-      const bankSelectedParent = bankSelected.parentElement;
-      bankSelected.style.display = "none";
-      document.body.appendChild(bankSelected);
-
-      function showBankSelected() {
-        bankSelected.style.display = "flex";
-        bankSelectedParent.prepend(bankSelected);
-      }
-
-      function onBankListShow() {
-        document.querySelector(".bank-select-popup").style.display = "grid";
-      }
-
-      function onBankListHide() {
-        showBankSelected();
-        document.querySelector(".bank-select-popup").style.display = "none";
-      }
-
       toggleContactArea();
 
       window.addEventListener("resize", toggleContactArea);
@@ -351,6 +410,104 @@
         const contactArea = document.querySelector(".contact-area");
         contactArea.style.display = "none";
       }
+    </script>
+
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+
+    <script>
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        setup() {
+          const showSelector = ref(false);
+          const popup = ref(null);
+          const bankSelected = ref(null);
+          const searchQuery = ref("");
+          const activeIndex = ref(0);
+          const accountNumber = ref(null);
+          const accountName = ref(null);
+
+          const bankList = [
+            {
+              logo: "assets/images/banks/vcb.svg",
+              name: "Vietcombank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/tpb.svg",
+              name: "Tien Phong Bank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/vpb.svg",
+              name: "VP Bank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/vcb.svg",
+              name: "Vietcombank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/tpb.svg",
+              name: "Tien Phong Bank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/vpb.svg",
+              name: "VP Bank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+          ];
+
+          const filteredList = computed(() =>
+            bankList.filter((x) =>
+              x.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+            )
+          );
+
+          const onClickOutside = (event) => {
+            const el = document.querySelector(".bank-select");
+            if (
+              !el ||
+              el === event.target ||
+              event.target.closest(".bank-select") === el
+            ) {
+              return;
+            }
+
+            showSelector.value = false;
+          };
+
+          onMounted(() => {
+            document.addEventListener("click", onClickOutside);
+          });
+
+          onBeforeMount(() => {
+            document.removeEventListener("click", onClickOutside);
+          });
+
+          const onAccountNumberChange = useDebounceFn(() => {
+            accountName.value = accountNumber.value ? "Ngo Xuan Hai" : "";
+          }, 500);
+
+          return {
+            searchQuery,
+            showSelector,
+            popup,
+            bankList,
+            filteredList,
+            bankSelected,
+            activeIndex,
+            accountNumber,
+            accountName,
+            onAccountNumberChange,
+          };
+        },
+      }).mount("#app");
     </script>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Chuyển tiền trong VRB cùng chủ tài khoản | VRB</title>
-    <meta name="viewport" content="width=375px, initial-scale=1.0" />
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
     <!-- App favicon -->
@@ -31,7 +31,7 @@
   </head>
 
   <body class="child-page page-background transaction-step-2-page">
-    <div class="page-content">
+    <div class="page-content" id="app">
       <div class="list-small-icons">
         <div class="item">
           <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
@@ -44,7 +44,7 @@
         </div>
       </div>
 
-      <div class="header">
+      <div class="header-fixed">
         <div class="container">
           <div class="logo-and-search">
             <a class="logo" href="login.html">
@@ -84,6 +84,10 @@
         </div>
       </div>
 
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
       <div class="container home-container">
         <div class="breadcrumbs">
           <nav aria-label="breadcrumb">
@@ -116,12 +120,12 @@
         </div>
 
         <div class="transaction-step">
-          <div class="step-item">
+          <div class="step-item active">
             <div class="step">1</div>
             <div class="text">Khởi tạo</div>
           </div>
           <div class="progress active"></div>
-          <div class="step-item">
+          <div class="step-item active">
             <div class="step">2</div>
             <div class="text">Xác nhận</div>
           </div>
@@ -189,7 +193,7 @@
                     ứng dụng VRB bank kênh điện thoại của Quý khách
                   </div>
                   <div class="time-expired">
-                    Hiệu lực giao dịch còn <span>30 giây</span>
+                    Hiệu lực giao dịch còn <span>{{ timerCount }} giây</span>
                   </div>
                   <div class="qr-code">
                     <img src="assets/images/cliparts/qr-code.svg" alt="qr" />
@@ -198,20 +202,38 @@
                     Quý khách vui lòng KHÔNG tắt trình duyệt cho đến khi nhận
                     được kết quả giao dịch trên Internet Banking. Xin cảm ơn!
                   </div>
+                  <div class="input-group label-transition mt-2 mb-4">
+                    <div class="form-label">
+                      <input
+                        type="text"
+                        v-model="otpCode"
+                        id="otp-input"
+                        class="form-control input-text-bold"
+                        name="money"
+                      />
+                      <label for="money">Mã OTP</label>
+                    </div>
+                  </div>
                 </div>
                 <div class="preview">
                   <img src="assets/images/cliparts/phone.png" alt="phone" />
                 </div>
               </div>
 
-              <div
-                class="mt-4 mb-2 d-flex align-items-center justify-content-center"
-              >
+              <div class="group-button-bottom">
                 <button
                   class="btn btn-primary btn-back"
                   onclick="location.href = 'inside-bank-step-1.html';"
                 >
                   Quay lại
+                </button>
+
+                <button
+                  class="btn btn-third btn-submit"
+                  :disabled="!otpCode.length"
+                  onclick="location.href = 'inside-bank-step-3.html';"
+                >
+                  Chuyển tiền
                 </button>
               </div>
             </div>
@@ -220,7 +242,7 @@
       </div>
 
       <div class="footer">
-        <div class="login-container">
+        <div class="footer-container">
           <div class="footer-menu d-lg-flex flex-column gap-1">
             <ul>
               <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
@@ -262,5 +284,36 @@
 
     <!-- BS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./assets/js/vue.js"></script>
+    <script type="module">
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          const timerCount = ref(30);
+          const otpCode = ref("");
+          return {
+            timerCount,
+            otpCode,
+          };
+        },
+
+        watch: {
+          timerCount: {
+            handler(value) {
+              if (value > 0) {
+                setTimeout(() => {
+                  this.timerCount--;
+                }, 1000);
+              } else {
+                window.location = "transaction-error.html";
+              }
+            },
+            immediate: true,
+          },
+        },
+      }).mount("#app");
+    </script>
   </body>
 </html>

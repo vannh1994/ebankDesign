@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Chuyển tiền trong VRB cùng chủ tài khoản | VRB</title>
-    <meta name="viewport" content="width=375px, initial-scale=1.0" />
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
     <!-- App favicon -->
@@ -31,7 +31,7 @@
   </head>
 
   <body class="child-page page-background transaction-info-page">
-    <div class="page-content">
+    <div class="page-content" id="app">
       <div class="list-small-icons">
         <div class="item">
           <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
@@ -44,7 +44,7 @@
         </div>
       </div>
 
-      <div class="header">
+      <div class="header-fixed">
         <div class="container">
           <div class="logo-and-search">
             <a class="logo" href="login.html">
@@ -84,6 +84,10 @@
         </div>
       </div>
 
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
       <div class="container home-container">
         <div class="breadcrumbs">
           <nav aria-label="breadcrumb">
@@ -115,8 +119,8 @@
           <h2>Chuyển tiền trong VRB cùng chủ tài khoản</h2>
         </div>
 
-        <div class="transaction-step">
-          <div class="step-item">
+        <div class="transaction-step active">
+          <div class="step-item active">
             <div class="step">1</div>
             <div class="text">Khởi tạo</div>
           </div>
@@ -140,9 +144,14 @@
                   <img src="assets/images/banks/vrb.svg" />
                 </div>
                 <div class="account-info">
-                  <div class="account-number">00118506098</div>
+                  <div class="account-number">{{ accountNumber }}</div>
                   <div class="money">120,000,000</div>
                 </div>
+                <i
+                  class="isax isax-card-edit"
+                  data-bs-toggle="modal"
+                  data-bs-target="#changeAccountModal"
+                ></i>
               </div>
               <div class="receiving-account">
                 <div class="account-info">
@@ -161,6 +170,8 @@
                 <div class="form-label">
                   <input
                     type="text"
+                    v-model="amount"
+                    id="amount-input"
                     class="form-control input-text-bold"
                     name="money"
                   />
@@ -172,14 +183,54 @@
               </div>
 
               <div class="money-suggestion">
-                <div class="money-suggestion-item">100,000</div>
-                <div class="money-suggestion-item">200,000</div>
-                <div class="money-suggestion-item">500,000</div>
-                <div class="money-suggestion-item">1,000,000</div>
-                <div class="money-suggestion-item">5,000,000</div>
-                <div class="money-suggestion-item">10,000,000</div>
-                <div class="money-suggestion-item">20,000,000</div>
-                <div class="money-suggestion-item">30,000,000</div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(100000)"
+                >
+                  100,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(200000)"
+                >
+                  200,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(300000)"
+                >
+                  500,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(1000000)"
+                >
+                  1,000,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(5000000)"
+                >
+                  5,000,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(10000000)"
+                >
+                  10,000,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(20000000)"
+                >
+                  20,000,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(30000000)"
+                >
+                  30,000,000
+                </div>
               </div>
 
               <div class="limit">
@@ -201,12 +252,16 @@
               </div>
 
               <div class="input-group label-transition mt-4">
-                <label class="max-length-count">0/160 ký tự</label>
+                <label class="max-length-count">
+                  {{ content.length }}/160 ký tự
+                </label>
                 <div class="form-label">
                   <input
                     type="text"
+                    v-model="content"
                     class="form-control input-text-bold"
                     name="content"
+                    maxlength="160"
                   />
                   <label for="content">Nội dung</label>
                 </div>
@@ -244,7 +299,7 @@
       </div>
 
       <div class="footer">
-        <div class="login-container">
+        <div class="footer-container">
           <div class="footer-menu d-lg-flex flex-column gap-1">
             <ul>
               <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
@@ -279,6 +334,56 @@
           </div>
         </div>
       </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="changeAccountModal"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Danh sách thẻ</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body account-modal">
+              <div class="contact-list">
+                <div class="contact-item" @click="changeAccount('00118506098')">
+                  <div class="contact-bank">
+                    <img src="assets/icons/logo-dark.svg" />
+                  </div>
+                  <div class="contact-detail">
+                    <b>HA THI MIEN</b>
+                    <b>00118506098</b>
+                    <div class="text-muted">VRB</div>
+                  </div>
+                  <div class="selected-card">Đang sử dụng</div>
+                </div>
+                <div
+                  class="contact-item"
+                  @click="changeAccount('05000210000471')"
+                >
+                  <div class="contact-bank">
+                    <img src="assets/icons/logo-dark.svg" />
+                  </div>
+                  <div class="contact-detail">
+                    <b>HA THI MIEN</b>
+                    <b>05000210000471</b>
+                    <div class="text-muted">VRB</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- App js -->
@@ -286,5 +391,40 @@
 
     <!-- BS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./assets/js/vue.js"></script>
+    <script type="module">
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          const amount = ref(null);
+          const content = ref("");
+          const accountNumber = ref("00118506098");
+
+          const selectAmount = (number) => {
+            document.getElementById("amount-input").focus();
+            amount.value = number;
+          };
+
+          const changeAccount = (account) => {
+            accountNumber.value = account;
+            const modalContent = document.getElementById("changeAccountModal");
+            const modalBackdrop =
+              document.getElementsByClassName("modal-backdrop");
+            modalContent.classList.remove("show");
+            modalBackdrop[0].classList.remove("show");
+          };
+
+          return {
+            amount,
+            content,
+            accountNumber,
+            changeAccount,
+            selectAmount,
+          };
+        },
+      }).mount("#app");
+    </script>
   </body>
 </html>

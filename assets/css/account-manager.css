@@ -1,5 +1,5 @@
 .account-page .home-container {
-  margin: 24px auto !important;
+  margin: 100px auto !important;
 }
 
 .home-container .breadcrumbs {
@@ -102,6 +102,10 @@
   gap: 16px;
 }
 
+.account-item:last-child {
+  margin-bottom: 0;
+}
+
 .account-item:hover {
   border: 1px solid #d9d9d9;
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.4),
@@ -169,18 +173,24 @@
   color: #333;
 }
 
-.account-page .collapsed .header,
-.account-page .collapsed-receiving-account .header {
+.account-page .collapsed-payment-account .header,
+.account-page .collapsed-loan-account .header,
+.account-page .collapsed-overdraft-account .header,
+.account-page .collapsed-deposit-account .header {
   border-radius: 12px !important;
 }
 
-.account-page .collapsed .header .btn-collapse img,
-.account-page .collapsed-receiving-account .header .btn-collapse img {
+.account-page .collapsed-payment-account .header .btn-collapse img,
+.account-page .collapsed-loan-account .header .btn-collapse img,
+.account-page .collapsed-overdraft-account .header .btn-collapse img,
+.account-page .collapsed-deposit-account .header .btn-collapse img {
   transform: rotate(630deg);
 }
 
-.collapsed .main-content,
-.collapsed-receiving-account .main-content {
+.collapsed-payment-account .main-content,
+.collapsed-loan-account .main-content,
+.collapsed-overdraft-account .main-content,
+.collapsed-deposit-account .main-content {
   -moz-transition: height 0.5s;
   -ms-transition: height 0.5s;
   -o-transition: height 0.5s;
@@ -190,6 +200,59 @@
   overflow: hidden;
   padding: 0 !important;
   margin: 0 !important;
+}
+
+#nav-tab-account-manager {
+  border-radius: 12px;
+  background: var(
+    --branding-third-gradient,
+    linear-gradient(90deg, #19226d 23.6%, #ed1c24 100%)
+  );
+  justify-content: space-between;
+  padding: 6px;
+}
+
+#nav-tab-account-manager .nav-link {
+  color: #fff;
+  background: transparent;
+  border: unset;
+  padding: 10px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  width: 25%;
+  word-break: keep-all;
+}
+
+#nav-tab-account-manager .nav-link.active {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.account-manager-card {
+  padding: 24px 16px;
+  background: var(--background-background-2, #fafafa) !important;
+}
+
+.account-manager-card .main-content {
+  padding: unset;
+}
+
+.account-manager-card .header {
+  border-radius: 12px;
+  background: var(--background-background-1, #f4f7fe);
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.08);
+}
+
+.account-manager-card .list-card {
+  border-radius: 16px;
+  background: var(--background-background-2, #fafafa);
+  box-shadow: unset;
+}
+
+.account-manager-card #collapsed {
+  margin-bottom: unset;
+  box-shadow: unset;
 }
 
 @media (max-width: 767px) {
@@ -204,11 +267,21 @@
   .account-item .balances .money {
     font-size: 14px;
   }
+
+  #nav-tab-account-manager {
+    gap: 8px;
+  }
+
+  #nav-tab-account-manager .nav-link {
+    width: calc(50% - 4px);
+    padding: 10px;
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 575px) {
-  .home-container .breadcrumbs {
-    display: none;
+  .home-container .breadcrumbs .breadcrumb {
+    gap: 4px;
   }
 
   .account-item {
@@ -243,5 +316,9 @@
   .home-container .page-title img {
     width: 20px;
     height: 20px;
+  }
+
+  .account-page .home-container {
+    margin: 90px auto !important;
   }
 }

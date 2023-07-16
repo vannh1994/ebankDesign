@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Account Manager | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body class="child-page page-background account-page">
+    <div class="page-content">
+      <div class="header-fixed">
+        <div class="container">
+          <div class="logo-and-search">
+            <a class="logo" href="login.html">
+              <img src="assets/icons/logo-dark.svg" alt="logo" />
+            </a>
+            <input type="search" placeholder="Tìm kiếm..." />
+          </div>
+
+          <div class="header-menu">
+            <span role="button" class="header-notifications">
+              <i class="isax isax-notification"></i>
+              <span class="number">3</span>
+            </span>
+            <span role="button" class="header-language">
+              <img src="assets/icons/uk-flag.svg" alt="flag" />
+            </span>
+            <div class="user-menu">
+              <div class="user-menu-content">
+                <div class="user-menu-welcome">Chào buổi sáng!</div>
+                <div class="user-menu-name">Ngô Xuân Hải</div>
+              </div>
+              <div class="user-menu-avatar">
+                <div class="dropdown">
+                  <button type="button" data-bs-toggle="dropdown">
+                    <img src="assets/images/cliparts/avatar.jpeg" />
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Tài khoản</a></li>
+                    <li>
+                      <a class="dropdown-item" href="login.html">Đăng xuất</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Tài khoản
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <div class="back" onclick="location.href = 'home.html';">
+            <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
+          </div>
+          <h2>Tài khoản</h2>
+        </div>
+
+        <div class="card account-manager-card bg-gray">
+          <nav>
+            <div
+              class="nav nav-tabs"
+              id="nav-tab-account-manager"
+              role="tablist"
+            >
+              <button
+                class="nav-link active"
+                id="payment-account-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#payment-account"
+                type="button"
+                role="tab"
+                aria-controls="payment-account"
+                aria-selected="true"
+              >
+                Tài khoản thanh toán
+              </button>
+              <button
+                class="nav-link"
+                id="deposit-account-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#deposit-account"
+                type="button"
+                role="tab"
+                aria-controls="deposit-account"
+                aria-selected="false"
+              >
+                Tài khoản tiền gửi
+              </button>
+              <button
+                class="nav-link"
+                id="loan-account-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#loan-account"
+                type="button"
+                role="tab"
+                aria-controls="loan-account"
+                aria-selected="false"
+              >
+                Tài khoản vay
+              </button>
+              <button
+                class="nav-link"
+                id="overdraft-account-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#overdraft-account"
+                type="button"
+                role="tab"
+                aria-controls="overdraft-account"
+                aria-selected="false"
+              >
+                Tài khoản thấu chi
+              </button>
+            </div>
+          </nav>
+          <div class="tab-content mt-10" id="nav-tabContent">
+            <div
+              class="tab-pane fade show active contact-area"
+              id="payment-account"
+              role="tabpanel"
+              aria-labelledby="payment-account-tab"
+            >
+              <div class="card" id="collapsed-payment-account">
+                <div class="header">
+                  <div class="account">
+                    <div class="content">Tài khoản thanh toán VND (3)</div>
+                    <div class="title mt-1">
+                      Tống số dư khả dụng:
+                      <span class="amount_money">6.000.000 VND</span>
+                    </div>
+                  </div>
+
+                  <button
+                    class="btn btn-collapse"
+                    onclick="collapsed('collapsed-payment-account')"
+                  >
+                    <img src="assets/icons/arrow-right.svg" alt="arrow-right" />
+                  </button>
+                </div>
+
+                <div class="pt-4 list-card main-content">
+                  <div
+                    class="account-item active"
+                    onclick="location.href = 'account-detail.html';"
+                  >
+                    <div class="left">
+                      <img
+                        class="copy"
+                        src="assets/icons/copy.svg"
+                        alt="copy"
+                      />
+                      <div class="account-number">22118501567455</div>
+                      <div class="badge">Mặc định</div>
+                    </div>
+                    <div class="right">
+                      <div class="balances">
+                        <div class="title">Số dư khả dụng</div>
+                        <div class="money">2.000.000 VND</div>
+                      </div>
+                      <img
+                        class="to-detail"
+                        src="assets/icons/arrow-right.svg"
+                        alt="arrow-right"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="account-item"
+                    onclick="location.href = 'account-detail.html';"
+                  >
+                    <div class="left">
+                      <img
+                        class="copy"
+                        src="assets/icons/copy.svg"
+                        alt="copy"
+                      />
+                      <div class="account-number">22118501567455</div>
+                      <div class="badge">Mặc định</div>
+                    </div>
+                    <div class="right">
+                      <div class="balances">
+                        <div class="title">Số dư khả dụng</div>
+                        <div class="money">2.000.000 VND</div>
+                      </div>
+                      <img
+                        class="to-detail"
+                        src="assets/icons/arrow-right.svg"
+                        alt="arrow-right"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="account-item"
+                    onclick="location.href = 'account-detail.html';"
+                  >
+                    <div class="left">
+                      <img
+                        class="copy"
+                        src="assets/icons/copy.svg"
+                        alt="copy"
+                      />
+                      <div class="account-number">22118501567455</div>
+                      <div class="badge">Mặc định</div>
+                    </div>
+                    <div class="right">
+                      <div class="balances">
+                        <div class="title">Số dư khả dụng</div>
+                        <div class="money">2.000.000 VND</div>
+                      </div>
+                      <img
+                        class="to-detail"
+                        src="assets/icons/arrow-right.svg"
+                        alt="arrow-right"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade contact-area"
+              id="deposit-account"
+              role="tabpanel"
+              aria-labelledby="deposit-account-tab"
+            >
+              <div class="card" id="collapsed-deposit-account">
+                <div class="header">
+                  <div class="account">
+                    <div class="content">Tài khoản tiền gửi VND (3)</div>
+                    <div class="title mt-1">
+                      Tống số dư khả dụng:
+                      <span class="amount_money">4.000.000 VND</span>
+                    </div>
+                  </div>
+
+                  <button
+                    class="btn btn-collapse"
+                    onclick="collapsed('collapsed-deposit-account')"
+                  >
+                    <img src="assets/icons/arrow-right.svg" alt="arrow-right" />
+                  </button>
+                </div>
+
+                <div class="pt-4 list-card main-content">
+                  <div
+                    class="account-item active"
+                    onclick="location.href = 'account-detail.html';"
+                  >
+                    <div class="left">
+                      <img
+                        class="copy"
+                        src="assets/icons/copy.svg"
+                        alt="copy"
+                      />
+                      <div class="account-number">22118501567455</div>
+                      <div class="badge">Mặc định</div>
+                    </div>
+                    <div class="right">
+                      <div class="balances">
+                        <div class="title">Số dư khả dụng</div>
+                        <div class="money">2.000.000 VND</div>
+                      </div>
+                      <img
+                        class="to-detail"
+                        src="assets/icons/arrow-right.svg"
+                        alt="arrow-right"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="account-item"
+                    onclick="location.href = 'account-detail.html';"
+                  >
+                    <div class="left">
+                      <img
+                        class="copy"
+                        src="assets/icons/copy.svg"
+                        alt="copy"
+                      />
+                      <div class="account-number">22118501567455</div>
+                      <div class="badge">Mặc định</div>
+                    </div>
+                    <div class="right">
+                      <div class="balances">
+                        <div class="title">Số dư khả dụng</div>
+                        <div class="money">2.000.000 VND</div>
+                      </div>
+                      <img
+                        class="to-detail"
+                        src="assets/icons/arrow-right.svg"
+                        alt="arrow-right"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade contact-area"
+              id="loan-account"
+              role="tabpanel"
+              aria-labelledby="loan-account-tab"
+            >
+              <div class="card" id="collapsed-loan-account">
+                <div class="header">
+                  <div class="account">
+                    <div class="content">Tài khoản vay VND (3)</div>
+                    <div class="title mt-1">
+                      Tống số dư khả dụng:
+                      <span class="amount_money">2.000.000 VND</span>
+                    </div>
+                  </div>
+
+                  <button
+                    class="btn btn-collapse"
+                    onclick="collapsed('collapsed-loan-account')"
+                  >
+                    <img src="assets/icons/arrow-right.svg" alt="arrow-right" />
+                  </button>
+                </div>
+
+                <div class="pt-4 list-card main-content">
+                  <div
+                    class="account-item active"
+                    onclick="location.href = 'account-detail.html';"
+                  >
+                    <div class="left">
+                      <img
+                        class="copy"
+                        src="assets/icons/copy.svg"
+                        alt="copy"
+                      />
+                      <div class="account-number">22118501567455</div>
+                      <div class="badge">Mặc định</div>
+                    </div>
+                    <div class="right">
+                      <div class="balances">
+                        <div class="title">Số dư khả dụng</div>
+                        <div class="money">2.000.000 VND</div>
+                      </div>
+                      <img
+                        class="to-detail"
+                        src="assets/icons/arrow-right.svg"
+                        alt="arrow-right"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade contact-area"
+              id="overdraft-account"
+              role="tabpanel"
+              aria-labelledby="overdraft-account-tab"
+            >
+              <div class="card" id="collapsed-overdraft-account">
+                <div class="header">
+                  <div class="account">
+                    <div class="content">Tài khoản thấu chi VND (3)</div>
+                    <div class="title mt-1">
+                      Tống số dư khả dụng:
+                      <span class="amount_money">4.000.000 VND</span>
+                    </div>
+                  </div>
+
+                  <button
+                    class="btn btn-collapse"
+                    onclick="collapsed('collapsed-overdraft-account')"
+                  >
+                    <img src="assets/icons/arrow-right.svg" alt="arrow-right" />
+                  </button>
+                </div>
+
+                <div class="pt-4 list-card main-content">
+                  <div
+                    class="account-item active"
+                    onclick="location.href = 'account-detail.html';"
+                  >
+                    <div class="left">
+                      <img
+                        class="copy"
+                        src="assets/icons/copy.svg"
+                        alt="copy"
+                      />
+                      <div class="account-number">22118501567455</div>
+                      <div class="badge">Mặc định</div>
+                    </div>
+                    <div class="right">
+                      <div class="balances">
+                        <div class="title">Số dư khả dụng</div>
+                        <div class="money">2.000.000 VND</div>
+                      </div>
+                      <img
+                        class="to-detail"
+                        src="assets/icons/arrow-right.svg"
+                        alt="arrow-right"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="account-item"
+                    onclick="location.href = 'account-detail.html';"
+                  >
+                    <div class="left">
+                      <img
+                        class="copy"
+                        src="assets/icons/copy.svg"
+                        alt="copy"
+                      />
+                      <div class="account-number">22118501567455</div>
+                      <div class="badge">Mặc định</div>
+                    </div>
+                    <div class="right">
+                      <div class="balances">
+                        <div class="title">Số dư khả dụng</div>
+                        <div class="money">2.000.000 VND</div>
+                      </div>
+                      <img
+                        class="to-detail"
+                        src="assets/icons/arrow-right.svg"
+                        alt="arrow-right"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

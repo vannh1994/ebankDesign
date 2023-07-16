@@ -10,14 +10,19 @@
 }
 
 .transaction-step-2-page .home-container {
-  margin: 30px auto !important;
+  margin: 106px auto !important;
 }
 
 .transaction-step-2-page .btn-back {
   width: 200px;
   font-weight: 700;
   line-height: 20px;
-  padding: 12px 24px !important;
+  padding: 14px 24px !important;
+}
+
+.transaction-step-2-page .btn-submit {
+  padding: 12px 50px !important;
+  width: 200px;
 }
 
 .transfer-info-confirm-block {
@@ -129,6 +134,19 @@
   display: none;
 }
 
+.transaction-step-2-page .group-button-bottom {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.transaction-step-2-page #otp-input {
+  background: unset;
+}
+
 @media (max-width: 991px) {
   .qr-code-block .qr-code-content {
     padding: 0 50px;
@@ -160,10 +178,12 @@
 
   .transfer-info-confirm-block .transfer-info-confirm-item .title {
     font-size: 14px;
+    text-align: left;
   }
 
   .transfer-info-confirm-block .transfer-info-confirm-item .value {
     font-size: 14px;
+    text-align: right;
   }
 
   .page-title.hide-sp h2 {
@@ -176,5 +196,18 @@
 
   .transaction-step-2-page .btn-back {
     width: 100%;
+  }
+
+  .transaction-step-2-page .group-button-bottom {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .transaction-step-2-page .group-button-bottom .btn {
+    width: 100%;
+  }
+
+  .transaction-step-2-page .home-container {
+    margin: 96px auto !important;
   }
 }

@@ -1,5 +1,5 @@
 .transaction-step-3-page .home-container {
-  margin: 30px auto !important;
+  margin: 106px auto !important;
 }
 
 .transfer-success {
@@ -165,6 +165,12 @@
   margin-top: 24px;
 }
 
+@media (max-width: 767px) {
+  .transfer-success .btn-third {
+    padding: 12px 24px !important;
+  }
+}
+
 @media (max-width: 575px) {
   .transfer-success {
     padding: 24px 12px 12px 12px;
@@ -200,7 +206,7 @@
     padding: 8px;
   }
 
-  .transfer-success .btn-third {
-    padding: 12px 24px !important;
+  .transaction-step-3-page .home-container {
+    margin: 96px auto !important;
   }
 }
