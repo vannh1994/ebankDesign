@@ -1,0 +1,82 @@
+.setting-transaction-limit-page .home-container {
+  margin: 106px auto !important;
+}
+
+.setting-transaction-limit-page .input-group.label-transition .form-control {
+  line-height: 20.5px;
+}
+
+.setting-transaction-limit-content {
+  background: #fafafa !important;
+}
+
+.transaction-limit-card {
+  border-radius: 12px;
+  border: 1px solid var(--branding-line, #e9e9e9);
+  background: var(--text-white, #fff);
+  padding: 24px;
+}
+
+.transaction-limit-card .title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #333333;
+}
+
+.transaction-limit-card .sub-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #333333;
+  margin-top: 24px;
+}
+
+.setting-transaction-limit-page .group-button-bottom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.setting-transaction-limit-page .btn-back {
+  width: 200px;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 14px 24px !important;
+}
+
+.setting-transaction-limit-page .btn-submit {
+  padding: 12px 50px !important;
+  width: 200px;
+}
+
+@media (max-width: 991px) {
+  .setting-transaction-limit-page .btn-back,
+  .setting-transaction-limit-page .btn-submit {
+    width: unset;
+    padding: 12px 36px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .setting-transaction-limit-page .btn-back {
+    width: 100%;
+  }
+
+  .setting-transaction-limit-page .group-button-bottom {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .setting-transaction-limit-page .group-button-bottom .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .setting-transaction-limit-page .home-container {
+    margin: 96px auto !important;
+  }
+}

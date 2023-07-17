@@ -1,3 +1,7 @@
+.pay-bills-page .home-container {
+  margin: 106px auto !important;
+}
+
 .pay-bills-page .pay-bills-content {
   padding: 32px 16px;
 }
@@ -20,4 +24,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+@media (max-width: 575px) {
+  .pay-bills-page .home-container {
+    margin: 96px auto !important;
+  }
 }

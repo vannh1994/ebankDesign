@@ -178,6 +178,7 @@ h6 {
 
 .input-group .input-group-append .input-group-text {
   padding-left: 8px !important;
+  color: #777777;
 }
 
 .login-page .form-control {
@@ -396,7 +397,7 @@ input[type="search"]::-webkit-input-placeholder {
 }
 
 .child-page.page-background {
-  background: linear-gradient(0deg, #19226d 75.83%, #ed1c24 100%);
+  background: linear-gradient(0deg, #19226d 50%, #ed1c24 100%);
 }
 
 .child-page.page-background .page-background {
@@ -404,6 +405,22 @@ input[type="search"]::-webkit-input-placeholder {
   bottom: 0;
   right: 0;
   z-index: -1;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.pointer-events-none {
+  pointer-events: none;
 }
 
 @media (max-width: 575px) {

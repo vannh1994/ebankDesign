@@ -84,10 +84,6 @@
 }
 
 @media (max-width: 767px) {
-  .direct-transfer-log-page .home-container {
-    margin: 96px auto !important;
-  }
-
   .direct-transfer-log-page .filter-actions {
     flex-direction: column;
   }
@@ -95,5 +91,14 @@
   .direct-transfer-log-page .filter-actions .btn {
     width: 100%;
     margin-top: 0;
+  }
+  .pay-bills-page .home-container {
+    max-width: 600px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .direct-transfer-log-page .home-container {
+    margin: 96px auto !important;
   }
 }
