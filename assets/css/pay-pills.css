@@ -1,0 +1,23 @@
+.pay-bills-page .pay-bills-content {
+  padding: 32px 16px;
+}
+
+.pay-bills-page .pay-bills-content .pay-bills-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #333333;
+}
+
+.pay-bill-card {
+  display: flex;
+  align-items: flex-start;
+}
+
+.pay-bills-area {
+  flex: 1 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

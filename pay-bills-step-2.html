@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Chuyển tiền VRB đến số tài khoản | VRB</title>
+    <title>Thanh toán hóa đơn | VRB</title>
     <meta name="viewport" content="width=375, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
@@ -30,8 +30,8 @@
     <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
   </head>
 
-  <body class="child-page page-background transaction-step-3-page">
-    <div class="page-content">
+  <body class="child-page page-background transaction-step-2-page">
+    <div class="page-content" id="app">
       <div class="list-small-icons">
         <div class="item">
           <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
@@ -98,26 +98,19 @@
                   Trang chủ
                 </a>
               </li>
-              <li
-                onclick="location.href = 'transfer-inter.html';"
-                class="breadcrumb-item"
-                aria-current="page"
-              >
-                Chuyển tiền
-              </li>
+              <li class="breadcrumb-item" aria-current="page">Dịch vụ thẻ</li>
               <li class="breadcrumb-item active" aria-current="page">
-                Chuyển tiền VRB đến số tài khoản
+                Thanh toán hóa đơn
               </li>
             </ol>
           </nav>
         </div>
 
         <div class="page-title">
-          <a class="back" href="inter-bank-step-1.html">
+          <a class="back" href="pay-bills-step-1.html">
             <i class="isax isax-arrow-left-2"></i>
           </a>
-          <h2>Chuyển tiền VRB đến số tài khoản</h2>
-          <h2 class="title-sp">Chuyển tiền ngoài VRB</h2>
+          <h2>Thanh toán hóa đơn</h2>
         </div>
 
         <div class="transaction-step">
@@ -130,8 +123,8 @@
             <div class="step">2</div>
             <div class="text">Xác nhận</div>
           </div>
-          <div class="progress active"></div>
-          <div class="step-item active">
+          <div class="progress"></div>
+          <div class="step-item">
             <div class="step">3</div>
             <div class="text">Kết quả</div>
           </div>
@@ -139,61 +132,109 @@
 
         <div class="card">
           <div class="card-body p-3">
-            <div class="transfer-success">
-              <div class="logo-bank">
-                <img src="assets/icons/logo.svg" alt="logo" />
-              </div>
-              <div class="transaction-success">
-                <img src="assets/icons/success.svg" alt="success" />
-                <div class="title">Giao dịch thành công</div>
-              </div>
-              <div class="time">27/04/2023 14:05:36</div>
-              <p class="message">
-                Chuyển thành công đến
-                <span class="name">VU THI PHUONG </span> số tiền
-                <span class="money">100,000 VND</span>
-                <br />
-                ngân hàng <span class="bank">Vietcombank.</span> Nội dung
-                <span class="content">NGO XUAN HAI chuyen tien</span>
-              </p>
+            <div class="transfer-info">
+              <h2 class="title">Thông tin thanh toán</h2>
 
-              <div class="dotted-border"></div>
-
-              <div class="transfer-code">
-                Số tham chiếu: <span class="code">358654455</span>
+              <div class="transfer-info-confirm-block">
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Tài khoản nguồn</div>
+                  <div class="value">00118508898</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Dịch vụ</div>
+                  <div class="value highlight">
+                    Điện thoại di động/3G trả sau
+                  </div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Nhà cung cấp</div>
+                  <div class="value highlight">VIETTEL</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Mã KH.SĐT/Số HĐ</div>
+                  <div class="value">00118506789</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Kỳ thanh toán</div>
+                  <div class="value">Tháng 8</div>
+                </div>
               </div>
 
-              <div class="bottom-list">
-                <div class="list-item">
-                  <i class="isax isax-gallery"></i>
-                  <span>Lưu ảnh</span>
+              <div class="transfer-info-confirm-block mt-3">
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Số tiền</div>
+                  <div class="value highlight">100,000 VND</div>
                 </div>
-                <div class="list-item">
-                  <i class="isax isax-share"></i>
-                  <span>Chia sẻ</span>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Số tiền bằng chữ</div>
+                  <div class="value highlight">Một trăm nghàn đồng</div>
                 </div>
-                <div class="list-item">
-                  <i class="isax isax-ticket-star"></i>
-                  <span>Lưu mẫu</span>
+              </div>
+
+              <div class="transfer-info-confirm-block mt-3">
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Phí giao dịch</div>
+                  <div class="value highlight">0 VND</div>
                 </div>
-                <div class="list-item">
-                  <i class="isax isax-add-circle"></i>
-                  <span>Thêm chi tiêu</span>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Số tiền được quy đổi</div>
+                  <div class="value">5.5 USD</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Hình thức xác thực</div>
+                  <div class="value">Smart OTP</div>
+                </div>
+              </div>
+
+              <div class="qr-code-block">
+                <div class="qr-code-content">
+                  <div class="description">
+                    Giao dịch đang chờ xác thực bằng phương thức Smart OTP trên
+                    ứng dụng VRB bank kênh điện thoại của Quý khách
+                  </div>
+                  <div class="time-expired">
+                    Hiệu lực giao dịch còn <span>{{ timerCount }} giây</span>
+                  </div>
+                  <div class="qr-code">
+                    <img src="assets/images/cliparts/qr-code.svg" alt="qr" />
+                  </div>
+                  <div class="warning">
+                    Quý khách vui lòng KHÔNG tắt trình duyệt cho đến khi nhận
+                    được kết quả giao dịch trên Internet Banking. Xin cảm ơn!
+                  </div>
+
+                  <div class="input-group label-transition mt-2 mb-4">
+                    <div class="form-label">
+                      <input
+                        type="text"
+                        v-model="otpCode"
+                        id="otp-input"
+                        class="form-control input-text-bold"
+                        name="money"
+                      />
+                      <label for="money">Mã OTP</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="preview">
+                  <img src="assets/images/cliparts/phone.png" alt="phone" />
                 </div>
               </div>
 
               <div class="group-button-bottom">
                 <button
-                  class="btn btn-third"
-                  onclick="location.href = 'transfer-inter.html';"
+                  class="btn btn-third btn-submit"
+                  :disabled="!otpCode.length"
+                  onclick="location.href = 'pay-bills-step-3.html';"
                 >
-                  Tạo giao dịch mới
+                  Xác nhận
                 </button>
+
                 <button
-                  class="btn btn-primary btn-back-to-home"
-                  onclick="location.href = 'home.html';"
+                  class="btn btn-primary btn-back"
+                  onclick="location.href = 'pay-bills-step-1.html';"
                 >
-                  Về trang chủ
+                  Quay lại
                 </button>
               </div>
             </div>
@@ -244,5 +285,36 @@
 
     <!-- BS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./assets/js/vue.js"></script>
+    <script type="module">
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          const timerCount = ref(30);
+          const otpCode = ref("");
+          return {
+            timerCount,
+            otpCode,
+          };
+        },
+
+        watch: {
+          timerCount: {
+            handler(value) {
+              if (value > 0) {
+                setTimeout(() => {
+                  this.timerCount--;
+                }, 1000);
+              } else {
+                window.location = "transaction-error.html";
+              }
+            },
+            immediate: true,
+          },
+        },
+      }).mount("#app");
+    </script>
   </body>
 </html>
