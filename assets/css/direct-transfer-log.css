@@ -1,14 +1,99 @@
-.input-search-select {
+.direct-transfer-log-page .home-container {
+  margin: 106px auto !important;
+}
+
+.direct-transfer-log-page .input-search-select {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
 }
 
-.input-search-select label {
+.direct-transfer-log-page .input-search-select label {
   width: 25%;
+  margin-bottom: 0;
+  font-weight: 500;
 }
 
-.input-search-select select {
+.direct-transfer-log-page .input-search-select select {
   width: 75%;
+}
+
+.direct-transfer-log-page .input-search-range {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.direct-transfer-log-page .input-search-range label {
+  width: 25%;
+  min-width: 25%;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.direct-transfer-log-page .filter-actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.direct-transfer-log-page .filter-actions .btn {
+  margin-top: 16px;
+  padding: 8px 32px !important;
+  height: 40px;
+}
+
+.direct-transfer-log-page table td.actions {
+  text-align: center;
+}
+
+.direct-transfer-log-page table td.actions i {
+  font-size: 16px;
+  cursor: pointer;
+  color: #002d85;
+  margin-right: 8px;
+}
+
+.direct-transfer-log-page .table-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid #ced4da;
+  padding-bottom: 10px;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.direct-transfer-log-page .table-actions .btn-action {
+  color: #002d85 !important;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.direct-transfer-log-page .table-actions .btn-action:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .direct-transfer-log-page .home-container {
+    margin: 96px auto !important;
+  }
+
+  .direct-transfer-log-page .filter-actions {
+    flex-direction: column;
+  }
+
+  .direct-transfer-log-page .filter-actions .btn {
+    width: 100%;
+    margin-top: 0;
+  }
 }

@@ -290,28 +290,8 @@
   justify-content: center;
 }
 
-.account-detail-page .pagination-group .page-link {
-  font-size: 14px;
-  font-weight: 600;
-  color: #777;
-}
-
-.account-detail-page .pagination-group .page-link:hover {
-  color: #556ee6;
-  color: #fff;
-  background-color: #556ee6;
-  border-color: #556ee6;
-}
-
-.account-detail-page .pagination-group .page-item.active .page-link {
-  color: #556ee6;
-  color: #fff;
-  background-color: #556ee6;
-  border-color: #556ee6;
-}
-
 .account-detail-page .content-detail-page {
-  padding: 24px 80px !important;
+  padding: 24px 38px !important;
 }
 
 .account-detail-page .title-account-detail {
@@ -366,10 +346,6 @@
 
   .account-detail-page .input-range label {
     width: 19%;
-  }
-
-  .account-detail-page .content-detail-page {
-    padding: 24px 48px !important;
   }
 }
 

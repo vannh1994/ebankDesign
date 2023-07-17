@@ -28,7 +28,7 @@
     />
   </head>
 
-  <body class="child-page page-background account-detail-page">
+  <body class="child-page page-background direct-transfer-log-page">
     <div class="page-content">
       <div class="header-fixed">
         <div class="container">
@@ -109,7 +109,7 @@
                   aria-labelledby="nav-all-tab"
                 >
                   <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-md-6 mt-3">
                       <div class="input-search-select">
                         <label>Số tài khoản</label>
                         <select class="form-select">
@@ -121,7 +121,7 @@
                       </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-12 col-md-6 mt-3">
                       <div class="input-search-select">
                         <label>Loại giao dịch</label>
                         <select class="form-select">
@@ -135,8 +135,32 @@
                       </div>
                     </div>
 
-                    <div class="col-6 mt-3">
-                      <div class="input-range">
+                    <div class="col-12 col-md-6 mt-3">
+                      <div class="input-search-select">
+                        <label>Loại tiền</label>
+                        <select class="form-select">
+                          <option value=""></option>
+                          <option value="">VND</option>
+                          <option value="">USD</option>
+                          <option value="">RUB</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 mt-3">
+                      <div class="input-search-select">
+                        <label>Trạng thái</label>
+                        <select class="form-select">
+                          <option value=""></option>
+                          <option value="">Thành công</option>
+                          <option value="">Thất bại</option>
+                          <option value="">Huỷ</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 mt-3">
+                      <div class="input-search-range">
                         <label>Ngày giao dịch</label>
                         <input type="date" class="form-control" />
                         <span>~</span>
@@ -144,35 +168,70 @@
                       </div>
                     </div>
 
-                    <div class="col-6 mt-3">
-                      <div class="input-range">
+                    <div class="col-12 col-md-6 mt-3">
+                      <div class="input-search-range">
                         <label>Số tiền từ</label>
                         <input type="number" value="0" class="form-control" />
                         <span>~</span>
                         <input type="number" value="0" class="form-control" />
                       </div>
                     </div>
+
+                    <div class="col-12 mt-3">
+                      <div class="filter-actions">
+                        <button class="btn btn-primary btn-clear">
+                          Làm mới điều kiện
+                        </button>
+                        <button class="btn btn-third">Tìm kiếm</button>
+                      </div>
+                    </div>
                   </div>
-                  <div class="table-log table-responsive mt-4">
-                    <table class="table">
+
+                  <div class="table-actions">
+                    <button class="btn btn-action">
+                      Xuất PDF <i class="isax isax-document-download"></i>
+                    </button>
+                    <button class="btn btn-action">
+                      Xuất excel <i class="isax isax-document-download"></i>
+                    </button>
+                    <button class="btn btn-action">
+                      In chứng từ <i class="isax isax-document-download"></i>
+                    </button>
+                  </div>
+
+                  <div class="table-log table-responsive mt-2">
+                    <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Tài khoản nguồn</th>
-                          <th scope="col">Số trace</th>
-                          <th scope="col">Loại giao dịch</th>
-                          <th scope="col">Số giao dịch</th>
-                          <th scope="col">Ngày giao dịch</th>
-                          <th scope="col">Tài khoản thụ hưởng</th>
-                          <th scope="col">Số tiền</th>
-                          <th scope="col">Loại tiền</th>
-                          <th scope="col">Trạng thái</th>
-                          <th scope="col">Hành động</th>
+                          <th>
+                            <input
+                              type="checkbox"
+                              class="select-all checkbox"
+                              name="select-all"
+                            />
+                          </th>
+                          <th>Tài khoản nguồn</th>
+                          <th>Số trace</th>
+                          <th>Loại giao dịch</th>
+                          <th>Số giao dịch</th>
+                          <th>Ngày giao dịch</th>
+                          <th>Tài khoản thụ hưởng</th>
+                          <th>Số tiền</th>
+                          <th>Loại tiền</th>
+                          <th>Trạng thái</th>
+                          <th>Hành động</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <th scope="row">1</th>
+                          <td class="active">
+                            <input
+                              type="checkbox"
+                              class="select-item checkbox"
+                              name="select-item"
+                              value="1000"
+                            />
+                          </td>
                           <td>111122223333</td>
                           <td>1234</td>
                           <td>Ngoài hệ thống</td>
@@ -182,12 +241,20 @@
                           <td>2.500.000</td>
                           <td>VND</td>
                           <td>Thành công</td>
-                          <td>
-                            <i class="isax isax-edit"></i>
+                          <td class="actions">
+                            <i class="isax isax-message-edit"></i>
+                            <i class="isax isax-message-text-1 ml-2"></i>
                           </td>
                         </tr>
                         <tr>
-                          <th scope="row">2</th>
+                          <td class="active">
+                            <input
+                              type="checkbox"
+                              class="select-item checkbox"
+                              name="select-item"
+                              value="1000"
+                            />
+                          </td>
                           <td>111122223333</td>
                           <td>1234</td>
                           <td>Ngoài hệ thống</td>
@@ -197,19 +264,43 @@
                           <td>2.500.000</td>
                           <td>VND</td>
                           <td>Thất bại</td>
-                          <td>
-                            <i class="isax isax-edit"></i>
+                          <td class="actions">
+                            <i class="isax isax-message-edit"></i>
+                            <i class="isax isax-message-text-1 ml-2"></i>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="active">
+                            <input
+                              type="checkbox"
+                              class="select-item checkbox"
+                              name="select-item"
+                              value="1000"
+                            />
+                          </td>
+                          <td>111122223333</td>
+                          <td>1234</td>
+                          <td>Ngoài hệ thống</td>
+                          <td>FT123456789</td>
+                          <td>17/04/2023</td>
+                          <td>111000234143</td>
+                          <td>2.500.000</td>
+                          <td>VND</td>
+                          <td>Huỷ</td>
+                          <td class="actions">
+                            <i class="isax isax-message-edit"></i>
+                            <i class="isax isax-message-text-1 ml-2"></i>
                           </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
 
-                  <nav class="pagination-group">
+                  <nav class="pagination-group mt-3">
                     <ul class="pagination">
                       <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
-                          <span aria-hidden="true">&laquo;</span>
+                          <i class="isax isax-arrow-left"></i>
                         </a>
                       </li>
                       <li class="page-item active">
@@ -223,7 +314,7 @@
                       </li>
                       <li class="page-item">
                         <a class="page-link" href="#" aria-label="Next">
-                          <span aria-hidden="true">&raquo;</span>
+                          <i class="isax isax-arrow-right-1"></i>
                         </a>
                       </li>
                     </ul>
