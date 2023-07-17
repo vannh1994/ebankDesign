@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Nhật ký chuyển khoản trực tiếp | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body class="child-page page-background account-detail-page">
+    <div class="page-content">
+      <div class="header-fixed">
+        <div class="container">
+          <div class="logo-and-search">
+            <a class="logo" href="login.html">
+              <img src="assets/icons/logo-dark.svg" alt="logo" />
+            </a>
+            <input type="search" placeholder="Tìm kiếm..." />
+          </div>
+
+          <div class="header-menu">
+            <span role="button" class="header-notifications">
+              <i class="isax isax-notification"></i>
+              <span class="number">3</span>
+            </span>
+            <span role="button" class="header-language">
+              <img src="assets/icons/uk-flag.svg" alt="flag" />
+            </span>
+            <div class="user-menu">
+              <div class="user-menu-content">
+                <div class="user-menu-welcome">Chào buổi sáng!</div>
+                <div class="user-menu-name">Ngô Xuân Hải</div>
+              </div>
+              <div class="user-menu-avatar">
+                <div class="dropdown">
+                  <button type="button" data-bs-toggle="dropdown">
+                    <img src="assets/images/cliparts/avatar.jpeg" />
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Tài khoản</a></li>
+                    <li>
+                      <a class="dropdown-item" href="login.html">Đăng xuất</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Nhật ký chuyển khoản trực tiếp
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <div class="back" onclick="location.href = 'home.html';">
+            <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
+          </div>
+          <h2>Nhật ký chuyển khoản trực tiếp</h2>
+        </div>
+
+        <div class="card">
+          <div class="main-content">
+            <div class="row">
+              <div class="col-12">
+                <div
+                  class="tab-pane fade show active contact-area"
+                  id="nav-all"
+                  role="tabpanel"
+                  aria-labelledby="nav-all-tab"
+                >
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="input-search-select">
+                        <label>Số tài khoản</label>
+                        <select class="form-select">
+                          <option value=""></option>
+                          <option value="111122223333">111122223333</option>
+                          <option value="111122223333">111122223333</option>
+                          <option value="111122223333">111122223333</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-6">
+                      <div class="input-search-select">
+                        <label>Loại giao dịch</label>
+                        <select class="form-select">
+                          <option value=""></option>
+                          <option value="Chuyển tiền">Chuyển tiền</option>
+                          <option value="Nhận tiền">Nhận tiền</option>
+                          <option value="Thanh toán hoá đơn">
+                            Thanh toán hoá đơn
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-6 mt-3">
+                      <div class="input-range">
+                        <label>Ngày giao dịch</label>
+                        <input type="date" class="form-control" />
+                        <span>~</span>
+                        <input type="date" class="form-control" />
+                      </div>
+                    </div>
+
+                    <div class="col-6 mt-3">
+                      <div class="input-range">
+                        <label>Số tiền từ</label>
+                        <input type="number" value="0" class="form-control" />
+                        <span>~</span>
+                        <input type="number" value="0" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="table-log table-responsive mt-4">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Tài khoản nguồn</th>
+                          <th scope="col">Số trace</th>
+                          <th scope="col">Loại giao dịch</th>
+                          <th scope="col">Số giao dịch</th>
+                          <th scope="col">Ngày giao dịch</th>
+                          <th scope="col">Tài khoản thụ hưởng</th>
+                          <th scope="col">Số tiền</th>
+                          <th scope="col">Loại tiền</th>
+                          <th scope="col">Trạng thái</th>
+                          <th scope="col">Hành động</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>111122223333</td>
+                          <td>1234</td>
+                          <td>Ngoài hệ thống</td>
+                          <td>FT123456789</td>
+                          <td>17/04/2023</td>
+                          <td>111000234143</td>
+                          <td>2.500.000</td>
+                          <td>VND</td>
+                          <td>Thành công</td>
+                          <td>
+                            <i class="isax isax-edit"></i>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>111122223333</td>
+                          <td>1234</td>
+                          <td>Ngoài hệ thống</td>
+                          <td>FT123456789</td>
+                          <td>17/04/2023</td>
+                          <td>111000234143</td>
+                          <td>2.500.000</td>
+                          <td>VND</td>
+                          <td>Thất bại</td>
+                          <td>
+                            <i class="isax isax-edit"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <nav class="pagination-group">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

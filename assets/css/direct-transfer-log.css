@@ -1,0 +1,14 @@
+.input-search-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.input-search-select label {
+  width: 25%;
+}
+
+.input-search-select select {
+  width: 75%;
+}
