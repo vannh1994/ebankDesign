@@ -268,12 +268,7 @@
     font-size: 14px;
   }
 
-  #nav-tab-account-manager {
-    gap: 8px;
-  }
-
   #nav-tab-account-manager .nav-link {
-    width: calc(50% - 4px);
     padding: 10px;
     font-size: 14px;
   }
@@ -320,5 +315,10 @@
 
   .account-page .home-container {
     margin: 90px auto !important;
+  }
+
+  #nav-tab-account-manager .nav-link {
+    padding: 6px 0;
+    font-size: 12px;
   }
 }

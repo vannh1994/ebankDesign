@@ -103,115 +103,758 @@
 
         <div class="card">
           <div class="main-content content-detail-page">
+            <div class="card">
+              <div class="account-card">
+                <div class="card-info">
+                  <div class="info-item">
+                    <div class="title bold">Số tài khoản</div>
+                    <div class="info bold">00118506098</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Chủ tài khoản</div>
+                    <div class="info">NGO XUAN HAI</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Số dư khả dụng</div>
+                    <div class="info">8,888,000,000</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
-              <div class="col-12">
-                <div class="card">
-                  <div class="account-card">
-                    <div class="card-info">
-                      <div class="info-item">
-                        <div class="title bold">Số tài khoản</div>
-                        <div class="info bold">00118506098</div>
+              <div class="col-12 col-lg-7">
+                <nav>
+                  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button
+                      class="nav-link active"
+                      id="nav-all-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#nav-all"
+                      type="button"
+                      role="tab"
+                      aria-controls="nav-all"
+                      aria-selected="true"
+                    >
+                      Tất cả
+                    </button>
+                    <button
+                      class="nav-link"
+                      id="nav-money-out-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#nav-money-out"
+                      type="button"
+                      role="tab"
+                      aria-controls="nav-money-out"
+                      aria-selected="false"
+                    >
+                      Tiền ra
+                    </button>
+                    <button
+                      class="nav-link"
+                      id="nav-money-in-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#nav-money-in"
+                      type="button"
+                      role="tab"
+                      aria-controls="nav-money-in"
+                      aria-selected="false"
+                    >
+                      Tiền vào
+                    </button>
+                  </div>
+                </nav>
+                <div class="tab-content mt-10" id="nav-tabContent">
+                  <div
+                    class="tab-pane fade show active contact-area"
+                    id="nav-all"
+                    role="tabpanel"
+                    aria-labelledby="nav-all-tab"
+                  >
+                    <div
+                      class="d-flex justify-content-between flex-column gap-4 mt-3"
+                    >
+                      <div class="input-range">
+                        <label>Ngày giao dịch</label>
+                        <input type="date" class="form-control" />
+                        <span>~</span>
+                        <input type="date" class="form-control" />
                       </div>
-                      <div class="info-item">
-                        <div class="title">Chủ tài khoản</div>
-                        <div class="info">NGO XUAN HAI</div>
+
+                      <div class="input-range">
+                        <label>Số tiền từ</label>
+                        <input type="number" value="0" class="form-control" />
+                        <span>~</span>
+                        <input type="number" value="0" class="form-control" />
                       </div>
-                      <div class="info-item">
-                        <div class="title">Số dư khả dụng</div>
-                        <div class="info">8,888,000,000</div>
-                      </div>
-                      <div class="info-item">
-                        <div class="title"></div>
-                        <div class="info">
-                          <button class="btn btn-primary"  onclick="location.href = 'account-history-detail.html';">
-                            Chi tiết <i class="isax isax-arrow-right-3"></i>
-                          </button>
+
+                      <div class="input-range">
+                        <label>Danh bạ</label>
+                        <div class="input-search flex-fill">
+                          <i class="isax isax-search-normal-1"></i>
+                          <input
+                            placeholder="Tìm kiếm danh bạ"
+                            class="form-control"
+                          />
                         </div>
                       </div>
                     </div>
+                    <div class="account-histories">
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money red">-200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money red">-200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money">+200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money">+200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money red">-200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="action-group">
+                      <nav class="pagination-group">
+                        <ul class="pagination">
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <i class="isax isax-arrow-left"></i>
+                            </a>
+                          </li>
+                          <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">...</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                              <i class="isax isax-arrow-right-1"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                      <div class="group-button">
+                        <button class="btn btn-primary">
+                          Xuất PDF <img src="assets/icons/pdf.svg" alt="pdf" />
+                        </button>
+                        <button class="btn btn-primary">
+                          Xuất excel
+                          <img src="assets/icons/excel.svg" alt="excel" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="tab-pane fade contact-area"
+                    id="nav-money-out"
+                    role="tabpanel"
+                    aria-labelledby="nav-money-out-tab"
+                  >
+                    <div
+                      class="d-flex justify-content-between flex-column gap-4 mt-3"
+                    >
+                      <div class="input-range">
+                        <label>Ngày giao dịch</label>
+                        <input type="date" class="form-control" />
+                        <span>~</span>
+                        <input type="date" class="form-control" />
+                      </div>
+
+                      <div class="input-range">
+                        <label>Số tiền từ</label>
+                        <input type="number" value="0" class="form-control" />
+                        <span>~</span>
+                        <input type="number" value="0" class="form-control" />
+                      </div>
+
+                      <div class="input-range">
+                        <label>Danh bạ</label>
+                        <div class="input-search flex-fill">
+                          <i class="isax isax-search-normal-1"></i>
+                          <input
+                            placeholder="Tìm kiếm danh bạ"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="account-histories">
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money red">-200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money red">-200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money red">-200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money red">-200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money red">-200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="action-group">
+                      <nav class="pagination-group">
+                        <ul class="pagination">
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <i class="isax isax-arrow-left"></i>
+                            </a>
+                          </li>
+                          <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">...</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                              <i class="isax isax-arrow-right-1"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                      <div class="group-button">
+                        <button class="btn btn-primary">
+                          Xuất PDF <img src="assets/icons/pdf.svg" alt="pdf" />
+                        </button>
+                        <button class="btn btn-primary">
+                          Xuất excel
+                          <img src="assets/icons/excel.svg" alt="excel" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="tab-pane fade contact-area"
+                    id="nav-money-in"
+                    role="tabpanel"
+                    aria-labelledby="nav-money-in-tab"
+                  >
+                    <div
+                      class="d-flex justify-content-between flex-column gap-4 mt-3"
+                    >
+                      <div class="input-range">
+                        <label>Ngày giao dịch</label>
+                        <input type="date" class="form-control" />
+                        <span>~</span>
+                        <input type="date" class="form-control" />
+                      </div>
+
+                      <div class="input-range">
+                        <label>Số tiền từ</label>
+                        <input type="number" value="0" class="form-control" />
+                        <span>~</span>
+                        <input type="number" value="0" class="form-control" />
+                      </div>
+
+                      <div class="input-range">
+                        <label>Danh bạ</label>
+                        <div class="input-search flex-fill">
+                          <i class="isax isax-search-normal-1"></i>
+                          <input
+                            placeholder="Tìm kiếm danh bạ"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="account-histories">
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money">+200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money">+200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money">+200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money">+200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+
+                      <div class="history-item">
+                        <div class="info flex-fill">
+                          <div
+                            class="message"
+                            data-bs-toggle="modal"
+                            data-bs-target="#transfer-detail"
+                          >
+                            PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
+                          </div>
+                          <div class="code">Mã GD:6842354</div>
+                        </div>
+                        <div class="bill">
+                          <div class="transfer-time">
+                            10/25/06/2023 11:24:00
+                          </div>
+                          <div class="money">+200,000</div>
+                        </div>
+                        <div class="icon">
+                          <i
+                            class="isax isax-add-circle"
+                            data-bs-toggle="modal"
+                            data-bs-target="#catalog"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="action-group">
+                      <nav class="pagination-group">
+                        <ul class="pagination">
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <i class="isax isax-arrow-left"></i>
+                            </a>
+                          </li>
+                          <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">...</a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                              <i class="isax isax-arrow-right-1"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                      <div class="group-button">
+                        <button class="btn btn-primary">
+                          Xuất PDF <img src="assets/icons/pdf.svg" alt="pdf" />
+                        </button>
+                        <button class="btn btn-primary">
+                          Xuất excel
+                          <img src="assets/icons/excel.svg" alt="excel" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-5 card-bg-gray">
+                <div class="title-account-detail">Thông tin tài khoản</div>
+                <div class="account-info">
+                  <div class="info-item">
+                    <div class="title">Mã khách hàng (CIF)</div>
+                    <div class="info">00001</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Số tài khoản tham chiếu</div>
+                    <div class="info">0000011146585553</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Loại sản phẩm</div>
+                    <div class="info">TK THANH TOAN TRUC TUYEN</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Chi nhánh quản lý</div>
+                    <div class="info">CN HA NOI</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Ngày mở</div>
+                    <div class="info">10/04/2021</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Ngày giao dịch cuối cùng</div>
+                    <div class="info">10/04/2023</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Thời điểm truy vấn</div>
+                    <div class="info">08/02/2023</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Trạng thái</div>
+                    <div class="info">Hoạt động</div>
                   </div>
                 </div>
 
-                <div class="card card-bg-gray">
-                  <div class="title-account-detail">Thông tin tài khoản</div>
-                  <div class="account-info">
-                    <div class="info-item">
-                      <div class="title">Mã khách hàng (CIF)</div>
-                      <div class="info">00001</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Tên tài khoản</div>
-                      <div class="info">THÁI THỊ LƯƠNG</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Số tài khoản</div>
-                      <div class="info">000001114658</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Số tài khoản tham chiếu</div>
-                      <div class="info">0000011146585553</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Loại sản phẩm</div>
-                      <div class="info">TK THANH TOAN TRUC TUYEN</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Chi nhánh quản lý</div>
-                      <div class="info">CN HA NOI</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Ngày mở</div>
-                      <div class="info">10/04/2021</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Ngày giao dịch cuối cùng</div>
-                      <div class="info">10/04/2023</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Thời điểm truy vấn</div>
-                      <div class="info">08/02/2023</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Trạng thái</div>
-                      <div class="info">Hoạt động</div>
-                    </div>
+                <div class="title-account-detail mt-4">Chi tiết số dư</div>
+                <div class="account-info">
+                  <div class="info-item">
+                    <div class="title">Loại tiền</div>
+                    <div class="info">VND</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Số dư</div>
+                    <div class="info">0 VND</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Số dư khả dụng</div>
+                    <div class="info">0 VND</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Số tiền phong tỏa</div>
+                    <div class="info">0 VND</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Lãi suất ̣(%/năm)</div>
+                    <div class="info">1.5</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Lãi cộng dồn tạm tính</div>
+                    <div class="info">0 VND</div>
                   </div>
                 </div>
 
-                <div class="card card-bg-gray">
-                  <div class="title-account-detail">Thông tin tài khoản</div>
-                  <div class="account-info">
-                    <div class="info-item">
-                      <div class="title">Loại tiền</div>
-                      <div class="info">VND</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Số dư</div>
-                      <div class="info">0 VND</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Số dư khả dụng</div>
-                      <div class="info">0 VND</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Số tiền phong tỏa</div>
-                      <div class="info">0 VND</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Lãi suất ̣(%/năm)</div>
-                      <div class="info">1.5</div>
-                    </div>
-                    <div class="info-item">
-                      <div class="title">Lãi cộng dồn tạm tính</div>
-                      <div class="info">0 VND</div>
+                <div class="action mt-3">
+                  <div class="default-account">
+                    <div class="d-flex">
+                      <input class="form-check-input" type="checkbox" checked />
+                      <span class="form-check-label"> Tài khoản mặc định </span>
                     </div>
                   </div>
-                </div>
-
-                <div class="card card-bg-gray">
-                  <div class="account-default">
-                    <input class="form-check-input" type="checkbox" checked />
-                    <span class="form-check-label"> Tài khoản mặc định </span>
+                  <div class="transfer">
+                    <img src="assets/icons/bank.svg" alt="bank" />
+                    <span>Chuyển tiền</span>
                   </div>
                 </div>
               </div>
@@ -253,6 +896,140 @@
                 <span class="phone"> 18006656 </span>
               </div>
             </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal transfer detail -->
+      <div class="modal" id="transfer-detail">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Chi tiết giao dịch</h4>
+              <span class="close" data-bs-dismiss="modal">Đóng</span>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="account-info">
+                <div class="info-item">
+                  <div class="title">Mã giao dịch</div>
+                  <div class="info">123456987</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Ngày giao dịch</div>
+                  <div class="info">14/07/2023 00:00:00</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Số tiền</div>
+                  <div class="info">15,000,000</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Phí</div>
+                  <div class="info">0</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Trạng thái</div>
+                  <div class="info">Giao dịch thành công</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Kênh giao dịch</div>
+                  <div class="info">Internet Banking</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Tài khoản thụ hưởng</div>
+                  <div class="info">001185019425</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Người thụ hưởng</div>
+                  <div class="info">NGUYEN VAN A</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Ngân hàng thụ hưởng</div>
+                  <div class="info">TECHCOMBANK</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Nội dung</div>
+                  <div class="info">NGO XUAN HAI Chuyen tien</div>
+                </div>
+              </div>
+
+              <button class="btn btn-third btn-back" data-bs-dismiss="modal">
+                Quay lại
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal catalog -->
+      <div class="modal" id="catalog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Danh mục chi</h4>
+              <span class="close" data-bs-dismiss="modal">Đóng</span>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="catalog-list">
+                <div class="catalog-item">
+                  <div class="icon">
+                    <i class="isax isax-dollar-circle"></i>
+                  </div>
+                  <div class="title">Lương</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <i class="isax isax-dollar-circle"></i>
+                  </div>
+                  <div class="title">Thưởng</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <i class="isax isax-dollar-circle"></i>
+                  </div>
+                  <div class="title">Thu khác</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <i class="isax isax-dollar-circle"></i>
+                  </div>
+                  <div class="title">Lãi tiết kiểm</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <i class="isax isax-dollar-circle"></i>
+                  </div>
+                  <div class="title">Lãi kinh doanh</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <i class="isax isax-dollar-circle"></i>
+                  </div>
+                  <div class="title">Tích luỹ</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <i class="isax isax-dollar-circle"></i>
+                  </div>
+                  <div class="title">Bảo hiểm</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <i class="isax isax-dollar-circle"></i>
+                  </div>
+                  <div class="title">Lãi đầu tư</div>
+                </div>
+              </div>
+
+              <button class="btn btn-third btn-back" data-bs-dismiss="modal">
+                Xong
+              </button>
+            </div>
           </div>
         </div>
       </div>
