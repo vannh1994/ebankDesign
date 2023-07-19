@@ -316,11 +316,14 @@ input[type="search"]::-webkit-input-placeholder {
   font-size: 1.25em;
   margin: 0;
   appearance: none;
-  border-radius: 50%;
   border: 0.125em solid var(--subtle-light, #afb1b6);
   background: var(--white, #fff);
   transition: 0.3s;
   cursor: pointer;
+}
+
+.form-check:not(.form-switch) .form-check-input[type="radio"] {
+  border-radius: 50%;
 }
 
 .form-check:not(.form-switch) .form-check-input:checked {

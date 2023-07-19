@@ -1,0 +1,43 @@
+.transfer-area .area-title {
+  border-bottom: 1px solid var(--branding-line, #e9e9e9);
+  padding: 8px 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.transfer-area .available-balance {
+  font-size: 14px;
+}
+
+.transfer-area .text-primary {
+  color: #002d85 !important;
+}
+
+.transfer-area .save-settings {
+  padding: 8px 16px;
+  display: grid;
+  gap: 16px;
+  background: #fafafa;
+  border-radius: 10px;
+}
+
+.transfer-area .save-settings .form-check {
+  gap: 16px;
+}
+
+.transfer-area .save-settings .form-check .form-check-input {
+  margin: 0 !important;
+  font-size: 20px;
+}
+
+.transfer-area .save-settings .form-check .form-check-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+@media (min-width: 992px) {
+  .transfer-area .area-body {
+    padding: 24px 30px;
+  }
+}

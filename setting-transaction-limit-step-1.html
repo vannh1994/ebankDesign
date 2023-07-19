@@ -131,15 +131,25 @@
 
         <div class="card setting-transaction-limit-content">
           <div class="card-body">
-            <div class="card transaction-limit-card">
-              <div class="title">Nội bộ VRB cùng chủ</div>
-              <div class="row">
+            <div
+              class="card transaction-limit-card"
+              :class="{'collapsed': data.block1.collapsed}"
+            >
+              <div class="title">
+                Nội bộ VRB cùng chủ
+                <i
+                  class="isax isax-arrow-down-1"
+                  @click="data.block1.collapsed = !data.block1.collapsed"
+                ></i>
+              </div>
+              <div class="row" v-show="data.block1.isEdit">
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                   <div class="input-group label-transition">
                     <div class="form-label">
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block1.input.field1"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối thiểu/lần </label>
@@ -155,6 +165,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block1.input.field2"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối đa/lần </label>
@@ -170,6 +181,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block1.input.field3"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số lần tối đa/ngày </label>
@@ -185,6 +197,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block1.input.field4"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số tiền tối đa/ngày </label>
@@ -194,19 +207,60 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block1.isEdit = false"
+                  >
+                    Lưu
+                  </button>
+                </div>
+              </div>
+
+              <div class="row" v-show="!data.block1.isEdit">
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối thiểu/lần: {{ data.block1.input.field1 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối đa/lần: {{ data.block1.input.field2 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số lần tối đa/ngày: {{ data.block1.input.field3 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số tiền tối đa/ngày: {{ data.block1.input.field4 | 0 }}
+                </div>
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block1.isEdit = true"
+                  >
+                    Chỉnh sửa
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div class="card transaction-limit-card">
-              <div class="title">Nội bộ VRB khách chủ</div>
-              <div class="row">
+            <div
+              class="card transaction-limit-card"
+              :class="{'collapsed': data.block2.collapsed}"
+            >
+              <div class="title">
+                Nội bộ VRB khách chủ
+                <i
+                  class="isax isax-arrow-down-1"
+                  @click="data.block2.collapsed = !data.block2.collapsed"
+                ></i>
+              </div>
+              <div class="row" v-show="data.block2.isEdit">
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                   <div class="input-group label-transition">
                     <div class="form-label">
                       <input
                         type="number"
                         class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
+                        v-model="data.block2.input.field1"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối thiểu/lần </label>
@@ -222,6 +276,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block2.input.field2"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối đa/lần </label>
@@ -237,6 +292,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block2.input.field3"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số lần tối đa/ngày </label>
@@ -252,6 +308,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block2.input.field4"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số tiền tối đa/ngày </label>
@@ -261,12 +318,53 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block2.isEdit = false"
+                  >
+                    Lưu
+                  </button>
+                </div>
+              </div>
+
+              <div class="row" v-show="!data.block2.isEdit">
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối thiểu/lần: {{ data.block2.input.field1 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối đa/lần: {{ data.block2.input.field2 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số lần tối đa/ngày: {{ data.block2.input.field3 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số tiền tối đa/ngày: {{ data.block2.input.field4 | 0 }}
+                </div>
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block2.isEdit = true"
+                  >
+                    Chỉnh sửa
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div class="card transaction-limit-card">
-              <div class="title">Ngoài VRB đến số tài khoản</div>
-              <div class="row">
+            <div
+              class="card transaction-limit-card"
+              :class="{'collapsed': data.block3.collapsed}"
+            >
+              <div class="title">
+                Ngoài VRB đến số tài khoản
+                <i
+                  class="isax isax-arrow-down-1"
+                  @click="data.block3.collapsed = !data.block3.collapsed"
+                ></i>
+              </div>
+              <div class="row" v-show="data.block3.isEdit">
                 <div class="col-12 sub-title">Chuyển nhanh 24/7</div>
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                   <div class="input-group label-transition">
@@ -274,7 +372,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
+                        v-model="data.block3.input.field1"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối thiểu/lần </label>
@@ -290,6 +388,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block3.input.field2"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối đa/lần </label>
@@ -305,6 +404,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block3.input.field3"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số lần tối đa/ngày </label>
@@ -320,6 +420,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block3.input.field4"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số tiền tối đa/ngày </label>
@@ -331,7 +432,7 @@
                 </div>
               </div>
 
-              <div class="row mt-2">
+              <div class="row mt-2" v-show="data.block3.isEdit">
                 <div class="col-12 sub-title">Chuyển thường</div>
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                   <div class="input-group label-transition">
@@ -339,74 +440,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối thiểu/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối đa/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số lần tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số tiền tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card transaction-limit-card">
-              <div class="title">Ngoài VRB đến số tài thẻ (24/7)</div>
-              <div class="row">
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
+                        v-model="data.block3.input.field5"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối thiểu/lần </label>
@@ -422,6 +456,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block3.input.field6"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối đa/lần </label>
@@ -437,6 +472,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block3.input.field7"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số lần tối đa/ngày </label>
@@ -452,6 +488,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block3.input.field8"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số tiền tối đa/ngày </label>
@@ -461,19 +498,75 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block3.isEdit = false"
+                  >
+                    Lưu
+                  </button>
+                </div>
+              </div>
+
+              <div class="row" v-show="!data.block3.isEdit">
+                <h6 class="mt-2">Chuyển nhanh 24/7</h6>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối thiểu/lần: {{ data.block3.input.field1 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối đa/lần: {{ data.block3.input.field2 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số lần tối đa/ngày: {{ data.block3.input.field3 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số tiền tối đa/ngày: {{ data.block3.input.field4 | 0 }}
+                </div>
+
+                <h6 class="mt-2">Chuyển thường</h6>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối thiểu/lần: {{ data.block3.input.field5 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối đa/lần: {{ data.block3.input.field6 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số lần tối đa/ngày: {{ data.block3.input.field7 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số tiền tối đa/ngày: {{ data.block3.input.field8 | 0 }}
+                </div>
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block3.isEdit = true"
+                  >
+                    Chỉnh sửa
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div class="card transaction-limit-card">
-              <div class="title">Chuyển tiền quốc tế</div>
-              <div class="row">
+            <div
+              class="card transaction-limit-card"
+              :class="{'collapsed': data.block4.collapsed}"
+            >
+              <div class="title">
+                Ngoài VRB đến số tài thẻ (24/7)
+                <i
+                  class="isax isax-arrow-down-1"
+                  @click="data.block4.collapsed = !data.block4.collapsed"
+                ></i>
+              </div>
+              <div class="row" v-show="data.block4.isEdit">
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                   <div class="input-group label-transition">
                     <div class="form-label">
                       <input
                         type="number"
                         class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
+                        v-model="data.block4.input.field1"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối thiểu/lần </label>
@@ -489,6 +582,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block4.input.field2"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối đa/lần </label>
@@ -504,6 +598,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block4.input.field3"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số lần tối đa/ngày </label>
@@ -519,6 +614,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block4.input.field4"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số tiền tối đa/ngày </label>
@@ -528,12 +624,164 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block4.isEdit = false"
+                  >
+                    Lưu
+                  </button>
+                </div>
+              </div>
+
+              <div class="row" v-show="!data.block4.isEdit">
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối thiểu/lần: {{ data.block4.input.field1 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối đa/lần: {{ data.block4.input.field2 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số lần tối đa/ngày: {{ data.block4.input.field3 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số tiền tối đa/ngày: {{ data.block4.input.field4 | 0 }}
+                </div>
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block4.isEdit = true"
+                  >
+                    Chỉnh sửa
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div class="card transaction-limit-card">
-              <div class="title">Tiền gửi trực tuyến</div>
-              <div class="row">
+            <div
+              class="card transaction-limit-card"
+              :class="{'collapsed': data.block5.collapsed}"
+            >
+              <div class="title">
+                Chuyển tiền quốc tế
+                <i
+                  class="isax isax-arrow-down-1"
+                  @click="data.block5.collapsed = !data.block5.collapsed"
+                ></i>
+              </div>
+              <div class="row" v-show="data.block5.isEdit">
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  <div class="input-group label-transition">
+                    <div class="form-label">
+                      <input
+                        type="number"
+                        class="form-control fw-bold"
+                        v-model="data.block5.input.field1"
+                        :class="{'pointer-events-none': isPreview}"
+                      />
+                      <label for="account_number"> Tối thiểu/lần </label>
+                    </div>
+                    <div class="input-group-append">
+                      <div class="input-group-text">VND</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  <div class="input-group label-transition">
+                    <div class="form-label">
+                      <input
+                        type="number"
+                        class="form-control fw-bold"
+                        v-model="data.block5.input.field2"
+                        :class="{'pointer-events-none': isPreview}"
+                      />
+                      <label for="account_number"> Tối đa/lần </label>
+                    </div>
+                    <div class="input-group-append">
+                      <div class="input-group-text">VND</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  <div class="input-group label-transition">
+                    <div class="form-label">
+                      <input
+                        type="number"
+                        class="form-control fw-bold"
+                        v-model="data.block5.input.field3"
+                        :class="{'pointer-events-none': isPreview}"
+                      />
+                      <label for="account_number"> Số lần tối đa/ngày </label>
+                    </div>
+                    <div class="input-group-append">
+                      <div class="input-group-text">VND</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  <div class="input-group label-transition">
+                    <div class="form-label">
+                      <input
+                        type="number"
+                        class="form-control fw-bold"
+                        v-model="data.block5.input.field4"
+                        :class="{'pointer-events-none': isPreview}"
+                      />
+                      <label for="account_number"> Số tiền tối đa/ngày </label>
+                    </div>
+                    <div class="input-group-append">
+                      <div class="input-group-text">VND</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block5.isEdit = false"
+                  >
+                    Lưu
+                  </button>
+                </div>
+              </div>
+
+              <div class="row" v-show="!data.block5.isEdit">
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối thiểu/lần: {{ data.block5.input.field1 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối đa/lần: {{ data.block5.input.field2 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số lần tối đa/ngày: {{ data.block5.input.field3 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số tiền tối đa/ngày: {{ data.block5.input.field4 | 0 }}
+                </div>
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block5.isEdit = true"
+                  >
+                    Chỉnh sửa
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="card transaction-limit-card"
+              :class="{'collapsed': data.block6.collapsed}"
+            >
+              <div class="title">
+                Tiền gửi trực tuyến
+                <i
+                  class="isax isax-arrow-down-1"
+                  @click="data.block6.collapsed = !data.block6.collapsed"
+                ></i>
+              </div>
+              <div class="row" v-show="data.block6.isEdit">
                 <div class="col-12 sub-title">Tiền gửi có kỳ hạn</div>
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                   <div class="input-group label-transition">
@@ -541,7 +789,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
+                        v-model="data.block6.input.field1"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối thiểu/lần </label>
@@ -557,6 +805,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block6.input.field2"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối đa/lần </label>
@@ -572,6 +821,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block6.input.field3"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số lần tối đa/ngày </label>
@@ -587,6 +837,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block6.input.field4"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số tiền tối đa/ngày </label>
@@ -598,7 +849,7 @@
                 </div>
               </div>
 
-              <div class="row mt-2">
+              <div class="row mt-2" v-show="data.block6.isEdit">
                 <div class="col-12 sub-title">Tiền gửi tích lũy</div>
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                   <div class="input-group label-transition">
@@ -606,7 +857,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
+                        v-model="data.block6.input.field5"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối thiểu/lần </label>
@@ -622,6 +873,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block6.input.field6"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối đa/lần </label>
@@ -637,6 +889,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block6.input.field7"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số lần tối đa/ngày </label>
@@ -652,6 +905,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block6.input.field8"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số tiền tối đa/ngày </label>
@@ -663,7 +917,7 @@
                 </div>
               </div>
 
-              <div class="row mt-2">
+              <div class="row mt-2" v-show="data.block6.isEdit">
                 <div class="col-12 sub-title">Chửng chỉ tiền gửi</div>
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                   <div class="input-group label-transition">
@@ -671,7 +925,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
+                        v-model="data.block6.input.field9"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối thiểu/lần </label>
@@ -687,6 +941,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block6.input.field10"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối đa/lần </label>
@@ -702,6 +957,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block6.input.field11"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số lần tối đa/ngày </label>
@@ -717,6 +973,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block6.input.field12"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số tiền tối đa/ngày </label>
@@ -725,20 +982,90 @@
                       <div class="input-group-text">VND</div>
                     </div>
                   </div>
+                </div>
+
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block6.isEdit = false"
+                  >
+                    Lưu
+                  </button>
+                </div>
+              </div>
+
+              <div class="row" v-show="!data.block6.isEdit">
+                <h6 class="mt-2">Tiền gửi có kỳ hạn</h6>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối thiểu/lần: {{ data.block6.input.field1 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối đa/lần: {{ data.block6.input.field2 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số lần tối đa/ngày: {{ data.block6.input.field3 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số tiền tối đa/ngày: {{ data.block6.input.field4 | 0 }}
+                </div>
+
+                <h6 class="mt-2">Tiền gửi tích lũy</h6>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối thiểu/lần: {{ data.block6.input.field5 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối đa/lần: {{ data.block6.input.field6 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số lần tối đa/ngày: {{ data.block6.input.field7 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số tiền tối đa/ngày: {{ data.block6.input.field8 | 0 }}
+                </div>
+
+                <h6 class="mt-2">Chửng chỉ tiền gửi</h6>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối thiểu/lần: {{ data.block6.input.field9 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối đa/lần: {{ data.block6.input.field10 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số lần tối đa/ngày: {{ data.block6.input.field11 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số tiền tối đa/ngày: {{ data.block6.input.field12 | 0 }}
+                </div>
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block6.isEdit = true"
+                  >
+                    Chỉnh sửa
+                  </button>
                 </div>
               </div>
             </div>
 
-            <div class="card transaction-limit-card">
-              <div class="title">Bán ngoại tệ</div>
-              <div class="row">
+            <div
+              class="card transaction-limit-card"
+              :class="{'collapsed': data.block7.collapsed}"
+            >
+              <div class="title">
+                Bán ngoại tệ
+                <i
+                  class="isax isax-arrow-down-1"
+                  @click="data.block7.collapsed = !data.block7.collapsed"
+                ></i>
+              </div>
+              <div class="row" v-show="data.block7.isEdit">
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                   <div class="input-group label-transition">
                     <div class="form-label">
                       <input
                         type="number"
                         class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
+                        v-model="data.block7.input.field1"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối thiểu/lần </label>
@@ -754,6 +1081,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block7.input.field2"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Tối đa/lần </label>
@@ -769,6 +1097,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block7.input.field3"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số lần tối đa/ngày </label>
@@ -784,6 +1113,7 @@
                       <input
                         type="number"
                         class="form-control fw-bold"
+                        v-model="data.block7.input.field4"
                         :class="{'pointer-events-none': isPreview}"
                       />
                       <label for="account_number"> Số tiền tối đa/ngày </label>
@@ -792,6 +1122,38 @@
                       <div class="input-group-text">VND</div>
                     </div>
                   </div>
+                </div>
+
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block7.isEdit = false"
+                  >
+                    Lưu
+                  </button>
+                </div>
+              </div>
+
+              <div class="row" v-show="!data.block7.isEdit">
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối thiểu/lần: {{ data.block7.input.field1 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Tối đa/lần: {{ data.block7.input.field2 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số lần tối đa/ngày: {{ data.block7.input.field3 | 0 }}
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                  Số tiền tối đa/ngày: {{ data.block7.input.field4 | 0 }}
+                </div>
+                <div class="block-action">
+                  <button
+                    class="btn btn-third"
+                    @click="data.block7.isEdit = true"
+                  >
+                    Chỉnh sửa
+                  </button>
                 </div>
               </div>
             </div>
@@ -866,14 +1228,100 @@
     <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
 
     <script>
-      const { createApp, ref } = Vue;
+      const { createApp, ref, reactive } = Vue;
 
       createApp({
         setup() {
           const isPreview = ref(false);
 
+          const data = reactive({
+            block1: {
+              input: {
+                field1: "",
+                field2: "",
+                field3: "",
+                field4: "",
+              },
+              isEdit: false,
+              collapsed: false,
+            },
+            block2: {
+              input: {
+                field1: "",
+                field2: "",
+                field3: "",
+                field4: "",
+              },
+              isEdit: false,
+              collapsed: false,
+            },
+            block3: {
+              input: {
+                field1: "",
+                field2: "",
+                field3: "",
+                field4: "",
+                field5: "",
+                field6: "",
+                field7: "",
+                field8: "",
+              },
+              isEdit: false,
+              collapsed: false,
+            },
+            block4: {
+              input: {
+                field1: "",
+                field2: "",
+                field3: "",
+                field4: "",
+              },
+              isEdit: false,
+              collapsed: false,
+            },
+            block5: {
+              input: {
+                field1: "",
+                field2: "",
+                field3: "",
+                field4: "",
+              },
+              isEdit: false,
+              collapsed: false,
+            },
+            block6: {
+              input: {
+                field1: "",
+                field2: "",
+                field3: "",
+                field4: "",
+                field5: "",
+                field6: "",
+                field7: "",
+                field8: "",
+                field9: "",
+                field10: "",
+                field11: "",
+                field12: "",
+              },
+              isEdit: false,
+              collapsed: false,
+            },
+            block7: {
+              input: {
+                field1: "",
+                field2: "",
+                field3: "",
+                field4: "",
+              },
+              isEdit: false,
+              collapsed: false,
+            },
+          });
+
           return {
             isPreview,
+            data,
           };
         },
       }).mount("#app");
