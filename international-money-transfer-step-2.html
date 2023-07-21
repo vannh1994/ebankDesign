@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chuyển tiền quốc tế | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="child-page page-background international-money-transfer-page">
+    <div id="app" class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+      <div class="header-fixed">
+        <div class="container">
+          <div class="logo-and-search">
+            <a class="logo" href="login.html">
+              <img src="assets/icons/logo-dark.svg" alt="logo" />
+            </a>
+            <input type="search" placeholder="Tìm kiếm..." />
+          </div>
+
+          <div class="header-menu">
+            <span role="button" class="header-notifications">
+              <i class="isax isax-notification"></i>
+              <span class="number">3</span>
+            </span>
+            <span role="button" class="header-language">
+              <img src="assets/icons/uk-flag.svg" alt="flag" />
+            </span>
+            <div class="user-menu">
+              <div class="user-menu-content">
+                <div class="user-menu-welcome">Chào buổi sáng!</div>
+                <div class="user-menu-name">Ngô Xuân Hải</div>
+              </div>
+              <div class="user-menu-avatar">
+                <div class="dropdown">
+                  <button type="button" data-bs-toggle="dropdown">
+                    <img src="assets/images/cliparts/avatar.jpeg" />
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Tài khoản</a></li>
+                    <li>
+                      <a class="dropdown-item" href="login.html">Đăng xuất</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Chuyển tiền
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="international-money-transfer-step-1.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Chuyển tiền quốc tế</h2>
+        </div>
+
+        <div class="transaction-step">
+          <div class="step-item active">
+            <div class="step">1</div>
+            <div class="text">Khởi tạo</div>
+          </div>
+          <div class="progress active"></div>
+          <div class="step-item active">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body international-money-transfer-card">
+            <div class="transfer-info">
+              <h2 class="title">Thông tin giao dịch</h2>
+
+              <div class="transfer-info-confirm-block">
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Tài khoản nguồn</div>
+                  <div class="value">00118508898</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Tên người chuyển</div>
+                  <div class="value highlight">JOHN SMITH</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Địa chỉ người chuyển</div>
+                  <div class="value">HA NOI VIET NAM</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Tên người thụ hưởng</div>
+                  <div class="value">JOHN SMITH</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Mã số thuế INN</div>
+                  <div class="value">1110000333</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Mã số DK thuế KPP</div>
+                  <div class="value"></div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Địa chỉ người thụ hưởng</div>
+                  <div class="value"></div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Mã BIK</div>
+                  <div class="value">1111000222555</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Ngân hàng thụ hưởng</div>
+                  <div class="value">RB BANK</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Địa chỉ NH thụ hưởng</div>
+                  <div class="value">UL.SVETSKAYA 19</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Số TK tại NH trung gian</div>
+                  <div class="value">55500066665</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Ngân hàng trung gian</div>
+                  <div class="value">UL.SVETSKAYA 19</div>
+                </div>
+              </div>
+
+              <div class="transfer-info-confirm-block mt-3">
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Số tiền</div>
+                  <div class="value highlight">100,000 VND</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Mã phí chuyển</div>
+                  <div class="value">SHA - Người chuyển chi phí</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Phí chuyển (bao gồm VAT)</div>
+                  <div class="value">0 VND</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Mục đích chuyển</div>
+                  <div class="value">Thanh toán lương</div>
+                </div>
+              </div>
+
+              <div class="transfer-info-confirm-block mt-3">
+                <div class="transfer-info-confirm-item">
+                  <div class="title">File chứng từ</div>
+                  <div class="value highlight">Chungtu.pdf</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Mã mục đích VO code</div>
+                  <div class="value">00080</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Mức độ ưu tiên</div>
+                  <div class="value">Thường</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Nội dung</div>
+                  <div class="value">Chi tra thu nhap</div>
+                </div>
+              </div>
+
+              <div class="row mt-4 international-money-confirm">
+                <div class="col-12 col-md-6 mt-4">
+                  <select class="form-select">
+                    <option selected>Hình thức xác thực</option>
+                    <option value="1">OTP</option>
+                    <option value="2">Captcha</option>
+                    <option value="3">QR Code</option>
+                  </select>
+
+                  <p class="mt-3">
+                    Số điện thoại nhận mã xác thực <strong>0377640***</strong>
+                  </p>
+                </div>
+
+                <div class="col-12 col-md-6 mt-4">
+                  <div class="input-code">
+                    <div class="input-group label-transition pt-0">
+                      <div class="form-label">
+                        <input type="number" class="form-control fw-bold" />
+                        <label> Nhập mã kiểm tra </label>
+                      </div>
+                    </div>
+
+                    <div class="check-type">
+                      <img
+                        class="refresh"
+                        src="assets/icons/refresh.svg"
+                        alt="refresh"
+                      />
+                      <img
+                        class="captcha"
+                        src="assets/icons/captcha.svg"
+                        alt="captcha"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="group-button-bottom">
+                <button
+                  class="btn btn-primary btn-back"
+                  onclick="location.href = 'international-money-transfer-step-1-1.html';"
+                >
+                  Quay lại
+                </button>
+
+                <button
+                  class="btn btn-third btn-submit"
+                  onclick="location.href = 'international-money-transfer-step-3.html';"
+                >
+                  Xác nhận
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      toggleContactArea();
+
+      window.addEventListener("resize", toggleContactArea);
+
+      function toggleContactArea() {
+        if (window.innerWidth < 576) {
+          hideContactArea();
+        } else {
+          showContactArea();
+        }
+      }
+
+      function showContactArea() {
+        const contactArea = document.querySelector(".contact-area");
+        contactArea.style.display = null;
+      }
+
+      function hideContactArea() {
+        const contactArea = document.querySelector(".contact-area");
+        contactArea.style.display = "none";
+      }
+
+      function openFile() {
+        document.getElementById("file-input").click();
+      }
+    </script>
+
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+
+    <script>
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        setup() {
+          const showSelector = ref(false);
+          const popup = ref(null);
+          const bankSelected = ref(null);
+          const searchQuery = ref("");
+          const activeIndex = ref(0);
+          const accountNumber = ref(null);
+          const accountName = ref(null);
+          const isShowPopup = ref(true);
+
+          const bankList = [
+            {
+              logo: "assets/images/banks/vcb.svg",
+              name: "Vietcombank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/tpb.svg",
+              name: "Tien Phong Bank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/vpb.svg",
+              name: "VP Bank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/vcb.svg",
+              name: "Vietcombank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/tpb.svg",
+              name: "Tien Phong Bank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/vpb.svg",
+              name: "VP Bank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+          ];
+
+          const filteredList = computed(() =>
+            bankList.filter((x) =>
+              x.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+            )
+          );
+
+          const onClickOutside = (event) => {
+            const el = document.querySelector(".bank-select");
+            if (
+              !el ||
+              el === event.target ||
+              event.target.closest(".bank-select") === el
+            ) {
+              return;
+            }
+
+            showSelector.value = false;
+          };
+
+          onMounted(() => {
+            document.addEventListener("click", onClickOutside);
+          });
+
+          onBeforeMount(() => {
+            document.removeEventListener("click", onClickOutside);
+          });
+
+          const onAccountNumberChange = useDebounceFn(() => {
+            accountName.value = accountNumber.value ? "Ngo Xuan Hai" : "";
+          }, 500);
+
+          return {
+            searchQuery,
+            showSelector,
+            popup,
+            bankList,
+            filteredList,
+            bankSelected,
+            activeIndex,
+            accountNumber,
+            accountName,
+            onAccountNumberChange,
+            isShowPopup,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

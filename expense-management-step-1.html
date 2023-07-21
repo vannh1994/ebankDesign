@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Quản lý chi tiêu | VRB</title>
+    <meta name="viewport" content="width=375px, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/invoice.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="child-page page-background account-page">
+    <div id="app" class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+      <div class="header-fixed">
+        <div class="container">
+          <div class="logo-and-search">
+            <a class="logo" href="login.html">
+              <img src="assets/icons/logo-dark.svg" alt="logo" />
+            </a>
+            <input type="search" placeholder="Tìm kiếm..." />
+          </div>
+
+          <div class="header-menu">
+            <span role="button" class="header-notifications">
+              <i class="isax isax-notification"></i>
+              <span class="number">3</span>
+            </span>
+            <span role="button" class="header-language">
+              <img src="assets/icons/uk-flag.svg" alt="flag" />
+            </span>
+            <div class="user-menu">
+              <div class="user-menu-content">
+                <div class="user-menu-welcome">Chào buổi sáng!</div>
+                <div class="user-menu-name">Ngô Xuân Hải</div>
+              </div>
+              <div class="user-menu-avatar">
+                <div class="dropdown">
+                  <button type="button" data-bs-toggle="dropdown">
+                    <img src="assets/images/cliparts/avatar.jpeg" />
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Tài khoản</a></li>
+                    <li>
+                      <a class="dropdown-item" href="login.html">Đăng xuất</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Quản lý chi tiêu
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="home.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Quản lý chi tiêu</h2>
+        </div>
+
+        <div class="transaction-step active">
+          <div class="step-item active">
+            <div class="step">1</div>
+            <div class="text">Khởi tạo</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body p-0">
+            <div class="transfer-card">
+              <div class="transfer-area">
+                <div class="area-title">Thông tin thanh toán</div>
+
+                <div class="area-body">
+                  <div>
+                    <selector-component
+                      v-model="paymentSource"
+                      :options="paymentSources"
+                      placeholder="Tài khoản nguồn"
+                    >
+                      <template #selected="{option}">
+                        <b>{{option.accountNumber}}</b>
+                      </template>
+                      <template #option="{option}">
+                        <div class="bank-name">
+                          <b>{{ option.accountNumber }}</b>
+                          <div class="large">
+                            <span class="text-secondary me-2">
+                              Số dư khả dụng:
+                            </span>
+                            <b class="text-primary">
+                              {{ formatMoney(option.balance) }}
+                            </b>
+                          </div>
+                        </div>
+                      </template>
+                    </selector-component>
+
+                    <div
+                      v-if="paymentSource"
+                      class="available-balance text-end mt-2"
+                    >
+                      <span class="text-secondary me-1"> Số dư khả dụng: </span>
+                      <b class="text-primary">
+                        {{ formatMoney(paymentSource.balance) }}
+                      </b>
+                    </div>
+                  </div>
+
+                  <selector-component
+                    v-model="serviceType"
+                    :options="serviceTypes"
+                    placeholder="Dịch vụ"
+                    @update:model-value="serviceSupplier=null;serviceId = null"
+                  >
+                    <template #option="{option}">
+                      <div class="bank-logo">
+                        <img :src="option.image" />
+                      </div>
+                      <div class="bank-name">
+                        <b>{{ option.name }}</b>
+                      </div>
+                    </template>
+                  </selector-component>
+
+                  <transition>
+                    <selector-component
+                      v-if="serviceType"
+                      v-model="serviceSupplier"
+                      :options="serviceSuppliers"
+                      placeholder="Nhà cung cấp"
+                    >
+                      <template #option="{option}">
+                        <div class="bank-logo">
+                          <img :src="option.image" />
+                        </div>
+                        <div class="bank-name">
+                          <b>{{ option.name }}</b>
+                        </div>
+                      </template>
+                    </selector-component>
+                  </transition>
+
+                  <transition>
+                    <div
+                      v-if="serviceSupplier"
+                      class="input-group label-transition"
+                    >
+                      <div class="form-label w-100">
+                        <input
+                          v-model="serviceId"
+                          class="form-control fw-bold"
+                          :class="{ hascontent: !!serviceId }"
+                          name="serviceId"
+                        />
+                        <label for="serviceId"> Mã KH.SĐT/Số HĐ </label>
+                      </div>
+                    </div>
+                  </transition>
+
+                  <div class="save-settings">
+                    <label class="form-check mb-0">
+                      <input class="form-check-input" type="checkbox" />
+                      <span class="form-check-label">
+                        Lưu danh để thanh toán
+                      </span>
+                    </label>
+                    <label class="form-check mb-0">
+                      <input class="form-check-input" type="checkbox" />
+                      <span class="form-check-label">
+                        Quản lý chi tiêu tự động
+                      </span>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-end">
+                    <button
+                      type="button"
+                      class="btn btn-third"
+                      onclick="location.href = 'expense-management-step-2.html';"
+                    >
+                      Tiếp tục
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      toggleContactArea();
+
+      window.addEventListener("resize", toggleContactArea);
+
+      function toggleContactArea() {
+        if (window.innerWidth < 576) {
+          hideContactArea();
+        } else {
+          showContactArea();
+        }
+      }
+
+      function showContactArea() {
+        const contactArea = document.querySelector(".contact-area");
+        contactArea.style.display = null;
+      }
+
+      function hideContactArea() {
+        const contactArea = document.querySelector(".contact-area");
+        contactArea.style.display = "none";
+      }
+    </script>
+
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="https://unpkg.com/@vueuse/shared"></script>
+    <script src="https://unpkg.com/@vueuse/core"></script>
+
+    <script id="selector" type="text/template">
+      <div ref="popup" class="bank-select">
+        <div class="bank-selector" @click="showSelector = true">
+          <div
+            v-if="modelValue"
+            class="bank-selected"
+            @click="showSelector = true"
+          >
+            <slot name="selected" :option="selectedOption">
+              {{modelValue.name}}
+            </slot>
+          </div>
+          <!-- End -->
+          <div class="bank-select-placeholder">
+            {{ placeholder }}
+          </div>
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="isax"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 25"
+          fill="none"
+          @click="showSelector = true"
+        >
+          <path
+            d="M17.92 8.30957H11.69H6.07999C5.11999 8.30957 4.63999 9.46957 5.31999 10.1496L10.5 15.3296C11.33 16.1596 12.68 16.1596 13.51 15.3296L15.48 13.3596L18.69 10.1496C19.36 9.46957 18.88 8.30957 17.92 8.30957Z"
+            fill="currentColor"
+          />
+        </svg>
+
+        <!-- Khi click vào khung chọn ngân hàng thụ hưởng thì hiển thị/render div này lên -->
+        <transition>
+          <div v-if="showSelector" class="bank-select-popup">
+            <input
+              v-if="searchable"
+              v-model="searchQuery"
+              class="bank-select-input"
+              :placeholder="searchPlaceholder"
+            />
+            <div class="bank-list">
+              <div
+                v-for="option in filteredList"
+                class="bank-item"
+                @click="selectedOption = option; showSelector = false; $emit('update:modelValue', option)"
+              >
+                <slot name="option" :option="option">
+                  <div class="bank-name">
+                    <b>{{ option.name }}</b>
+                    <div class="text-secondary">
+                      {{ option.fullname }}
+                    </div>
+                  </div>
+                </slot>
+              </div>
+            </div>
+          </div>
+        </transition>
+        <!-- End -->
+      </div>
+    </script>
+
+    <script>
+      const selectorComponent = {
+        template: "#selector",
+        props: [
+          "modelValue",
+          "options",
+          "placeholder",
+          "searchPlaceholder",
+          "searchable",
+          "searchBy",
+        ],
+        emits: ["update:modelValue"],
+        setup(props) {
+          const showSelector = ref(false);
+          const popup = ref(null);
+          const selectedOption = ref(null);
+          const searchQuery = ref("");
+
+          const filteredList = computed(() => {
+            if (!props.searchBy) return props.options;
+            return (props.options || []).filter((x) =>
+              x[props.searchBy]
+                .toLowerCase()
+                .includes(searchQuery.value.toLowerCase())
+            );
+          });
+
+          const onClickOutside = (event) => {
+            const el = popup.value;
+            if (
+              !el ||
+              el === event.target ||
+              event.target.closest(".bank-select") === el
+            ) {
+              return;
+            }
+
+            showSelector.value = false;
+          };
+
+          onMounted(() => {
+            document.addEventListener("click", onClickOutside);
+          });
+
+          onBeforeMount(() => {
+            document.removeEventListener("click", onClickOutside);
+          });
+
+          return {
+            searchQuery,
+            showSelector,
+            popup,
+            filteredList,
+            selectedOption,
+          };
+        },
+      };
+    </script>
+
+    <script>
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          selectorComponent,
+        },
+
+        setup() {
+          const paymentSource = ref(null);
+          const serviceType = ref(null);
+          const serviceSupplier = ref(null);
+          const serviceId = ref(null);
+          const activeIndex = ref(0);
+
+          const paymentSources = [
+            {
+              id: 1,
+              accountNumber: 22118501567455,
+              balance: "6000000",
+            },
+            {
+              id: 2,
+              accountNumber: 22118501567456,
+              balance: "2000000",
+            },
+          ];
+
+          const serviceTypes = [
+            {
+              id: 1,
+              name: "Điện",
+              image: "assets/icons/bill-energy.png",
+            },
+            {
+              id: 2,
+              name: "Nước",
+              image: "assets/icons/bill-water.png",
+            },
+          ];
+
+          const serviceSuppliers = [
+            {
+              id: 1,
+              name: "Nước Miền Bắc",
+              image: "assets/icons/bill-water.png",
+            },
+            {
+              id: 2,
+              name: "Nước Miền Trung",
+              image: "assets/icons/bill-water.png",
+            },
+            {
+              id: 3,
+              name: "Nước Miền Nam",
+              image: "assets/icons/bill-water.png",
+            },
+          ];
+
+          function formatMoney(money) {
+            return new Intl.NumberFormat().format(money || 0) + " VND";
+          }
+
+          return {
+            paymentSource,
+            paymentSources,
+            serviceType,
+            serviceTypes,
+            serviceSupplier,
+            serviceSuppliers,
+            serviceId,
+            formatMoney,
+            activeIndex,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

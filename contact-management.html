@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Quản lý danh bạ | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/contact.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="child-page page-background account-page contact-page">
+    <div id="app" class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+      <div class="header-fixed">
+        <div class="container">
+          <div class="logo-and-search">
+            <a class="logo" href="login.html">
+              <img src="assets/icons/logo-dark.svg" alt="logo" />
+            </a>
+            <input type="search" placeholder="Tìm kiếm..." />
+          </div>
+
+          <div class="header-menu">
+            <span role="button" class="header-notifications">
+              <i class="isax isax-notification"></i>
+              <span class="number">3</span>
+            </span>
+            <span role="button" class="header-language">
+              <img src="assets/icons/uk-flag.svg" alt="flag" />
+            </span>
+            <div class="user-menu">
+              <div class="user-menu-content">
+                <div class="user-menu-welcome">Chào buổi sáng!</div>
+                <div class="user-menu-name">Ngô Xuân Hải</div>
+              </div>
+              <div class="user-menu-avatar">
+                <div class="dropdown">
+                  <button type="button" data-bs-toggle="dropdown">
+                    <img src="assets/images/cliparts/avatar.jpeg" />
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Tài khoản</a></li>
+                    <li>
+                      <a class="dropdown-item" href="login.html">Đăng xuất</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Quản lý danh bạ
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="home.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Quản lý danh bạ</h2>
+        </div>
+
+        <div class="card">
+          <div
+            class="card-header d-flex justify-content-between bg-white p-lg-4"
+          >
+            <div class="header-tabs">
+              <div
+                class="header-tab"
+                :class="{'active': activeTab == 'tab1'}"
+                @click="activeTab = 'tab1'"
+              >
+                Danh bạ thụ hưởng
+              </div>
+              <div
+                class="header-tab"
+                :class="{'active': activeTab == 'tab2'}"
+                @click="activeTab = 'tab2'"
+              >
+                Mẫu chuyển tiền
+              </div>
+            </div>
+
+            <div class="d-flex gap-3">
+              <div class="input-search">
+                <i class="isax isax-search-normal-1"></i>
+                <input
+                  v-model="searchQuery"
+                  placeholder="Tìm kiếm danh bạ"
+                  class="form-control"
+                />
+              </div>
+
+              <button type="button" class="btn btn-third">
+                <i class="isax isax-add"></i>
+                Thêm danh bạ
+              </button>
+            </div>
+          </div>
+
+          <table class="table" v-if="activeTab == 'tab1'">
+            <thead>
+              <tr>
+                <th>
+                  <label class="form-check mb-0">
+                    <input class="form-check-input" type="checkbox" />
+                  </label>
+                </th>
+                <th class="fw-normal">STT</th>
+                <th class="fw-normal">Tên</th>
+                <th class="fw-normal">Ngân hàng thụ hưởng</th>
+                <th class="fw-normal">Số tài khoản/Thẻ thụ hưởng</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(contact, index) in filteredList">
+                <td>
+                  <label class="form-check mb-0">
+                    <input class="form-check-input" type="checkbox" />
+                  </label>
+                </td>
+                <td class="text-muted">{{index+1}}</td>
+                <td class="fw-bold text-uppercase">{{contact.name}}</td>
+                <td class="fw-bold">
+                  <div class="d-flex align-items-center gap-2">
+                    <div class="bank-logo">
+                      <img :src="contact.logo" alt="" />
+                    </div>
+                    {{contact.bank}}
+                  </div>
+                </td>
+                <td class="fw-bold">{{contact.number}}</td>
+                <td class="mobile-only">
+                  <div class="contact-info">
+                    <div class="bank-logo">
+                      <img :src="contact.logo" alt="" />
+                    </div>
+                    <div class="contact-detail">
+                      <div class="contact-name">{{contact.name}}</div>
+                      <div class="contact-number">{{contact.number}}</div>
+                      <div>{{contact.bank}}</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-end">
+                  <i
+                    class="isax isax-more"
+                    style="transform: rotate(90deg)"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table table-template" v-else>
+            <thead>
+              <tr>
+                <th>
+                  <label class="form-check mb-0">
+                    <input class="form-check-input" type="checkbox" />
+                  </label>
+                </th>
+                <th class="fw-normal">STT</th>
+                <th class="fw-normal">Mẫu chuyển tiền</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <label class="form-check mb-0">
+                    <input class="form-check-input" type="checkbox" />
+                  </label>
+                </td>
+                <td class="text-muted">1</td>
+                <td class="fw-bold text-uppercase">Mẫu 1</td>
+                <td class="text-end">
+                  <i
+                    class="isax isax-more"
+                    style="transform: rotate(90deg)"
+                  ></i>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="form-check mb-0">
+                    <input class="form-check-input" type="checkbox" />
+                  </label>
+                </td>
+                <td class="text-muted">1</td>
+                <td class="fw-bold text-uppercase">Mẫu 2</td>
+                <td class="text-end">
+                  <i
+                    class="isax isax-more"
+                    style="transform: rotate(90deg)"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+
+    <script>
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        setup() {
+          const searchQuery = ref("");
+          const activeTab = ref("tab1");
+
+          const contactList = [
+            {
+              logo: "assets/images/banks/vcb.svg",
+              bank: "Vietcombank",
+              number: "4801001010101010",
+              name: "Cao Thi Cham",
+            },
+            {
+              logo: "assets/images/banks/tpb.svg",
+              bank: "Tien Phong Bank",
+              number: "0919239128",
+              name: "Duong Van Nhuong",
+            },
+            {
+              logo: "assets/images/banks/vpb.svg",
+              bank: "VP Bank",
+              number: "8172382828",
+              name: "Duong Van Nhuong",
+            },
+          ];
+
+          const filteredList = computed(() =>
+            contactList.filter((x) =>
+              x.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+            )
+          );
+
+          return {
+            searchQuery,
+            contactList,
+            filteredList,
+            activeTab,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
