@@ -111,7 +111,7 @@
           <h2>Quản lý danh bạ</h2>
         </div>
 
-        <div class="card">
+        <div class="card pb-3">
           <div
             class="card-header d-flex justify-content-between bg-white p-lg-4"
           >
@@ -133,7 +133,7 @@
             </div>
 
             <div class="d-flex gap-3">
-              <div class="input-search">
+              <div v-if="activeTab == 'tab1'" class="input-search">
                 <i class="isax isax-search-normal-1"></i>
                 <input
                   v-model="searchQuery"
@@ -142,9 +142,35 @@
                 />
               </div>
 
-              <button type="button" class="btn btn-third">
+              <div v-else class="input-search">
+                <i class="isax isax-search-normal-1"></i>
+                <input
+                  v-model="searchTemplateQuery"
+                  placeholder="Tìm kiếm mẫu"
+                  class="form-control"
+                />
+              </div>
+
+              <button
+                v-if="activeTab == 'tab1'"
+                type="button"
+                class="btn btn-third"
+                data-bs-toggle="modal"
+                data-bs-target="#add-contact"
+              >
                 <i class="isax isax-add"></i>
                 Thêm danh bạ
+              </button>
+
+              <button
+                v-else
+                type="button"
+                class="btn btn-third"
+                data-bs-toggle="modal"
+                data-bs-target="#add-template"
+              >
+                <i class="isax isax-add"></i>
+                Thêm mẫu chuyển tiền
               </button>
             </div>
           </div>
@@ -195,10 +221,27 @@
                   </div>
                 </td>
                 <td class="text-end">
-                  <i
-                    class="isax isax-more"
-                    style="transform: rotate(90deg)"
-                  ></i>
+                  <div class="dropdown dropdown-action">
+                    <i
+                      class="isax isax-more"
+                      data-bs-toggle="dropdown"
+                      style="transform: rotate(90deg)"
+                    ></i>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="#">
+                          <i class="isax isax-trash"></i> Xoá
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="">
+                          <a class="dropdown-item" href="#">
+                            <i class="isax isax-heart"></i> Yêu thích
+                          </a>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -218,34 +261,36 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr v-for="(template, index) in filteredTemplateList">
                 <td>
                   <label class="form-check mb-0">
                     <input class="form-check-input" type="checkbox" />
                   </label>
                 </td>
-                <td class="text-muted">1</td>
-                <td class="fw-bold text-uppercase">Mẫu 1</td>
+                <td class="text-muted">{{ index + 1}}</td>
+                <td class="fw-bold text-uppercase">{{ template.name }}</td>
                 <td class="text-end">
-                  <i
-                    class="isax isax-more"
-                    style="transform: rotate(90deg)"
-                  ></i>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label class="form-check mb-0">
-                    <input class="form-check-input" type="checkbox" />
-                  </label>
-                </td>
-                <td class="text-muted">1</td>
-                <td class="fw-bold text-uppercase">Mẫu 2</td>
-                <td class="text-end">
-                  <i
-                    class="isax isax-more"
-                    style="transform: rotate(90deg)"
-                  ></i>
+                  <div class="dropdown dropdown-action">
+                    <i
+                      class="isax isax-more"
+                      data-bs-toggle="dropdown"
+                      style="transform: rotate(90deg)"
+                    ></i>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="#">
+                          <i class="isax isax-trash"></i> Xoá
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="">
+                          <a class="dropdown-item" href="#">
+                            <i class="isax isax-heart"></i> Yêu thích
+                          </a>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -289,6 +334,102 @@
           </div>
         </div>
       </div>
+
+      <div class="modal" id="add-contact">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Thêm danh bạn thủ hưởng</h4>
+              <span class="close" data-bs-dismiss="modal">Đóng</span>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <select class="form-select">
+                <option selected>Loại chuyển tiền</option>
+                <option value="1">Chuyển tiền nội bộ VRB</option>
+                <option value="2">Chuyển tiền ngoại VRB</option>
+                <option value="3">Chuyển tiền quốc tế</option>
+              </select>
+
+              <div class="input-group label-transition mt-4">
+                <div class="form-label">
+                  <input type="number" class="form-control fw-bold" />
+                  <label for="account_number"> Số tài khoản/Số thẻ </label>
+                </div>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <a href="#">Kiểm tra</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-group label-transition mt-4">
+                <div class="form-label">
+                  <input type="number" class="form-control fw-bold" />
+                  <label for="account_number"> Tên gợi nhớ </label>
+                </div>
+              </div>
+
+              <div class="d-flex gap-3 mt-4">
+                <button
+                  class="btn btn-primary btn-back"
+                  data-bs-dismiss="modal"
+                >
+                  Huỷ
+                </button>
+
+                <button class="btn btn-third btn-back" data-bs-dismiss="modal">
+                  Tạo mới
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="add-template">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Thêm mẫu chuyển tiền</h4>
+              <span class="close" data-bs-dismiss="modal">Đóng</span>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <select class="form-select">
+                <option selected>Loại chuyển tiền</option>
+                <option value="1">Chuyển tiền nội bộ VRB</option>
+                <option value="2">Chuyển tiền ngoại VRB</option>
+                <option value="3">Chuyển tiền quốc tế</option>
+              </select>
+
+              <div class="input-group label-transition mt-4">
+                <div class="form-label">
+                  <input type="text" class="form-control fw-bold" />
+                  <label for="account_number"> Mẫu chuyển tiền </label>
+                </div>
+              </div>
+
+              <div class="d-flex gap-3 mt-4">
+                <button
+                  class="btn btn-primary btn-back"
+                  data-bs-dismiss="modal"
+                >
+                  Huỷ
+                </button>
+
+                <button class="btn btn-third btn-back" data-bs-dismiss="modal">
+                  Tạo mới
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- App js -->
@@ -307,6 +448,7 @@
       createApp({
         setup() {
           const searchQuery = ref("");
+          const searchTemplateQuery = ref("");
           const activeTab = ref("tab1");
 
           const contactList = [
@@ -330,9 +472,26 @@
             },
           ];
 
+          const templateList = [
+            {
+              name: "Mẫu 1",
+            },
+            {
+              name: "Mẫu 2",
+            },
+          ];
+
           const filteredList = computed(() =>
             contactList.filter((x) =>
               x.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+            )
+          );
+
+          const filteredTemplateList = computed(() =>
+          templateList.filter((x) =>
+              x.name
+                .toLowerCase()
+                .includes(searchTemplateQuery.value.toLowerCase())
             )
           );
 
@@ -340,6 +499,9 @@
             searchQuery,
             contactList,
             filteredList,
+            searchTemplateQuery,
+            templateList,
+            filteredTemplateList,
             activeTab,
           };
         },
