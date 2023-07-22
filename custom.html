@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tuỳ chỉnh | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body class="child-page page-background custom-page">
+    <div class="page-content" id="app">
+      <div class="header-fixed">
+        <div class="container">
+          <div class="logo-and-search">
+            <a class="logo" href="login.html">
+              <img src="assets/icons/logo-dark.svg" alt="logo" />
+            </a>
+            <input type="search" placeholder="Tìm kiếm..." />
+          </div>
+
+          <div class="header-menu">
+            <span role="button" class="header-notifications">
+              <i class="isax isax-notification"></i>
+              <span class="number">3</span>
+            </span>
+            <span role="button" class="header-language">
+              <img src="assets/icons/uk-flag.svg" alt="flag" />
+            </span>
+            <div class="user-menu">
+              <div class="user-menu-content">
+                <div class="user-menu-welcome">Chào buổi sáng!</div>
+                <div class="user-menu-name">Ngô Xuân Hải</div>
+              </div>
+              <div class="user-menu-avatar">
+                <div class="dropdown">
+                  <button type="button" data-bs-toggle="dropdown">
+                    <img src="assets/images/cliparts/avatar.jpeg" />
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Tài khoản</a></li>
+                    <li>
+                      <a class="dropdown-item" href="login.html">Đăng xuất</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Tuỳ chỉnh
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <div class="back" onclick="location.href = 'home.html';">
+            <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
+          </div>
+          <h2>Tuỳ chỉnh</h2>
+        </div>
+
+        <div class="card">
+          <div class="main-content" id="main-content">
+            <div class="header-custom">
+              <p class="title">
+                Quý khách vui lòng xắp xếp các chức năng bằng cách kéo thả
+              </p>
+
+              <button class="btn btn-third">Lưu</button>
+            </div>
+            <div class="card card-selected-feature">
+              <div class="list-feature-selected">
+                <div class="feature-content">
+                  <draggable tag="div" class="row" v-model="listSelected">
+                    <div
+                      v-for="item in listSelected"
+                      class="col-6 col-md-3 col-xl-2"
+                    >
+                      <div
+                        class="feature"
+                        :class="{'disabled': item.disabled }"
+                      >
+                        <div class="feature-minus" @click="removeItem(item)">
+                          -
+                        </div>
+                        <div class="feature-icon">
+                          <div class="feature-layer-1"></div>
+                          <div class="feature-layer-2"></div>
+                          <img :src="item.image" alt="transfer" />
+                        </div>
+                        <div class="feature-title">{{item.text}}</div>
+                      </div>
+                    </div>
+                  </draggable>
+                </div>
+              </div>
+            </div>
+
+            <div class="custom-title">Chức năng khác</div>
+
+            <div class="card card-feature">
+              <div class="row">
+                <div class="col-6 col-md-3" v-for="item in listFeature">
+                  <div class="feature">
+                    <div class="feature-plus">
+                      <span class="icon" @click="addItem(item)">+</span>
+                    </div>
+                    <div class="feature-icon">
+                      <div class="feature-layer-1"></div>
+                      <div class="feature-layer-2"></div>
+                      <img :src="item.image" alt="transfer" />
+                    </div>
+                    <div class="feature-title">{{item.text}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="card card-service"
+              :class="{'collapsed': !collapsedService}"
+            >
+              <div class="header">
+                <div class="account">
+                  <div class="content">Loại dịch vụ thanh toán hoá đơn</div>
+                </div>
+
+                <button
+                  class="btn btn-collapse"
+                  @click="collapsedService = !collapsedService"
+                >
+                  <img src="assets/icons/arrow-right.svg" alt="arrow-right" />
+                </button>
+              </div>
+
+              <div class="row service-content">
+                <div class="col-12 col-md-6">
+                  <div class="service-item">
+                    <i class="isax isax-notification"></i>
+                    <span>Thanh toán tiền điện</span>
+                    <i class="isax isax-add-circle"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="service-item">
+                    <i class="isax isax-notification"></i>
+                    <span>Thanh toán tiền điện</span>
+                    <i class="isax isax-add-circle"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="service-item">
+                    <i class="isax isax-notification"></i>
+                    <span>Thanh toán tiền điện</span>
+                    <i class="isax isax-add-circle"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="service-item">
+                    <i class="isax isax-notification"></i>
+                    <span>Thanh toán tiền điện</span>
+                    <i class="isax isax-add-circle"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="service-item">
+                    <i class="isax isax-notification"></i>
+                    <span>Thanh toán tiền điện</span>
+                    <i class="isax isax-add-circle"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="service-item">
+                    <i class="isax isax-notification"></i>
+                    <span>Thanh toán tiền điện</span>
+                    <i class="isax isax-add-circle"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="card card-service"
+              :class="{'collapsed': !collapsedService1}"
+            >
+              <div class="header">
+                <div class="account">
+                  <div class="content">Loại dịch vụ tiết kiện Online</div>
+                </div>
+
+                <button
+                  class="btn btn-collapse"
+                  @click="collapsedService1 = !collapsedService1"
+                >
+                  <img src="assets/icons/arrow-right.svg" alt="arrow-right" />
+                </button>
+              </div>
+
+              <div class="row service-content">
+                <div class="col-12 col-md-6">
+                  <div class="service-item">
+                    <i class="isax isax-notification"></i>
+                    <span>Gửi tích luỹ online</span>
+                    <i class="isax isax-add-circle"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="service-item">
+                    <i class="isax isax-notification"></i>
+                    <span>Gửi tích luỹ online</span>
+                    <i class="isax isax-add-circle"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="service-item">
+                    <i class="isax isax-notification"></i>
+                    <span>Gửi tích luỹ online</span>
+                    <i class="isax isax-add-circle"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="service-item">
+                    <i class="isax isax-notification"></i>
+                    <span>Gửi tích luỹ online</span>
+                    <i class="isax isax-add-circle"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="service-item">
+                    <i class="isax isax-notification"></i>
+                    <span>Gửi tích luỹ online</span>
+                    <i class="isax isax-add-circle"></i>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="service-item">
+                    <i class="isax isax-notification"></i>
+                    <span>Gửi tích luỹ online</span>
+                    <i class="isax isax-add-circle"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="assets/js/vue-draggable-next.global.min.js"></script>
+
+    <script>
+      const { createApp, ref } = Vue;
+
+      const app = createApp({
+        components: {
+          draggable: VueDraggableNext.VueDraggableNext,
+        },
+
+        setup() {
+          const collapsedService = ref(false);
+          const collapsedService1 = ref(false);
+
+          const listSelected = ref([
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/transfer.svg",
+              text: "Chuyển tiền",
+              disabled: false,
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/account-history.svg",
+              text: "Tài khoản",
+              disabled: true,
+            },
+          ]);
+
+          const listFeature = ref([
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/loan-amount.svg",
+              text: "Cài đặt hạn mức",
+              disabled: false,
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/pay-bills.svg",
+              text: "Thanh toán hoá đơn",
+              disabled: false,
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/recharge.svg",
+              text: "Đăng ký hạn mức",
+              disabled: false,
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/loyal-customer.svg",
+              text: "Chuyển tiền quốc tế",
+              disabled: false,
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/account-number.svg",
+              text: "Quản lý chi tiêu",
+              disabled: false,
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/censorship.svg",
+              text: "Quản lý danh bạ",
+              disabled: false,
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/statement.svg",
+              text: "Sao kê tài khoản",
+              disabled: false,
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/transfer-money.svg",
+              text: "Smart Kids",
+              disabled: false,
+            },
+          ]);
+
+          const addItem = (item) => {
+            const listSelectedName = listSelected.value.map(
+              (item) => item.text
+            );
+            if (!listSelectedName.includes(item.text)) {
+              listSelected.value.push(item);
+            }
+          };
+
+          const removeItem = (itemSelect) => {
+            const listSelectedName = listSelected.value.map(
+              (item) => item.text
+            );
+            if (listSelectedName.includes(itemSelect.text)) {
+              console.log(1);
+              listSelected.value = listSelected.value.filter(
+                (item) => item.text != itemSelect.text
+              );
+            }
+          };
+
+          return {
+            listSelected,
+            listFeature,
+            collapsedService,
+            collapsedService1,
+            addItem,
+            removeItem,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
