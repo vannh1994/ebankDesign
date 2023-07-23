@@ -46,10 +46,30 @@
       <div class="header-fixed">
         <div class="container">
           <div class="logo-and-search">
-            <a class="logo" href="login.html">
+            <a class="logo" href="home.html">
               <img src="assets/icons/logo-dark.svg" alt="logo" />
             </a>
-            <input type="search" placeholder="Tìm kiếm..." />
+            <input
+              type="search"
+              placeholder="Tìm kiếm..."
+              v-model="searchGlobalQuery"
+              data-bs-toggle="dropdown"
+            />
+
+            <ul class="dropdown-menu dropdown-menu-feature-global">
+              <li class="label">Quý khách có thể tìm kiếm</li>
+              <li
+                v-for="item in filteredGlobalList"
+                class="dropdown-item feature-item"
+              >
+                <div class="feature-icon">
+                  <div class="feature-layer-1"></div>
+                  <div class="feature-layer-2"></div>
+                  <img :src="item.image" alt="transfer" />
+                </div>
+                <a :href="item.url">{{ item.text }}</a>
+              </li>
+            </ul>
           </div>
 
           <div class="header-menu">
@@ -57,9 +77,22 @@
               <i class="isax isax-notification"></i>
               <span class="number">3</span>
             </span>
+
             <span role="button" class="header-language">
-              <img src="assets/icons/uk-flag.svg" alt="flag" />
+              <img
+                src="assets/icons/uk-flag.svg"
+                alt="flag"
+                data-bs-toggle="dropdown"
+              />
+
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Tiếng anh</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Tiếng việt</a>
+                </li>
+              </ul>
             </span>
+
             <div class="user-menu">
               <div class="user-menu-content">
                 <div class="user-menu-welcome">Chào buổi sáng!</div>
@@ -430,6 +463,9 @@
           const accountNumber = ref(null);
           const accountName = ref(null);
 
+          const showGlobalSearch = ref(false);
+          const searchGlobalQuery = ref("");
+
           const bankList = [
             {
               logo: "assets/images/banks/vcb.svg",
@@ -463,11 +499,62 @@
             },
           ];
 
+          const featureGlobalList = [
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/loan-amount.svg",
+              text: "Cài đặt hạn mức",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/pay-bills.svg",
+              text: "Thanh toán hoá đơn",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/recharge.svg",
+              text: "Đăng ký hạn mức",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/loyal-customer.svg",
+              text: "Chuyển tiền quốc tế",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/account-number.svg",
+              text: "Quản lý chi tiêu",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/censorship.svg",
+              text: "Quản lý danh bạ",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/statement.svg",
+              text: "Sao kê tài khoản",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/transfer-money.svg",
+              text: "Smart Kids",
+            },
+          ];
+
           const filteredList = computed(() =>
             bankList.filter((x) =>
               x.name.toLowerCase().includes(searchQuery.value.toLowerCase())
             )
           );
+
+          const filteredGlobalList = computed(() => {
+            const searchQuery = searchGlobalQuery.value.toLowerCase();
+            const filteredItems = featureGlobalList.filter((x) =>
+              x.text.toLowerCase().includes(searchQuery)
+            );
+            return filteredItems.slice(0, 4);
+          });
 
           const onClickOutside = (event) => {
             const el = document.querySelector(".bank-select");
@@ -482,12 +569,27 @@
             showSelector.value = false;
           };
 
+          const onClickOutsideGlobal = (event) => {
+            const el = document.querySelector(".feature-select");
+            if (
+              !el ||
+              el === event.target ||
+              event.target.closest(".feature-select") === el
+            ) {
+              return;
+            }
+
+            showGlobalSearch.value = false;
+          };
+
           onMounted(() => {
             document.addEventListener("click", onClickOutside);
+            document.addEventListener("click", onClickOutsideGlobal);
           });
 
           onBeforeMount(() => {
             document.removeEventListener("click", onClickOutside);
+            document.removeEventListener("click", onClickOutsideGlobal);
           });
 
           const onAccountNumberChange = useDebounceFn(() => {
@@ -505,6 +607,9 @@
             accountNumber,
             accountName,
             onAccountNumberChange,
+            showGlobalSearch,
+            searchGlobalQuery,
+            filteredGlobalList,
           };
         },
       }).mount("#app");

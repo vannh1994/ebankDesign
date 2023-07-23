@@ -31,7 +31,7 @@
   </head>
 
   <body class="child-page page-background transaction-step-3-page">
-    <div class="page-content">
+    <div class="page-content" id="app">
       <div class="list-small-icons">
         <div class="item">
           <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
@@ -47,10 +47,30 @@
       <div class="header-fixed">
         <div class="container">
           <div class="logo-and-search">
-            <a class="logo" href="login.html">
+            <a class="logo" href="home.html">
               <img src="assets/icons/logo-dark.svg" alt="logo" />
             </a>
-            <input type="search" placeholder="Tìm kiếm..." />
+            <input
+              type="search"
+              placeholder="Tìm kiếm..."
+              v-model="searchGlobalQuery"
+              data-bs-toggle="dropdown"
+            />
+
+            <ul class="dropdown-menu dropdown-menu-feature-global">
+              <li class="label">Quý khách có thể tìm kiếm</li>
+              <li
+                v-for="item in filteredList"
+                class="dropdown-item feature-item"
+              >
+                <div class="feature-icon">
+                  <div class="feature-layer-1"></div>
+                  <div class="feature-layer-2"></div>
+                  <img :src="item.image" alt="transfer" />
+                </div>
+                <a :href="item.url">{{ item.text }}</a>
+              </li>
+            </ul>
           </div>
 
           <div class="header-menu">
@@ -58,9 +78,22 @@
               <i class="isax isax-notification"></i>
               <span class="number">3</span>
             </span>
+
             <span role="button" class="header-language">
-              <img src="assets/icons/uk-flag.svg" alt="flag" />
+              <img
+                src="assets/icons/uk-flag.svg"
+                alt="flag"
+                data-bs-toggle="dropdown"
+              />
+
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Tiếng anh</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Tiếng việt</a>
+                </li>
+              </ul>
             </span>
+
             <div class="user-menu">
               <div class="user-menu-content">
                 <div class="user-menu-welcome">Chào buổi sáng!</div>
@@ -243,5 +276,99 @@
 
     <!-- BS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+
+    <script>
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        setup() {
+          const showGlobalSearch = ref(false);
+          const searchGlobalQuery = ref("");
+
+          const featureList = [
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/loan-amount.svg",
+              text: "Cài đặt hạn mức",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/pay-bills.svg",
+              text: "Thanh toán hoá đơn",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/recharge.svg",
+              text: "Đăng ký hạn mức",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/loyal-customer.svg",
+              text: "Chuyển tiền quốc tế",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/account-number.svg",
+              text: "Quản lý chi tiêu",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/censorship.svg",
+              text: "Quản lý danh bạ",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/statement.svg",
+              text: "Sao kê tài khoản",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/transfer-money.svg",
+              text: "Smart Kids",
+            },
+          ];
+
+          const filteredList = computed(() => {
+            const searchQuery = searchGlobalQuery.value.toLowerCase();
+            const filteredItems = featureList.filter((x) =>
+              x.text.toLowerCase().includes(searchQuery)
+            );
+            return filteredItems.slice(0, 4);
+          });
+
+          const onClickOutside = (event) => {
+            const el = document.querySelector(".feature-select");
+            if (
+              !el ||
+              el === event.target ||
+              event.target.closest(".feature-select") === el
+            ) {
+              return;
+            }
+
+            showGlobalSearch.value = false;
+          };
+
+          onMounted(() => {
+            document.addEventListener("click", onClickOutside);
+          });
+
+          onBeforeMount(() => {
+            document.removeEventListener("click", onClickOutside);
+          });
+
+          return {
+            showGlobalSearch,
+            searchGlobalQuery,
+            filteredList,
+          };
+        },
+      }).mount("#app");
+    </script>
   </body>
 </html>

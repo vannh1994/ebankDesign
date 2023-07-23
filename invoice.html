@@ -47,10 +47,30 @@
       <div class="header-fixed">
         <div class="container">
           <div class="logo-and-search">
-            <a class="logo" href="login.html">
+            <a class="logo" href="home.html">
               <img src="assets/icons/logo-dark.svg" alt="logo" />
             </a>
-            <input type="search" placeholder="Tìm kiếm..." />
+            <input
+              type="search"
+              placeholder="Tìm kiếm..."
+              v-model="searchGlobalQuery"
+              data-bs-toggle="dropdown"
+            />
+
+            <ul class="dropdown-menu dropdown-menu-feature-global">
+              <li class="label">Quý khách có thể tìm kiếm</li>
+              <li
+                v-for="item in filteredList"
+                class="dropdown-item feature-item"
+              >
+                <div class="feature-icon">
+                  <div class="feature-layer-1"></div>
+                  <div class="feature-layer-2"></div>
+                  <img :src="item.image" alt="transfer" />
+                </div>
+                <a :href="item.url">{{ item.text }}</a>
+              </li>
+            </ul>
           </div>
 
           <div class="header-menu">
@@ -58,9 +78,22 @@
               <i class="isax isax-notification"></i>
               <span class="number">3</span>
             </span>
+
             <span role="button" class="header-language">
-              <img src="assets/icons/uk-flag.svg" alt="flag" />
+              <img
+                src="assets/icons/uk-flag.svg"
+                alt="flag"
+                data-bs-toggle="dropdown"
+              />
+
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Tiếng anh</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Tiếng việt</a>
+                </li>
+              </ul>
             </span>
+
             <div class="user-menu">
               <div class="user-menu-content">
                 <div class="user-menu-welcome">Chào buổi sáng!</div>

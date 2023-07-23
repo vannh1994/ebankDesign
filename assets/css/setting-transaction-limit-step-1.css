@@ -29,6 +29,18 @@
   margin: 0 !important;
 }
 
+.transaction-limit-card.preview .row {
+  -moz-transition: unset;
+  -ms-transition: unset;
+  -o-transition: unset;
+  -webkit-transition: unset;
+  transition: unset;
+  height: unset;
+  overflow: unset;
+  padding: unset;
+  margin: unset;
+}
+
 .transaction-limit-card.collapsed .row {
   height: unset;
   font-size: 14px;
