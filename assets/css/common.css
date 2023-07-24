@@ -426,6 +426,10 @@ input[type="number"] {
   pointer-events: none;
 }
 
+.visibility-hidden {
+  visibility: hidden !important;
+}
+
 @media (max-width: 575px) {
   .btn-third {
     padding: 8px 56px;

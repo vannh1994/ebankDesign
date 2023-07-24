@@ -243,7 +243,7 @@
   background: #f4f7fe;
 }
 
-@media (max-width: 840px) {
+@media (max-width: 991px) {
   .logo-and-search {
     overflow: hidden;
   }
