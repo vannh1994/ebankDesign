@@ -15,8 +15,9 @@
 @import "register-international-money-transfer.css";
 @import "international-money-transfer.css";
 @import "spending-management.css";
-@import "list-beneficiaries.css";
+@import "beneficiaries.css";
 @import "custom.css";
+@import "input-otp.css";
 @import "pagination.css";
 @import "common.css";
 @import "footer.css";

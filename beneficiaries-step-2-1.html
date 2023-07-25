@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Quản lý danh sách người thụ hưởng | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="child-page page-background list-beneficiaries-page">
+    <div id="app" class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Quản lý danh sách người thụ hưởng
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="beneficiaries-step-1-1.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Quản lý danh sách người thụ hưởng</h2>
+        </div>
+
+        <div class="transaction-step">
+          <div class="step-item active">
+            <div class="step">1</div>
+            <div class="text">Khởi tạo</div>
+          </div>
+          <div class="progress active"></div>
+          <div class="step-item active">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body international-money-transfer-card p-4 p-md-5">
+            <div class="transfer-info">
+              <h2 class="card-title">Thông tin người thụ hưởng</h2>
+
+              <div class="transfer-info-confirm-block mt-3">
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Loại giao dịch</div>
+                  <div class="value">Chuyển tiền ngoài hệ thống</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Hình thức chuyển khoản</div>
+                  <div class="value">Theo số tài khoản</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Ngân hàng thụ hưởng</div>
+                  <div class="value">Ngân hàng BIDV</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Số tài khoản/Thẻ</div>
+                  <div class="value">0000001110033</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Tên tài khoản/Thẻ</div>
+                  <div class="value">Nguyen Van A</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Tên gợi nhớ</div>
+                  <div class="value">JOHN SMITH</div>
+                </div>
+              </div>
+
+              <div class="group-button-bottom mt-5">
+                <button
+                  class="btn btn-primary btn-back"
+                  onclick="location.href = 'beneficiaries-step-1-1.html';"
+                >
+                  Quay lại
+                </button>
+
+                <button
+                  class="btn btn-third btn-submit"
+                  onclick="location.href = 'beneficiaries-step-3-1.html';"
+                >
+                  Tiếp tục
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./components/header-component.js"></script>
+
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+
+    <script>
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+        },
+        setup() {
+          return {};
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

@@ -124,10 +124,14 @@
               role="tabpanel"
               aria-labelledby="transfer-money-in-system-tab"
             >
-              <div class="list-beneficiaries">
+              <div
+                v-if="accountBeneficiaries.length"
+                class="list-beneficiaries"
+              >
                 <div
                   class="beneficiary-item"
                   v-for="item in accountBeneficiaries"
+                  :class="{'active': item.id == selectedItemId}"
                   @click="selectedItemId = item.id"
                 >
                   <div class="account">
@@ -147,21 +151,29 @@
                       class="selected-block form-group"
                       :class="{'visibility-hidden': item.id != selectedItemId}"
                     >
-                      <input
-                        type="checkbox"
-                        :checked="item.id == selectedItemId"
-                      />
+                      <img src="assets/icons/checkbox.svg" />
                     </div>
                   </div>
                 </div>
               </div>
 
+              <div v-else class="list-beneficiaries-empty">
+                Quý khách chưa có danh sách thụ hưởng nào
+              </div>
+
               <div class="group-button-bottom">
-                <button class="btn btn-third btn-submit">Tạo mới</button>
-
-                <button class="btn btn-primary btn-back">Chỉnh sửa</button>
-
-                <button class="btn btn-primary btn-back">Xoá</button>
+                <button class="btn btn-primary btn-back" v-if="selectedItemId">
+                  Xoá
+                </button>
+                <button class="btn btn-primary btn-back" v-if="selectedItemId">
+                  Chỉnh sửa
+                </button>
+                <button
+                  class="btn btn-third btn-submit"
+                  onclick="location.href = 'beneficiaries-step-1.html'"
+                >
+                  Tạo mới
+                </button>
               </div>
             </div>
             <div
@@ -170,7 +182,57 @@
               role="tabpanel"
               aria-labelledby="transfer-money-outside-system-tab"
             >
-              ###
+              <div
+                v-if="accountBeneficiaries.length"
+                class="list-beneficiaries"
+              >
+                <div
+                  class="beneficiary-item"
+                  v-for="item in accountBeneficiaries"
+                  :class="{'active': item.id == selectedItemId}"
+                  @click="selectedItemId = item.id"
+                >
+                  <div class="account">
+                    <img :src="item.logo" alt="logo" />
+                    <div class="account-info">
+                      <div class="name">{{ item.accountName }}</div>
+                      <div class="account-name">{{ item.fullName }}</div>
+                      <div class="account-number">
+                        {{ item.accountNumber }}
+                        <span>{{ item.bankName }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="created-at">
+                    <span><label>Ngày tạo</label> 03/11/2022</span>
+                    <div
+                      class="selected-block form-group"
+                      :class="{'visibility-hidden': item.id != selectedItemId}"
+                    >
+                      <img src="assets/icons/checkbox.svg" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div v-else class="list-beneficiaries-empty">
+                Quý khách chưa có danh sách thụ hưởng nào
+              </div>
+
+              <div class="group-button-bottom">
+                <button class="btn btn-primary btn-back" v-if="selectedItemId">
+                  Xoá
+                </button>
+                <button class="btn btn-primary btn-back" v-if="selectedItemId">
+                  Chỉnh sửa
+                </button>
+                <button
+                  class="btn btn-third btn-submit"
+                  onclick="location.href = 'beneficiaries-step-1-1.html'"
+                >
+                  Tạo mới
+                </button>
+              </div>
             </div>
             <div
               class="tab-pane fade contact-area"
@@ -178,7 +240,57 @@
               role="tabpanel"
               aria-labelledby="international-money-transfer-tab"
             >
-              ###
+              <div
+                v-if="accountBeneficiaries.length"
+                class="list-beneficiaries"
+              >
+                <div
+                  class="beneficiary-item"
+                  v-for="item in accountBeneficiaries"
+                  :class="{'active': item.id == selectedItemId}"
+                  @click="selectedItemId = item.id"
+                >
+                  <div class="account">
+                    <img :src="item.logo" alt="logo" />
+                    <div class="account-info">
+                      <div class="name">{{ item.accountName }}</div>
+                      <div class="account-name">{{ item.fullName }}</div>
+                      <div class="account-number">
+                        {{ item.accountNumber }}
+                        <span>{{ item.bankName }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="created-at">
+                    <span><label>Ngày tạo</label> 03/11/2022</span>
+                    <div
+                      class="selected-block form-group"
+                      :class="{'visibility-hidden': item.id != selectedItemId}"
+                    >
+                      <img src="assets/icons/checkbox.svg" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div v-else class="list-beneficiaries-empty">
+                Quý khách chưa có danh sách thụ hưởng nào
+              </div>
+
+              <div class="group-button-bottom">
+                <button class="btn btn-primary btn-back" v-if="selectedItemId">
+                  Xoá
+                </button>
+                <button class="btn btn-primary btn-back" v-if="selectedItemId">
+                  Chỉnh sửa
+                </button>
+                <button
+                  class="btn btn-third btn-submit"
+                  onclick="location.href = 'beneficiaries-step-1-2.html'"
+                >
+                  Tạo mới
+                </button>
+              </div>
             </div>
           </div>
         </div>

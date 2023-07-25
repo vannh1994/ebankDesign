@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Quản lý danh sách người thụ hưởng | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="child-page page-background list-beneficiaries-page">
+    <div id="app" class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Quản lý danh sách người thụ hưởng
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="beneficiaries.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Quản lý danh sách người thụ hưởng</h2>
+        </div>
+
+        <div class="transaction-step">
+          <div class="step-item active">
+            <div class="step">1</div>
+            <div class="text">Khởi tạo</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body p-0">
+            <div class="transfer-card">
+              <div class="transfer-area p-4 p-md-5">
+                <div class="card-title">Thông tin người thụ hưởng</div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <selector-component
+                      v-model="transferType"
+                      :options="transferTypes"
+                      placeholder="Loại giao dịch"
+                    >
+                      <template #option="{option}">
+                        <div class="bank-name">
+                          <b>{{ option.name }}</b>
+                        </div>
+                      </template>
+                    </selector-component>
+                  </div>
+                  <div class="col-12 mt-4">
+                    <div class="input-group label-transition">
+                      <div class="form-label">
+                        <input
+                          type="text"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Số tài khoản</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 mt-4">
+                    <div class="input-group label-transition">
+                      <div class="form-label">
+                        <input
+                          type="text"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Tên tài khoản</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 mt-4">
+                    <div class="input-group label-transition">
+                      <div class="form-label">
+                        <input
+                          type="text"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Tên gợi nhớ</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="group-button-bottom mt-5">
+                    <button
+                      class="btn btn-third btn-submit"
+                      onclick="location.href = 'beneficiaries-step-2.html'"
+                    >
+                      Tạo mới
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets/js/vueuse_core.js"></script>
+    <script src="./components/header-component.js"></script>
+
+    <script id="selector" type="text/template">
+      <div ref="popup" class="bank-select">
+        <div class="bank-selector" @click="showSelector = true">
+          <div
+            v-if="modelValue"
+            class="bank-selected"
+            @click="showSelector = true"
+          >
+            <slot name="selected" :option="selectedOption">
+              {{modelValue.name}}
+            </slot>
+          </div>
+          <!-- End -->
+          <div class="bank-select-placeholder">
+            {{ placeholder }}
+          </div>
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="isax"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 25"
+          fill="none"
+          @click="showSelector = true"
+        >
+          <path
+            d="M17.92 8.30957H11.69H6.07999C5.11999 8.30957 4.63999 9.46957 5.31999 10.1496L10.5 15.3296C11.33 16.1596 12.68 16.1596 13.51 15.3296L15.48 13.3596L18.69 10.1496C19.36 9.46957 18.88 8.30957 17.92 8.30957Z"
+            fill="currentColor"
+          />
+        </svg>
+
+        <!-- Khi click vào khung chọn ngân hàng thụ hưởng thì hiển thị/render div này lên -->
+        <transition>
+          <div v-if="showSelector" class="bank-select-popup">
+            <input
+              v-if="searchable"
+              v-model="searchQuery"
+              class="bank-select-input"
+              :placeholder="searchPlaceholder"
+            />
+            <div class="bank-list">
+              <div
+                v-for="option in filteredList"
+                class="bank-item"
+                @click="selectedOption = option; showSelector = false; $emit('update:modelValue', option)"
+              >
+                <slot name="option" :option="option">
+                  <div class="bank-name">
+                    <b>{{ option.name }}</b>
+                    <div class="text-secondary">
+                      {{ option.fullname }}
+                    </div>
+                  </div>
+                </slot>
+              </div>
+            </div>
+          </div>
+        </transition>
+        <!-- End -->
+      </div>
+    </script>
+
+    <script>
+      const selectorComponent = {
+        template: "#selector",
+        props: [
+          "modelValue",
+          "options",
+          "placeholder",
+          "searchPlaceholder",
+          "searchable",
+          "searchBy",
+        ],
+        emits: ["update:modelValue"],
+        setup(props) {
+          const showSelector = ref(false);
+          const popup = ref(null);
+          const selectedOption = ref(null);
+          const searchQuery = ref("");
+
+          const filteredList = computed(() => {
+            if (!props.searchBy) return props.options;
+            return (props.options || []).filter((x) =>
+              x[props.searchBy]
+                .toLowerCase()
+                .includes(searchQuery.value.toLowerCase())
+            );
+          });
+
+          const onClickOutside = (event) => {
+            const el = popup.value;
+            if (
+              !el ||
+              el === event.target ||
+              event.target.closest(".bank-select") === el
+            ) {
+              return;
+            }
+
+            showSelector.value = false;
+          };
+
+          onMounted(() => {
+            document.addEventListener("click", onClickOutside);
+          });
+
+          onBeforeMount(() => {
+            document.removeEventListener("click", onClickOutside);
+          });
+
+          return {
+            searchQuery,
+            showSelector,
+            popup,
+            filteredList,
+            selectedOption,
+          };
+        },
+      };
+    </script>
+
+    <script>
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+          selectorComponent,
+        },
+
+        setup() {
+          const transferType = ref(null);
+          const transferTypes = [
+            {
+              id: 1,
+              name: "Chuyển tiền trong hệ thống",
+            },
+            {
+              id: 2,
+              name: "Chuyển tiền ngoài hệ thống",
+            },
+            {
+              id: 3,
+              name: "Chuyển tiền quốc tế",
+            },
+          ];
+          return {
+            transferType,
+            transferTypes,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

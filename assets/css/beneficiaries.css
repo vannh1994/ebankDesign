@@ -98,11 +98,9 @@
   line-height: 16px;
 }
 
-.selected-block input[type="checkbox"] {
+.selected-block img {
   width: 20px;
   height: 20px;
-  border: 0.15em solid currentColor;
-  border-radius: 12px;
   transform: translateY(-4px);
 }
 
@@ -115,15 +113,33 @@
 }
 
 .list-beneficiaries-page .btn-back {
-  width: 200px;
+  width: 160px;
   font-weight: 700;
   line-height: 20px;
   padding: 14px 24px !important;
+  border: 1px solid rgba(0, 45, 133, 0.2);
 }
 
 .list-beneficiaries-page .btn-submit {
-  padding: 12px 50px !important;
-  width: 200px;
+  padding: 12px 24px !important;
+  width: 160px;
+}
+
+.list-beneficiaries-empty {
+  color: var(--text-primary-default, #333);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 24px;
+  margin-top: 64px;
+}
+
+.list-beneficiaries-page .card-title {
+  color: var(--text-primary-default, #333);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
 }
 
 @media (max-width: 767px) {
@@ -132,7 +148,7 @@
   }
 
   .list-beneficiaries-page .group-button-bottom {
-    flex-direction: column;
+    flex-direction: column-reverse;
     width: 100%;
   }
 
@@ -148,5 +164,13 @@
 @media (max-width: 575px) {
   .list-beneficiaries-page .home-container {
     margin: 96px auto !important;
+  }
+
+  .list-beneficiaries-page .list-beneficiaries .beneficiary-item {
+    flex-direction: column;
+  }
+
+  .selected-block {
+    display: none;
   }
 }
