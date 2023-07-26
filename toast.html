@@ -79,7 +79,10 @@
             Click button để hiển thị thông báo. Sau 3 giây thông báo sẽ tự động
             tắt.
           </h5>
-          <p class="pb-3">Lưu ý về màn hình mobile sẽ có responsive riêng có thể custom lại chuyển động nếu muốn</p>
+          <p class="pb-3">
+            Lưu ý về màn hình mobile sẽ có responsive riêng có thể custom lại
+            chuyển động nếu muốn
+          </p>
           <div
             class="d-flex flex-column flex-md-row align-items-center justify-content-beween gap-2 w-100"
           >
@@ -94,6 +97,32 @@
             </div>
             <div onclick="showInfoToast();" class="btn btn-info p-3">
               Thông tin
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-5">
+          <h5>Đây là dạng thông báo với modal giữa màn hình</h5>
+
+          <p class="pb-3">
+            Phần message này để tham khảo thêm chứ không suggest sử dụng. Vì kiểu thông báo này không phù hợp với design và cũng không tốt cho mobile
+          </p>
+
+          <div
+            class="d-flex flex-column flex-md-row align-items-center justify-content-beween gap-2 w-100"
+          >
+            <div onclick="showSuccess();" class="btn btn-success p-3">
+              Thành công
+            </div>
+            <div onclick="showError();" class="btn btn-danger p-3">
+              Thất bại
+            </div>
+            <div onclick="showWarning();" class="btn btn-warning p-3">
+              Cảnh báo
+            </div>
+            <div onclick="showInfo();" class="btn btn-info p-3">Thông tin</div>
+            <div onclick="showConfirm();" class="btn btn-third p-3">
+              Xác nhận
             </div>
           </div>
         </div>
@@ -147,6 +176,7 @@
     <script src="./assets/js/vueuse_shared.min.js"></script>
     <script src="./assets//js/vueuse_core.js"></script>
     <script src="./components/header-component.js"></script>
+    <script src="assets/js/sweetalert2.all.min.js"></script>
 
     <script>
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
@@ -155,6 +185,7 @@
       createApp({
         components: {
           headerComponent,
+          swal: Swal,
         },
         setup() {
           return {};
@@ -183,7 +214,7 @@
 
       function showWarningToast() {
         toast({
-          title: "Cảnh báo",
+          title: "Cảnh báo!",
           message: "Thông tin không hợp lệ",
           type: "warning",
           duration: 3000,
@@ -196,6 +227,55 @@
           message: "Bạn có 1 thông báo mới",
           type: "info",
           duration: 3000,
+        });
+      }
+    </script>
+
+    <!-- Modal popup -->
+    <script>
+      function showSuccess() {
+        Swal.fire({
+          title: "Thành công!",
+          text: "Bạn đã đăng ký thành công",
+          icon: "success",
+          confirmButtonText: "Đóng",
+        });
+      }
+
+      function showError() {
+        Swal.fire({
+          title: "Thất bại!",
+          text: "Có lỗi xảy ra",
+          icon: "error",
+          confirmButtonText: "Đóng",
+        });
+      }
+
+      function showWarning() {
+        Swal.fire({
+          title: "Cảnh báo!",
+          text: "Thông tin không hợp lệ",
+          icon: "warning",
+          confirmButtonText: "Đóng",
+        });
+      }
+
+      function showInfo() {
+        Swal.fire({
+          title: "Thông tin!",
+          text: "Bạn có 1 thông báo mới",
+          icon: "info",
+          confirmButtonText: "Đóng",
+        });
+      }
+
+      function showConfirm() {
+        Swal.fire({
+          title: "Xác nhận!",
+          icon: "question",
+          cancelButtonText: "Huỷ",
+          showCancelButton: true,
+          confirmButtonText: "Xác nhận",
         });
       }
     </script>
