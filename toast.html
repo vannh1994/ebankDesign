@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Toast | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body class="child-page page-background list-beneficiaries-page">
+    <div class="page-content" id="app">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <div id="toast"></div>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Mẫu thông báo
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <div class="back" onclick="location.href = 'home.html';">
+            <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
+          </div>
+          <h2>Mẫu thông báo</h2>
+        </div>
+
+        <div class="card p-5">
+          <h5>
+            Click button để hiển thị thông báo. Sau 3 giây thông báo sẽ tự động
+            tắt.
+          </h5>
+          <p class="pb-3">Lưu ý về màn hình mobile sẽ có responsive riêng có thể custom lại chuyển động nếu muốn</p>
+          <div
+            class="d-flex flex-column flex-md-row align-items-center justify-content-beween gap-2 w-100"
+          >
+            <div onclick="showSuccessToast();" class="btn btn-success p-3">
+              Thành công
+            </div>
+            <div onclick="showErrorToast();" class="btn btn-danger p-3">
+              Thất bại
+            </div>
+            <div onclick="showWarningToast();" class="btn btn-warning p-3">
+              Cảnh báo
+            </div>
+            <div onclick="showInfoToast();" class="btn btn-info p-3">
+              Thông tin
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+    <script src="./components/header-component.js"></script>
+
+    <script>
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+        },
+        setup() {
+          return {};
+        },
+      }).mount("#app");
+    </script>
+
+    <script>
+      function showSuccessToast() {
+        toast({
+          title: "Thành công!",
+          message: "Bạn đã đăng ký thành công",
+          type: "success",
+          duration: 3000,
+        });
+      }
+
+      function showErrorToast() {
+        toast({
+          title: "Thất bại!",
+          message: "Có lỗi xảy ra",
+          type: "error",
+          duration: 3000,
+        });
+      }
+
+      function showWarningToast() {
+        toast({
+          title: "Cảnh báo",
+          message: "Thông tin không hợp lệ",
+          type: "warning",
+          duration: 3000,
+        });
+      }
+
+      function showInfoToast() {
+        toast({
+          title: "Thông tin!",
+          message: "Bạn có 1 thông báo mới",
+          type: "info",
+          duration: 3000,
+        });
+      }
+    </script>
+  </body>
+</html>
