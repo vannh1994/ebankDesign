@@ -46,6 +46,8 @@
 
       <header-component></header-component>
 
+      <menu-component></menu-component>
+
       <div class="page-background">
         <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
       </div>
@@ -164,6 +166,7 @@
     <script src="./assets/js/vueuse_shared.min.js"></script>
     <script src="./assets//js/vueuse_core.js"></script>
     <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
 
     <script>
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
@@ -172,6 +175,7 @@
       createApp({
         components: {
           headerComponent,
+          menuComponent,
         },
         setup() {
           return {};

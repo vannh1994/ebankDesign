@@ -1,9 +1,13 @@
 const headerComponent = {
   template: `<div class="header-fixed">
   <div class="container">
+    <div class="menu-sp" @click="toggleMenuLeft">
+      <img src="assets/icons/menu-sp.svg" alt="menu-sp" />
+    </div>
+
     <div class="logo-and-search">
-      <a class="logo" href="home.html">
-        <img src="assets/icons/logo-dark.svg" alt="logo" />
+      <a class="logo" href="#">
+        <img onclick="location.href = 'home.html';" src="assets/icons/logo-dark.svg" alt="logo" />
       </a>
       <input
         type="search"
@@ -139,6 +143,15 @@ const headerComponent = {
       showGlobalSearch.value = false;
     };
 
+    const toggleMenuLeft = () => {
+      const element = document.getElementById("left-menu");
+      if (element.classList.contains("show")) {
+        element.classList.remove("show");
+      } else {
+        element.classList.add("show");
+      }
+    };
+
     onMounted(() => {
       document.addEventListener("click", onClickOutsideGlobal);
     });
@@ -150,6 +163,7 @@ const headerComponent = {
     return {
       searchGlobalQuery,
       filteredGlobalList,
+      toggleMenuLeft,
     };
   },
 };

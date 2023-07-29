@@ -300,7 +300,7 @@
   background: #f4f7fe;
 }
 
-@media (max-width: 1201px) {
+@media (max-width: 991px) {
   .list-small-icons {
     display: none;
   }
