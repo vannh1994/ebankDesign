@@ -44,6 +44,8 @@
 
       <header-component></header-component>
 
+      <menu-component></menu-component>
+
       <div class="page-background">
         <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
       </div>
@@ -147,6 +149,7 @@
 
     <script src="assets/js/vue3-otp-input.min.js"></script>
     <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
 
     <script>
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
@@ -156,6 +159,7 @@
         components: {
           headerComponent,
           vOtpInput: Vue3OtpInput,
+          menuComponent,
         },
 
         setup() {

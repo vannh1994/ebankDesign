@@ -3,7 +3,7 @@
   overflow: hidden;
   border-radius: 16px;
   background: #fff;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 194px);
   position: fixed;
   top: 100px;
   left: 24px;
@@ -191,10 +191,25 @@
   max-width: unset;
   margin-right: 64px !important;
   width: unset;
+  height: calc(100vh - 200px);
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0 !important;
 }
 
-.footer .footer-container {
-  margin-left: 310px;
+.child-page .container.home-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.child-page .container.home-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.child-page .container.home-container > .card {
+  margin-bottom: 0 !important;
 }
 
 @media (max-width: 991px) {
@@ -218,9 +233,12 @@
   .child-page .container.home-container {
     margin-left: 0 !important;
     margin-right: 0 !important;
+    height: calc(100vh - 242px);
   }
+}
 
-  .footer .footer-container {
-    margin-left: unset;
+@media (max-width: 767px) {
+  .child-page .container.home-container {
+    height: calc(100vh - 168px);
   }
 }

@@ -129,7 +129,7 @@ const menuComponent = {
                 @click="gotoPage(subMenuitem.link)"
                 v-for="subMenuitem in menuItem.child"
                 >
-                <img src="assets/icons/menu/dot.svg" alt=""> {{ subMenuitem.text }}
+                <img src="assets/icons/dot.svg" alt=""> {{ subMenuitem.text }}
                 </div>
             </div>
             </li>

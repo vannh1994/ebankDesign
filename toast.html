@@ -44,6 +44,8 @@
 
       <header-component></header-component>
 
+      <menu-component></menu-component>
+
       <div id="toast"></div>
 
       <div class="page-background">
@@ -101,11 +103,13 @@
           </div>
         </div>
 
-        <div class="card p-5">
+        <div class="card p-5 mt-4">
           <h5>Đây là dạng thông báo với modal giữa màn hình</h5>
 
           <p class="pb-3">
-            Phần message này để tham khảo thêm chứ không suggest sử dụng. Vì kiểu thông báo này không phù hợp với design và cũng không tốt cho mobile
+            Phần message này để tham khảo thêm chứ không suggest sử dụng. Vì
+            kiểu thông báo này không phù hợp với design và cũng không tốt cho
+            mobile
           </p>
 
           <div
@@ -176,6 +180,7 @@
     <script src="./assets/js/vueuse_shared.min.js"></script>
     <script src="./assets//js/vueuse_core.js"></script>
     <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
     <script src="assets/js/sweetalert2.all.min.js"></script>
 
     <script>
@@ -186,6 +191,7 @@
         components: {
           headerComponent,
           swal: Swal,
+          menuComponent,
         },
         setup() {
           return {};

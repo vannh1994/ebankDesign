@@ -44,78 +44,10 @@
           <img src="assets/icons/message-question.svg" alt="message-question" />
         </div>
       </div>
-      <div class="header-fixed">
-        <div class="container">
-          <div class="logo-and-search">
-            <a class="logo" href="home.html">
-              <img src="assets/icons/logo-dark.svg" alt="logo" />
-            </a>
-            <input
-              type="search"
-              placeholder="Tìm kiếm..."
-              v-model="searchGlobalQuery"
-              data-bs-toggle="dropdown"
-            />
 
-            <ul class="dropdown-menu dropdown-menu-feature-global">
-              <li class="label">Quý khách có thể tìm kiếm</li>
-              <li
-                v-for="item in filteredList"
-                class="dropdown-item feature-item"
-              >
-                <div class="feature-icon">
-                  <div class="feature-layer-1"></div>
-                  <div class="feature-layer-2"></div>
-                  <img :src="item.image" alt="transfer" />
-                </div>
-                <a :href="item.url">{{ item.text }}</a>
-              </li>
-            </ul>
-          </div>
+      <header-component></header-component>
 
-          <div class="header-menu">
-            <span role="button" class="header-notifications">
-              <i class="isax isax-notification"></i>
-              <span class="number">3</span>
-            </span>
-
-            <span role="button" class="header-language">
-              <img
-                src="assets/icons/uk-flag.svg"
-                alt="flag"
-                data-bs-toggle="dropdown"
-              />
-
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Tiếng anh</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Tiếng việt</a>
-                </li>
-              </ul>
-            </span>
-
-            <div class="user-menu">
-              <div class="user-menu-content">
-                <div class="user-menu-welcome">Chào buổi sáng!</div>
-                <div class="user-menu-name">Ngô Xuân Hải</div>
-              </div>
-              <div class="user-menu-avatar">
-                <div class="dropdown">
-                  <button type="button" data-bs-toggle="dropdown">
-                    <img src="assets/images/cliparts/avatar.jpeg" />
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Tài khoản</a></li>
-                    <li>
-                      <a class="dropdown-item" href="login.html">Đăng xuất</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <menu-component></menu-component>
 
       <div class="container home-container">
         <div class="breadcrumbs">
@@ -452,6 +384,9 @@
     <script src="https://unpkg.com/@vueuse/shared"></script>
     <script src="https://unpkg.com/@vueuse/core"></script>
 
+    <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
+
     <script id="selector" type="text/template">
       <div ref="popup" class="bank-select">
         <div class="bank-selector" @click="showSelector = true">
@@ -581,6 +516,8 @@
       createApp({
         components: {
           selectorComponent,
+          headerComponent,
+          menuComponent,
         },
 
         setup() {
