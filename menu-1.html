@@ -26,9 +26,11 @@
       rel="stylesheet"
       type="text/css"
     />
+
+    <link href="assets/css/menu-1.css" rel="stylesheet" type="text/css" />
   </head>
 
-  <body class="child-page page-background list-beneficiaries-page">
+  <body class="child-page page-background">
     <div class="page-content" id="app">
       <div class="list-small-icons">
         <div class="item">
@@ -53,36 +55,44 @@
       </div>
 
       <div class="container home-container">
-        <div class="breadcrumbs">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="home.html">
-                  <i class="isax isax-home-2"></i>
-                  Trang chủ
-                </a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">Menu</li>
-            </ol>
-          </nav>
-        </div>
+        <div class="card p-4">
+          <div class="header-content-page">
+            <div class="page-title">
+              <div class="back" onclick="location.href = 'home.html';">
+                <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
+              </div>
+              <h2>Menu page</h2>
+            </div>
 
-        <div class="page-title">
-          <div class="back" onclick="location.href = 'home.html';">
-            <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
+            <div class="breadcrumbs">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="home.html">
+                      <i class="isax isax-home-2"></i>
+                      Trang chủ
+                    </a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Menu page
+                  </li>
+                </ol>
+              </nav>
+            </div>
           </div>
-          <h2>Menu</h2>
-        </div>
 
-        <div class="card p-5">
-          <div class="d-flex align-items-center justify-content-between gap-2">
-            <a href="menu.html" class="btn btn-third">menu</a>
+          <div class="content-page">
+            <div
+              class="d-flex align-items-center justify-content-between gap-2"
+            >
+              <a href="menu.html" class="btn btn-third">menu</a>
 
-            <a href="menu-1.html" class="btn btn-third">menu 1</a>
+              <a href="menu-1.html" class="btn btn-third">menu 1</a>
 
-            <a href="menu-2.html" class="btn btn-third">menu 2</a>
+              <a href="menu-2.html" class="btn btn-third">menu 2</a>
 
-            <a href="menu-3.html" class="btn btn-third">menu 3</a>
+              <a href="menu-3.html" class="btn btn-third">menu 3</a>
+            </div>
           </div>
         </div>
       </div>

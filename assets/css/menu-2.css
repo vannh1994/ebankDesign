@@ -1,0 +1,22 @@
+.left-menu {
+  top: 76px;
+  left: 0;
+  border-radius: 0;
+  height: calc(100vh - 150px);
+  padding-top: 4px;
+}
+
+.child-page .container.home-container {
+  margin-left: 312px !important;
+}
+
+@media (max-width: 991px) {
+  .left-menu {
+    top: 64px;
+    height: calc(100vh - 64px);
+  }
+
+  .child-page .container.home-container {
+    margin-left: 0 !important;
+  }
+}
