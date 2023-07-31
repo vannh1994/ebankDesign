@@ -233,12 +233,7 @@
   .child-page .container.home-container {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    height: calc(100vh - 242px);
-  }
-}
-
-@media (max-width: 767px) {
-  .child-page .container.home-container {
-    height: calc(100vh - 168px);
+    margin-bottom: 24px !important;
+    height: unset;
   }
 }
