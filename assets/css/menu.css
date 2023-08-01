@@ -38,11 +38,6 @@
   border-radius: 10px;
 }
 
-/* Handle on hover */
-.left-menu ul::-webkit-scrollbar-thumb:hover {
-  background: #b30000;
-}
-
 .left-menu ul li.item {
   overflow: hidden;
   cursor: pointer;
@@ -276,12 +271,6 @@
 
 .card-content::-webkit-scrollbar {
   display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.card-content {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
 @media (max-width: 991px) {
