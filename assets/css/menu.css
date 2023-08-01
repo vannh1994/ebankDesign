@@ -191,7 +191,7 @@
   max-width: unset;
   margin-right: 64px !important;
   width: unset;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 194px);
   overflow: scroll;
   display: flex;
   flex-direction: column;
@@ -256,6 +256,32 @@
 
 .home-container .breadcrumbs .breadcrumb {
   padding: 0 !important;
+}
+
+.menu-page .home-container {
+  margin: 100px auto !important;
+}
+
+.card-scroll {
+  height: calc(100% - 76px);
+  padding: 16px;
+}
+
+.card-content {
+  overflow: scroll;
+  border: 1px solid #ced4da;
+  border-radius: 16px;
+  padding: 8px;
+}
+
+.card-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.card-content {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 @media (max-width: 991px) {
