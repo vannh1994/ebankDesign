@@ -2,26 +2,6 @@
   margin: 100px auto !important;
 }
 
-.home-container .breadcrumbs {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 20px;
-}
-
-.home-container .breadcrumbs .breadcrumb {
-  padding: 0 10px;
-  margin-bottom: 0;
-  align-items: center;
-}
-
-.breadcrumb .breadcrumb-item a {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 18px;
-  color: #dbdbdbba;
-}
-
 .home-container .page-title {
   display: flex;
   align-items: center;
