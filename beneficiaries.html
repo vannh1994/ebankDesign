@@ -51,247 +51,273 @@
       </div>
 
       <div class="container home-container">
-        <div class="breadcrumbs">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="home.html">
-                  <i class="isax isax-home-2"></i>
-                  Trang chủ
-                </a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Quản lý danh sách người thụ hưởng
-              </li>
-            </ol>
-          </nav>
-        </div>
+        <div class="card p-2 mb-3 main-content content-detail-page">
+          <div class="header-content-page">
+            <div class="page-title">
+              <div class="back" onclick="location.href = 'home.html';">
+                <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
+              </div>
+              <h2>Danh sách người thụ hưởng</h2>
+            </div>
 
-        <div class="page-title">
-          <div class="back" onclick="location.href = 'home.html';">
-            <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
+            <div class="breadcrumbs">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="home.html">
+                      <i class="isax isax-home-2"></i>
+                      Trang chủ
+                    </a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Danh sách người thụ hưởng
+                  </li>
+                </ol>
+              </nav>
+            </div>
           </div>
-          <h2>Quản lý danh sách người thụ hưởng</h2>
         </div>
 
-        <div class="card spending-management-card bg-gray">
-          <nav>
-            <div
-              class="nav nav-tabs"
-              id="nav-tab-spending-management"
-              role="tablist"
-            >
-              <button
-                class="nav-link active"
-                id="transfer-money-in-system-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#transfer-money-in-system"
-                type="button"
-                role="tab"
-                aria-controls="transfer-money-in-system"
-                aria-selected="true"
-              >
-                Chuyển tiền trong hệ thống
-              </button>
-              <button
-                class="nav-link"
-                id="transfer-money-outside-system-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#transfer-money-outside-system"
-                type="button"
-                role="tab"
-                aria-controls="transfer-money-outside-system"
-                aria-selected="false"
-              >
-                Chuyển tiền ngoài hệ thống
-              </button>
-              <button
-                class="nav-link"
-                id="international-money-transfer-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#international-money-transfer"
-                type="button"
-                role="tab"
-                aria-controls="international-money-transfer"
-                aria-selected="false"
-              >
-                Chuyển tiền quốc tế
-              </button>
-            </div>
-          </nav>
-          <div class="tab-content mt-10" id="nav-tabContent">
-            <div
-              class="tab-pane fade show active contact-area"
-              id="transfer-money-in-system"
-              role="tabpanel"
-              aria-labelledby="transfer-money-in-system-tab"
-            >
+        <div
+          class="card spending-management-card bg-gray card-scroll beneficiaries"
+        >
+          <div class="card-content p-0 pb-3">
+            <nav>
               <div
-                v-if="accountBeneficiaries.length"
-                class="list-beneficiaries"
+                class="nav nav-tabs"
+                id="nav-tab-spending-management"
+                role="tablist"
+              >
+                <button
+                  class="nav-link active"
+                  id="transfer-money-in-system-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#transfer-money-in-system"
+                  type="button"
+                  role="tab"
+                  aria-controls="transfer-money-in-system"
+                  aria-selected="true"
+                >
+                  Chuyển tiền trong hệ thống
+                </button>
+                <button
+                  class="nav-link"
+                  id="transfer-money-outside-system-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#transfer-money-outside-system"
+                  type="button"
+                  role="tab"
+                  aria-controls="transfer-money-outside-system"
+                  aria-selected="false"
+                >
+                  Chuyển tiền ngoài hệ thống
+                </button>
+                <button
+                  class="nav-link"
+                  id="international-money-transfer-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#international-money-transfer"
+                  type="button"
+                  role="tab"
+                  aria-controls="international-money-transfer"
+                  aria-selected="false"
+                >
+                  Chuyển tiền quốc tế
+                </button>
+              </div>
+            </nav>
+            <div class="tab-content mt-10" id="nav-tabContent">
+              <div
+                class="tab-pane fade show active contact-area"
+                id="transfer-money-in-system"
+                role="tabpanel"
+                aria-labelledby="transfer-money-in-system-tab"
               >
                 <div
-                  class="beneficiary-item"
-                  v-for="item in accountBeneficiaries"
-                  :class="{'active': item.id == selectedItemId}"
-                  @click="selectedItemId = item.id"
+                  v-if="accountBeneficiaries.length"
+                  class="list-beneficiaries"
                 >
-                  <div class="account">
-                    <img :src="item.logo" alt="logo" />
-                    <div class="account-info">
-                      <div class="name">{{ item.accountName }}</div>
-                      <div class="account-name">{{ item.fullName }}</div>
-                      <div class="account-number">
-                        {{ item.accountNumber }}
-                        <span>{{ item.bankName }}</span>
+                  <div
+                    class="beneficiary-item"
+                    v-for="item in accountBeneficiaries"
+                    :class="{'active': item.id == selectedItemId}"
+                    @click="selectedItemId = item.id"
+                  >
+                    <div class="account">
+                      <img :src="item.logo" alt="logo" />
+                      <div class="account-info">
+                        <div class="name">{{ item.accountName }}</div>
+                        <div class="account-name">{{ item.fullName }}</div>
+                        <div class="account-number">
+                          {{ item.accountNumber }}
+                          <span>{{ item.bankName }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="created-at">
+                      <span><label>Ngày tạo</label> 03/11/2022</span>
+                      <div
+                        class="selected-block form-group"
+                        :class="{'visibility-hidden': item.id != selectedItemId}"
+                      >
+                        <img src="assets/icons/checkbox.svg" />
                       </div>
                     </div>
                   </div>
-                  <div class="created-at">
-                    <span><label>Ngày tạo</label> 03/11/2022</span>
-                    <div
-                      class="selected-block form-group"
-                      :class="{'visibility-hidden': item.id != selectedItemId}"
-                    >
-                      <img src="assets/icons/checkbox.svg" />
-                    </div>
-                  </div>
+                </div>
+
+                <div v-else class="list-beneficiaries-empty">
+                  Quý khách chưa có danh sách thụ hưởng nào
+                </div>
+
+                <div class="group-button-bottom">
+                  <button
+                    class="btn btn-primary btn-back"
+                    v-if="selectedItemId"
+                  >
+                    Xoá
+                  </button>
+                  <button
+                    class="btn btn-primary btn-back"
+                    v-if="selectedItemId"
+                  >
+                    Chỉnh sửa
+                  </button>
+                  <button
+                    class="btn btn-third btn-submit"
+                    onclick="location.href = 'beneficiaries-step-1.html'"
+                  >
+                    Tạo mới
+                  </button>
                 </div>
               </div>
-
-              <div v-else class="list-beneficiaries-empty">
-                Quý khách chưa có danh sách thụ hưởng nào
-              </div>
-
-              <div class="group-button-bottom">
-                <button class="btn btn-primary btn-back" v-if="selectedItemId">
-                  Xoá
-                </button>
-                <button class="btn btn-primary btn-back" v-if="selectedItemId">
-                  Chỉnh sửa
-                </button>
-                <button
-                  class="btn btn-third btn-submit"
-                  onclick="location.href = 'beneficiaries-step-1.html'"
-                >
-                  Tạo mới
-                </button>
-              </div>
-            </div>
-            <div
-              class="tab-pane fade contact-area"
-              id="transfer-money-outside-system"
-              role="tabpanel"
-              aria-labelledby="transfer-money-outside-system-tab"
-            >
               <div
-                v-if="accountBeneficiaries.length"
-                class="list-beneficiaries"
+                class="tab-pane fade contact-area"
+                id="transfer-money-outside-system"
+                role="tabpanel"
+                aria-labelledby="transfer-money-outside-system-tab"
               >
                 <div
-                  class="beneficiary-item"
-                  v-for="item in accountBeneficiaries"
-                  :class="{'active': item.id == selectedItemId}"
-                  @click="selectedItemId = item.id"
+                  v-if="accountBeneficiaries.length"
+                  class="list-beneficiaries"
                 >
-                  <div class="account">
-                    <img :src="item.logo" alt="logo" />
-                    <div class="account-info">
-                      <div class="name">{{ item.accountName }}</div>
-                      <div class="account-name">{{ item.fullName }}</div>
-                      <div class="account-number">
-                        {{ item.accountNumber }}
-                        <span>{{ item.bankName }}</span>
+                  <div
+                    class="beneficiary-item"
+                    v-for="item in accountBeneficiaries"
+                    :class="{'active': item.id == selectedItemId}"
+                    @click="selectedItemId = item.id"
+                  >
+                    <div class="account">
+                      <img :src="item.logo" alt="logo" />
+                      <div class="account-info">
+                        <div class="name">{{ item.accountName }}</div>
+                        <div class="account-name">{{ item.fullName }}</div>
+                        <div class="account-number">
+                          {{ item.accountNumber }}
+                          <span>{{ item.bankName }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="created-at">
+                      <span><label>Ngày tạo</label> 03/11/2022</span>
+                      <div
+                        class="selected-block form-group"
+                        :class="{'visibility-hidden': item.id != selectedItemId}"
+                      >
+                        <img src="assets/icons/checkbox.svg" />
                       </div>
                     </div>
                   </div>
-                  <div class="created-at">
-                    <span><label>Ngày tạo</label> 03/11/2022</span>
-                    <div
-                      class="selected-block form-group"
-                      :class="{'visibility-hidden': item.id != selectedItemId}"
-                    >
-                      <img src="assets/icons/checkbox.svg" />
-                    </div>
-                  </div>
+                </div>
+
+                <div v-else class="list-beneficiaries-empty">
+                  Quý khách chưa có danh sách thụ hưởng nào
+                </div>
+
+                <div class="group-button-bottom">
+                  <button
+                    class="btn btn-primary btn-back"
+                    v-if="selectedItemId"
+                  >
+                    Xoá
+                  </button>
+                  <button
+                    class="btn btn-primary btn-back"
+                    v-if="selectedItemId"
+                  >
+                    Chỉnh sửa
+                  </button>
+                  <button
+                    class="btn btn-third btn-submit"
+                    onclick="location.href = 'beneficiaries-step-1-1.html'"
+                  >
+                    Tạo mới
+                  </button>
                 </div>
               </div>
-
-              <div v-else class="list-beneficiaries-empty">
-                Quý khách chưa có danh sách thụ hưởng nào
-              </div>
-
-              <div class="group-button-bottom">
-                <button class="btn btn-primary btn-back" v-if="selectedItemId">
-                  Xoá
-                </button>
-                <button class="btn btn-primary btn-back" v-if="selectedItemId">
-                  Chỉnh sửa
-                </button>
-                <button
-                  class="btn btn-third btn-submit"
-                  onclick="location.href = 'beneficiaries-step-1-1.html'"
-                >
-                  Tạo mới
-                </button>
-              </div>
-            </div>
-            <div
-              class="tab-pane fade contact-area"
-              id="international-money-transfer"
-              role="tabpanel"
-              aria-labelledby="international-money-transfer-tab"
-            >
               <div
-                v-if="accountBeneficiaries.length"
-                class="list-beneficiaries"
+                class="tab-pane fade contact-area"
+                id="international-money-transfer"
+                role="tabpanel"
+                aria-labelledby="international-money-transfer-tab"
               >
                 <div
-                  class="beneficiary-item"
-                  v-for="item in accountBeneficiaries"
-                  :class="{'active': item.id == selectedItemId}"
-                  @click="selectedItemId = item.id"
+                  v-if="accountBeneficiaries.length"
+                  class="list-beneficiaries"
                 >
-                  <div class="account">
-                    <img :src="item.logo" alt="logo" />
-                    <div class="account-info">
-                      <div class="name">{{ item.accountName }}</div>
-                      <div class="account-name">{{ item.fullName }}</div>
-                      <div class="account-number">
-                        {{ item.accountNumber }}
-                        <span>{{ item.bankName }}</span>
+                  <div
+                    class="beneficiary-item"
+                    v-for="item in accountBeneficiaries"
+                    :class="{'active': item.id == selectedItemId}"
+                    @click="selectedItemId = item.id"
+                  >
+                    <div class="account">
+                      <img :src="item.logo" alt="logo" />
+                      <div class="account-info">
+                        <div class="name">{{ item.accountName }}</div>
+                        <div class="account-name">{{ item.fullName }}</div>
+                        <div class="account-number">
+                          {{ item.accountNumber }}
+                          <span>{{ item.bankName }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="created-at">
+                      <span><label>Ngày tạo</label> 03/11/2022</span>
+                      <div
+                        class="selected-block form-group"
+                        :class="{'visibility-hidden': item.id != selectedItemId}"
+                      >
+                        <img src="assets/icons/checkbox.svg" />
                       </div>
                     </div>
                   </div>
-                  <div class="created-at">
-                    <span><label>Ngày tạo</label> 03/11/2022</span>
-                    <div
-                      class="selected-block form-group"
-                      :class="{'visibility-hidden': item.id != selectedItemId}"
-                    >
-                      <img src="assets/icons/checkbox.svg" />
-                    </div>
-                  </div>
                 </div>
-              </div>
 
-              <div v-else class="list-beneficiaries-empty">
-                Quý khách chưa có danh sách thụ hưởng nào
-              </div>
+                <div v-else class="list-beneficiaries-empty">
+                  Quý khách chưa có danh sách thụ hưởng nào
+                </div>
 
-              <div class="group-button-bottom">
-                <button class="btn btn-primary btn-back" v-if="selectedItemId">
-                  Xoá
-                </button>
-                <button class="btn btn-primary btn-back" v-if="selectedItemId">
-                  Chỉnh sửa
-                </button>
-                <button
-                  class="btn btn-third btn-submit"
-                  onclick="location.href = 'beneficiaries-step-1-2.html'"
-                >
-                  Tạo mới
-                </button>
+                <div class="group-button-bottom">
+                  <button
+                    class="btn btn-primary btn-back"
+                    v-if="selectedItemId"
+                  >
+                    Xoá
+                  </button>
+                  <button
+                    class="btn btn-primary btn-back"
+                    v-if="selectedItemId"
+                  >
+                    Chỉnh sửa
+                  </button>
+                  <button
+                    class="btn btn-third btn-submit"
+                    onclick="location.href = 'beneficiaries-step-1-2.html'"
+                  >
+                    Tạo mới
+                  </button>
+                </div>
               </div>
             </div>
           </div>

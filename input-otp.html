@@ -51,50 +51,58 @@
       </div>
 
       <div class="container home-container">
-        <div class="breadcrumbs">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="home.html">
-                  <i class="isax isax-home-2"></i>
-                  Trang chủ
-                </a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Nhập mã PIN SMS OTP
-              </li>
-            </ol>
-          </nav>
+        <div class="card p-2 mb-3 main-content content-detail-page">
+          <div class="header-content-page">
+            <div class="page-title">
+              <div class="back" onclick="location.href = 'home.html';">
+                <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
+              </div>
+              <h2>Nhập mã PIN SMS OTP</h2>
+            </div>
+
+            <div class="breadcrumbs">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="home.html">
+                      <i class="isax isax-home-2"></i>
+                      Trang chủ
+                    </a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Nhập mã PIN SMS OTP
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
         </div>
 
-        <div class="page-title">
-          <div class="back" onclick="location.href = 'home.html';">
-            <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
-          </div>
-          <h2>Nhập mã PIN SMS OTP</h2>
-        </div>
+        <div class="card p-4 otp-card card-scroll">
+          <div class="card-content">
+            <div class="title-otp">Nhập mã PIN SMS OTP</div>
+            <div class="message">
+              Qúy khách vui lòng nhập mã OTP đã được gửi về số điện thoại
+              <span>097***025</span>
+            </div>
+            <div class="resent">
+              Không nhận được mã ?
+              <span>Gửi lại</span>
+            </div>
+            <div>
+              <v-otp-input
+                class="otp-box"
+                input-classes="otp-input"
+                :num-inputs="6"
+                separator=""
+              />
+            </div>
 
-        <div class="card p-4 otp-card">
-          <div class="title-otp">Nhập mã PIN SMS OTP</div>
-          <div class="message">
-            Qúy khách vui lòng nhập mã OTP đã được gửi về số điện thoại
-            <span>097***025</span>
-          </div>
-          <div class="resent">
-            Không nhận được mã ?
-            <span>Gửi lại</span>
-          </div>
-          <div>
-            <v-otp-input
-              class="otp-box"
-              input-classes="otp-input"
-              :num-inputs="6"
-              separator=""
-            />
-          </div>
-
-          <div class="group-button-bottom mt-5 mb-5">
-            <button class="btn btn-third btn-submit">Xác thực</button>
+            <div
+              class="group-button-bottom mt-5 mb-5 d-flex align-items-center justify-content-center"
+            >
+              <button class="btn btn-third btn-submit">Xác thực</button>
+            </div>
           </div>
         </div>
       </div>

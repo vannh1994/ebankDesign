@@ -1,5 +1,5 @@
 .setting-transaction-limit-page .home-container {
-  margin: 106px auto !important;
+  margin: 100px auto !important;
 }
 
 .setting-transaction-limit-page .input-group.label-transition .form-control {
@@ -8,6 +8,10 @@
 
 .setting-transaction-limit-content {
   background: #fafafa !important;
+}
+
+.setting-transaction-limit-page .card-scroll {
+  height: calc(100% - 112px);
 }
 
 .transaction-limit-card {

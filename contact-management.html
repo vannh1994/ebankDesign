@@ -53,213 +53,219 @@
       </div>
 
       <div class="container home-container">
-        <div class="breadcrumbs">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="home.html">
-                  <i class="isax isax-home-2"></i>
-                  Trang chủ
-                </a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Quản lý danh bạ
-              </li>
-            </ol>
-          </nav>
-        </div>
-
-        <div class="page-title">
-          <a class="back" href="home.html">
-            <i class="isax isax-arrow-left-2"></i>
-          </a>
-          <h2>Quản lý danh bạ</h2>
-        </div>
-
-        <div class="card pb-3">
-          <div
-            class="card-header d-flex justify-content-between bg-white p-lg-4"
-          >
-            <div class="header-tabs">
-              <div
-                class="header-tab"
-                :class="{'active': activeTab == 'tab1'}"
-                @click="activeTab = 'tab1'"
-              >
-                Danh bạ thụ hưởng
+        <div class="card p-2 mb-3 main-content content-detail-page">
+          <div class="header-content-page">
+            <div class="page-title">
+              <div class="back" onclick="location.href = 'home.html';">
+                <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
               </div>
-              <div
-                class="header-tab"
-                :class="{'active': activeTab == 'tab2'}"
-                @click="activeTab = 'tab2'"
-              >
-                Mẫu chuyển tiền
-              </div>
+              <h2>Quản lý danh bạ</h2>
             </div>
 
-            <div class="d-flex gap-3">
-              <div v-if="activeTab == 'tab1'" class="input-search">
-                <i class="isax isax-search-normal-1"></i>
-                <input
-                  v-model="searchQuery"
-                  placeholder="Tìm kiếm danh bạ"
-                  class="form-control"
-                />
-              </div>
-
-              <div v-else class="input-search">
-                <i class="isax isax-search-normal-1"></i>
-                <input
-                  v-model="searchTemplateQuery"
-                  placeholder="Tìm kiếm mẫu"
-                  class="form-control"
-                />
-              </div>
-
-              <button
-                v-if="activeTab == 'tab1'"
-                type="button"
-                class="btn btn-third"
-                data-bs-toggle="modal"
-                data-bs-target="#add-contact"
-              >
-                <i class="isax isax-add"></i>
-                Thêm danh bạ
-              </button>
-
-              <button
-                v-else
-                type="button"
-                class="btn btn-third"
-                data-bs-toggle="modal"
-                data-bs-target="#add-template"
-              >
-                <i class="isax isax-add"></i>
-                Thêm mẫu chuyển tiền
-              </button>
+            <div class="breadcrumbs">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="home.html">
+                      <i class="isax isax-home-2"></i>
+                      Trang chủ
+                    </a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Quản lý danh bạ
+                  </li>
+                </ol>
+              </nav>
             </div>
           </div>
+        </div>
 
-          <table class="table" v-if="activeTab == 'tab1'">
-            <thead>
-              <tr>
-                <th>
-                  <label class="form-check mb-0">
-                    <input class="form-check-input" type="checkbox" />
-                  </label>
-                </th>
-                <th class="fw-normal">STT</th>
-                <th class="fw-normal">Tên</th>
-                <th class="fw-normal">Ngân hàng thụ hưởng</th>
-                <th class="fw-normal">Số tài khoản/Thẻ thụ hưởng</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(contact, index) in filteredList">
-                <td>
-                  <label class="form-check mb-0">
-                    <input class="form-check-input" type="checkbox" />
-                  </label>
-                </td>
-                <td class="text-muted">{{index+1}}</td>
-                <td class="fw-bold text-uppercase">{{contact.name}}</td>
-                <td class="fw-bold">
-                  <div class="d-flex align-items-center gap-2">
-                    <div class="bank-logo">
-                      <img :src="contact.logo" alt="" />
-                    </div>
-                    {{contact.bank}}
-                  </div>
-                </td>
-                <td class="fw-bold">{{contact.number}}</td>
-                <td class="mobile-only">
-                  <div class="contact-info">
-                    <div class="bank-logo">
-                      <img :src="contact.logo" alt="" />
-                    </div>
-                    <div class="contact-detail">
-                      <div class="contact-name">{{contact.name}}</div>
-                      <div class="contact-number">{{contact.number}}</div>
-                      <div>{{contact.bank}}</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-end">
-                  <div class="dropdown dropdown-action">
-                    <i
-                      class="isax isax-more"
-                      data-bs-toggle="dropdown"
-                      style="transform: rotate(90deg)"
-                    ></i>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="#">
-                          <i class="isax isax-trash"></i> Xoá
-                        </a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="">
-                          <a class="dropdown-item" href="#">
-                            <i class="isax isax-heart"></i> Yêu thích
-                          </a>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="card pb-3 card-scroll">
+          <div class="card-content p-0 pb-3">
+            <div
+              class="card-header d-flex justify-content-between bg-white p-lg-4"
+            >
+              <div class="header-tabs">
+                <div
+                  class="header-tab"
+                  :class="{'active': activeTab == 'tab1'}"
+                  @click="activeTab = 'tab1'"
+                >
+                  Danh bạ thụ hưởng
+                </div>
+                <div
+                  class="header-tab"
+                  :class="{'active': activeTab == 'tab2'}"
+                  @click="activeTab = 'tab2'"
+                >
+                  Mẫu chuyển tiền
+                </div>
+              </div>
 
-          <table class="table table-template" v-else>
-            <thead>
-              <tr>
-                <th>
-                  <label class="form-check mb-0">
-                    <input class="form-check-input" type="checkbox" />
-                  </label>
-                </th>
-                <th class="fw-normal">STT</th>
-                <th class="fw-normal">Mẫu chuyển tiền</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(template, index) in filteredTemplateList">
-                <td>
-                  <label class="form-check mb-0">
-                    <input class="form-check-input" type="checkbox" />
-                  </label>
-                </td>
-                <td class="text-muted">{{ index + 1}}</td>
-                <td class="fw-bold text-uppercase">{{ template.name }}</td>
-                <td class="text-end">
-                  <div class="dropdown dropdown-action">
-                    <i
-                      class="isax isax-more"
-                      data-bs-toggle="dropdown"
-                      style="transform: rotate(90deg)"
-                    ></i>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="#">
-                          <i class="isax isax-trash"></i> Xoá
-                        </a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="">
+              <div class="d-flex gap-3">
+                <div v-if="activeTab == 'tab1'" class="input-search">
+                  <i class="isax isax-search-normal-1"></i>
+                  <input
+                    v-model="searchQuery"
+                    placeholder="Tìm kiếm danh bạ"
+                    class="form-control"
+                  />
+                </div>
+
+                <div v-else class="input-search">
+                  <i class="isax isax-search-normal-1"></i>
+                  <input
+                    v-model="searchTemplateQuery"
+                    placeholder="Tìm kiếm mẫu"
+                    class="form-control"
+                  />
+                </div>
+
+                <button
+                  v-if="activeTab == 'tab1'"
+                  type="button"
+                  class="btn btn-third"
+                  data-bs-toggle="modal"
+                  data-bs-target="#add-contact"
+                >
+                  <i class="isax isax-add"></i>
+                  Thêm danh bạ
+                </button>
+
+                <button
+                  v-else
+                  type="button"
+                  class="btn btn-third"
+                  data-bs-toggle="modal"
+                  data-bs-target="#add-template"
+                >
+                  <i class="isax isax-add"></i>
+                  Thêm mẫu chuyển tiền
+                </button>
+              </div>
+            </div>
+
+            <table class="table" v-if="activeTab == 'tab1'">
+              <thead>
+                <tr>
+                  <th>
+                    <label class="form-check mb-0">
+                      <input class="form-check-input" type="checkbox" />
+                    </label>
+                  </th>
+                  <th class="fw-normal">STT</th>
+                  <th class="fw-normal">Tên</th>
+                  <th class="fw-normal">Ngân hàng thụ hưởng</th>
+                  <th class="fw-normal">Số tài khoản/Thẻ thụ hưởng</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(contact, index) in filteredList">
+                  <td>
+                    <label class="form-check mb-0">
+                      <input class="form-check-input" type="checkbox" />
+                    </label>
+                  </td>
+                  <td class="text-muted">{{index+1}}</td>
+                  <td class="fw-bold text-uppercase">{{contact.name}}</td>
+                  <td class="fw-bold">
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="bank-logo">
+                        <img :src="contact.logo" alt="" />
+                      </div>
+                      {{contact.bank}}
+                    </div>
+                  </td>
+                  <td class="fw-bold">{{contact.number}}</td>
+                  <td class="mobile-only">
+                    <div class="contact-info">
+                      <div class="bank-logo">
+                        <img :src="contact.logo" alt="" />
+                      </div>
+                      <div class="contact-detail">
+                        <div class="contact-name">{{contact.name}}</div>
+                        <div class="contact-number">{{contact.number}}</div>
+                        <div>{{contact.bank}}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-end">
+                    <div class="dropdown dropdown-action">
+                      <i
+                        class="isax isax-more"
+                        data-bs-toggle="dropdown"
+                        style="transform: rotate(90deg)"
+                      ></i>
+                      <ul class="dropdown-menu">
+                        <li>
                           <a class="dropdown-item" href="#">
-                            <i class="isax isax-heart"></i> Yêu thích
+                            <i class="isax isax-trash"></i> Xoá
                           </a>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="">
+                            <a class="dropdown-item" href="#">
+                              <i class="isax isax-heart"></i> Yêu thích
+                            </a>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="table table-template" v-else>
+              <thead>
+                <tr>
+                  <th>
+                    <label class="form-check mb-0">
+                      <input class="form-check-input" type="checkbox" />
+                    </label>
+                  </th>
+                  <th class="fw-normal">STT</th>
+                  <th class="fw-normal">Mẫu chuyển tiền</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(template, index) in filteredTemplateList">
+                  <td>
+                    <label class="form-check mb-0">
+                      <input class="form-check-input" type="checkbox" />
+                    </label>
+                  </td>
+                  <td class="text-muted">{{ index + 1}}</td>
+                  <td class="fw-bold text-uppercase">{{ template.name }}</td>
+                  <td class="text-end">
+                    <div class="dropdown dropdown-action">
+                      <i
+                        class="isax isax-more"
+                        data-bs-toggle="dropdown"
+                        style="transform: rotate(90deg)"
+                      ></i>
+                      <ul class="dropdown-menu">
+                        <li>
+                          <a class="dropdown-item" href="#">
+                            <i class="isax isax-trash"></i> Xoá
+                          </a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="">
+                            <a class="dropdown-item" href="#">
+                              <i class="isax isax-heart"></i> Yêu thích
+                            </a>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 

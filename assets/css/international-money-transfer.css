@@ -1,5 +1,5 @@
 .international-money-transfer-page .home-container {
-  margin: 106px auto !important;
+  margin: 100px auto !important;
 }
 
 .international-money-transfer-page .transfer-area .card-title {
@@ -338,6 +338,11 @@
   margin-bottom: 0;
   margin-top: 10px;
   font-size: 14px;
+}
+
+.child-page.international-money-transfer-page .card-scroll:not(.beneficiaries) {
+  height: calc(100% - 112px);
+  padding: 16px;
 }
 
 @media (max-width: 991px) {
