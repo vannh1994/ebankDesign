@@ -269,9 +269,7 @@
 
 .card-content {
   overflow: scroll;
-  border: 1px solid #ced4da;
   border-radius: 16px;
-  padding: 0 8px;
 }
 
 .card-content::-webkit-scrollbar {
