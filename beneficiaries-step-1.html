@@ -31,6 +31,7 @@
   </head>
 
   <body class="child-page page-background list-beneficiaries-page">
+    <div id="loading"></div>
     <div id="app" class="page-content">
       <div class="list-small-icons">
         <div class="item">
@@ -335,6 +336,7 @@
     </script>
 
     <script>
+      hideLoading();
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
       const { useDebounceFn } = VueUse;
 

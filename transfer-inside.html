@@ -31,6 +31,8 @@
   </head>
 
   <body class="child-page page-background account-page transfer-inside-page">
+    <div id="loading"></div>
+
     <div id="app" class="page-content">
       <div class="list-small-icons">
         <div class="item">
@@ -116,23 +118,32 @@
                     <div class="input-group label-transition">
                       <div class="form-label">
                         <input
-                          type="text"
-                          class="form-control input-text-bold"
-                          name="username"
+                          v-model="accountNumber"
+                          class="form-control fw-bold"
+                          :class="{ hascontent: !!accountNumber }"
+                          name="account_number"
+                          @input="onAccountNumberChange"
                         />
                         <label for="username">Số tài khoản</label>
                       </div>
                     </div>
                   </div>
 
-                  <div class="input-group label-transition">
-                    <div class="form-label w-100">
-                      <div class="hascontent py-2 account-name">
-                        NGO XUAN HAI
+                  <transition>
+                    <div
+                      v-if="accountName"
+                      class="input-group label-transition"
+                    >
+                      <div class="form-label w-100">
+                        <div
+                          class="hascontent py-2 account-name text-uppercase"
+                        >
+                          {{accountName}}
+                        </div>
+                        <label>Tên người nhận</label>
                       </div>
-                      <label>Tên người nhận</label>
                     </div>
-                  </div>
+                  </transition>
 
                   <div class="d-flex justify-content-end">
                     <button
@@ -181,49 +192,24 @@
                     <div class="input-search">
                       <i class="isax isax-search-normal-1"></i>
                       <input
+                        v-model="contactSearch"
                         placeholder="Tìm kiếm danh bạ"
                         class="form-control"
                       />
                     </div>
                     <div class="contact-list">
-                      <div class="contact-item">
+                      <div
+                        v-for="contact in filteredContactList"
+                        class="contact-item"
+                        @click="selectContact(contact)"
+                      >
                         <div class="contact-bank">
-                          <img src="assets/icons/logo-dark.svg" />
+                          <img :src="contact.bank.logo" />
                         </div>
                         <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">VRB</div>
-                        </div>
-                      </div>
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/images/banks/tpb.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">TIEN PHONG BANK</div>
-                        </div>
-                      </div>
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/images/banks/vcb.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">TIEN PHONG BANK</div>
-                        </div>
-                      </div>
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/images/banks/vpb.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">TIEN PHONG BANK</div>
+                          <b class="text-uppercase">{{ contact.name }}</b>
+                          <b>{{ contact.number }}</b>
+                          <div class="text-muted">{{ contact.bank.name }}</div>
                         </div>
                       </div>
                     </div>
@@ -238,29 +224,24 @@
                     <div class="input-search">
                       <i class="isax isax-search-normal-1"></i>
                       <input
+                        v-model="contactSearch"
                         placeholder="Tìm kiếm danh bạ"
                         class="form-control"
                       />
                     </div>
                     <div class="contact-list">
-                      <div class="contact-item">
+                      <div
+                        v-for="contact in filteredContactList.slice(0, 2)"
+                        class="contact-item"
+                        @click="selectContact(contact)"
+                      >
                         <div class="contact-bank">
-                          <img src="assets/icons/logo-dark.svg" />
+                          <img :src="contact.bank.logo" />
                         </div>
                         <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">VRB</div>
-                        </div>
-                      </div>
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/images/banks/tpb.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">TIEN PHONG BANK</div>
+                          <b class="text-uppercase">{{ contact.name }}</b>
+                          <b>{{ contact.number }}</b>
+                          <div class="text-muted">{{ contact.bank.name }}</div>
                         </div>
                       </div>
                     </div>
@@ -275,19 +256,24 @@
                     <div class="input-search">
                       <i class="isax isax-search-normal-1"></i>
                       <input
+                        v-model="contactSearch"
                         placeholder="Tìm kiếm danh bạ"
                         class="form-control"
                       />
                     </div>
                     <div class="contact-list">
-                      <div class="contact-item">
+                      <div
+                        v-for="contact in filteredContactList.slice(0, 1)"
+                        class="contact-item"
+                        @click="selectContact(contact)"
+                      >
                         <div class="contact-bank">
-                          <img src="assets/icons/logo-dark.svg" />
+                          <img :src="contact.bank.logo" />
                         </div>
                         <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">VRB</div>
+                          <b class="text-uppercase">{{ contact.name }}</b>
+                          <b>{{ contact.number }}</b>
+                          <div class="text-muted">{{ contact.bank.name }}</div>
                         </div>
                       </div>
                     </div>
@@ -384,6 +370,7 @@
     <script src="./components/menu.js"></script>
 
     <script>
+      hideLoading();
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
       const { useDebounceFn } = VueUse;
 
@@ -404,6 +391,7 @@
 
           const showGlobalSearch = ref(false);
           const searchGlobalQuery = ref("");
+          const contactSearch = ref("");
 
           const bankList = [
             {
@@ -481,6 +469,29 @@
             },
           ];
 
+          const contactList = [
+            {
+              name: "Ngo Mai Trang",
+              number: "05000210000471",
+              bank: bankList[0],
+            },
+            {
+              name: "Nguyen Van An",
+              number: "05000210000123",
+              bank: bankList[1],
+            },
+            {
+              name: "Tran Dinh Binh",
+              number: "05000210000456",
+              bank: bankList[2],
+            },
+            {
+              name: "Luu Duc Trung",
+              number: "05000210000789",
+              bank: bankList[3],
+            },
+          ];
+
           const filteredList = computed(() =>
             bankList.filter((x) =>
               x.name.toLowerCase().includes(searchQuery.value.toLowerCase())
@@ -493,6 +504,16 @@
               x.text.toLowerCase().includes(searchQuery)
             );
             return filteredItems.slice(0, 4);
+          });
+
+          const filteredContactList = computed(() => {
+            const searchQuery = contactSearch.value.toLowerCase();
+            const filteredItems = contactList.filter(
+              (x) =>
+                x.name.toLowerCase().includes(searchQuery) ||
+                x.number.toLowerCase().includes(searchQuery)
+            );
+            return filteredItems;
           });
 
           const onClickOutside = (event) => {
@@ -519,6 +540,11 @@
             }
 
             showGlobalSearch.value = false;
+          };
+
+          const selectContact = (contact) => {
+            accountNumber.value = contact.number;
+            accountName.value = contact.name;
           };
 
           onMounted(() => {
@@ -549,6 +575,10 @@
             showGlobalSearch,
             searchGlobalQuery,
             filteredGlobalList,
+            contactList,
+            filteredContactList,
+            contactSearch,
+            selectContact,
           };
         },
       }).mount("#app");

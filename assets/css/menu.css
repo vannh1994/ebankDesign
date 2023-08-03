@@ -213,12 +213,12 @@
 }
 
 .card-scroll {
-  height: calc(100% - 100px);
+  height: calc(100% - 84px);
   padding: 16px;
 }
 
 .content-min-height.card-scroll {
-  height: calc(100% - 212px) !important;
+  height: calc(100% - 170px) !important;
 }
 
 .card-content {

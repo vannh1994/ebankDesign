@@ -400,7 +400,7 @@ input[type="search"]::-webkit-input-placeholder {
 }
 
 .child-page.page-background {
-  background: linear-gradient(0deg, #19226d 50%, #ed1c24 100%);
+  background: linear-gradient(0deg, #19226d 70%, #ed1c24 100%);
 }
 
 .child-page.page-background .page-background {
@@ -434,4 +434,33 @@ input[type="number"] {
   .btn-third {
     padding: 8px 56px;
   }
+}
+
+#loading {
+  background: linear-gradient(0deg, #19226d 50%, #ed1c24 100%);
+  transition: 0.5s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+}
+
+#loading::before {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-image: url("../images/spinner.svg");
+  background-repeat: no-repeat;
+  background-size: 200px 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#loading.hidden {
+  opacity: 0;
 }

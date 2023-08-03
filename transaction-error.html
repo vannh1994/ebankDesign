@@ -31,6 +31,7 @@
   </head>
 
   <body class="child-page page-background transaction-step-3-page">
+    <div id="loading"></div>
     <div class="page-content" id="app">
       <div class="list-small-icons">
         <div class="item">
@@ -85,17 +86,17 @@
         </div>
 
         <div class="transaction-step">
-          <div class="step-item">
+          <div class="step-item active">
             <div class="step">1</div>
             <div class="text">Khởi tạo</div>
           </div>
           <div class="progress active"></div>
-          <div class="step-item">
+          <div class="step-item active">
             <div class="step">2</div>
             <div class="text">Xác nhận</div>
           </div>
           <div class="progress active"></div>
-          <div class="step-item">
+          <div class="step-item active">
             <div class="step">3</div>
             <div class="text">Kết quả</div>
           </div>
@@ -176,6 +177,7 @@
     <script src="./components/menu.js"></script>
 
     <script>
+      hideLoading();
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
       const { useDebounceFn } = VueUse;
 

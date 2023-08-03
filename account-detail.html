@@ -29,6 +29,7 @@
   </head>
 
   <body class="child-page page-background account-detail-page">
+    <div id="loading"></div>
     <div class="page-content" id="app">
       <div class="list-small-icons">
         <div class="item">
@@ -147,37 +148,20 @@
                     role="tabpanel"
                     aria-labelledby="nav-all-tab"
                   >
-                    <div
-                      class="d-flex justify-content-between flex-column gap-4 mt-3"
-                    >
-                      <div class="input-range">
-                        <label>Ngày giao dịch</label>
-                        <input type="date" class="form-control" />
-                        <span>~</span>
-                        <input type="date" class="form-control" />
-                      </div>
-
-                      <div class="input-range">
-                        <label>Số tiền từ</label>
-                        <input type="number" value="0" class="form-control" />
-                        <span>~</span>
-                        <input type="number" value="0" class="form-control" />
-                      </div>
-
-                      <div class="input-range">
-                        <label>Danh bạ</label>
-                        <div class="input-search flex-fill">
-                          <i class="isax isax-search-normal-1"></i>
-                          <input
-                            placeholder="Tìm kiếm danh bạ"
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
+                    <div class="filter-block">
+                      <span>Sao kê giao dịch</span>
+                      <img src="assets/icons/filter.svg" />
                     </div>
+                    <!-- <div class="input-range">
+                      <label>Ngày giao dịch</label>
+                      <input type="date" class="form-control" />
+                      <span>~</span>
+                      <input type="date" class="form-control" />
+                    </div> -->
                     <div class="account-histories">
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -185,7 +169,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -197,13 +180,14 @@
                           <i
                             class="isax isax-add-circle"
                             data-bs-toggle="modal"
-                            data-bs-target="#catalog"
+                            data-bs-target="#cash-list"
                           ></i>
                         </div>
                       </div>
 
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -211,7 +195,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -223,13 +206,14 @@
                           <i
                             class="isax isax-add-circle"
                             data-bs-toggle="modal"
-                            data-bs-target="#catalog"
+                            data-bs-target="#cash-list"
                           ></i>
                         </div>
                       </div>
 
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -237,7 +221,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -256,6 +239,7 @@
 
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -263,7 +247,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -282,6 +265,7 @@
 
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -289,7 +273,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -301,7 +284,7 @@
                           <i
                             class="isax isax-add-circle"
                             data-bs-toggle="modal"
-                            data-bs-target="#catalog"
+                            data-bs-target="#cash-list"
                           ></i>
                         </div>
                       </div>
@@ -335,11 +318,15 @@
                         </ul>
                       </nav>
                       <div class="group-button">
-                        <button class="btn btn-primary">
+                        <button class="btn btn-link">
                           Xuất PDF <img src="assets/icons/pdf.svg" alt="pdf" />
                         </button>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-link">
                           Xuất excel
+                          <img src="assets/icons/excel.svg" alt="excel" />
+                        </button>
+                        <button class="btn btn-link">
+                          In chứng từ
                           <img src="assets/icons/excel.svg" alt="excel" />
                         </button>
                       </div>
@@ -351,37 +338,20 @@
                     role="tabpanel"
                     aria-labelledby="nav-money-out-tab"
                   >
-                    <div
-                      class="d-flex justify-content-between flex-column gap-4 mt-3"
-                    >
-                      <div class="input-range">
-                        <label>Ngày giao dịch</label>
-                        <input type="date" class="form-control" />
-                        <span>~</span>
-                        <input type="date" class="form-control" />
-                      </div>
-
-                      <div class="input-range">
-                        <label>Số tiền từ</label>
-                        <input type="number" value="0" class="form-control" />
-                        <span>~</span>
-                        <input type="number" value="0" class="form-control" />
-                      </div>
-
-                      <div class="input-range">
-                        <label>Danh bạ</label>
-                        <div class="input-search flex-fill">
-                          <i class="isax isax-search-normal-1"></i>
-                          <input
-                            placeholder="Tìm kiếm danh bạ"
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
+                    <div class="filter-block">
+                      <span>Sao kê giao dịch</span>
+                      <img src="assets/icons/filter.svg" />
                     </div>
+                    <!-- <div class="input-range">
+                    <label>Ngày giao dịch</label>
+                    <input type="date" class="form-control" />
+                    <span>~</span>
+                    <input type="date" class="form-control" />
+                  </div> -->
                     <div class="account-histories">
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -389,7 +359,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -401,13 +370,14 @@
                           <i
                             class="isax isax-add-circle"
                             data-bs-toggle="modal"
-                            data-bs-target="#catalog"
+                            data-bs-target="#cash-list"
                           ></i>
                         </div>
                       </div>
 
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -415,7 +385,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -427,13 +396,14 @@
                           <i
                             class="isax isax-add-circle"
                             data-bs-toggle="modal"
-                            data-bs-target="#catalog"
+                            data-bs-target="#cash-list"
                           ></i>
                         </div>
                       </div>
 
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -441,7 +411,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -453,13 +422,14 @@
                           <i
                             class="isax isax-add-circle"
                             data-bs-toggle="modal"
-                            data-bs-target="#catalog"
+                            data-bs-target="#cash-list"
                           ></i>
                         </div>
                       </div>
 
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -467,7 +437,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -479,13 +448,14 @@
                           <i
                             class="isax isax-add-circle"
                             data-bs-toggle="modal"
-                            data-bs-target="#catalog"
+                            data-bs-target="#cash-list"
                           ></i>
                         </div>
                       </div>
 
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -493,7 +463,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -505,7 +474,7 @@
                           <i
                             class="isax isax-add-circle"
                             data-bs-toggle="modal"
-                            data-bs-target="#catalog"
+                            data-bs-target="#cash-list"
                           ></i>
                         </div>
                       </div>
@@ -539,11 +508,15 @@
                         </ul>
                       </nav>
                       <div class="group-button">
-                        <button class="btn btn-primary">
+                        <button class="btn btn-link">
                           Xuất PDF <img src="assets/icons/pdf.svg" alt="pdf" />
                         </button>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-link">
                           Xuất excel
+                          <img src="assets/icons/excel.svg" alt="excel" />
+                        </button>
+                        <button class="btn btn-link">
+                          In chứng từ
                           <img src="assets/icons/excel.svg" alt="excel" />
                         </button>
                       </div>
@@ -555,37 +528,20 @@
                     role="tabpanel"
                     aria-labelledby="nav-money-in-tab"
                   >
-                    <div
-                      class="d-flex justify-content-between flex-column gap-4 mt-3"
-                    >
-                      <div class="input-range">
-                        <label>Ngày giao dịch</label>
-                        <input type="date" class="form-control" />
-                        <span>~</span>
-                        <input type="date" class="form-control" />
-                      </div>
-
-                      <div class="input-range">
-                        <label>Số tiền từ</label>
-                        <input type="number" value="0" class="form-control" />
-                        <span>~</span>
-                        <input type="number" value="0" class="form-control" />
-                      </div>
-
-                      <div class="input-range">
-                        <label>Danh bạ</label>
-                        <div class="input-search flex-fill">
-                          <i class="isax isax-search-normal-1"></i>
-                          <input
-                            placeholder="Tìm kiếm danh bạ"
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
+                    <div class="filter-block">
+                      <span>Sao kê giao dịch</span>
+                      <img src="assets/icons/filter.svg" />
                     </div>
+                    <!-- <div class="input-range">
+                    <label>Ngày giao dịch</label>
+                    <input type="date" class="form-control" />
+                    <span>~</span>
+                    <input type="date" class="form-control" />
+                  </div> -->
                     <div class="account-histories">
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -593,7 +549,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -612,6 +567,7 @@
 
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -619,7 +575,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -638,6 +593,7 @@
 
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -645,7 +601,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -664,6 +619,7 @@
 
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -671,7 +627,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -687,9 +642,9 @@
                           ></i>
                         </div>
                       </div>
-
                       <div class="history-item">
                         <div class="info flex-fill">
+                          <div class="code">Mã GD:6842354</div>
                           <div
                             class="message"
                             data-bs-toggle="modal"
@@ -697,7 +652,6 @@
                           >
                             PHI BMST T04,2023. NGO XUAN HAI Chuyen tien
                           </div>
-                          <div class="code">Mã GD:6842354</div>
                         </div>
                         <div class="bill">
                           <div class="transfer-time">
@@ -743,11 +697,15 @@
                         </ul>
                       </nav>
                       <div class="group-button">
-                        <button class="btn btn-primary">
+                        <button class="btn btn-link">
                           Xuất PDF <img src="assets/icons/pdf.svg" alt="pdf" />
                         </button>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-link">
                           Xuất excel
+                          <img src="assets/icons/excel.svg" alt="excel" />
+                        </button>
+                        <button class="btn btn-link">
+                          In chứng từ
                           <img src="assets/icons/excel.svg" alt="excel" />
                         </button>
                       </div>
@@ -878,7 +836,7 @@
 
       <!-- Modal transfer detail -->
       <div class="modal" id="transfer-detail">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
@@ -941,7 +899,75 @@
 
       <!-- Modal catalog -->
       <div class="modal" id="catalog">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Danh mục thu</h4>
+              <span class="close" data-bs-dismiss="modal">Đóng</span>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="catalog-list">
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/dollar.svg" />
+                  </div>
+                  <div class="title">Lương</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/gift.svg" />
+                  </div>
+                  <div class="title">Thưởng</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/ticket.svg" />
+                  </div>
+                  <div class="title">Lãi kinh doanh</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/save-money.svg" />
+                  </div>
+                  <div class="title">Lãi tiết kiểm</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/chart.svg" />
+                  </div>
+                  <div class="title">Lãi đầu tư</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/security.svg" />
+                  </div>
+                  <div class="title">Tích luỹ</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/more.svg" />
+                  </div>
+                  <div class="title">Thu khác</div>
+                </div>
+              </div>
+
+              <button
+                class="btn btn-third btn-back mt-4"
+                data-bs-dismiss="modal"
+              >
+                Xong
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal cash -->
+      <div class="modal" id="cash-list">
+        <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
@@ -954,55 +980,106 @@
               <div class="catalog-list">
                 <div class="catalog-item">
                   <div class="icon">
-                    <i class="isax isax-dollar-circle"></i>
+                    <img src="assets/icons/catalog/security.svg" />
                   </div>
-                  <div class="title">Lương</div>
+                  <div class="title">Ăn uống</div>
                 </div>
                 <div class="catalog-item">
                   <div class="icon">
-                    <i class="isax isax-dollar-circle"></i>
+                    <img src="assets/icons/catalog/group.svg" />
                   </div>
-                  <div class="title">Thưởng</div>
+                  <div class="title">Sinh hoạt</div>
                 </div>
                 <div class="catalog-item">
                   <div class="icon">
-                    <i class="isax isax-dollar-circle"></i>
+                    <img src="assets/icons/catalog/wallet.svg" />
+                  </div>
+                  <div class="title">Tiêu vặt</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/shop.svg" />
+                  </div>
+                  <div class="title">Mua sắm</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/save-money.svg" />
+                  </div>
+                  <div class="title">Tiết kiểm</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/security.svg" />
+                  </div>
+                  <div class="title">Học tập</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/circle.svg" />
+                  </div>
+                  <div class="title">Giải trí</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/status.svg" />
+                  </div>
+                  <div class="title">Đầu tư</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/travel.svg" />
+                  </div>
+                  <div class="title">Du lịch</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/heart.svg" />
+                  </div>
+                  <div class="title">Sức khoẻ</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/coffee.svg" />
+                  </div>
+                  <div class="title">Coffee</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/gift.svg" />
+                  </div>
+                  <div class="title">Quà tặng</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/weight.svg" />
+                  </div>
+                  <div class="title">Làm đẹp</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/retire.svg" />
+                  </div>
+                  <div class="title">Hưu trí</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/pet.svg" />
+                  </div>
+                  <div class="title">Thú cưng</div>
+                </div>
+                <div class="catalog-item">
+                  <div class="icon">
+                    <img src="assets/icons/catalog/more.svg" />
                   </div>
                   <div class="title">Thu khác</div>
                 </div>
-                <div class="catalog-item">
-                  <div class="icon">
-                    <i class="isax isax-dollar-circle"></i>
-                  </div>
-                  <div class="title">Lãi tiết kiểm</div>
-                </div>
-                <div class="catalog-item">
-                  <div class="icon">
-                    <i class="isax isax-dollar-circle"></i>
-                  </div>
-                  <div class="title">Lãi kinh doanh</div>
-                </div>
-                <div class="catalog-item">
-                  <div class="icon">
-                    <i class="isax isax-dollar-circle"></i>
-                  </div>
-                  <div class="title">Tích luỹ</div>
-                </div>
-                <div class="catalog-item">
-                  <div class="icon">
-                    <i class="isax isax-dollar-circle"></i>
-                  </div>
-                  <div class="title">Bảo hiểm</div>
-                </div>
-                <div class="catalog-item">
-                  <div class="icon">
-                    <i class="isax isax-dollar-circle"></i>
-                  </div>
-                  <div class="title">Lãi đầu tư</div>
-                </div>
               </div>
 
-              <button class="btn btn-third btn-back" data-bs-dismiss="modal">
+              <button
+                class="btn btn-third btn-back mt-4"
+                data-bs-dismiss="modal"
+              >
                 Xong
               </button>
             </div>
@@ -1024,6 +1101,7 @@
     <script src="./components/menu.js"></script>
 
     <script>
+      hideLoading();
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
       const { useDebounceFn } = VueUse;
 

@@ -7,14 +7,14 @@
   align-items: baseline;
   justify-content: space-between;
   padding: 0 24px;
-  margin-bottom: 42px;
+  margin-bottom: 20px;
 }
 
 .transaction-step .step-item {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   opacity: 0.6;
   transition: 0.3s;
 }

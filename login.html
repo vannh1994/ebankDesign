@@ -30,6 +30,7 @@
   </head>
 
   <body class="login-page">
+    <div id="loading"></div>
     <div class="login-page-background">
       <div class="shape01"></div>
       <div class="shape04"></div>
@@ -54,7 +55,10 @@
 
       <div class="login-form">
         <div class="form-title">
-          <i class="isax isax-arrow-left" onclick="location.href = 'before-login.html';"></i>
+          <i
+            class="isax isax-arrow-left"
+            onclick="location.href = 'before-login.html';"
+          ></i>
           Kính chào quý khách
         </div>
         <div class="input-group label-transition">
@@ -163,5 +167,8 @@
 
     <!-- App js -->
     <script src="assets/js/app.js"></script>
+    <script>
+      hideLoading();
+    </script>
   </body>
 </html>

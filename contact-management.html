@@ -31,6 +31,7 @@
   </head>
 
   <body class="child-page page-background account-page contact-page">
+    <div id="loading"></div>
     <div id="app" class="page-content">
       <div class="list-small-icons">
         <div class="item">
@@ -307,7 +308,7 @@
           <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">Thêm danh bạn thủ hưởng</h4>
+              <h4 class="modal-title">Thêm danh bạ thủ hưởng</h4>
               <span class="close" data-bs-dismiss="modal">Đóng</span>
             </div>
 
@@ -412,6 +413,7 @@
     <script src="./components/menu.js"></script>
 
     <script>
+      hideLoading();
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
       const { useDebounceFn } = VueUse;
 

@@ -344,6 +344,7 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  cursor: pointer;
 }
 
 .contact-area .contact-item .contact-bank {

@@ -29,6 +29,7 @@
   </head>
 
   <body class="child-page page-background account-page">
+    <div id="loading"></div>
     <div class="page-content" id="app">
       <div class="list-small-icons">
         <div class="item">
@@ -60,8 +61,9 @@
                   Trang chủ
                 </a>
               </li>
+              <li class="breadcrumb-item" aria-current="page">Tài khoản</li>
               <li class="breadcrumb-item active" aria-current="page">
-                Tài khoản
+                Thông tin tài khoản
               </li>
             </ol>
           </nav>
@@ -140,44 +142,21 @@
                 aria-labelledby="payment-account-tab"
               >
                 <div class="card mb-0" id="collapsed-payment-account">
-                  <div class="header">
-                    <div class="account">
-                      <div class="content">Tài khoản thanh toán VND (3)</div>
-                      <div class="title mt-1">
-                        Tống số dư khả dụng:
-                        <span class="amount_money">6.000.000 VND</span>
-                      </div>
-                    </div>
-
-                    <button
-                      class="btn btn-collapse"
-                      onclick="collapsed('collapsed-payment-account')"
-                    >
-                      <img
-                        src="assets/icons/arrow-right.svg"
-                        alt="arrow-right"
-                      />
-                    </button>
-                  </div>
-
-                  <div class="pt-4 list-card main-content">
+                  <div class="pt-3 list-card main-content">
                     <div
                       class="account-item active"
                       onclick="location.href = 'account-detail.html';"
                     >
                       <div class="left">
-                        <img
-                          class="copy"
-                          src="assets/icons/copy.svg"
-                          alt="copy"
-                        />
-                        <div class="account-number">22118501567455</div>
-                        <div class="badge">Mặc định</div>
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
                       </div>
                       <div class="right">
                         <div class="balances">
-                          <div class="title">Số dư khả dụng</div>
-                          <div class="money">2.000.000 VND</div>
+                          <div class="money">2,000,000 VND</div>
                         </div>
                         <img
                           class="to-detail"
@@ -191,18 +170,15 @@
                       onclick="location.href = 'account-detail.html';"
                     >
                       <div class="left">
-                        <img
-                          class="copy"
-                          src="assets/icons/copy.svg"
-                          alt="copy"
-                        />
-                        <div class="account-number">22118501567455</div>
-                        <div class="badge">Mặc định</div>
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
                       </div>
                       <div class="right">
                         <div class="balances">
-                          <div class="title">Số dư khả dụng</div>
-                          <div class="money">2.000.000 VND</div>
+                          <div class="money">2,000,000 VND</div>
                         </div>
                         <img
                           class="to-detail"
@@ -216,18 +192,59 @@
                       onclick="location.href = 'account-detail.html';"
                     >
                       <div class="left">
-                        <img
-                          class="copy"
-                          src="assets/icons/copy.svg"
-                          alt="copy"
-                        />
-                        <div class="account-number">22118501567455</div>
-                        <div class="badge">Mặc định</div>
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
                       </div>
                       <div class="right">
                         <div class="balances">
-                          <div class="title">Số dư khả dụng</div>
-                          <div class="money">2.000.000 VND</div>
+                          <div class="money">2,000,000 VND</div>
+                        </div>
+                        <img
+                          class="to-detail"
+                          src="assets/icons/arrow-right.svg"
+                          alt="arrow-right"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="account-item"
+                      onclick="location.href = 'account-detail.html';"
+                    >
+                      <div class="left">
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div class="balances">
+                          <div class="money">2,000,000 VND</div>
+                        </div>
+                        <img
+                          class="to-detail"
+                          src="assets/icons/arrow-right.svg"
+                          alt="arrow-right"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="account-item"
+                      onclick="location.href = 'account-detail.html';"
+                    >
+                      <div class="left">
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div class="balances">
+                          <div class="money">2,000,000 VND</div>
                         </div>
                         <img
                           class="to-detail"
@@ -246,44 +263,47 @@
                 aria-labelledby="deposit-account-tab"
               >
                 <div class="card mb-0" id="collapsed-deposit-account">
-                  <div class="header">
-                    <div class="account">
-                      <div class="content">Tài khoản tiền gửi VND (3)</div>
-                      <div class="title mt-1">
-                        Tống số dư khả dụng:
-                        <span class="amount_money">4.000.000 VND</span>
+                  <div class="pt-sm-2 pt-md-3 list-card main-content">
+                    <div class="deposit-account-checkbox">
+                      <div class="radio-item">
+                        <label class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="deposit-account"
+                            checked
+                          />
+                          <span class="form-check-label"
+                            >TK tiền gửi trực tuyến</span
+                          >
+                        </label>
+                      </div>
+                      <div class="radio-item">
+                        <label class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="deposit-account"
+                          />
+                          <span class="form-check-label">Qua số thẻ</span>
+                        </label>
                       </div>
                     </div>
 
-                    <button
-                      class="btn btn-collapse"
-                      onclick="collapsed('collapsed-deposit-account')"
-                    >
-                      <img
-                        src="assets/icons/arrow-right.svg"
-                        alt="arrow-right"
-                      />
-                    </button>
-                  </div>
-
-                  <div class="pt-4 list-card main-content">
                     <div
-                      class="account-item active"
+                      class="account-item"
                       onclick="location.href = 'account-detail.html';"
                     >
                       <div class="left">
-                        <img
-                          class="copy"
-                          src="assets/icons/copy.svg"
-                          alt="copy"
-                        />
-                        <div class="account-number">22118501567455</div>
-                        <div class="badge">Mặc định</div>
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
                       </div>
                       <div class="right">
                         <div class="balances">
-                          <div class="title">Số dư khả dụng</div>
-                          <div class="money">2.000.000 VND</div>
+                          <div class="money">2,000,000 VND</div>
                         </div>
                         <img
                           class="to-detail"
@@ -297,18 +317,81 @@
                       onclick="location.href = 'account-detail.html';"
                     >
                       <div class="left">
-                        <img
-                          class="copy"
-                          src="assets/icons/copy.svg"
-                          alt="copy"
-                        />
-                        <div class="account-number">22118501567455</div>
-                        <div class="badge">Mặc định</div>
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
                       </div>
                       <div class="right">
                         <div class="balances">
-                          <div class="title">Số dư khả dụng</div>
-                          <div class="money">2.000.000 VND</div>
+                          <div class="money">2,000,000 VND</div>
+                        </div>
+                        <img
+                          class="to-detail"
+                          src="assets/icons/arrow-right.svg"
+                          alt="arrow-right"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="account-item"
+                      onclick="location.href = 'account-detail.html';"
+                    >
+                      <div class="left">
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div class="balances">
+                          <div class="money">2,000,000 VND</div>
+                        </div>
+                        <img
+                          class="to-detail"
+                          src="assets/icons/arrow-right.svg"
+                          alt="arrow-right"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="account-item"
+                      onclick="location.href = 'account-detail.html';"
+                    >
+                      <div class="left">
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div class="balances">
+                          <div class="money">2,000,000 VND</div>
+                        </div>
+                        <img
+                          class="to-detail"
+                          src="assets/icons/arrow-right.svg"
+                          alt="arrow-right"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="account-item"
+                      onclick="location.href = 'account-detail.html';"
+                    >
+                      <div class="left">
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div class="balances">
+                          <div class="money">2,000,000 VND</div>
                         </div>
                         <img
                           class="to-detail"
@@ -327,44 +410,109 @@
                 aria-labelledby="loan-account-tab"
               >
                 <div class="card mb-0" id="collapsed-loan-account">
-                  <div class="header">
-                    <div class="account">
-                      <div class="content">Tài khoản vay VND (3)</div>
-                      <div class="title mt-1">
-                        Tống số dư khả dụng:
-                        <span class="amount_money">2.000.000 VND</span>
-                      </div>
-                    </div>
-
-                    <button
-                      class="btn btn-collapse"
-                      onclick="collapsed('collapsed-loan-account')"
-                    >
-                      <img
-                        src="assets/icons/arrow-right.svg"
-                        alt="arrow-right"
-                      />
-                    </button>
-                  </div>
-
-                  <div class="pt-4 list-card main-content">
+                  <div class="pt-3 list-card main-content">
                     <div
-                      class="account-item active"
+                      class="account-item"
                       onclick="location.href = 'account-detail.html';"
                     >
                       <div class="left">
-                        <img
-                          class="copy"
-                          src="assets/icons/copy.svg"
-                          alt="copy"
-                        />
-                        <div class="account-number">22118501567455</div>
-                        <div class="badge">Mặc định</div>
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
                       </div>
                       <div class="right">
                         <div class="balances">
-                          <div class="title">Số dư khả dụng</div>
-                          <div class="money">2.000.000 VND</div>
+                          <div class="money">2,000,000 VND</div>
+                        </div>
+                        <img
+                          class="to-detail"
+                          src="assets/icons/arrow-right.svg"
+                          alt="arrow-right"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="account-item"
+                      onclick="location.href = 'account-detail.html';"
+                    >
+                      <div class="left">
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div class="balances">
+                          <div class="money">2,000,000 VND</div>
+                        </div>
+                        <img
+                          class="to-detail"
+                          src="assets/icons/arrow-right.svg"
+                          alt="arrow-right"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="account-item"
+                      onclick="location.href = 'account-detail.html';"
+                    >
+                      <div class="left">
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div class="balances">
+                          <div class="money">2,000,000 VND</div>
+                        </div>
+                        <img
+                          class="to-detail"
+                          src="assets/icons/arrow-right.svg"
+                          alt="arrow-right"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="account-item"
+                      onclick="location.href = 'account-detail.html';"
+                    >
+                      <div class="left">
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div class="balances">
+                          <div class="money">2,000,000 VND</div>
+                        </div>
+                        <img
+                          class="to-detail"
+                          src="assets/icons/arrow-right.svg"
+                          alt="arrow-right"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="account-item"
+                      onclick="location.href = 'account-detail.html';"
+                    >
+                      <div class="left">
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div class="balances">
+                          <div class="money">2,000,000 VND</div>
                         </div>
                         <img
                           class="to-detail"
@@ -383,44 +531,21 @@
                 aria-labelledby="overdraft-account-tab"
               >
                 <div class="card mb-0" id="collapsed-overdraft-account">
-                  <div class="header">
-                    <div class="account">
-                      <div class="content">Tài khoản thấu chi VND (3)</div>
-                      <div class="title mt-1">
-                        Tống số dư khả dụng:
-                        <span class="amount_money">4.000.000 VND</span>
-                      </div>
-                    </div>
-
-                    <button
-                      class="btn btn-collapse"
-                      onclick="collapsed('collapsed-overdraft-account')"
-                    >
-                      <img
-                        src="assets/icons/arrow-right.svg"
-                        alt="arrow-right"
-                      />
-                    </button>
-                  </div>
-
-                  <div class="pt-4 list-card main-content">
+                  <div class="pt-3 list-card main-content">
                     <div
-                      class="account-item active"
+                      class="account-item"
                       onclick="location.href = 'account-detail.html';"
                     >
                       <div class="left">
-                        <img
-                          class="copy"
-                          src="assets/icons/copy.svg"
-                          alt="copy"
-                        />
-                        <div class="account-number">22118501567455</div>
-                        <div class="badge">Mặc định</div>
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
                       </div>
                       <div class="right">
                         <div class="balances">
-                          <div class="title">Số dư khả dụng</div>
-                          <div class="money">2.000.000 VND</div>
+                          <div class="money">2,000,000 VND</div>
                         </div>
                         <img
                           class="to-detail"
@@ -434,18 +559,81 @@
                       onclick="location.href = 'account-detail.html';"
                     >
                       <div class="left">
-                        <img
-                          class="copy"
-                          src="assets/icons/copy.svg"
-                          alt="copy"
-                        />
-                        <div class="account-number">22118501567455</div>
-                        <div class="badge">Mặc định</div>
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
                       </div>
                       <div class="right">
                         <div class="balances">
-                          <div class="title">Số dư khả dụng</div>
-                          <div class="money">2.000.000 VND</div>
+                          <div class="money">2,000,000 VND</div>
+                        </div>
+                        <img
+                          class="to-detail"
+                          src="assets/icons/arrow-right.svg"
+                          alt="arrow-right"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="account-item"
+                      onclick="location.href = 'account-detail.html';"
+                    >
+                      <div class="left">
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div class="balances">
+                          <div class="money">2,000,000 VND</div>
+                        </div>
+                        <img
+                          class="to-detail"
+                          src="assets/icons/arrow-right.svg"
+                          alt="arrow-right"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="account-item"
+                      onclick="location.href = 'account-detail.html';"
+                    >
+                      <div class="left">
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div class="balances">
+                          <div class="money">2,000,000 VND</div>
+                        </div>
+                        <img
+                          class="to-detail"
+                          src="assets/icons/arrow-right.svg"
+                          alt="arrow-right"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="account-item"
+                      onclick="location.href = 'account-detail.html';"
+                    >
+                      <div class="left">
+                        <div class="account-name">NGO XUAN HAI</div>
+                        <div class="bottom">
+                          <div class="account-number">22118501567455</div>
+                          <div class="badge">Mặc định</div>
+                        </div>
+                      </div>
+                      <div class="right">
+                        <div class="balances">
+                          <div class="money">2,000,000 VND</div>
                         </div>
                         <img
                           class="to-detail"
@@ -513,6 +701,7 @@
     <script src="./components/menu.js"></script>
 
     <script>
+      hideLoading();
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
       const { useDebounceFn } = VueUse;
 

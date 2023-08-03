@@ -29,6 +29,7 @@
   </head>
 
   <body class="child-page page-background direct-transfer-log-page">
+    <div id="loading"></div>
     <div class="page-content" id="app">
       <div class="list-small-icons">
         <div class="item">
@@ -354,6 +355,7 @@
     <script src="./components/menu.js"></script>
 
     <script>
+      hideLoading();
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
       const { useDebounceFn } = VueUse;
 

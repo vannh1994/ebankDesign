@@ -31,6 +31,7 @@
   </head>
 
   <body class="child-page page-background list-beneficiaries-page">
+    <div id="loading"></div>
     <div id="app" class="page-content">
       <div class="list-small-icons">
         <div class="item">
@@ -94,7 +95,9 @@
         </div>
 
         <div class="card card-scroll">
-          <div class="card-body card-content international-money-transfer-card p-4 p-md-5">
+          <div
+            class="card-body card-content international-money-transfer-card p-4 p-md-5"
+          >
             <div class="transfer-info">
               <h2 class="card-title">Thông tin người thụ hưởng</h2>
 
@@ -197,6 +200,7 @@
     <script src="./components/menu.js"></script>
 
     <script>
+      hideLoading();
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
       const { useDebounceFn } = VueUse;
 

@@ -94,3 +94,13 @@ function toast({ title = "", message = "", type = "info", duration = 3000 }) {
     main.appendChild(toast);
   }
 }
+
+function hideLoading() {
+  setTimeout(() => {
+    document.getElementById("loading")?.classList.add("hidden");
+  }, 500);
+
+  setTimeout(() => {
+    document.getElementById("loading")?.classList.add("d-none");
+  }, 1000);
+}

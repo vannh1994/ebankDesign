@@ -27,15 +27,36 @@
   color: var(--text-secondary-note, #777);
 }
 
+.account-detail-page .contact-area .filter-block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.account-detail-page .contact-area .filter-block span {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #787878;
+}
+
+.account-detail-page .contact-area .filter-block img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
 .account-detail-page .home-container {
   margin: 100px auto !important;
 }
 
 .account-detail-page .nav-tabs {
   justify-content: space-between;
-  border-radius: 12px 12px 0px 0px;
+  border-radius: 12px;
   border-bottom: 1px solid #e0e0e0;
   background: #f4f7fe !important;
+  padding: 0 12px;
 }
 
 .account-detail-page .nav-tabs .nav-link {
@@ -146,7 +167,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  scale: 1.01;
 }
 
 .account-detail-page .account-card .account-number {
@@ -367,32 +387,37 @@
 }
 
 .account-detail-page .action-group .btn {
-  min-width: 134px;
+  min-width: 124px;
+  color: #002d85 !important;
 }
 
 .account-detail-page .action-group .btn img {
   width: 20px;
   height: 20px;
+  margin-left: 4px;
 }
 
 .account-detail-page .action-group .pagination {
   margin-bottom: 0;
+  justify-content: flex-start;
 }
 
 .account-detail-page .action-group .group-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 #transfer-detail .modal-content,
-#catalog .modal-content {
+#catalog .modal-content,
+#cash-list .modal-content {
   border-radius: 12px;
 }
 
 #transfer-detail .modal-header .modal-title,
-#catalog .modal-header .modal-title {
+#catalog .modal-header .modal-title,
+#cash-list .modal-header .modal-title {
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -400,7 +425,8 @@
 }
 
 #transfer-detail .modal-header .close,
-#catalog .modal-header .close {
+#catalog .modal-header .close,
+#cash-list .modal-header .close {
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
@@ -413,20 +439,23 @@
 }
 
 #transfer-detail .modal-body .btn-back,
-#catalog .modal-body .btn-back {
+#catalog .modal-body .btn-back,
+#cash-list .modal-body .btn-back {
   border-radius: 12px !important;
   padding: 12px 24px !important;
   width: 100%;
   margin-top: 16px;
 }
 
-#catalog .modal-body .catalog-list {
+#catalog .modal-body .catalog-list,
+#cash-list .modal-body .catalog-list {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(4, 1fr);
 }
 
-#catalog .modal-body .catalog-list .catalog-item {
+#catalog .modal-body .catalog-list .catalog-item,
+#cash-list .modal-body .catalog-list .catalog-item {
   padding: 8px 16px;
   display: flex;
   align-items: center;
@@ -437,12 +466,14 @@
   cursor: pointer;
 }
 
-#catalog .modal-body .catalog-list .catalog-item:hover {
+#catalog .modal-body .catalog-list .catalog-item:hover,
+#cash-list .modal-body .catalog-list .catalog-item:hover {
   background: var(--background-background-1, #f4f7fe);
   transform: translateY(-4px);
 }
 
-#catalog .modal-body .catalog-list .catalog-item .icon {
+#catalog .modal-body .catalog-list .catalog-item .icon,
+#cash-list .modal-body .catalog-list .catalog-item .icon {
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -450,11 +481,13 @@
   padding: 8px;
 }
 
-#catalog .modal-body .catalog-list .catalog-item .icon i {
+#catalog .modal-body .catalog-list .catalog-item .icon i,
+#cash-list .modal-body .catalog-list .catalog-item .icon i {
   font-size: 32px;
 }
 
-#catalog .modal-body .catalog-list .catalog-item .title {
+#catalog .modal-body .catalog-list .catalog-item .title,
+#cash-list .modal-body .catalog-list .catalog-item .title {
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
@@ -462,7 +495,7 @@
   text-align: center;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .account-detail-page .action-group {
     flex-direction: column-reverse;
     gap: 16px;
@@ -476,6 +509,10 @@
   .account-detail-page .action-group .btn {
     padding: 8px !important;
     width: 100%;
+  }
+
+  .account-detail-page .action-group .pagination {
+    justify-content: center;
   }
 }
 
@@ -491,11 +528,21 @@
   .account-detail-page .account-info .info-item {
     flex-direction: column;
   }
+
+  .account-detail-page .action-group .btn {
+    padding: 8px 0 !important;
+    font-size: 12px;
+    min-width: unset;
+  }
 }
 
 @media (max-width: 991px) {
   .account-detail-page .input-range .form-control {
     width: 35%;
+  }
+
+  .account-detail-page .action-group {
+    flex-direction: row;
   }
 
   .account-detail-page .input-range label {
@@ -526,6 +573,10 @@
   .account-detail-page .card-info .info-item .info.bold {
     font-size: 16px;
   }
+
+  .account-detail-page .action-group {
+    flex-direction: column-reverse;
+  }
 }
 
 @media (max-width: 575px) {
@@ -541,13 +592,15 @@
     margin: 90px auto !important;
   }
 
-  #catalog .modal-body .catalog-list .catalog-item .icon {
+  #catalog .modal-body .catalog-list .catalog-item .icon,
+  #cash-list .modal-body .catalog-list .catalog-item .icon {
     width: 32px;
     height: 32px;
     padding: 6px;
   }
 
-  #catalog .modal-body .catalog-list .catalog-item .icon i {
+  #catalog .modal-body .catalog-list .catalog-item .icon i,
+  #cash-list .modal-body .catalog-list .catalog-item .icon i {
     font-size: 26px;
   }
 
