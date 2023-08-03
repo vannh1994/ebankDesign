@@ -10,7 +10,7 @@
 }
 
 .transaction-step-2-page .home-container {
-  margin: 106px auto !important;
+  margin: 100px auto !important;
 }
 
 .transaction-step-2-page .btn-back {
@@ -147,6 +147,20 @@
   background: unset;
 }
 
+.child-page.transaction-step-2-page .card-scroll:not(.beneficiaries) {
+  height: calc(100% - 112px);
+  padding: 16px;
+}
+
+@media (max-width: 1201px) {
+  .qr-code-block {
+    flex-direction: column-reverse;
+  }
+
+  .qr-code-block .qr-code-content {
+    padding: 0 24px;
+  }
+}
 @media (max-width: 991px) {
   .qr-code-block .qr-code-content {
     padding: 0 50px;

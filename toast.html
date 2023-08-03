@@ -76,57 +76,63 @@
           <h2>Mẫu thông báo</h2>
         </div>
 
-        <div class="card p-5">
-          <h5>
-            Click button để hiển thị thông báo. Sau 3 giây thông báo sẽ tự động
-            tắt.
-          </h5>
-          <p class="pb-3">
-            Lưu ý về màn hình mobile sẽ có responsive riêng có thể custom lại
-            chuyển động nếu muốn
-          </p>
-          <div
-            class="d-flex flex-column flex-md-row align-items-center justify-content-beween gap-2 w-100"
-          >
-            <div onclick="showSuccessToast();" class="btn btn-success p-3">
-              Thành công
+        <div class="card card-scroll beneficiaries">
+          <div class="card-content">
+            <div class="card p-5">
+              <h5>
+                Click button để hiển thị thông báo. Sau 3 giây thông báo sẽ tự
+                động tắt.
+              </h5>
+              <p class="pb-3">
+                Lưu ý về màn hình mobile sẽ có responsive riêng có thể custom
+                lại chuyển động nếu muốn
+              </p>
+              <div
+                class="d-flex flex-column flex-md-row align-items-center justify-content-beween gap-2 w-100"
+              >
+                <div onclick="showSuccessToast();" class="btn btn-success p-3">
+                  Thành công
+                </div>
+                <div onclick="showErrorToast();" class="btn btn-danger p-3">
+                  Thất bại
+                </div>
+                <div onclick="showWarningToast();" class="btn btn-warning p-3">
+                  Cảnh báo
+                </div>
+                <div onclick="showInfoToast();" class="btn btn-info p-3">
+                  Thông tin
+                </div>
+              </div>
             </div>
-            <div onclick="showErrorToast();" class="btn btn-danger p-3">
-              Thất bại
-            </div>
-            <div onclick="showWarningToast();" class="btn btn-warning p-3">
-              Cảnh báo
-            </div>
-            <div onclick="showInfoToast();" class="btn btn-info p-3">
-              Thông tin
-            </div>
-          </div>
-        </div>
 
-        <div class="card p-5 mt-4">
-          <h5>Đây là dạng thông báo với modal giữa màn hình</h5>
+            <div class="card p-5 mt-4">
+              <h5>Đây là dạng thông báo với modal giữa màn hình</h5>
 
-          <p class="pb-3">
-            Phần message này để tham khảo thêm chứ không suggest sử dụng. Vì
-            kiểu thông báo này không phù hợp với design và cũng không tốt cho
-            mobile
-          </p>
+              <p class="pb-3">
+                Phần message này để tham khảo thêm chứ không suggest sử dụng. Vì
+                kiểu thông báo này không phù hợp với design và cũng không tốt
+                cho mobile
+              </p>
 
-          <div
-            class="d-flex flex-column flex-md-row align-items-center justify-content-beween gap-2 w-100"
-          >
-            <div onclick="showSuccess();" class="btn btn-success p-3">
-              Thành công
-            </div>
-            <div onclick="showError();" class="btn btn-danger p-3">
-              Thất bại
-            </div>
-            <div onclick="showWarning();" class="btn btn-warning p-3">
-              Cảnh báo
-            </div>
-            <div onclick="showInfo();" class="btn btn-info p-3">Thông tin</div>
-            <div onclick="showConfirm();" class="btn btn-third p-3">
-              Xác nhận
+              <div
+                class="d-flex flex-column flex-md-row align-items-center justify-content-beween gap-2 w-100"
+              >
+                <div onclick="showSuccess();" class="btn btn-success p-3">
+                  Thành công
+                </div>
+                <div onclick="showError();" class="btn btn-danger p-3">
+                  Thất bại
+                </div>
+                <div onclick="showWarning();" class="btn btn-warning p-3">
+                  Cảnh báo
+                </div>
+                <div onclick="showInfo();" class="btn btn-info p-3">
+                  Thông tin
+                </div>
+                <div onclick="showConfirm();" class="btn btn-third p-3">
+                  Xác nhận
+                </div>
+              </div>
             </div>
           </div>
         </div>

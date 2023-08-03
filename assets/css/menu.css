@@ -191,7 +191,7 @@
   max-width: unset;
   margin-right: 64px !important;
   width: unset;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 194px);
   overflow: scroll;
   display: flex;
   flex-direction: column;
@@ -210,6 +210,24 @@
 
 .child-page .container.home-container > .card {
   margin-bottom: 0 !important;
+}
+
+.card-scroll {
+  height: calc(100% - 100px);
+  padding: 16px;
+}
+
+.content-min-height.card-scroll {
+  height: calc(100% - 212px) !important;
+}
+
+.card-content {
+  overflow: scroll;
+  border-radius: 16px;
+}
+
+.card-content::-webkit-scrollbar {
+  display: none;
 }
 
 @media (max-width: 991px) {

@@ -189,6 +189,20 @@
   line-height: 20.5px;
 }
 
+@media (max-width: 1365px) {
+  .contact-page .card-header {
+    flex-direction: column;
+  }
+
+  .contact-page .input-search {
+    width: 100%;
+  }
+
+  .contact-page .card-header .btn {
+    min-width: 270px;
+  }
+}
+
 @media (max-width: 991px) {
   .contact-page .card-header {
     flex-direction: column;
@@ -205,6 +219,7 @@
     z-index: 1000;
     background: white !important;
     color: #19226d !important;
+    min-width: unset;
   }
 
   .contact-page .table thead {

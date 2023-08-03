@@ -379,6 +379,12 @@
   transform: translateY(-2.5px);
 }
 
+@media (max-width: 1300px) {
+  .transfer-card {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 991px) {
   .transfer-card {
     flex-direction: column;

@@ -1,5 +1,5 @@
 .list-beneficiaries-page .home-container {
-  margin: 106px auto !important;
+  margin: 100px auto !important;
 }
 
 .list-beneficiaries-page .list-beneficiaries {
@@ -140,6 +140,11 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 30px;
+}
+
+.child-page.list-beneficiaries-page .card-scroll:not(.beneficiaries) {
+  height: calc(100% - 212px);
+  padding: 16px;
 }
 
 @media (max-width: 767px) {

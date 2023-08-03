@@ -74,61 +74,139 @@
           <h2>Quản lý chi tiêu</h2>
         </div>
 
-        <div class="card spending-management-card bg-gray">
-          <nav>
-            <div
-              class="nav nav-tabs"
-              id="nav-tab-spending-management"
-              role="tablist"
-            >
-              <button
-                class="nav-link active"
-                id="overview-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#overview"
-                type="button"
-                role="tab"
-                aria-controls="overview"
-                aria-selected="true"
+        <div class="card card-scroll spending-management-card bg-gray">
+          <div class="card-content p-0">
+            <nav>
+              <div
+                class="nav nav-tabs"
+                id="nav-tab-spending-management"
+                role="tablist"
               >
-                Tổng quan
-              </button>
-              <button
-                class="nav-link"
-                id="spending-details-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#spending-details"
-                type="button"
-                role="tab"
-                aria-controls="spending-details"
-                aria-selected="false"
+                <button
+                  class="nav-link active"
+                  id="overview-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#overview"
+                  type="button"
+                  role="tab"
+                  aria-controls="overview"
+                  aria-selected="true"
+                >
+                  Tổng quan
+                </button>
+                <button
+                  class="nav-link"
+                  id="spending-details-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#spending-details"
+                  type="button"
+                  role="tab"
+                  aria-controls="spending-details"
+                  aria-selected="false"
+                >
+                  Chi tiết chi tiêu
+                </button>
+                <button
+                  class="nav-link"
+                  id="tax-details-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#tax-details"
+                  type="button"
+                  role="tab"
+                  aria-controls="tax-details"
+                  aria-selected="false"
+                >
+                  Chi tiết thu
+                </button>
+              </div>
+            </nav>
+            <div class="tab-content mt-10" id="nav-tabContent">
+              <div
+                class="tab-pane fade show active contact-area"
+                id="overview"
+                role="tabpanel"
+                aria-labelledby="overview-tab"
               >
-                Chi tiết chi tiêu
-              </button>
-              <button
-                class="nav-link"
-                id="tax-details-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#tax-details"
-                type="button"
-                role="tab"
-                aria-controls="tax-details"
-                aria-selected="false"
+                <div class="row mt-3">
+                  <div class="col-4">Số tài khoản</div>
+                  <div class="col-8">
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                    >
+                      <option selected>Số tài khoản</option>
+                      <option value="1">01234567895</option>
+                      <option value="2">09874561235</option>
+                      <option value="3">025698714234</option>
+                    </select>
+                  </div>
+                  <div class="col-4 mt-4">Số dư khả dụng</div>
+                  <div class="col-8 mt-4">15,000,000 VND</div>
+                </div>
+
+                <div class="card card-chart">
+                  <div class="row">
+                    <div class="col-12 col-lg-6">
+                      <div class="change-month">
+                        <i class="isax isax-arrow-left-2"></i>
+                        <span>12/2022</span>
+                        <i class="isax isax-arrow-right-3"></i>
+                      </div>
+                      <canvas id="chart-bar" style="width: 100%"></canvas>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                      <div class="change-month sp-show">
+                        <i class="isax isax-arrow-left-2"></i>
+                        <span>12/2022</span>
+                        <i class="isax isax-arrow-right-3"></i>
+                      </div>
+
+                      <canvas
+                        id="chart-pie"
+                        style="
+                          width: 100%;
+                          max-width: 280px;
+                          margin: auto;
+                          margin-top: 40px;
+                        "
+                      ></canvas>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                      <div class="change-month pc-show">
+                        <i class="isax isax-arrow-left-2"></i>
+                        <span>12/2022</span>
+                        <i class="isax isax-arrow-right-3"></i>
+                      </div>
+
+                      <div class="revenue">
+                        <span class="text">
+                          <span class="color"></span> Thu
+                        </span>
+                        <span class="money"> 50,000,000 </span>
+                      </div>
+                      <div class="expenditure">
+                        <span class="text">
+                          <span class="color"></span> Chi
+                        </span>
+                        <span class="money"> 35,000,000 </span>
+                      </div>
+
+                      <hr />
+
+                      <div class="surplus">15,000,000</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade contact-area"
+                id="spending-details"
+                role="tabpanel"
+                aria-labelledby="spending-details-tab"
               >
-                Chi tiết thu
-              </button>
-            </div>
-          </nav>
-          <div class="tab-content mt-10" id="nav-tabContent">
-            <div
-              class="tab-pane fade show active contact-area"
-              id="overview"
-              role="tabpanel"
-              aria-labelledby="overview-tab"
-            >
-              <div class="row mt-3">
-                <div class="col-4">Số tài khoản</div>
-                <div class="col-8">
+                <div class="spending-detail-filter">
+                  <div class="label">Số tài khoản</div>
+
                   <select
                     class="form-select"
                     aria-label="Default select example"
@@ -138,174 +216,104 @@
                     <option value="2">09874561235</option>
                     <option value="3">025698714234</option>
                   </select>
+
+                  <div class="change-month">
+                    <i class="isax isax-arrow-left-2"></i>
+                    <span>12/2022</span>
+                    <i class="isax isax-arrow-right-3"></i>
+                  </div>
                 </div>
-                <div class="col-4 mt-4">Số dư khả dụng</div>
-                <div class="col-8 mt-4">15,000,000 VND</div>
-              </div>
-
-              <div class="card card-chart">
-                <div class="row">
-                  <div class="col-12 col-lg-6">
-                    <div class="change-month">
-                      <i class="isax isax-arrow-left-2"></i>
-                      <span>12/2022</span>
-                      <i class="isax isax-arrow-right-3"></i>
+                <div class="card spending-detail-block">
+                  <div class="spending-detail-item">
+                    <div class="title">
+                      <i class="isax isax-bank"></i> Tổng tiền
                     </div>
-                    <canvas id="chart-bar" style="width: 100%"></canvas>
+                    <div class="amount minus font-22px">-36,000,000 VND</div>
                   </div>
-                  <div class="col-12 col-lg-3">
-                    <div class="change-month sp-show">
-                      <i class="isax isax-arrow-left-2"></i>
-                      <span>12/2022</span>
-                      <i class="isax isax-arrow-right-3"></i>
-                    </div>
 
-                    <canvas
-                      id="chart-pie"
-                      style="
-                        width: 100%;
-                        max-width: 280px;
-                        margin: auto;
-                        margin-top: 40px;
-                      "
-                    ></canvas>
+                  <div class="spending-detail-item">
+                    <div class="title">
+                      <i class="isax isax-bag-2"></i>
+                      Mua sắm
+                    </div>
+                    <div class="d-flex flex-column gap-1">
+                      <div class="amount minus">-12,000,000 VND</div>
+                      <div class="date">30/12/2022</div>
+                    </div>
                   </div>
-                  <div class="col-12 col-lg-3">
-                    <div class="change-month pc-show">
-                      <i class="isax isax-arrow-left-2"></i>
-                      <span>12/2022</span>
-                      <i class="isax isax-arrow-right-3"></i>
+                  <div class="spending-detail-item">
+                    <div class="title">
+                      <i class="isax isax-brifecase-cross"></i>
+                      Tiêu vặt
                     </div>
-
-                    <div class="revenue">
-                      <span class="text">
-                        <span class="color"></span> Thu
-                      </span>
-                      <span class="money"> 50,000,000 </span>
+                    <div class="d-flex flex-column gap-1">
+                      <div class="amount minus">-12,000,000 VND</div>
+                      <div class="date">30/12/2022</div>
                     </div>
-                    <div class="expenditure">
-                      <span class="text">
-                        <span class="color"></span> Chi
-                      </span>
-                      <span class="money"> 35,000,000 </span>
+                  </div>
+                  <div class="spending-detail-item">
+                    <div class="title">
+                      <i class="isax isax-airplane"></i> Du lịch
                     </div>
-
-                    <hr />
-
-                    <div class="surplus">15,000,000</div>
+                    <div class="d-flex flex-column gap-1">
+                      <div class="amount minus">-12,000,000 VND</div>
+                      <div class="date">30/12/2022</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="tab-pane fade contact-area"
-              id="spending-details"
-              role="tabpanel"
-              aria-labelledby="spending-details-tab"
-            >
-              <div class="spending-detail-filter">
-                <div class="label">Số tài khoản</div>
+              <div
+                class="tab-pane fade contact-area"
+                id="tax-details"
+                role="tabpanel"
+                aria-labelledby="tax-details-tab"
+              >
+                <div class="spending-detail-filter">
+                  <div class="label">Số tài khoản</div>
 
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Số tài khoản</option>
-                  <option value="1">01234567895</option>
-                  <option value="2">09874561235</option>
-                  <option value="3">025698714234</option>
-                </select>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected>Số tài khoản</option>
+                    <option value="1">01234567895</option>
+                    <option value="2">09874561235</option>
+                    <option value="3">025698714234</option>
+                  </select>
 
-                <div class="change-month">
-                  <i class="isax isax-arrow-left-2"></i>
-                  <span>12/2022</span>
-                  <i class="isax isax-arrow-right-3"></i>
-                </div>
-              </div>
-              <div class="card spending-detail-block">
-                <div class="spending-detail-item">
-                  <div class="title">
-                    <i class="isax isax-bank"></i> Tổng tiền
+                  <div class="change-month">
+                    <i class="isax isax-arrow-left-2"></i>
+                    <span>12/2022</span>
+                    <i class="isax isax-arrow-right-3"></i>
                   </div>
-                  <div class="amount minus font-22px">-36,000,000 VND</div>
                 </div>
+                <div class="card spending-detail-block">
+                  <div class="spending-detail-item">
+                    <div class="title">
+                      <i class="isax isax-bank"></i> Tổng tiền
+                    </div>
+                    <div class="amount plus font-22px">+17,000,000 VND</div>
+                  </div>
 
-                <div class="spending-detail-item">
-                  <div class="title">
-                    <i class="isax isax-bag-2"></i>
-                    Mua sắm
+                  <div class="spending-detail-item">
+                    <div class="title">
+                      <i class="isax isax-bitcoin-card"></i>
+                      Lương
+                    </div>
+                    <div class="d-flex flex-column gap-1">
+                      <div class="amount plus">+12,000,000 VND</div>
+                      <div class="date">30/12/2022</div>
+                    </div>
                   </div>
-                  <div class="d-flex flex-column gap-1">
-                    <div class="amount minus">-12,000,000 VND</div>
-                    <div class="date">30/12/2022</div>
-                  </div>
-                </div>
-                <div class="spending-detail-item">
-                  <div class="title">
-                    <i class="isax isax-brifecase-cross"></i>
-                    Tiêu vặt
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <div class="amount minus">-12,000,000 VND</div>
-                    <div class="date">30/12/2022</div>
-                  </div>
-                </div>
-                <div class="spending-detail-item">
-                  <div class="title">
-                    <i class="isax isax-airplane"></i> Du lịch
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <div class="amount minus">-12,000,000 VND</div>
-                    <div class="date">30/12/2022</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="tab-pane fade contact-area"
-              id="tax-details"
-              role="tabpanel"
-              aria-labelledby="tax-details-tab"
-            >
-              <div class="spending-detail-filter">
-                <div class="label">Số tài khoản</div>
-
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Số tài khoản</option>
-                  <option value="1">01234567895</option>
-                  <option value="2">09874561235</option>
-                  <option value="3">025698714234</option>
-                </select>
-
-                <div class="change-month">
-                  <i class="isax isax-arrow-left-2"></i>
-                  <span>12/2022</span>
-                  <i class="isax isax-arrow-right-3"></i>
-                </div>
-              </div>
-              <div class="card spending-detail-block">
-                <div class="spending-detail-item">
-                  <div class="title">
-                    <i class="isax isax-bank"></i> Tổng tiền
-                  </div>
-                  <div class="amount plus font-22px">+17,000,000 VND</div>
-                </div>
-
-                <div class="spending-detail-item">
-                  <div class="title">
-                    <i class="isax isax-bitcoin-card"></i>
-                    Lương
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <div class="amount plus">+12,000,000 VND</div>
-                    <div class="date">30/12/2022</div>
-                  </div>
-                </div>
-                <div class="spending-detail-item">
-                  <div class="title">
-                    <i class="isax isax-award"></i>
-                    Thưởng
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <div class="amount plus">+12,000,000 VND</div>
-                    <div class="date">30/12/2022</div>
+                  <div class="spending-detail-item">
+                    <div class="title">
+                      <i class="isax isax-award"></i>
+                      Thưởng
+                    </div>
+                    <div class="d-flex flex-column gap-1">
+                      <div class="amount plus">+12,000,000 VND</div>
+                      <div class="date">30/12/2022</div>
+                    </div>
                   </div>
                 </div>
               </div>
