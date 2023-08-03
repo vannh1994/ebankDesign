@@ -51,38 +51,53 @@
       </div>
 
       <div class="container home-container">
-        <div class="card p-2 mb-3 main-content content-detail-page">
-          <div class="header-content-page">
-            <div class="page-title">
-              <div class="back" onclick="location.href = 'home.html';">
-                <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
-              </div>
-              <h2>Chi tiết tài khoản thanh toán</h2>
-            </div>
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="account-manager.html"> Tài khoản </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Chi tiết tài khoản thanh toán
+              </li>
+            </ol>
+          </nav>
+        </div>
 
-            <div class="breadcrumbs">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">
-                    <a href="home.html">
-                      <i class="isax isax-home-2"></i>
-                      Trang chủ
-                    </a>
-                  </li>
-                  <li class="breadcrumb-item">
-                    <a href="account-manager.html"> Tài khoản </a>
-                  </li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    Chi tiết tài khoản thanh toán
-                  </li>
-                </ol>
-              </nav>
-            </div>
+        <div class="page-title">
+          <div class="back" onclick="location.href = 'account-manager.html';">
+            <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
           </div>
+          <h2>Chi tiết tài khoản thanh toán</h2>
         </div>
 
         <div class="card card-scroll">
-          <div class="card-content">
+          <div class="main-content card-content content-detail-page">
+            <div class="card">
+              <div class="account-card">
+                <div class="card-info">
+                  <div class="info-item">
+                    <div class="title bold">Số tài khoản</div>
+                    <div class="info bold">00118506098</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Chủ tài khoản</div>
+                    <div class="info">NGO XUAN HAI</div>
+                  </div>
+                  <div class="info-item">
+                    <div class="title">Số dư khả dụng</div>
+                    <div class="info">8,888,000,000</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
               <div class="col-12 col-lg-7">
                 <nav>
@@ -125,7 +140,7 @@
                     </button>
                   </div>
                 </nav>
-                <div class="tab-content mt-10" id="nav-tabContent">
+                <div class="tab-content mt-10 p-3" id="nav-tabContent">
                   <div
                     class="tab-pane fade show active contact-area"
                     id="nav-all"
@@ -321,8 +336,7 @@
                       </nav>
                       <div class="group-button">
                         <button class="btn btn-primary">
-                          Xuất PDF
-                          <img src="assets/icons/pdf.svg" alt="pdf" />
+                          Xuất PDF <img src="assets/icons/pdf.svg" alt="pdf" />
                         </button>
                         <button class="btn btn-primary">
                           Xuất excel
@@ -526,8 +540,7 @@
                       </nav>
                       <div class="group-button">
                         <button class="btn btn-primary">
-                          Xuất PDF
-                          <img src="assets/icons/pdf.svg" alt="pdf" />
+                          Xuất PDF <img src="assets/icons/pdf.svg" alt="pdf" />
                         </button>
                         <button class="btn btn-primary">
                           Xuất excel
@@ -731,8 +744,7 @@
                       </nav>
                       <div class="group-button">
                         <button class="btn btn-primary">
-                          Xuất PDF
-                          <img src="assets/icons/pdf.svg" alt="pdf" />
+                          Xuất PDF <img src="assets/icons/pdf.svg" alt="pdf" />
                         </button>
                         <button class="btn btn-primary">
                           Xuất excel
@@ -757,7 +769,7 @@
                   </div>
                   <div class="info-item">
                     <div class="title">Loại sản phẩm</div>
-                    <div class="info">TK TT TRUC TUYEN</div>
+                    <div class="info">TK THANH TOAN TRUC TUYEN</div>
                   </div>
                   <div class="info-item">
                     <div class="title">Chi nhánh quản lý</div>

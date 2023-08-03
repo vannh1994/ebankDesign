@@ -51,31 +51,27 @@
       </div>
 
       <div class="container home-container">
-        <div class="card p-2 mb-3 main-content content-detail-page">
-          <div class="header-content-page">
-            <div class="page-title">
-              <div class="back" onclick="location.href = 'home.html';">
-                <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
-              </div>
-              <h2>Quản lý chi tiêu</h2>
-            </div>
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Quản lý chi tiêu
+              </li>
+            </ol>
+          </nav>
+        </div>
 
-            <div class="breadcrumbs">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">
-                    <a href="home.html">
-                      <i class="isax isax-home-2"></i>
-                      Trang chủ
-                    </a>
-                  </li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    Quản lý chi tiêu
-                  </li>
-                </ol>
-              </nav>
-            </div>
+        <div class="page-title">
+          <div class="back" onclick="location.href = 'home.html';">
+            <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
           </div>
+          <h2>Quản lý chi tiêu</h2>
         </div>
 
         <div class="card card-scroll spending-management-card bg-gray">
@@ -124,7 +120,7 @@
                 </button>
               </div>
             </nav>
-            <div class="tab-content mt-10 p-3" id="nav-tabContent">
+            <div class="tab-content mt-10" id="nav-tabContent">
               <div
                 class="tab-pane fade show active contact-area"
                 id="overview"

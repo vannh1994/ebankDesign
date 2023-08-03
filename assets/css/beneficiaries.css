@@ -143,7 +143,7 @@
 }
 
 .child-page.list-beneficiaries-page .card-scroll:not(.beneficiaries) {
-  height: calc(100% - 112px);
+  height: calc(100% - 212px);
   padding: 16px;
 }
 
