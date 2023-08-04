@@ -495,6 +495,15 @@
   text-align: center;
 }
 
+.account-per-detail-page {
+  width: 620px;
+  margin: 4px auto;
+}
+
+.account-detail-page .account-per-detail-page .account-info {
+  padding: 16px 0;
+}
+
 @media (max-width: 1600px) {
   .account-detail-page .action-group {
     flex-direction: column-reverse;
@@ -525,6 +534,10 @@
     width: 19%;
   }
 
+  .account-detail-page .account-per-detail-page .account-info .info-item {
+    flex-direction: row;
+  }
+
   .account-detail-page .account-info .info-item {
     flex-direction: column;
   }
@@ -533,6 +546,10 @@
     padding: 8px 0 !important;
     font-size: 12px;
     min-width: unset;
+  }
+
+  .account-per-detail-page {
+    width: 100%;
   }
 }
 
