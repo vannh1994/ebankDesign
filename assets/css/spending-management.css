@@ -3,7 +3,7 @@
 }
 
 #nav-tab-spending-management {
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(
     --branding-third-gradient,
     linear-gradient(90deg, #19226d 23.6%, #ed1c24 100%)
@@ -31,6 +31,9 @@
 
 .spending-management-card {
   padding: 24px 16px;
+}
+.spending-management-card .card-content {
+  border-radius: 8px;
 }
 
 .card-chart {

@@ -128,34 +128,9 @@
                 role="tabpanel"
                 aria-labelledby="overview-tab"
               >
-                <div class="row mt-3">
-                  <div class="col-4">Số tài khoản</div>
-                  <div class="col-8">
-                    <select
-                      class="form-select"
-                      aria-label="Default select example"
-                    >
-                      <option selected>Số tài khoản</option>
-                      <option value="1">01234567895</option>
-                      <option value="2">09874561235</option>
-                      <option value="3">025698714234</option>
-                    </select>
-                  </div>
-                  <div class="col-4 mt-4">Số dư khả dụng</div>
-                  <div class="col-8 mt-4">15,000,000 VND</div>
-                </div>
-
                 <div class="card card-chart">
                   <div class="row">
-                    <div class="col-12 col-lg-6">
-                      <div class="change-month">
-                        <i class="isax isax-arrow-left-2"></i>
-                        <span>12/2022</span>
-                        <i class="isax isax-arrow-right-3"></i>
-                      </div>
-                      <canvas id="chart-bar" style="width: 100%"></canvas>
-                    </div>
-                    <div class="col-12 col-lg-3">
+                    <div class="col-6">
                       <div class="change-month sp-show">
                         <i class="isax isax-arrow-left-2"></i>
                         <span>12/2022</span>
@@ -172,7 +147,7 @@
                         "
                       ></canvas>
                     </div>
-                    <div class="col-12 col-lg-3">
+                    <div class="col-6">
                       <div class="change-month pc-show">
                         <i class="isax isax-arrow-left-2"></i>
                         <span>12/2022</span>
@@ -195,6 +170,18 @@
                       <hr />
 
                       <div class="surplus">15,000,000</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card card-chart">
+                  <div class="row">
+                    <div class="col-12 col-lg-6">
+                      <div class="change-month">
+                        <i class="isax isax-arrow-left-2"></i>
+                        <span>12/2022</span>
+                        <i class="isax isax-arrow-right-3"></i>
+                      </div>
+                      <canvas id="chart-bar" style="width: 100%"></canvas>
                     </div>
                   </div>
                 </div>
@@ -491,8 +478,7 @@
         options: {
           legend: { display: false },
           title: {
-            display: true,
-            text: "Xu hướng chi tiêu",
+            display: false,
           },
         },
       });
@@ -515,8 +501,7 @@
         options: {
           legend: { display: false },
           title: {
-            display: true,
-            text: "Tình hình thu chi",
+            display: false,
           },
         },
       });

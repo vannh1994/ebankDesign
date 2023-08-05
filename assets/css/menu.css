@@ -3,7 +3,7 @@
   overflow: hidden;
   border-radius: 16px;
   background: #fff;
-  height: calc(100vh - 194px);
+  height: calc(100vh - 198px);
   position: fixed;
   top: 100px;
   left: 24px;
@@ -191,7 +191,7 @@
   max-width: unset;
   margin-right: 64px !important;
   width: unset;
-  height: calc(100vh - 194px);
+  height: calc(100vh - 198px);
   overflow: scroll;
   display: flex;
   flex-direction: column;

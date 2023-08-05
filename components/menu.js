@@ -151,7 +151,24 @@ const menuComponent = {
         id: 2,
         text: "Tài khoản",
         link: "account-manager.html",
-        child: [],
+        child: [
+          {
+            text: "Thông tin tài khoản",
+            link: "account-manager.html",
+          },
+          {
+            text: "Quản lý chi tiêu",
+            link: "spending-management.html",
+          },
+          {
+            text: "Mở tài khoản thanh toán trực tuyến",
+            link: "#",
+          },
+          {
+            text: "Mở Tài khoản số đẹp/Số điện thoại/iNick",
+            link: "#",
+          },
+        ],
       },
       {
         id: 3,

@@ -27,15 +27,16 @@
   color: var(--text-secondary-note, #777);
 }
 
-.account-detail-page .contact-area .filter-block {
+.account-detail-page .filter-block {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-top: 16px;
+  padding: 0 16px;
 }
 
-.account-detail-page .contact-area .filter-block span {
+.account-detail-page .filter-block span {
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
@@ -43,7 +44,7 @@
   text-align: right;
 }
 
-.account-detail-page .contact-area .filter-block img {
+.account-detail-page .filter-block img {
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -311,6 +312,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  padding: 0 16px;
 }
 
 .account-detail-page .input-range span {
