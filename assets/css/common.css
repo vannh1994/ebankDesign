@@ -434,6 +434,14 @@ input[type="number"] {
   .btn-third {
     padding: 8px 56px;
   }
+
+  .child-page.page-background {
+    background: white;
+  }
+
+  .sp-hidden {
+    display: none !important;
+  }
 }
 
 #loading {

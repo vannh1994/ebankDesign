@@ -9,7 +9,6 @@
   padding: 0 10px;
   margin-bottom: 0;
   align-items: center;
-  flex-wrap: nowrap;
 }
 
 .breadcrumb .breadcrumb-item a {
@@ -17,5 +16,54 @@
   font-weight: 500;
   line-height: 18px;
   color: #dbdbdbba;
-  flex-shrink: 0;
+}
+
+.home-container .page-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.home-container .page-title .back {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.home-container .page-title .isax {
+  font-size: 22px;
+  padding: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.home-container .page-title h2 {
+  font-size: 22px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 36px;
+  margin: 0;
+}
+
+@media (max-width: 575px) {
+  .breadcrumbs {
+    display: none !important;
+  }
+
+  .home-container .page-title {
+    margin: 12px;
+  }
+
+  .home-container .page-title .isax {
+    font-size: 16px;
+    color: #333;
+    padding: 0;
+  }
+
+  .home-container .page-title h2 {
+    font-size: 18px;
+    color: #333;
+  }
 }

@@ -256,3 +256,24 @@
     margin-top: 90px !important;
   }
 }
+
+@media (max-width: 575px) {
+  .child-page .container.home-container {
+    padding: 0 !important;
+    width: 100%;
+    height: calc(100vh - 64px);
+    margin-top: 64px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .card-scroll {
+    height: 100% !important;
+    border: unset;
+    border-radius: unset !important;
+    padding: 0 !important;
+  }
+
+  .content-min-height.card-scroll {
+    height: 100% !important;
+  }
+}

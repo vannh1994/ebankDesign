@@ -268,6 +268,7 @@
     background-position: center;
     height: 70px;
     border-radius: 12px;
+    margin-left: -8px;
   }
 
   .transaction-info-page .transfer-info .money-suggestion {
@@ -279,5 +280,13 @@
     .money-suggestion
     .money-suggestion-item {
     font-size: 12px;
+  }
+
+  .transaction-info-page .card-content {
+    padding: 0 16px 70px 16px !important;
+  }
+
+  .transaction-info-page .transfer-card-info .transfer-account i {
+    display: none;
   }
 }

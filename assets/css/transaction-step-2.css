@@ -224,4 +224,17 @@
   .transaction-step-2-page .home-container {
     margin: 96px auto !important;
   }
+
+  .transaction-step-2-page .transfer-info {
+    padding: 0;
+  }
+
+  .transaction-step-2-page .card-content {
+    padding: 0 16px !important;
+  }
+
+  .transfer-info-confirm-block {
+    padding: 0;
+    background: white;
+  }
 }

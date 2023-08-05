@@ -131,6 +131,10 @@
 }
 
 @media (max-width: 575px) {
+  .footer {
+    display: none;
+  }
+
   .footer .copyright .copyright-name {
     display: block;
   }

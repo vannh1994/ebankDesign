@@ -148,6 +148,10 @@
                     <!-- Khi click vào khung chọn ngân hàng thụ hưởng thì hiển thị/render div này lên -->
                     <transition>
                       <div v-if="showSelector" class="bank-select-popup">
+                        <div class="header-popup">
+                          <div class="title">Chọn ngân hàng thụ hưởng</div>
+                          <span @click="showSelector = false">Đóng</span>
+                        </div>
                         <input
                           v-model="searchQuery"
                           class="bank-select-input"
@@ -233,7 +237,7 @@
                       </div>
                     </div>
                   </transition>
-                  <div class="d-flex justify-content-end">
+                  <div class="d-flex justify-content-end sp-full-width-bottom">
                     <button
                       type="button"
                       class="btn btn-third"
@@ -303,7 +307,7 @@
                     </div>
                     <button
                       type="button"
-                      class="btn btn-third col-lg-12 mx-auto"
+                      class="btn btn-third col-lg-12 mx-auto sp-hidden"
                     >
                       Quản lý danh bạ và mẫu
                     </button>
@@ -335,7 +339,7 @@
                     </div>
                     <button
                       type="button"
-                      class="btn btn-third col-lg-12 mx-auto"
+                      class="btn btn-third col-lg-12 mx-auto sp-hidden"
                     >
                       Quản lý danh bạ và mẫu
                     </button>
@@ -367,7 +371,7 @@
                     </div>
                     <button
                       type="button"
-                      class="btn btn-third col-lg-12 mx-auto"
+                      class="btn btn-third col-lg-12 mx-auto sp-hidden"
                     >
                       Quản lý danh bạ và mẫu
                     </button>
@@ -428,9 +432,9 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
     <script>
-      toggleContactArea();
+      // toggleContactArea();
 
-      window.addEventListener("resize", toggleContactArea);
+      // window.addEventListener("resize", toggleContactArea);
 
       function toggleContactArea() {
         if (window.innerWidth < 576) {
