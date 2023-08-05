@@ -32,6 +32,7 @@
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
+  margin-bottom: 8px;
 }
 
 .account-detail-page .contact-area .filter-block span {
@@ -39,6 +40,7 @@
   font-weight: 400;
   line-height: 16px;
   color: #787878;
+  text-align: right;
 }
 
 .account-detail-page .contact-area .filter-block img {
@@ -232,6 +234,7 @@
   justify-content: space-around;
   gap: 16px;
   padding: 16px;
+  padding-left: 0;
 }
 
 .account-detail-page .account-info .info-item {
@@ -272,8 +275,8 @@
 }
 
 .account-detail-page .action .default-account .form-check-input {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 
 .account-detail-page .action .default-account .form-check-label {
@@ -306,16 +309,8 @@
 .account-detail-page .input-range {
   display: flex;
   align-items: center;
-}
-
-.account-detail-page .input-range .form-control {
-  width: 40%;
-}
-
-.account-detail-page .input-range label {
-  width: 16%;
-  line-height: 30px;
-  margin-bottom: 0;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .account-detail-page .input-range span {
@@ -324,6 +319,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.account-detail-page .input-range .isax-calendar-1 {
+  font-size: 19px;
 }
 
 .account-detail-page .btn-export-excel {
@@ -526,14 +525,6 @@
 }
 
 @media (max-width: 1201px) {
-  .account-detail-page .input-range .form-control {
-    width: 38%;
-  }
-
-  .account-detail-page .input-range label {
-    width: 19%;
-  }
-
   .account-detail-page .account-per-detail-page .account-info .info-item {
     flex-direction: row;
   }
@@ -554,16 +545,8 @@
 }
 
 @media (max-width: 991px) {
-  .account-detail-page .input-range .form-control {
-    width: 35%;
-  }
-
   .account-detail-page .action-group {
     flex-direction: row;
-  }
-
-  .account-detail-page .input-range label {
-    width: 25%;
   }
 
   .account-detail-page .content-detail-page .row {
@@ -638,5 +621,9 @@
     flex-direction: column;
     gap: 8px;
     padding: 8px;
+  }
+
+  .account-detail-page .input-range {
+    flex-direction: column;
   }
 }

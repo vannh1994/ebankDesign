@@ -26,6 +26,13 @@
       rel="stylesheet"
       type="text/css"
     />
+
+    <link
+      href="assets/css/vue-datepicker.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
   <body class="child-page page-background account-detail-page">
@@ -149,15 +156,82 @@
                     aria-labelledby="nav-all-tab"
                   >
                     <div class="filter-block">
-                      <span>Sao kê giao dịch</span>
-                      <img src="assets/icons/filter.svg" />
+                      <span v-if="startAt || endAt">
+                        Khoảng thời gian sao kê không vượt quá 3 tháng
+                      </span>
+                      <span v-else>Sao kê giao dịch</span>
+                      <img @click="addFilter" src="assets/icons/filter.svg" />
                     </div>
-                    <!-- <div class="input-range">
-                      <label>Ngày giao dịch</label>
-                      <input type="date" class="form-control" />
-                      <span>~</span>
-                      <input type="date" class="form-control" />
-                    </div> -->
+                    <div class="input-range">
+                      <div class="input-group label-transition">
+                        <div class="calendar">
+                          <Datepicker
+                            ref="startAtCalendar"
+                            v-model="startAt"
+                            auto-apply
+                            hide-input-icon
+                            locale="vi"
+                            :day-names="dayName"
+                            format="dd/MM/yyyy"
+                            input-class-name="opacity-0"
+                            @update:model-value="handleStartAt"
+                            @closed="focusElement('calendar-start-input')"
+                          />
+                        </div>
+
+                        <div class="form-label w-100">
+                          <input
+                            id="calendar-start-input"
+                            class="form-control fw-bold"
+                            v-model="startAt"
+                            @focus="openCalendar('start')"
+                          />
+                          <label for="account_number"> Từ ngày </label>
+                        </div>
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <i
+                              class="isax isax-calendar-1"
+                              @click="openCalendar('start')"
+                            ></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-group label-transition">
+                        <div class="calendar">
+                          <Datepicker
+                            ref="endAtCalendar"
+                            v-model="endAt"
+                            auto-apply
+                            hide-input-icon
+                            locale="vi"
+                            :day-names="dayName"
+                            format="dd/MM/yyyy"
+                            input-class-name="opacity-0"
+                            @update:model-value="handleEndAt"
+                            @closed="focusElement('calendar-end-input')"
+                          />
+                        </div>
+
+                        <div class="form-label w-100">
+                          <input
+                            id="calendar-end-input"
+                            class="form-control fw-bold"
+                            v-model="endAt"
+                            @focus="openCalendar('end')"
+                          />
+                          <label for="account_number"> Từ ngày </label>
+                        </div>
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <i
+                              class="isax isax-calendar-1"
+                              @click="openCalendar('end')"
+                            ></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="account-histories">
                       <div class="history-item">
                         <div class="info flex-fill">
@@ -714,7 +788,7 @@
                 </div>
               </div>
 
-              <div class="col-12 col-lg-5 card-bg-gray">
+              <div class="col-12 col-lg-5">
                 <div class="title-account-detail">Thông tin tài khoản</div>
                 <div class="account-info">
                   <div class="info-item">
@@ -781,14 +855,10 @@
 
                 <div class="action mt-3">
                   <div class="default-account">
-                    <div class="d-flex">
-                      <input class="form-check-input" type="checkbox" checked />
+                    <div class="d-flex pb-1">
+                      <input class="form-check-input" type="checkbox" />
                       <span class="form-check-label"> Tài khoản mặc định </span>
                     </div>
-                  </div>
-                  <div class="transfer">
-                    <img src="assets/icons/bank.svg" alt="bank" />
-                    <span>Chuyển tiền</span>
                   </div>
                 </div>
               </div>
@@ -1099,6 +1169,8 @@
     <script src="./assets//js/vueuse_core.js"></script>
     <script src="./components/header-component.js"></script>
     <script src="./components/menu.js"></script>
+    <script src="./assets/js/vue-datepicker.iife.js"></script>
+    <script src="./assets/js/moment.min.js"></script>
 
     <script>
       hideLoading();
@@ -1109,10 +1181,13 @@
         components: {
           headerComponent,
           menuComponent,
+          Datepicker: VueDatePicker,
         },
         setup() {
           const showGlobalSearch = ref(false);
           const searchGlobalQuery = ref("");
+          const startAt = ref(null);
+          const endAt = ref(null);
 
           const featureList = [
             {
@@ -1186,10 +1261,60 @@
             document.removeEventListener("click", onClickOutside);
           });
 
+          const openCalendar = (point) => {
+            if (point == "start") {
+              startAtCalendar.value.openMenu();
+            } else {
+              endAtCalendar.value.openMenu();
+            }
+          };
+
+          const focusElement = (elementId) => {
+            const el = document.getElementById(elementId);
+            el.classList.add("hascontent");
+          };
+
+          const handleStartAt = (modelData) => {
+            startAt.value = moment(modelData).format("DD/MM/YYYY");
+          };
+
+          const handleEndAt = (modelData) => {
+            endAt.value = moment(modelData).format("DD/MM/YYYY");
+          };
+
+          const dayName = [
+            "Thứ 2",
+            "Thứ 3",
+            "Thứ 4",
+            "Thứ 5",
+            "Thứ 6",
+            "Thứ 7",
+            "CN",
+          ];
+          const startAtCalendar = ref(null);
+          const endAtCalendar = ref(null);
+
+          const addFilter = () => {
+            startAt.value = moment().startOf("month").format("DD/MM/YYYY");
+            endAt.value = moment().endOf("month").format("DD/MM/YYYY");
+            focusElement("calendar-start-input");
+            focusElement("calendar-end-input");
+          };
+
           return {
             showGlobalSearch,
             searchGlobalQuery,
             filteredList,
+            startAt,
+            endAt,
+            startAtCalendar,
+            dayName,
+            endAtCalendar,
+            handleStartAt,
+            openCalendar,
+            focusElement,
+            handleEndAt,
+            addFilter,
           };
         },
       }).mount("#app");
