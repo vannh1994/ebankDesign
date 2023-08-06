@@ -83,20 +83,21 @@
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .revenue .color {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
   background: #167ebc;
   margin-right: 4px;
 }
 
 .expenditure .color {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
   background: #c52038;
   margin-right: 4px;
 }
@@ -108,9 +109,14 @@
 
 .surplus {
   text-align: right;
-  font-size: 14px;
-  font-weight: 600;
-  color: #167ebc;
+  font-size: 16px;
+  color: #002d85;
+  width: 100%;
+  font-weight: 700;
+}
+
+.spending-management-page #nav-tabContent {
+  margin-top: 24px;
 }
 
 #overview {
@@ -118,13 +124,26 @@
   font-weight: 600;
 }
 
+#overview .chart-content {
+  display: flex;
+  align-items: inherit;
+  gap: 16px;
+}
+
+#overview .chart-content .card-chart {
+  width: calc(50% - 8px);
+}
+
+#overview .select-account {
+  max-width: 600px;
+  margin: auto;
+}
+
 .spending-detail-block {
   margin-top: 24px;
   border-radius: 12px;
   background: var(--background-background-2, #fafafa);
-  padding: 24px;
   border: 1px solid var(--branding-line, #e9e9e9);
-  gap: 16px;
 }
 
 .spending-detail-block .spending-detail-item {
@@ -133,22 +152,34 @@
   justify-content: space-between;
   gap: 10px;
   padding: 16px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #e9e9e9;
 }
 
 .spending-detail-block .spending-detail-item .title {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spending-detail-block .spending-detail-item .title.total {
+  border-radius: 12px 12px 0px 0px;
+  border: 0px solid var(--branding-line, #e9e9e9);
+  background: var(--background-background-1, #f4f7fe);
+  font-weight: 700;
+  color: #333;
 }
 
 .spending-detail-block .spending-detail-item .title i {
   font-size: 30px;
   margin-right: 10px;
+  color: #002d85;
 }
 
 .spending-detail-block .spending-detail-item .amount {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .spending-detail-block .spending-detail-item .date {
@@ -165,27 +196,100 @@
   color: #de1e2d;
 }
 
-.spending-detail-filter {
+.font-22px {
+  font-size: 22px;
+}
+
+.spending-management-page .filter-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
 }
 
-.spending-detail-filter .label {
-  width: 100px;
+.spending-management-page .filter-section span {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+  color: #333;
 }
 
-.spending-detail-filter .change-month {
-  width: 150px;
+.spending-management-page .month-filter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  max-width: 180px;
+  gap: 8px;
 }
 
-.spending-detail-filter .form-select {
+.spending-management-page .month-filter i.isax {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.spending-management-page .month-filter .input-group-append .input-group-text {
+  border: unset;
+  background: unset;
+  font-size: 22px;
+  padding: 0;
+}
+
+.spending-management-page .month-filter #calendar-filter-month-input,
+.spending-management-page .month-filter #calendar-filter-year-input,
+.spending-management-page .month-filter #calendar-filter-month-spending-input,
+.spending-management-page .month-filter #calendar-filter-month-tax-input {
+  border: unset;
+  background: transparent;
+  width: 60px;
+  padding: 0;
+  font-weight: 700 !important;
+  transform: translateY(2px);
+  font-size: 14px;
+}
+
+.spending-management-page .month-filter #calendar-filter-year-input {
+  width: 40px;
+}
+
+.spending-management-page .spending-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.line-gray {
+  height: 2px !important;
+  width: 100%;
+  margin-top: 6px;
+  background: gray;
+}
+
+.spending-management-page .spending-detail-filter {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  max-width: 750px;
+  margin: auto;
+  gap: 16px;
+}
+
+.spending-management-page .spending-detail-filter .select-account {
   flex: 1;
 }
 
-.font-22px {
-  font-size: 22px;
+.mb-100 {
+  margin-bottom: 100px !important;
+}
+
+@media (max-width: 1201px) {
+  #overview .chart-content {
+    flex-direction: column;
+  }
+
+  #overview .chart-content .card-chart {
+    width: 100%;
+    margin-bottom: 0;
+  }
 }
 
 @media (max-width: 991px) {
@@ -196,6 +300,10 @@
 
   .change-month.pc-show {
     display: none;
+  }
+
+  .mb-100 {
+    margin-bottom: 50px !important;
   }
 }
 
@@ -212,24 +320,12 @@
     font-size: 12px;
   }
 
-  .spending-detail-block {
-    padding: 0;
-  }
-
-  .spending-detail-filter {
-    flex-direction: column;
-    gap: 16px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-  }
-
-  .spending-detail-filter .change-month {
-    width: 100%;
-    justify-content: center;
-  }
-
   .spending-management-page .home-container {
     margin: 96px auto !important;
+  }
+
+  .revenue,
+  .expenditure {
+    font-size: 12px;
   }
 }

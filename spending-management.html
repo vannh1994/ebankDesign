@@ -93,7 +93,7 @@
                   aria-controls="overview"
                   aria-selected="true"
                 >
-                  Tổng quan
+                  Tổng chung
                 </button>
                 <button
                   class="nav-link"
@@ -121,107 +121,223 @@
                 </button>
               </div>
             </nav>
-            <div class="tab-content mt-10" id="nav-tabContent">
+            <div class="tab-content" id="nav-tabContent">
               <div
                 class="tab-pane fade show active contact-area"
                 id="overview"
                 role="tabpanel"
                 aria-labelledby="overview-tab"
               >
-                <div class="card card-chart">
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="change-month sp-show">
-                        <i class="isax isax-arrow-left-2"></i>
-                        <span>12/2022</span>
-                        <i class="isax isax-arrow-right-3"></i>
-                      </div>
+                <div class="select-account">
+                  <selector-component
+                    placeholder="Số tài khoản"
+                    v-model="sourceAccount"
+                    :options="accountList"
+                    :required="true"
+                  >
+                    <template #selected="{option}">
+                      <b>{{ option.number }} - {{option.currency}}</b>
+                    </template>
+                    <template #option="{option}">
+                      <b class="d-block py-2">
+                        {{ option.number }} - {{option.currency}}</b
+                      >
+                    </template>
+                  </selector-component>
 
-                      <canvas
-                        id="chart-pie"
-                        style="
-                          width: 100%;
-                          max-width: 280px;
-                          margin: auto;
-                          margin-top: 40px;
-                        "
-                      ></canvas>
-                    </div>
-                    <div class="col-6">
-                      <div class="change-month pc-show">
-                        <i class="isax isax-arrow-left-2"></i>
-                        <span>12/2022</span>
-                        <i class="isax isax-arrow-right-3"></i>
-                      </div>
-
-                      <div class="revenue">
-                        <span class="text">
-                          <span class="color"></span> Thu
-                        </span>
-                        <span class="money"> 50,000,000 </span>
-                      </div>
-                      <div class="expenditure">
-                        <span class="text">
-                          <span class="color"></span> Chi
-                        </span>
-                        <span class="money"> 35,000,000 </span>
-                      </div>
-
-                      <hr />
-
-                      <div class="surplus">15,000,000</div>
-                    </div>
+                  <div v-if="sourceAccount" class="text-end mt-2">
+                    <span class="text-secondary me-1"> Số dư khả dụng: </span>
+                    <b class="text-branding"> {{ formatMoney(10000000) }} </b>
                   </div>
                 </div>
-                <div class="card card-chart">
-                  <div class="row">
-                    <div class="col-12 col-lg-6">
-                      <div class="change-month">
+                <div class="chart-content">
+                  <div class="card card-chart">
+                    <div class="filter-section">
+                      <span>Tình hình thu chi</span>
+                      <div class="month-filter">
                         <i class="isax isax-arrow-left-2"></i>
-                        <span>12/2022</span>
+                        <div class="calendar">
+                          <Datepicker
+                            ref="filterMonthCalendar"
+                            v-model="filterMonth"
+                            month-picker
+                            auto-apply
+                            hide-input-icon
+                            locale="vi"
+                            format="MM/yyyy"
+                            input-class-name="opacity-0"
+                            :enable-time-picker="false"
+                            @update:model-value="handleFilterMonth"
+                          />
+                        </div>
+
+                        <div class="form-label w-100">
+                          <input
+                            id="calendar-filter-month-input"
+                            class="form-control fw-bold"
+                            v-model="filterMonth"
+                            @focus="openCalendar('filter-month')"
+                          />
+                        </div>
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <i
+                              class="isax isax-calendar-1"
+                              @click="openCalendar('filter-month')"
+                            ></i>
+                          </div>
+                        </div>
                         <i class="isax isax-arrow-right-3"></i>
                       </div>
-                      <canvas id="chart-bar" style="width: 100%"></canvas>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <canvas
+                          id="chart-pie"
+                          style="
+                            width: 100%;
+                            max-width: 280px;
+                            margin: auto;
+                            margin-top: 40px;
+                          "
+                        ></canvas>
+                      </div>
+                      <div class="col-6 spending-info">
+                        <div class="revenue">
+                          <span class="text">
+                            <span class="color"></span> Thu
+                          </span>
+                          <span class="money"> 50,000,000 </span>
+                        </div>
+                        <div class="expenditure">
+                          <span class="text">
+                            <span class="color"></span> Chi
+                          </span>
+                          <span class="money"> 35,000,000 </span>
+                        </div>
+
+                        <hr class="line-gray" />
+
+                        <div class="surplus">15,000,000</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-chart">
+                    <div class="filter-section">
+                      <span>Xu hướng chi tiêu</span>
+                      <div class="month-filter">
+                        <i class="isax isax-arrow-left-2"></i>
+                        <div class="calendar-right">
+                          <Datepicker
+                            ref="filterYearCalendar"
+                            v-model="filterYear"
+                            year-picker
+                            auto-apply
+                            hide-input-icon
+                            locale="vi"
+                            format="yyyy"
+                            input-class-name="opacity-0"
+                            :enable-time-picker="false"
+                            @update:model-value="handleFilterYear"
+                          />
+                        </div>
+
+                        <div class="form-label w-100">
+                          <input
+                            id="calendar-filter-year-input"
+                            class="form-control fw-bold"
+                            v-model="filterYear"
+                            @focus="openCalendar('filter-year')"
+                          />
+                        </div>
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <i
+                              class="isax isax-calendar-1"
+                              @click="openCalendar('filter-year')"
+                            ></i>
+                          </div>
+                        </div>
+                        <i class="isax isax-arrow-right-3"></i>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-12">
+                        <canvas id="chart-bar" style="width: 100%"></canvas>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div
-                class="tab-pane fade contact-area"
+                class="tab-pane fade contact-area mb-100"
                 id="spending-details"
                 role="tabpanel"
                 aria-labelledby="spending-details-tab"
               >
                 <div class="spending-detail-filter">
-                  <div class="label">Số tài khoản</div>
-
-                  <select
-                    class="form-select"
-                    aria-label="Default select example"
-                  >
-                    <option selected>Số tài khoản</option>
-                    <option value="1">01234567895</option>
-                    <option value="2">09874561235</option>
-                    <option value="3">025698714234</option>
-                  </select>
-
-                  <div class="change-month">
+                  <div class="select-account">
+                    <selector-component
+                      placeholder="Số tài khoản"
+                      v-model="sourceAccountSpendingDetail"
+                      :options="accountList"
+                      :required="true"
+                    >
+                      <template #selected="{option}">
+                        <b>{{ option.number }} - {{option.currency}}</b>
+                      </template>
+                      <template #option="{option}">
+                        <b class="d-block py-2">
+                          {{ option.number }} - {{option.currency}}</b
+                        >
+                      </template>
+                    </selector-component>
+                  </div>
+                  <div class="month-filter">
                     <i class="isax isax-arrow-left-2"></i>
-                    <span>12/2022</span>
+                    <div class="calendar-right">
+                      <Datepicker
+                        ref="filterMonthSpendingCalendar"
+                        v-model="filterMonthSpending"
+                        month-picker
+                        auto-apply
+                        hide-input-icon
+                        locale="vi"
+                        format="MM/yyyy"
+                        input-class-name="opacity-0"
+                        :enable-time-picker="false"
+                        @update:model-value="handleFilterMonthSpending"
+                      />
+                    </div>
+
+                    <div class="form-label w-100">
+                      <input
+                        id="calendar-filter-month-spending-input"
+                        class="form-control fw-bold"
+                        v-model="filterMonthSpending"
+                        @focus="openCalendar('filter-month-spending')"
+                      />
+                    </div>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <i
+                          class="isax isax-calendar-1"
+                          @click="openCalendar('filter-month-spending')"
+                        ></i>
+                      </div>
+                    </div>
                     <i class="isax isax-arrow-right-3"></i>
                   </div>
                 </div>
                 <div class="card spending-detail-block">
                   <div class="spending-detail-item">
-                    <div class="title">
-                      <i class="isax isax-bank"></i> Tổng tiền
-                    </div>
+                    <div class="title total">Tổng tiền</div>
                     <div class="amount minus font-22px">-36,000,000 VND</div>
                   </div>
 
                   <div class="spending-detail-item">
                     <div class="title">
-                      <i class="isax isax-bag-2"></i>
+                      <i class="isax isax-shop"></i>
                       Mua sắm
                     </div>
                     <div class="d-flex flex-column gap-1">
@@ -232,7 +348,7 @@
                   <div class="spending-detail-item">
                     <div class="title">
                       <i class="isax isax-brifecase-cross"></i>
-                      Tiêu vặt
+                      Sinh hoạt
                     </div>
                     <div class="d-flex flex-column gap-1">
                       <div class="amount minus">-12,000,000 VND</div>
@@ -241,7 +357,7 @@
                   </div>
                   <div class="spending-detail-item">
                     <div class="title">
-                      <i class="isax isax-airplane"></i> Du lịch
+                      <i class="isax isax-status-up"></i> Đầu tư
                     </div>
                     <div class="d-flex flex-column gap-1">
                       <div class="amount minus">-12,000,000 VND</div>
@@ -251,41 +367,75 @@
                 </div>
               </div>
               <div
-                class="tab-pane fade contact-area"
+                class="tab-pane fade contact-area mb-100"
                 id="tax-details"
                 role="tabpanel"
                 aria-labelledby="tax-details-tab"
               >
                 <div class="spending-detail-filter">
-                  <div class="label">Số tài khoản</div>
-
-                  <select
-                    class="form-select"
-                    aria-label="Default select example"
-                  >
-                    <option selected>Số tài khoản</option>
-                    <option value="1">01234567895</option>
-                    <option value="2">09874561235</option>
-                    <option value="3">025698714234</option>
-                  </select>
-
-                  <div class="change-month">
+                  <div class="select-account">
+                    <selector-component
+                      placeholder="Số tài khoản"
+                      v-model="sourceAccountTax"
+                      :options="accountList"
+                      :required="true"
+                    >
+                      <template #selected="{option}">
+                        <b>{{ option.number }} - {{option.currency}}</b>
+                      </template>
+                      <template #option="{option}">
+                        <b class="d-block py-2">
+                          {{ option.number }} - {{option.currency}}</b
+                        >
+                      </template>
+                    </selector-component>
+                  </div>
+                  <div class="month-filter">
                     <i class="isax isax-arrow-left-2"></i>
-                    <span>12/2022</span>
+                    <div class="calendar-right">
+                      <Datepicker
+                        ref="filterMonthTaxCalendar"
+                        v-model="filterMonthTax"
+                        month-picker
+                        auto-apply
+                        hide-input-icon
+                        locale="vi"
+                        format="MM/yyyy"
+                        input-class-name="opacity-0"
+                        :enable-time-picker="false"
+                        @update:model-value="handleFilterMonthTax"
+                      />
+                    </div>
+
+                    <div class="form-label w-100">
+                      <input
+                        id="calendar-filter-month-tax-input"
+                        class="form-control fw-bold"
+                        v-model="filterMonthTax"
+                        @focus="openCalendar('filter-month-tax')"
+                      />
+                    </div>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <i
+                          class="isax isax-calendar-1"
+                          @click="openCalendar('filter-month-tax')"
+                        ></i>
+                      </div>
+                    </div>
                     <i class="isax isax-arrow-right-3"></i>
                   </div>
                 </div>
+
                 <div class="card spending-detail-block">
                   <div class="spending-detail-item">
-                    <div class="title">
-                      <i class="isax isax-bank"></i> Tổng tiền
-                    </div>
+                    <div class="title total">Tổng tiền</div>
                     <div class="amount plus font-22px">+17,000,000 VND</div>
                   </div>
 
                   <div class="spending-detail-item">
                     <div class="title">
-                      <i class="isax isax-bitcoin-card"></i>
+                      <i class="isax isax-dollar-circle"></i>
                       Lương
                     </div>
                     <div class="d-flex flex-column gap-1">
@@ -363,6 +513,10 @@
 
     <script src="./components/header-component.js"></script>
     <script src="./components/menu.js"></script>
+    <script src="./components/selector.js"></script>
+
+    <script src="./assets/js/vue-datepicker.iife.js"></script>
+    <script src="./assets/js/moment.min.js"></script>
 
     <script>
       hideLoading();
@@ -373,6 +527,8 @@
         components: {
           headerComponent,
           menuComponent,
+          selectorComponent,
+          Datepicker: VueDatePicker,
         },
         setup() {
           const showGlobalSearch = ref(false);
@@ -429,6 +585,23 @@
             return filteredItems.slice(0, 4);
           });
 
+          const sourceAccount = ref(null);
+          const connectionAccount = ref(null);
+          const accountList = [
+            {
+              number: "05000210000471",
+              currency: "VND",
+            },
+            {
+              number: "05000210000123",
+              currency: "VND",
+            },
+          ];
+
+          function formatMoney(money) {
+            return new Intl.NumberFormat().format(money || 0) + " VND";
+          }
+
           const onClickOutside = (event) => {
             const el = document.querySelector(".feature-select");
             if (
@@ -440,6 +613,46 @@
             }
 
             showGlobalSearch.value = false;
+          };
+
+          const filterMonth = ref("08/2023");
+          const filterMonthSpending = ref("08/2023");
+          const filterMonthTax = ref("08/2023");
+          const filterYear = ref("2023");
+          const filterMonthCalendar = ref(null);
+          const filterMonthSpendingCalendar = ref(null);
+          const filterMonthTaxCalendar = ref(null);
+          const filterYearCalendar = ref(null);
+
+          const openCalendar = (point) => {
+            if (point == "filter-month") {
+              filterMonthCalendar.value.openMenu();
+            } else if (point == "filter-month-spending") {
+              filterMonthSpendingCalendar.value.openMenu();
+            } else if (point == "filter-month-tax") {
+              filterMonthTaxCalendar.value.openMenu();
+            } else {
+              filterYearCalendar.value.openMenu();
+            }
+          };
+
+          const sourceAccountSpendingDetail = ref(null);
+          const sourceAccountTax = ref(null);
+
+          const handleFilterMonth = (modelData) => {
+            filterMonth.value = moment(modelData).format("MM/YYYY");
+          };
+
+          const handleFilterMonthSpending = (modelData) => {
+            filterMonthSpending.value = moment(modelData).format("MM/YYYY");
+          };
+
+          const handleFilterMonthTax = (modelData) => {
+            filterMonthTax.value = moment(modelData).format("MM/YYYY");
+          };
+
+          const handleFilterYear = (modelData) => {
+            filterYear.value = modelData;
           };
 
           onMounted(() => {
@@ -454,6 +667,25 @@
             showGlobalSearch,
             searchGlobalQuery,
             filteredList,
+            sourceAccount,
+            connectionAccount,
+            accountList,
+            filterMonthCalendar,
+            filterYearCalendar,
+            filterMonth,
+            filterYear,
+            sourceAccountSpendingDetail,
+            filterMonthSpending,
+            filterMonthSpendingCalendar,
+            sourceAccountTax,
+            filterMonthTax,
+            filterMonthTaxCalendar,
+            handleFilterMonthTax,
+            formatMoney,
+            openCalendar,
+            handleFilterMonth,
+            handleFilterMonthSpending,
+            handleFilterYear,
           };
         },
       }).mount("#app");

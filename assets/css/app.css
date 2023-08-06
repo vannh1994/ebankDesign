@@ -17,6 +17,7 @@
 @import "spending-management.css";
 @import "beneficiaries.css";
 @import "custom.css";
+@import "vue-datepicker.css";
 @import "custom-calendar.css";
 @import "input-otp.css";
 @import "toast.css";

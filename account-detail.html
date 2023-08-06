@@ -26,13 +26,6 @@
       rel="stylesheet"
       type="text/css"
     />
-
-    <link
-      href="assets/css/vue-datepicker.css"
-      id="app-style"
-      rel="stylesheet"
-      type="text/css"
-    />
   </head>
 
   <body class="child-page page-background account-detail-page">
@@ -168,6 +161,7 @@
                         hide-input-icon
                         locale="vi"
                         :day-names="dayName"
+                        :enable-time-picker="false"
                         format="dd/MM/yyyy"
                         input-class-name="opacity-0"
                         @update:model-value="handleStartAt"
@@ -202,6 +196,7 @@
                         hide-input-icon
                         locale="vi"
                         :day-names="dayName"
+                        :enable-time-picker="false"
                         format="dd/MM/yyyy"
                         input-class-name="opacity-0"
                         @update:model-value="handleEndAt"

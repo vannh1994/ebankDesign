@@ -7,9 +7,17 @@
 }
 
 .dp__menu.dp__menu_index.dp__theme_light {
-  top: 45px !important;
-  left: 0 !important;
-  transform: unset !important;
+  top: 24px !important;
+  right: 0 !important;
+  transform: translate(calc(-50% + 50px), 0px) !important;
+}
+
+.calendar-right .dp__menu.dp__menu_index.dp__theme_light {
+  transform: translate(calc(-50% - 14px), 0px) !important;
+}
+
+.calendar-right .dp__arrow_top {
+  left: 75% !important;
 }
 
 .dp__btn.dp__button.dp__button_bottom {
@@ -25,4 +33,14 @@
 
 .dp__icon.dp__clear_icon.dp__input_icons {
   display: none;
+}
+
+@media (max-width: 1201px) {
+  .dp__menu.dp__menu_index.dp__theme_light {
+    transform: translate(calc(-50% - 4px), 0px) !important;
+  }
+
+  .dp__arrow_top {
+    left: 70% !important;
+  }
 }
