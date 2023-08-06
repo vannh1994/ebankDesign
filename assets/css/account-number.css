@@ -1,0 +1,130 @@
+.page-content {
+  font-size: 14px;
+}
+
+.page-content
+  :is(.custom-selector-placeholder, .form-control, .form-label label) {
+  font-size: 14px !important;
+}
+
+.container-flex {
+  width: min(100% - 15px, 650px);
+  padding: 0 15px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+.btn-account-number {
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--white, #fff);
+  border-radius: 8px !important;
+  background: var(--branding-primary-color, #0c65ce);
+}
+
+#account-number-search {
+  font-size: 14px;
+}
+
+#account-number-search .modal-header .modal-title {
+  font-size: 16px;
+}
+
+#account-number-search .modal-header .close {
+  font-size: 16px;
+  color: var(--branding-primary-color, #002d85);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#account-number-search .input-search .form-control {
+  padding: 12px 40px 12px 12px;
+  font-size: 14px;
+}
+
+#account-number-search .table thead tr {
+  background: #edf3ff;
+  color: var(--text-secondary-note, #787878);
+  font-weight: 700;
+}
+
+#account-number-search .table tbody tr {
+  transition: 0.3s;
+}
+
+#account-number-search .table tbody tr:hover {
+  color: var(--branding-primary-color, #002d85);
+}
+
+#account-number-search .table .button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: white;
+  transition: 0.3s;
+  font-size: 12px;
+}
+
+#account-number-search .table tr:hover .button {
+  background: var(--background-background-1, #f4f7fe);
+}
+
+.account-number-page .form-check-input {
+  width: 20px;
+  height: 20px;
+  appearance: auto !important;
+  font-size: 0px !important;
+  margin-right: 8px !important;
+}
+
+.bill-details {
+  border-radius: 12px;
+  background: var(--background-background-2, #fafafa);
+  margin-bottom: 8px;
+}
+
+.bill-details dl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.bill-details dl dt {
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.bill-details dl dd {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.page-content :is(.btn-third, .btn-back) {
+  padding: 12px 48px !important;
+  border-radius: 12px !important;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.account-number-page .phone-number-block {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.account-number-page .phone-number-block label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.account-number-page .phone-number-block .phone-number {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  color: #002d85;
+}

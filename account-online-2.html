@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Mở Tài khoản số đẹp/Số điện thoại/iNick | VRB</title>
+    <title>Mở tài khoản thanh toán trực tuyến</title>
     <meta name="viewport" content="width=375, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
@@ -67,17 +67,17 @@
                 <a href="#"> Tài khoản </a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Mở Tài khoản số đẹp/Số điện thoại/iNick
+                Mở TK thanh toán trực tuyến
               </li>
             </ol>
           </nav>
         </div>
 
         <div class="page-title">
-          <a class="back" href="account-number-2.html">
+          <a class="back" href="account-online.html">
             <i class="isax isax-arrow-left-2"></i>
           </a>
-          <h2>Mở Tài khoản số đẹp/Số điện thoại/iNick</h2>
+          <h2>Mở tài khoản thanh toán trực tuyến</h2>
         </div>
 
         <div class="transaction-step">
@@ -90,36 +90,94 @@
             <div class="step">2</div>
             <div class="text">Xác nhận</div>
           </div>
-          <div class="progress active"></div>
-          <div class="step-item active">
+          <div class="progress"></div>
+          <div class="step-item">
             <div class="step">3</div>
             <div class="text">Kết quả</div>
           </div>
         </div>
 
-        <div class="card card-scroll flex-fill">
-          <div class="card-body p-3 card-content">
-            <div class="transfer-success">
-              <div class="transaction-success">
-                <img src="assets/icons/success.svg" alt="success" />
-                <div class="title">Thành công</div>
+        <div class="card py-3 flex-fill content-min-height card-scroll">
+          <div class="container-flex d-grid gap-3 card-content">
+            <div class="fw-bolder fs-5 mt-2">
+              Thông tin tài khoản trực tuyến
+            </div>
+
+            <div class="d-grid gap-2 p-3 bill-details">
+              <dl>
+                <dt>Số điện thoại</dt>
+                <dd class="text-branding">0367640075</dd>
+              </dl>
+              <dl>
+                <dt>Email</dt>
+                <dd>{{email}}</dd>
+              </dl>
+              <dl>
+                <dt>PGD/CN quản lý</dt>
+                <dd>{{branch}}</dd>
+              </dl>
+              <dl>
+                <dt>Loại tài khoản</dt>
+                <dd>{{accountTypes[type]}}</dd>
+              </dl>
+              <dl>
+                <dt>Tài khoản nguồn</dt>
+                <dd>10423456678999</dd>
+              </dl>
+              <dl v-if="type == 'beauty-number' || type == 'phone-number'">
+                <dt>Tài khoản số đẹp</dt>
+                <dd class="fw-bolder text-branding">{{number}}</dd>
+              </dl>
+              <dl v-if="type == 'inick'">
+                <dt>Tài khoản iNick</dt>
+                <dd class="fw-bolder text-branding">{{number}}</dd>
+              </dl>
+              <dl>
+                <dt>Phí mở tài khoản</dt>
+                <dd>{{formatMoney(500000)}}</dd>
+              </dl>
+              <dl>
+                <dt>VAT</dt>
+                <dd>{{formatMoney(50000)}}</dd>
+              </dl>
+              <dl>
+                <dt>Tổng tiền phí</dt>
+                <dd>{{formatMoney(550000)}}</dd>
+              </dl>
+              <dl>
+                <dt>Hình thức xác thực</dt>
+                <dd>SMS OTP</dd>
+              </dl>
+            </div>
+
+            <div class="otp-card p-0 mb-3">
+              <div class="flex-fill text-center">
+                <div class="fw-bolder">Nhập mã PIN SMS OTP</div>
+                <div>
+                  Qúy khách vui lòng nhập mã OTP đã được gửi về số điện thoại
+                  <b class="text-branding">097***025</b>
+                </div>
+                <div>
+                  <v-otp-input
+                    class="otp-box"
+                    input-classes="otp-input"
+                    :num-inputs="6"
+                    separator=""
+                  />
+                </div>
               </div>
+            </div>
 
-              <p class="message mb-4">
-                Cảm ơn Quý khách đã sử dụng dịch vụ của VRB!
-              </p>
+            <div
+              class="d-flex flex-column flex-sm-row justify-content-center gap-3"
+            >
+              <a href="account-online.html" class="btn btn-primary btn-back">
+                Quay lại
+              </a>
 
-              <div
-                class="d-flex flex-column flex-sm-row justify-content-center gap-3"
-              >
-                <a href="home.html" class="btn btn-primary btn-back">
-                  Về trang chủ
-                </a>
-
-                <a href="account-number.html" class="btn btn-third">
-                  Tạo mới
-                </a>
-              </div>
+              <a href="account-online-3.html" class="btn btn-third">
+                Tiếp tục
+              </a>
             </div>
           </div>
         </div>
@@ -173,18 +231,47 @@
     <script src="./assets//js/vueuse_core.js"></script>
     <script src="./components/header-component.js"></script>
     <script src="./components/menu.js"></script>
+    <script src="assets/js/vue3-otp-input.min.js"></script>
 
     <script>
       hideLoading();
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
 
       createApp({
         components: {
           headerComponent,
           menuComponent,
+          vOtpInput: Vue3OtpInput,
         },
 
-        setup() {},
+        setup() {
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          const type = urlParams.get("type");
+          const number = urlParams.get("number");
+          const email = urlParams.get("email");
+          const branch = urlParams.get("branch");
+
+          const accountTypes = {
+            "beauty-number": "TK số đẹp",
+            "phone-number": "TK số điện thoại",
+            inick: "Tài khoản iNick",
+          };
+
+          function formatMoney(money) {
+            return new Intl.NumberFormat().format(money || 0) + " VND";
+          }
+
+          return {
+            type,
+            number,
+            accountTypes,
+            email,
+            branch,
+            formatMoney,
+          };
+        },
       }).mount("#app");
     </script>
   </body>

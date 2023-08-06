@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Mở Tài khoản số đẹp/Số điện thoại/iNick | VRB</title>
+    <title>Mở tài khoản thanh toán trực tuyến</title>
     <meta name="viewport" content="width=375, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
@@ -67,7 +67,7 @@
                 <a href="#"> Tài khoản </a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Mở Tài khoản số đẹp/Số điện thoại/iNick
+                Mở TK thanh toán trực tuyến
               </li>
             </ol>
           </nav>
@@ -77,7 +77,7 @@
           <a class="back" href="home.html">
             <i class="isax isax-arrow-left-2"></i>
           </a>
-          <h2>Mở Tài khoản số đẹp/Số điện thoại/iNick</h2>
+          <h2>Mở tài khoản thanh toán trực tuyến</h2>
         </div>
 
         <div class="transaction-step">
@@ -101,42 +101,35 @@
           <div class="container-flex d-grid gap-3 card-content">
             <div class="fw-bolder fs-5">Thông tin tài khoản</div>
 
-            <div>
-              <selector-component
-                placeholder="Tài khoản nguồn"
-                v-model="sourceAccount"
-                :options="accountList"
-                :required="true"
-              >
-                <template #selected="{option}">
-                  <b>{{ option.number }} - {{option.currency}}</b>
-                </template>
-                <template #option="{option}">
-                  <b class="d-block py-2"
-                    >{{ option.number }} - {{option.currency}}</b
-                  >
-                </template>
-              </selector-component>
+            <div class="phone-number-block">
+              <label>Số điện thoại</label>
+              <span class="phone-number">0367640075</span>
+            </div>
 
-              <div v-if="sourceAccount" class="available-balance text-end mt-2">
-                <span class="text-secondary me-1"> Số dư khả dụng: </span>
-                <b class="text-primary"> {{ formatMoney(10000000) }} </b>
+            <div>
+              <div class="input-group label-transition">
+                <div class="form-label">
+                  <input
+                    v-model="email"
+                    type="text"
+                    class="form-control input-text-bold"
+                  />
+                  <label>Email</label>
+                </div>
               </div>
             </div>
 
             <selector-component
-              placeholder="Tài khoản liên kết"
-              v-model="connectionAccount"
-              :options="accountList"
+              placeholder="PGD/CN quản lý"
+              v-model="managementBranch"
+              :options="branchList"
               :required="true"
             >
               <template #selected="{option}">
-                <b>{{ option.number }} - {{option.currency}}</b>
+                <b>{{ option.name }}</b>
               </template>
               <template #option="{option}">
-                <b class="d-block py-2">
-                  {{ option.number }} - {{option.currency}}
-                </b>
+                <b class="d-block py-2"> {{ option.name }} </b>
               </template>
             </selector-component>
 
@@ -155,25 +148,48 @@
             </selector-component>
 
             <transition>
-              <div
-                v-if="accountType?.id == 'beauty-number'"
-                class="d-flex align-items-center gap-3"
-              >
-                <div class="d-flex align-items-center gap-2">
-                  <div :class="{ 'fw-bolder': selectedAccountNumber }">
-                    Tài khoản số đẹp
-                  </div>
-                  <b v-if="selectedAccountNumber">
-                    {{selectedAccountNumber.number}}
-                  </b>
-                </div>
+              <div v-if="accountType?.id == 'beauty-number'">
+                <selector-component
+                  placeholder="Tài khoản nguồn"
+                  v-model="sourceAccount"
+                  :options="accountList"
+                  :required="true"
+                >
+                  <template #selected="{option}">
+                    <b>{{ option.number }} - {{option.currency}}</b>
+                  </template>
+                  <template #option="{option}">
+                    <b class="d-block py-2"
+                      >{{ option.number }} - {{option.currency}}</b
+                    >
+                  </template>
+                </selector-component>
 
                 <div
-                  class="btn btn-account-number btn-sm"
-                  data-bs-toggle="modal"
-                  data-bs-target="#account-number-search"
+                  v-if="sourceAccount"
+                  class="available-balance text-end mt-2"
                 >
-                  Chọn số
+                  <span class="text-secondary me-1"> Số dư khả dụng: </span>
+                  <b class="text-primary"> {{ formatMoney(10000000) }} </b>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 mt-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <div :class="{ 'fw-bolder': selectedAccountNumber }">
+                      Tài khoản số đẹp
+                    </div>
+                    <b v-if="selectedAccountNumber">
+                      {{selectedAccountNumber.number}}
+                    </b>
+                  </div>
+
+                  <div
+                    class="btn btn-account-number btn-sm"
+                    data-bs-toggle="modal"
+                    data-bs-target="#account-number-search"
+                  >
+                    Chọn số
+                  </div>
                 </div>
               </div>
             </transition>
@@ -375,7 +391,8 @@
 
         setup() {
           const sourceAccount = ref(null);
-          const connectionAccount = ref(null);
+          const managementBranch = ref(null);
+          const email = ref(null);
           const accountList = [
             {
               number: "05000210000471",
@@ -384,6 +401,17 @@
             {
               number: "05000210000123",
               currency: "VND",
+            },
+          ];
+
+          const branchList = [
+            {
+              id: "1",
+              name: "Chi nhánh Khánh Hòa",
+            },
+            {
+              id: "2",
+              name: "Chi nhánh Hà Nội",
             },
           ];
 
@@ -455,19 +483,31 @@
               switch (accountType.value.id) {
                 case "beauty-number":
                   window.location.href =
-                    "account-number-2.html?type=beauty-number&number=" +
-                    selectedAccountNumber.value.number;
+                    "account-online-2.html?type=beauty-number&number=" +
+                    selectedAccountNumber.value.number +
+                    "&email=" +
+                    email.value +
+                    "&branch=" +
+                    managementBranch.value.name;
                   break;
 
                 case "phone-number":
                   window.location.href =
-                    "account-number-2.html?type=phone-number&number=0367640075";
+                    "account-online-2.html?type=phone-number&number=0367640075" +
+                    "&email=" +
+                    email.value +
+                    "&branch=" +
+                    managementBranch.value.name;
                   break;
 
                 case "inick":
                   window.location.href =
-                    "account-number-2.html?type=inick&number=" +
-                    iNickAccount.value;
+                    "account-online-2.html?type=inick&number=" +
+                    iNickAccount.value +
+                    "&email=" +
+                    email.value +
+                    "&branch=" +
+                    managementBranch.value.name;
                   break;
               }
             } catch {}
@@ -476,7 +516,7 @@
           return {
             sourceAccount,
             accountList,
-            connectionAccount,
+            managementBranch,
             formatMoney,
             accountType,
             accountTypes,
@@ -486,6 +526,8 @@
             showTotal,
             fee,
             iNickAccount,
+            branchList,
+            email,
             submit,
           };
         },

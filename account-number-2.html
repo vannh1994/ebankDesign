@@ -27,52 +27,9 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
-
-    <style>
-      .page-content {
-        font-size: 14px;
-      }
-
-      .container-flex {
-        width: min(100% - 15px, 650px);
-        padding: 0 15px;
-        margin: 0 auto;
-      }
-
-      .bill-details {
-        border-radius: 12px;
-        background: var(--background-background-2, #fafafa);
-        margin-bottom: 8px;
-      }
-
-      .bill-details dl {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 0;
-      }
-
-      .bill-details dl dt {
-        font-weight: normal;
-        margin-bottom: 0;
-      }
-
-      .bill-details dl dd {
-        font-weight: 700;
-        margin-bottom: 0;
-      }
-
-      .page-content :is(.btn-third, .btn-back) {
-        padding: 12px 48px !important;
-        border-radius: 12px !important;
-        font-size: 14px;
-        font-weight: 700;
-      }
-    </style>
   </head>
 
-  <body class="child-page page-background account-page transfer-inside-page">
+  <body class="child-page page-background account-page account-number-page">
     <div id="loading"></div>
 
     <div id="app" class="page-content">
@@ -117,18 +74,18 @@
         </div>
 
         <div class="page-title">
-          <a class="back" href="home.html">
+          <a class="back" href="account-number.html">
             <i class="isax isax-arrow-left-2"></i>
           </a>
           <h2>Mở Tài khoản số đẹp/Số điện thoại/iNick</h2>
         </div>
 
         <div class="transaction-step">
-          <div class="step-item">
+          <div class="step-item active">
             <div class="step">1</div>
             <div class="text">Nhập thông tin</div>
           </div>
-          <div class="progress"></div>
+          <div class="progress active"></div>
           <div class="step-item active">
             <div class="step">2</div>
             <div class="text">Xác nhận</div>
@@ -140,8 +97,8 @@
           </div>
         </div>
 
-        <div class="card py-3 flex-fill">
-          <div class="container-flex d-grid gap-3">
+        <div class="card py-3 flex-fill content-min-height card-scroll">
+          <div class="container-flex d-grid gap-3 card-content">
             <div class="fw-bolder fs-5 mt-2">
               Thông tin tài khoản trực tuyến
             </div>
@@ -203,12 +160,14 @@
               </div>
             </div>
 
-            <div class="d-flex justify-content-center gap-2">
-              <a href="/account-number.html" class="btn btn-primary btn-back">
+            <div
+              class="d-flex flex-column flex-sm-row justify-content-center gap-3"
+            >
+              <a href="account-number.html" class="btn btn-primary btn-back">
                 Quay lại
               </a>
 
-              <a href="/account-number-3.html" class="btn btn-third">
+              <a href="account-number-3.html" class="btn btn-third">
                 Tiếp tục
               </a>
             </div>

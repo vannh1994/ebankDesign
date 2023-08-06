@@ -162,11 +162,11 @@ const menuComponent = {
           },
           {
             text: "Mở tài khoản thanh toán trực tuyến",
-            link: "#",
+            link: "account-online.html",
           },
           {
             text: "Mở Tài khoản số đẹp/Số điện thoại/iNick",
-            link: "#",
+            link: "account-number.html",
           },
         ],
       },
