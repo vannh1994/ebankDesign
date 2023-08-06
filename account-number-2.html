@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mở Tài khoản số đẹp/Số điện thoại/iNick | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
+
+    <style>
+      .page-content {
+        font-size: 14px;
+      }
+
+      .container-flex {
+        width: min(100% - 15px, 650px);
+        padding: 0 15px;
+        margin: 0 auto;
+      }
+
+      .bill-details {
+        border-radius: 12px;
+        background: var(--background-background-2, #fafafa);
+        margin-bottom: 8px;
+      }
+
+      .bill-details dl {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0;
+      }
+
+      .bill-details dl dt {
+        font-weight: normal;
+        margin-bottom: 0;
+      }
+
+      .bill-details dl dd {
+        font-weight: 700;
+        margin-bottom: 0;
+      }
+
+      .page-content :is(.btn-third, .btn-back) {
+        padding: 12px 48px !important;
+        border-radius: 12px !important;
+        font-size: 14px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+
+  <body class="child-page page-background account-page transfer-inside-page">
+    <div id="loading"></div>
+
+    <div id="app" class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <menu-component></menu-component>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="#"> Tài khoản </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Mở Tài khoản số đẹp/Số điện thoại/iNick
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="home.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Mở Tài khoản số đẹp/Số điện thoại/iNick</h2>
+        </div>
+
+        <div class="transaction-step">
+          <div class="step-item">
+            <div class="step">1</div>
+            <div class="text">Nhập thông tin</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item active">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card py-3 flex-fill">
+          <div class="container-flex d-grid gap-3">
+            <div class="fw-bolder fs-5 mt-2">
+              Thông tin tài khoản trực tuyến
+            </div>
+
+            <div class="d-grid gap-2 p-3 bill-details">
+              <dl>
+                <dt>Tài khoản nguồn</dt>
+                <dd>10423456678999</dd>
+              </dl>
+              <dl>
+                <dt>Tài khoản liên kết</dt>
+                <dd>10024567899</dd>
+              </dl>
+              <dl>
+                <dt>Loại tài khoản</dt>
+                <dd>{{accountTypes[type]}}</dd>
+              </dl>
+              <dl v-if="type == 'beauty-number' || type == 'phone-number'">
+                <dt>Tài khoản số đẹp</dt>
+                <dd class="fw-bolder text-branding">{{number}}</dd>
+              </dl>
+              <dl v-if="type == 'inick'">
+                <dt>Tài khoản iNick</dt>
+                <dd class="fw-bolder text-branding">{{number}}</dd>
+              </dl>
+              <dl>
+                <dt>Phí mở tài khoản</dt>
+                <dd>{{formatMoney(500000)}}</dd>
+              </dl>
+              <dl>
+                <dt>VAT</dt>
+                <dd>{{formatMoney(50000)}}</dd>
+              </dl>
+              <dl>
+                <dt>Tổng tiền phí</dt>
+                <dd>{{formatMoney(550000)}}</dd>
+              </dl>
+              <dl>
+                <dt>Hình thức xác thực</dt>
+                <dd>SMS OTP</dd>
+              </dl>
+            </div>
+
+            <div class="otp-card p-0 mb-3">
+              <div class="flex-fill text-center">
+                <div class="fw-bolder">Nhập mã PIN SMS OTP</div>
+                <div>
+                  Qúy khách vui lòng nhập mã OTP đã được gửi về số điện thoại
+                  <b class="text-branding">097***025</b>
+                </div>
+                <div>
+                  <v-otp-input
+                    class="otp-box"
+                    input-classes="otp-input"
+                    :num-inputs="6"
+                    separator=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center gap-2">
+              <a href="/account-number.html" class="btn btn-primary btn-back">
+                Quay lại
+              </a>
+
+              <a href="/account-number-3.html" class="btn btn-third">
+                Tiếp tục
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+    <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
+    <script src="assets/js/vue3-otp-input.min.js"></script>
+
+    <script>
+      hideLoading();
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+          menuComponent,
+          vOtpInput: Vue3OtpInput,
+        },
+
+        setup() {
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          const type = urlParams.get("type");
+          const number = urlParams.get("number");
+
+          const accountTypes = {
+            "beauty-number": "TK số đẹp",
+            "phone-number": "TK số điện thoại",
+            inick: "Tài khoản iNick",
+          };
+
+          function formatMoney(money) {
+            return new Intl.NumberFormat().format(money || 0) + " VND";
+          }
+
+          return {
+            type,
+            number,
+            accountTypes,
+            formatMoney,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

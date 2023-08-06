@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mở Tài khoản số đẹp/Số điện thoại/iNick | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
+
+    <style>
+      .page-content {
+        font-size: 14px;
+      }
+
+      .page-content
+        :is(.custom-selector-placeholder, .form-control, .form-label label) {
+        font-size: 14px !important;
+      }
+
+      .container-flex {
+        width: min(100% - 15px, 650px);
+        padding: 0 15px;
+        margin: 0 auto;
+      }
+
+      .btn-account-number {
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+        color: var(--white, #fff);
+        border-radius: 8px !important;
+        background: var(--branding-primary-color, #0c65ce);
+      }
+
+      #account-number-search {
+        font-size: 14px;
+      }
+
+      #account-number-search .modal-header .modal-title {
+        font-size: 16px;
+      }
+
+      #account-number-search .modal-header .close {
+        font-size: 16px;
+        color: var(--branding-primary-color, #002d85);
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      #account-number-search .input-search .form-control {
+        padding: 12px 40px 12px 12px;
+        font-size: 14px;
+      }
+
+      #account-number-search .table thead tr {
+        background: #edf3ff;
+        color: var(--text-secondary-note, #787878);
+        font-weight: 700;
+      }
+
+      #account-number-search .table tbody tr {
+        transition: 0.3s;
+      }
+
+      #account-number-search .table tbody tr:hover {
+        color: var(--branding-primary-color, #002d85);
+      }
+
+      #account-number-search .table .button {
+        padding: 8px 12px;
+        border-radius: 8px;
+        background: white;
+        transition: 0.3s;
+        font-size: 12px;
+      }
+
+      #account-number-search .table tr:hover .button {
+        background: var(--background-background-1, #f4f7fe);
+      }
+    </style>
+  </head>
+
+  <body class="child-page page-background account-page transfer-inside-page">
+    <div id="loading"></div>
+
+    <div id="app" class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <menu-component></menu-component>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="#"> Tài khoản </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Mở Tài khoản số đẹp/Số điện thoại/iNick
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="home.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Mở Tài khoản số đẹp/Số điện thoại/iNick</h2>
+        </div>
+
+        <div class="transaction-step">
+          <div class="step-item active">
+            <div class="step">1</div>
+            <div class="text">Nhập thông tin</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card py-3 flex-fill">
+          <div class="container-flex d-grid gap-3">
+            <div class="fw-bolder fs-5">Thông tin tài khoản</div>
+
+            <div>
+              <selector-component
+                placeholder="Tài khoản nguồn"
+                v-model="sourceAccount"
+                :options="accountList"
+                :required="true"
+              >
+                <template #selected="{option}">
+                  <b>{{ option.number }} - {{option.currency}}</b>
+                </template>
+                <template #option="{option}">
+                  <b class="d-block py-2"
+                    >{{ option.number }} - {{option.currency}}</b
+                  >
+                </template>
+              </selector-component>
+
+              <div v-if="sourceAccount" class="available-balance text-end mt-2">
+                <span class="text-secondary me-1"> Số dư khả dụng: </span>
+                <b class="text-primary"> {{ formatMoney(10000000) }} </b>
+              </div>
+            </div>
+
+            <selector-component
+              placeholder="Tài khoản liên kết"
+              v-model="connectionAccount"
+              :options="accountList"
+              :required="true"
+            >
+              <template #selected="{option}">
+                <b>{{ option.number }} - {{option.currency}}</b>
+              </template>
+              <template #option="{option}">
+                <b class="d-block py-2">
+                  {{ option.number }} - {{option.currency}}
+                </b>
+              </template>
+            </selector-component>
+
+            <selector-component
+              placeholder="Loại tài khoản"
+              v-model="accountType"
+              :options="accountTypes"
+              :required="true"
+            >
+              <template #selected="{option}">
+                <b>{{ option.name }}</b>
+              </template>
+              <template #option="{option}">
+                <b class="d-block py-2"> {{ option.name }} </b>
+              </template>
+            </selector-component>
+
+            <transition>
+              <div
+                v-if="accountType?.id == 'beauty-number'"
+                class="d-flex align-items-center gap-3"
+              >
+                <div class="d-flex align-items-center gap-2">
+                  <div :class="{ 'fw-bolder': selectedAccountNumber }">
+                    Tài khoản số đẹp
+                  </div>
+                  <b v-if="selectedAccountNumber">
+                    {{selectedAccountNumber.number}}
+                  </b>
+                </div>
+
+                <div
+                  class="btn btn-account-number btn-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#account-number-search"
+                >
+                  Chọn số
+                </div>
+              </div>
+            </transition>
+
+            <transition>
+              <div
+                v-if="accountType?.id == 'phone-number'"
+                class="d-flex align-items-center gap-2 fw-bolder"
+              >
+                <span>Tài khoản số điện thoại</span>
+                <span class="text-branding">0367640075</span>
+              </div>
+            </transition>
+
+            <transition>
+              <div
+                v-if="accountType?.id == 'inick'"
+                class="input-group label-transition"
+              >
+                <div class="form-label w-100">
+                  <input
+                    v-model="iNickAccount"
+                    class="form-control fw-bolder"
+                    :class="{ hascontent: !!iNickAccount }"
+                  />
+                  <label required>Tài khoản iNick</label>
+                </div>
+              </div>
+            </transition>
+
+            <transition>
+              <div v-if="showTotal" class="d-grid mt-2 gap-2">
+                <div class="d-flex align-items-start justify-content-between">
+                  <span>Phí mở tài khoản</span>
+                  <b>{{ formatMoney(fee) }}</b>
+                </div>
+                <div class="d-flex align-items-start justify-content-between">
+                  <span>VAT</span>
+                  <b>{{ formatMoney(fee / 10) }}</b>
+                </div>
+                <div class="d-flex align-items-start justify-content-between">
+                  <span>Tổng số tiền phí</span>
+                  <div class="text-end">
+                    <b>{{ formatMoney(fee * 1.1) }}</b>
+                    <div>Năm mươi lăm nghìn đồng</div>
+                  </div>
+                </div>
+              </div>
+            </transition>
+
+            <transition>
+              <div v-if="showTotal">
+                <label class="form-check">
+                  <input class="form-check-input" type="checkbox" />
+                  <span class="form-check-label">
+                    Tôi đồng ý với
+                    <b class="text-branding">Điều khoản, điều kiện</b> về mở và
+                    sử dụng tài khoản của Ngân hàng Liên doanh Việt Nga (VRB)
+                  </span>
+                </label>
+              </div>
+            </transition>
+
+            <div class="d-flex justify-content-center">
+              <button type="button" class="btn btn-third" @click="submit">
+                Tiếp tục
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal" id="account-number-search">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Danh sách tài khoản số đẹp</h5>
+                <span class="close" data-bs-dismiss="modal">Đóng</span>
+              </div>
+
+              <div class="modal-body">
+                <div class="input-search input-reverse my-2">
+                  <i class="isax isax-search-normal-1"></i>
+                  <input
+                    v-model="searchForAccountNumber"
+                    placeholder="Tìm kiếm danh sách"
+                    class="form-control"
+                    maxlength="7"
+                  />
+                </div>
+
+                <div class="text-muted text-center fs-6">
+                  Quý khách nhập 2-7 số mong muốn
+                </div>
+              </div>
+
+              <table class="table text-center mb-0">
+                <thead>
+                  <tr>
+                    <th>Tài khoản số đẹp</th>
+                    <th>Phí mở tài khoản</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="account in filteredSuggestedAccountList">
+                    <td>{{account.number}}</td>
+                    <td>{{formatMoney(account.fee)}}</td>
+                    <td>
+                      <span
+                        role="button"
+                        class="button"
+                        data-bs-dismiss="modal"
+                        @click="selectedAccountNumber = account"
+                      >
+                        Chọn
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="modal-footer">
+                <div class="text-end text-muted fs-6">
+                  Hiển thị 1 đến {{filteredSuggestedAccountList.length}} trong
+                  {{filteredSuggestedAccountList.length}} kết quả
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+    <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
+    <script src="./components/selector.js"></script>
+
+    <script>
+      hideLoading();
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+          menuComponent,
+          selectorComponent,
+        },
+
+        setup() {
+          const sourceAccount = ref(null);
+          const connectionAccount = ref(null);
+          const accountList = [
+            {
+              number: "05000210000471",
+              currency: "VND",
+            },
+            {
+              number: "05000210000123",
+              currency: "VND",
+            },
+          ];
+
+          const accountType = ref(null);
+          const accountTypes = [
+            {
+              id: "beauty-number",
+              name: "Tài khoản số đẹp",
+            },
+            {
+              id: "phone-number",
+              name: "Tài khoản số điện thoại",
+            },
+            {
+              id: "inick",
+              name: "Tài khoản iNick",
+            },
+          ];
+
+          const searchForAccountNumber = ref("");
+          const selectedAccountNumber = ref(null);
+          const suggestedAccountList = [
+            {
+              number: "10000686888",
+              fee: 500000,
+            },
+            {
+              number: "10000686000",
+              fee: 500000,
+            },
+            {
+              number: "10000686111",
+              fee: 500000,
+            },
+            {
+              number: "10000686999",
+              fee: 500000,
+            },
+          ];
+          const filteredSuggestedAccountList = computed(() =>
+            suggestedAccountList.filter((x) =>
+              x.number.includes(searchForAccountNumber.value)
+            )
+          );
+
+          const showTotal = computed(() => {
+            return (
+              !!selectedAccountNumber.value ||
+              ["phone-number", "inick"].includes(accountType.value?.id)
+            );
+          });
+
+          const fee = computed(() => {
+            if (["phone-number", "inick"].includes(accountType.value?.id)) {
+              return 50000;
+            }
+
+            return selectedAccountNumber.value?.fee || 0;
+          });
+
+          const iNickAccount = ref("");
+
+          function formatMoney(money) {
+            return new Intl.NumberFormat().format(money || 0) + " VND";
+          }
+
+          function submit() {
+            try {
+              switch (accountType.value.id) {
+                case "beauty-number":
+                  window.location.href =
+                    "/account-number-2.html?type=beauty-number&number=" +
+                    selectedAccountNumber.value.number;
+                  break;
+
+                case "phone-number":
+                  window.location.href =
+                    "/account-number-2.html?type=phone-number&number=0367640075";
+                  break;
+
+                case "inick":
+                  window.location.href =
+                    "/account-number-2.html?type=inick&number=" +
+                    iNickAccount.value;
+                  break;
+              }
+            } catch {}
+          }
+
+          return {
+            sourceAccount,
+            accountList,
+            connectionAccount,
+            formatMoney,
+            accountType,
+            accountTypes,
+            searchForAccountNumber,
+            selectedAccountNumber,
+            filteredSuggestedAccountList,
+            showTotal,
+            fee,
+            iNickAccount,
+            submit,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
