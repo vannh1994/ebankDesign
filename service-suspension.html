@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tạm ngừng dịch vụ NH số</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body class="child-page page-background service-suspension-page">
+    <div id="loading"></div>
+
+    <div id="app" class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <menu-component></menu-component>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="#"> Bảo mật </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Tạm ngừng dịch vụ NH số
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="home.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Tạm ngừng dịch vụ NH số</h2>
+        </div>
+
+        <div class="transaction-step">
+          <div class="step-item active">
+            <div class="step">1</div>
+            <div class="text">Nhập thông tin</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card py-3 flex-fill content-min-height card-scroll">
+          <div class="container-flex d-grid gap-3 card-content">
+            <div class="notice">
+              <i class="isax isax-info-circle"></i>
+              <span> Lưu ý với Tạm dừng dịch vụ </span>
+            </div>
+            <selector-component
+              placeholder="Hình thức"
+              v-model="suspensionType"
+              :options="suspensionList"
+              :required="true"
+            >
+              <template #selected="{option}">
+                <b>{{ option.name }}</b>
+              </template>
+              <template #option="{option}">
+                <b class="d-block py-2"> {{ option.name }} </b>
+              </template>
+            </selector-component>
+
+            <div class="input-group label-transition">
+              <div class="calendar">
+                <Datepicker
+                  ref="startAtCalendar"
+                  v-model="startAt"
+                  auto-apply
+                  hide-input-icon
+                  locale="vi"
+                  :day-names="dayName"
+                  :enable-time-picker="false"
+                  format="dd/MM/yyyy"
+                  input-class-name="opacity-0"
+                  @update:model-value="handleStartAt"
+                  @closed="focusElement('calendar-start-input')"
+                />
+              </div>
+
+              <div class="form-label w-100">
+                <input
+                  id="calendar-start-input"
+                  class="form-control fw-bold"
+                  v-model="startAt"
+                  @focus="openCalendar('start')"
+                />
+                <label for="account_number"> Ngày bắt đầu* </label>
+              </div>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <i
+                    class="isax isax-calendar-1"
+                    @click="openCalendar('start')"
+                  ></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group label-transition">
+              <div class="calendar">
+                <Datepicker
+                  ref="endAtCalendar"
+                  v-model="endAt"
+                  auto-apply
+                  hide-input-icon
+                  locale="vi"
+                  :day-names="dayName"
+                  :enable-time-picker="false"
+                  format="dd/MM/yyyy"
+                  input-class-name="opacity-0"
+                  @update:model-value="handleEndAt"
+                  @closed="focusElement('calendar-end-input')"
+                />
+              </div>
+
+              <div class="form-label w-100">
+                <input
+                  id="calendar-end-input"
+                  class="form-control fw-bold"
+                  v-model="endAt"
+                  @focus="openCalendar('end')"
+                />
+                <label for="account_number"> Ngày kết thúc* </label>
+              </div>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <i
+                    class="isax isax-calendar-1"
+                    @click="openCalendar('end')"
+                  ></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center mb-5">
+              <a href="service-suspension-2.html" class="btn btn-third">
+                Tiếp tục
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+    <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
+    <script src="./components/selector.js"></script>
+
+    <script src="./assets/js/vue-datepicker.iife.js"></script>
+    <script src="./assets/js/moment.min.js"></script>
+
+    <script>
+      hideLoading();
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+          menuComponent,
+          selectorComponent,
+          Datepicker: VueDatePicker,
+        },
+
+        setup() {
+          const suspensionType = ref(null);
+          const startAt = ref(null);
+          const endAt = ref(null);
+
+          const suspensionList = [
+            {
+              id: "1",
+              name: "Có thời hạn",
+            },
+            {
+              id: "2",
+              name: "Không thời hạn",
+            },
+          ];
+
+          const openCalendar = (point) => {
+            if (point == "start") {
+              startAtCalendar.value.openMenu();
+            } else {
+              endAtCalendar.value.openMenu();
+            }
+          };
+
+          const focusElement = (elementId) => {
+            const el = document.getElementById(elementId);
+            el.classList.add("hascontent");
+          };
+
+          const handleStartAt = (modelData) => {
+            startAt.value = moment(modelData).format("DD/MM/YYYY");
+          };
+
+          const handleEndAt = (modelData) => {
+            endAt.value = moment(modelData).format("DD/MM/YYYY");
+          };
+
+          const dayName = [
+            "Thứ 2",
+            "Thứ 3",
+            "Thứ 4",
+            "Thứ 5",
+            "Thứ 6",
+            "Thứ 7",
+            "CN",
+          ];
+          const startAtCalendar = ref(null);
+          const endAtCalendar = ref(null);
+
+          const addFilter = () => {
+            startAt.value = moment().startOf("month").format("DD/MM/YYYY");
+            endAt.value = moment().endOf("month").format("DD/MM/YYYY");
+            focusElement("calendar-start-input");
+            focusElement("calendar-end-input");
+          };
+
+          const resetFilter = () => {
+            startAt.value = null;
+            endAt.value = null;
+          };
+
+          return {
+            suspensionList,
+            suspensionType,
+            startAt,
+            endAt,
+            startAtCalendar,
+            dayName,
+            endAtCalendar,
+            handleStartAt,
+            openCalendar,
+            focusElement,
+            handleEndAt,
+            addFilter,
+            resetFilter,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

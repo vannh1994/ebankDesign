@@ -98,726 +98,425 @@
         <div
           class="card content-min-height card-scroll setting-transaction-limit-content"
         >
-          <div class="card-body card-content p-3">
-            <div class="card transaction-limit-card preview">
-              <div class="title">Nội bộ VRB cùng chủ</div>
-              <div class="row">
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối thiểu/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối đa/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số lần tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số tiền tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
+          <div class="container-flex d-grid gap-3 card-content">
+            <div class="row">
+              <div class="col-12">
+                <div class="fw-bolder fs-5 mt-3 mb-1">Nội bộ VRB cùng chủ</div>
+
+                <div class="d-grid gap-2 p-3 transaction-limit-details">
+                  <dl>
+                    <dt>Tối thiểu/lần</dt>
+                    <dd>1,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Tối đa/lần</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số lần tối đa/ngày</dt>
+                    <dd>100 Lần</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số tiền tối đa/ngày</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
                 </div>
               </div>
-            </div>
 
-            <div class="card transaction-limit-card preview">
-              <div class="title">Nội bộ VRB khách chủ</div>
-              <div class="row">
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối thiểu/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối đa/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số lần tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số tiền tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
+              <div class="col-12">
+                <div class="fw-bolder fs-5 mt-3 mb-1">Nội bộ VRB khách chủ</div>
+
+                <div class="d-grid gap-2 p-3 transaction-limit-details">
+                  <dl>
+                    <dt>Tối thiểu/lần</dt>
+                    <dd>1,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Tối đa/lần</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số lần tối đa/ngày</dt>
+                    <dd>100 Lần</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số tiền tối đa/ngày</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
                 </div>
               </div>
-            </div>
 
-            <div class="card transaction-limit-card preview">
-              <div class="title">Ngoài VRB đến số tài khoản</div>
-              <div class="row">
-                <div class="col-12 sub-title">Chuyển nhanh 24/7</div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối thiểu/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
+              <div class="col-12">
+                <div class="fw-bolder fs-5 mt-3 mb-1">
+                  Ngoài VRB đến số tài khoản
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối đa/lần </label>
+
+                <div class="d-grid gap-2 p-3 transaction-limit-details">
+                  <div class="multiple-detail">
+                    <div class="multiple-detail-item">
+                      <div class="fw-bolder fs-5 mb-1">
+                        Ngoài VRB đến số tài khoản
+                      </div>
+
+                      <dl>
+                        <dt>Tối thiểu/lần</dt>
+                        <dd>1,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Tối đa/lần</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số lần tối đa/ngày</dt>
+                        <dd>100 Lần</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số tiền tối đa/ngày</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
                     </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số lần tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số tiền tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
+                    <div class="multiple-detail-item">
+                      <div class="fw-bolder fs-5 mb-1">Chuyển thường</div>
+
+                      <dl>
+                        <dt>Tối thiểu/lần</dt>
+                        <dd>1,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Tối đa/lần</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số lần tối đa/ngày</dt>
+                        <dd>100 Lần</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số tiền tối đa/ngày</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="row mt-2">
-                <div class="col-12 sub-title">Chuyển thường</div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối thiểu/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
+              <div class="col-12">
+                <div class="fw-bolder fs-5 mt-3 mb-1">
+                  Ngoài VRB đến số tài thẻ (24/7)
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối đa/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số lần tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số tiền tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="card transaction-limit-card preview">
-              <div class="title">Ngoài VRB đến số tài thẻ (24/7)</div>
-              <div class="row">
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối thiểu/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối đa/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số lần tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số tiền tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card transaction-limit-card preview">
-              <div class="title">Chuyển tiền quốc tế</div>
-              <div class="row">
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối thiểu/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối đa/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số lần tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số tiền tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card transaction-limit-card preview">
-              <div class="title">Tiền gửi trực tuyến</div>
-              <div class="row">
-                <div class="col-12 sub-title">Tiền gửi có kỳ hạn</div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối thiểu/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối đa/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số lần tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số tiền tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
+                <div class="d-grid gap-2 p-3 transaction-limit-details">
+                  <dl>
+                    <dt>Tối thiểu/lần</dt>
+                    <dd>1,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Tối đa/lần</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số lần tối đa/ngày</dt>
+                    <dd>100 Lần</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số tiền tối đa/ngày</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
                 </div>
               </div>
 
-              <div class="row mt-2">
-                <div class="col-12 sub-title">Tiền gửi tích lũy</div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối thiểu/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
+              <div class="col-12">
+                <div class="fw-bolder fs-5 mt-3 mb-1">
+                  Chuyển tiền qua QR code
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối đa/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số lần tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số tiền tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
+
+                <div class="d-grid gap-2 p-3 transaction-limit-details">
+                  <dl>
+                    <dt>Tối thiểu/lần</dt>
+                    <dd>1,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Tối đa/lần</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số lần tối đa/ngày</dt>
+                    <dd>100 Lần</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số tiền tối đa/ngày</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
                 </div>
               </div>
 
-              <div class="row mt-2">
-                <div class="col-12 sub-title">Chửng chỉ tiền gửi</div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối thiểu/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối đa/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số lần tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số tiền tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
+              <div class="col-12">
+                <div class="fw-bolder fs-5 mt-3 mb-1">Chuyển tiền theo lô</div>
+
+                <div class="d-grid gap-2 p-3 transaction-limit-details">
+                  <dl>
+                    <dt>Tối thiểu/lần</dt>
+                    <dd>1,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Tối đa/lần</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số lần tối đa/ngày</dt>
+                    <dd>100 Lần</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số tiền tối đa/ngày</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
                 </div>
               </div>
-            </div>
 
-            <div class="card transaction-limit-card preview">
-              <div class="title">Bán ngoại tệ</div>
-              <div class="row">
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối thiểu/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Tối đa/lần </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số lần tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                  <div class="input-group label-transition">
-                    <div class="form-label">
-                      <input
-                        type="number"
-                        value="1000000"
-                        class="form-control fw-bold"
-                        :class="{'pointer-events-none': isPreview}"
-                      />
-                      <label for="account_number"> Số tiền tối đa/ngày </label>
-                    </div>
-                    <div class="input-group-append">
-                      <div class="input-group-text">VND</div>
-                    </div>
-                  </div>
+              <div class="col-12">
+                <div class="fw-bolder fs-5 mt-3 mb-1">Chuyển tiền quốc tế</div>
+
+                <div class="d-grid gap-2 p-3 transaction-limit-details">
+                  <dl>
+                    <dt>Tối thiểu/lần</dt>
+                    <dd>1,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Tối đa/lần</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số lần tối đa/ngày</dt>
+                    <dd>100 Lần</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số tiền tối đa/ngày</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
                 </div>
               </div>
-            </div>
 
-            <div class="group-button-bottom">
-              <button
-                class="btn btn-primary btn-back"
-                onclick="location.href = 'setting-transaction-limit-step-1.html';"
+              <div class="col-12">
+                <div class="fw-bolder fs-5 mt-3 mb-1">Tiền gửi trực tuyến</div>
+
+                <div class="d-grid gap-2 p-3 transaction-limit-details">
+                  <div class="multiple-detail">
+                    <div class="multiple-detail-item">
+                      <div class="fw-bolder fs-5 mb-1">Tiền gửi có kỳ hạn</div>
+
+                      <dl>
+                        <dt>Tối thiểu/lần</dt>
+                        <dd>1,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Tối đa/lần</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số lần tối đa/ngày</dt>
+                        <dd>100 Lần</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số tiền tối đa/ngày</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                    </div>
+                    <div class="multiple-detail-item">
+                      <div class="fw-bolder fs-5 mb-1">Tiền gửi tích lũy</div>
+
+                      <dl>
+                        <dt>Tối thiểu/lần</dt>
+                        <dd>1,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Tối đa/lần</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số lần tối đa/ngày</dt>
+                        <dd>100 Lần</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số tiền tối đa/ngày</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                    </div>
+                  </div>
+
+                  <div class="fw-bolder fs-5 mb-1 mt-2">Chứng chỉ tiền gửi</div>
+                  <dl>
+                    <dt>Tối thiểu/lần</dt>
+                    <dd>1,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Tối đa/lần</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số lần tối đa/ngày</dt>
+                    <dd>100 Lần</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số tiền tối đa/ngày</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="fw-bolder fs-5 mt-3 mb-1">Bán ngoại tệ</div>
+
+                <div class="d-grid gap-2 p-3 transaction-limit-details">
+                  <dl>
+                    <dt>Tối thiểu/lần</dt>
+                    <dd>1,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Tối đa/lần</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số lần tối đa/ngày</dt>
+                    <dd>100 Lần</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số tiền tối đa/ngày</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="fw-bolder fs-5 mt-3 mb-1">
+                  Thanh toán trực tuyến
+                </div>
+
+                <div class="d-grid gap-2 p-3 transaction-limit-details">
+                  <div class="multiple-detail">
+                    <div class="multiple-detail-item">
+                      <div class="fw-bolder fs-5 mb-1">Thanh toán hóa đơn</div>
+
+                      <dl>
+                        <dt>Tối thiểu/lần</dt>
+                        <dd>1,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Tối đa/lần</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số lần tối đa/ngày</dt>
+                        <dd>100 Lần</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số tiền tối đa/ngày</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                    </div>
+                    <div class="multiple-detail-item">
+                      <div class="fw-bolder fs-5 mb-1">
+                        Nạp tiền điện thoải trả trước
+                      </div>
+
+                      <dl>
+                        <dt>Tối thiểu/lần</dt>
+                        <dd>1,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Tối đa/lần</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số lần tối đa/ngày</dt>
+                        <dd>100 Lần</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số tiền tối đa/ngày</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                    </div>
+                  </div>
+
+                  <div class="multiple-detail mt-3">
+                    <div class="multiple-detail-item">
+                      <div class="fw-bolder fs-5 mb-1">QR trong nước</div>
+
+                      <dl>
+                        <dt>Tối thiểu/lần</dt>
+                        <dd>1,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Tối đa/lần</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số lần tối đa/ngày</dt>
+                        <dd>100 Lần</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số tiền tối đa/ngày</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                    </div>
+                    <div class="multiple-detail-item">
+                      <div class="fw-bolder fs-5 mb-1">QR quốc tế</div>
+
+                      <dl>
+                        <dt>Tối thiểu/lần</dt>
+                        <dd>1,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Tối đa/lần</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số lần tối đa/ngày</dt>
+                        <dd>100 Lần</dd>
+                      </dl>
+                      <dl>
+                        <dt>Số tiền tối đa/ngày</dt>
+                        <dd>50,000,000 VND</dd>
+                      </dl>
+                    </div>
+                  </div>
+
+                  <div class="fw-bolder fs-5 mt-3 mb-1">DAWACO</div>
+
+                  <dl>
+                    <dt>Tối thiểu/lần</dt>
+                    <dd>1,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Tối đa/lần</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số lần tối đa/ngày</dt>
+                    <dd>100 Lần</dd>
+                  </dl>
+                  <dl>
+                    <dt>Số tiền tối đa/ngày</dt>
+                    <dd>50,000,000 VND</dd>
+                  </dl>
+                </div>
+              </div>
+
+              <div
+                class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-3"
               >
-                Quay lại
-              </button>
+                <a
+                  href="setting-transaction-limit-step-1.html"
+                  class="btn btn-primary btn-back"
+                >
+                  Quay lại
+                </a>
 
-              <button
-                class="btn btn-third btn-submit"
-                onclick="location.href = 'setting-transaction-limit-step-3.html';"
-              >
-                Tiếp tục
-              </button>
+                <a
+                  href="setting-transaction-limit-step-3.html"
+                  class="btn btn-third"
+                >
+                  Tiếp tục
+                </a>
+              </div>
             </div>
           </div>
         </div>

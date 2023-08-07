@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Quản lý danh sách người thụ hưởng | VRB</title>
+    <title>Tạm ngừng dịch vụ NH số</title>
     <meta name="viewport" content="width=375, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
@@ -27,11 +27,11 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
   </head>
 
-  <body class="child-page page-background list-beneficiaries-page">
+  <body class="child-page page-background account-page account-number-page">
     <div id="loading"></div>
+
     <div id="app" class="page-content">
       <div class="list-small-icons">
         <div class="item">
@@ -63,85 +63,62 @@
                   Trang chủ
                 </a>
               </li>
+              <li class="breadcrumb-item">
+                <a href="#"> Bảo mật </a>
+              </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Quản lý danh sách người thụ hưởng
+                Tạm ngừng dịch vụ NH số
               </li>
             </ol>
           </nav>
         </div>
 
         <div class="page-title">
-          <a class="back" href="beneficiaries-step-1-1.html">
+          <a class="back" href="service-suspension-2.html">
             <i class="isax isax-arrow-left-2"></i>
           </a>
-          <h2>Quản lý danh sách người thụ hưởng</h2>
+          <h2>Tạm ngừng dịch vụ NH số</h2>
         </div>
 
         <div class="transaction-step">
           <div class="step-item active">
             <div class="step">1</div>
-            <div class="text">Khởi tạo</div>
+            <div class="text">Nhập thông tin</div>
           </div>
           <div class="progress active"></div>
           <div class="step-item active">
             <div class="step">2</div>
             <div class="text">Xác nhận</div>
           </div>
-          <div class="progress"></div>
-          <div class="step-item">
+          <div class="progress active"></div>
+          <div class="step-item active">
             <div class="step">3</div>
             <div class="text">Kết quả</div>
           </div>
         </div>
 
-        <div class="card content-min-height card-scroll">
-          <div
-            class="card-body card-content international-money-transfer-card p-4 p-md-5"
-          >
-            <div class="transfer-info">
-              <h2 class="card-title">Thông tin người thụ hưởng</h2>
-
-              <div class="transfer-info-confirm-block mt-3">
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Loại giao dịch</div>
-                  <div class="value">Chuyển tiền ngoài hệ thống</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Hình thức chuyển khoản</div>
-                  <div class="value">Theo số tài khoản</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Ngân hàng thụ hưởng</div>
-                  <div class="value">Ngân hàng BIDV</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Số tài khoản/Thẻ</div>
-                  <div class="value">0000001110033</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Tên tài khoản/Thẻ</div>
-                  <div class="value">Nguyen Van A</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Tên gợi nhớ</div>
-                  <div class="value">JOHN SMITH</div>
-                </div>
+        <div class="card card-scroll flex-fill">
+          <div class="card-body p-3 card-content">
+            <div class="transfer-success">
+              <div class="transaction-success">
+                <img src="assets/icons/success.svg" alt="success" />
+                <div class="title">Thành công</div>
               </div>
 
-              <div class="group-button-bottom mt-5">
-                <button
-                  class="btn btn-primary btn-back"
-                  onclick="location.href = 'beneficiaries-step-1-1.html';"
-                >
-                  Quay lại
-                </button>
+              <p class="message mb-4">
+                Cảm ơn Quý khách đã sử dụng dịch vụ của VRB!
+              </p>
 
-                <button
-                  class="btn btn-third btn-submit"
-                  onclick="location.href = 'beneficiaries-step-3-1.html';"
-                >
-                  Tiếp tục
-                </button>
+              <div
+                class="d-flex flex-column flex-sm-row justify-content-center gap-3"
+              >
+                <a href="home.html" class="btn btn-primary btn-back">
+                  Về trang chủ
+                </a>
+
+                <a href="service-suspension.html" class="btn btn-third">
+                  Tạo mới
+                </a>
               </div>
             </div>
           </div>
@@ -191,27 +168,23 @@
 
     <!-- BS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-
-    <script src="./components/header-component.js"></script>
-
     <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
     <script src="./assets/js/vueuse_shared.min.js"></script>
     <script src="./assets//js/vueuse_core.js"></script>
+    <script src="./components/header-component.js"></script>
     <script src="./components/menu.js"></script>
 
     <script>
       hideLoading();
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
-      const { useDebounceFn } = VueUse;
 
       createApp({
         components: {
           headerComponent,
           menuComponent,
         },
-        setup() {
-          return {};
-        },
+
+        setup() {},
       }).mount("#app");
     </script>
   </body>

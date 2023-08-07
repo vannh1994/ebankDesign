@@ -181,6 +181,13 @@ h6 {
   color: #777777;
 }
 
+.input-group .input-group-append .input-group-text.link {
+  color: #002d85 !important;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 19.5px;
+}
+
 .login-page .form-control {
   border: unset !important;
   border-bottom: 1px solid #c4c4c6 !important;
@@ -445,6 +452,7 @@ input[type="number"] {
   right: 0;
   bottom: 0;
   z-index: 99999;
+  opacity: 0.5;
 }
 
 #loading::before {
@@ -482,6 +490,12 @@ input[type="number"] {
   flex-direction: column-reverse;
   gap: 4px;
   height: 100%;
+}
+
+.custom-selector-wrapper svg {
+  font-size: 26px;
+  transform: translateY(8px);
+  color: #787878;
 }
 
 .custom-selector ~ .custom-selector-popup {

@@ -42,6 +42,7 @@
   line-height: 16px;
   color: #787878;
   text-align: right;
+  cursor: pointer;
 }
 
 .account-detail-page .filter-block img {
@@ -427,7 +428,8 @@
 
 #transfer-detail .modal-header .close,
 #catalog .modal-header .close,
-#cash-list .modal-header .close {
+#cash-list .modal-header .close,
+#modal-filter .modal-header .close {
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
@@ -503,6 +505,20 @@
 
 .account-detail-page .account-per-detail-page .account-info {
   padding: 16px 0;
+}
+
+.block-suggest-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.block-suggest-filter .form-check {
+  width: calc(50% - 12px);
+}
+
+.block-suggest-filter .form-check .form-check-label {
+  margin-bottom: 0;
 }
 
 @media (max-width: 1600px) {

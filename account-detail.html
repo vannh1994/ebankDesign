@@ -144,12 +144,16 @@
                     </button>
                   </div>
                 </nav>
-                <div class="filter-block">
+                <div
+                  class="filter-block"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modal-filter"
+                >
                   <span v-if="startAt || endAt">
                     Khoảng thời gian sao kê không vượt quá 3 tháng
                   </span>
                   <span v-else>Sao kê giao dịch</span>
-                  <img @click="addFilter" src="assets/icons/filter.svg" />
+                  <img src="assets/icons/filter.svg" />
                 </div>
                 <div class="input-range">
                   <div class="input-group label-transition">
@@ -211,7 +215,7 @@
                         v-model="endAt"
                         @focus="openCalendar('end')"
                       />
-                      <label for="account_number"> Từ ngày </label>
+                      <label for="account_number"> Đến ngày </label>
                     </div>
                     <div class="input-group-append">
                       <div class="input-group-text">
@@ -1134,6 +1138,90 @@
           </div>
         </div>
       </div>
+
+      <!-- Modal filter -->
+      <div class="modal" id="modal-filter">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Tìm kiếm nhanh</h4>
+              <span class="close" data-bs-dismiss="modal">Đóng</span>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="block-suggest-filter">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="filter-time"
+                    value="today"
+                    v-model="typeFilter"
+                  />
+                  <label class="form-check-label"> Hôm nay </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="filter-time"
+                    value="this-week"
+                    v-model="typeFilter"
+                  />
+                  <label class="form-check-label"> Tuần này </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="filter-time"
+                    value="last-week"
+                    v-model="typeFilter"
+                  />
+                  <label class="form-check-label"> Tuần trước </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="filter-time"
+                    value="this-month"
+                    v-model="typeFilter"
+                  />
+                  <label class="form-check-label"> Tháng này </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="filter-time"
+                    value="last-month"
+                    v-model="typeFilter"
+                  />
+                  <label class="form-check-label"> Tháng trước </label>
+                </div>
+              </div>
+
+              <div
+                class="d-flex align-items-center justify-content-center w-100"
+              >
+                <button
+                  class="btn btn-third btn-back mt-4"
+                  data-bs-dismiss="modal"
+                  @click="addFilter"
+                >
+                  Tìm kiếm
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- App js -->
@@ -1166,6 +1254,7 @@
           const searchGlobalQuery = ref("");
           const startAt = ref(null);
           const endAt = ref(null);
+          const typeFilter = ref(null);
 
           const featureList = [
             {
@@ -1249,7 +1338,13 @@
 
           const focusElement = (elementId) => {
             const el = document.getElementById(elementId);
-            el.classList.add("hascontent");
+            if (elementId == "calendar-start-input" && !!startAt.value) {
+              el.classList.add("hascontent");
+            }
+
+            if (elementId == "calendar-end-input" && !!endAt.value) {
+              el.classList.add("hascontent");
+            }
           };
 
           const handleStartAt = (modelData) => {
@@ -1273,8 +1368,44 @@
           const endAtCalendar = ref(null);
 
           const addFilter = () => {
-            startAt.value = moment().startOf("month").format("DD/MM/YYYY");
-            endAt.value = moment().endOf("month").format("DD/MM/YYYY");
+            switch (typeFilter.value) {
+              case "today":
+                startAt.value = moment().startOf("day").format("DD/MM/YYYY");
+                endAt.value = moment().endOf("day").format("DD/MM/YYYY");
+                break;
+              case "this-week":
+                startAt.value = moment().startOf("week").format("DD/MM/YYYY");
+                endAt.value = moment().endOf("week").format("DD/MM/YYYY");
+                break;
+              case "last-week":
+                startAt.value = moment()
+                  .subtract(1, "weeks")
+                  .startOf("week")
+                  .format("DD/MM/YYYY");
+                endAt.value = moment()
+                  .subtract(1, "weeks")
+                  .endOf("week")
+                  .format("DD/MM/YYYY");
+                break;
+              case "this-month":
+                startAt.value = moment().startOf("month").format("DD/MM/YYYY");
+                endAt.value = moment().endOf("month").format("DD/MM/YYYY");
+                break;
+              case "last-month":
+                startAt.value = moment()
+                  .subtract(1, "month")
+                  .startOf("month")
+                  .format("DD/MM/YYYY");
+                endAt.value = moment()
+                  .subtract(1, "month")
+                  .endOf("month")
+                  .format("DD/MM/YYYY");
+                break;
+
+              default:
+                break;
+            }
+
             focusElement("calendar-start-input");
             focusElement("calendar-end-input");
           };
@@ -1293,6 +1424,7 @@
             startAtCalendar,
             dayName,
             endAtCalendar,
+            typeFilter,
             handleStartAt,
             openCalendar,
             focusElement,

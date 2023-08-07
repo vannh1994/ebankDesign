@@ -177,7 +177,7 @@ const menuComponent = {
         child: [
           {
             text: "Chuyển tiền trong nước",
-            link: "transfer-inter.html",
+            link: "transfer-inside.html",
           },
           {
             text: "Chuyển tiền quốc tế",
@@ -185,19 +185,15 @@ const menuComponent = {
           },
           {
             text: "Đăng ký/thay đổi hạn mức chuyển tiền quốc tế",
-            link: "register-international-money-step-1.html",
+            link: "register-international-money-transfer-step-1.html",
           },
           {
             text: "Nhật ký chuyển khoản trực tuyến",
-            link: "register-international-money-step-1.html",
+            link: "direct-transfer-log.html",
           },
           {
             text: "Tài khoản thủ hưởng",
-            link: "register-international-money-step-1.html",
-          },
-          {
-            text: "Mẫu chuyển tiền",
-            link: "register-international-money-step-1.html",
+            link: "beneficiaries-step-1.html",
           },
         ],
       },
@@ -259,13 +255,31 @@ const menuComponent = {
         id: 13,
         text: "Bảo mật",
         link: "#",
-        child: [],
+        child: [
+          {
+            text: "Tạm ngừng dịch vụ NH số",
+            link: "service-suspension.html",
+          },
+        ],
       },
       {
         id: 14,
         text: "Hỗ trợ",
         link: "#",
-        child: [],
+        child: [
+          {
+            text: "Thay đổi hạn mức giao dịch",
+            link: "setting-transaction-limit-step-1.html",
+          },
+          {
+            text: "Tra cứu tra soát giao dịch",
+            link: "transaction.html",
+          },
+          {
+            text: "Mẫu chuyển tiền",
+            link: "contact-management.html",
+          },
+        ],
       },
       {
         id: 15,

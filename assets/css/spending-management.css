@@ -281,6 +281,21 @@
   margin-bottom: 100px !important;
 }
 
+.spending-management-page
+  .spending-detail-filter
+  .dp__menu.dp__menu_index.dp__theme_light {
+  top: 28px !important;
+  left: 55px !important;
+}
+
+@media (max-width: 1365px) {
+  .spending-management-page
+    .spending-detail-filter
+    .dp__menu.dp__menu_index.dp__theme_light {
+    left: -10px !important;
+  }
+}
+
 @media (max-width: 1201px) {
   #overview .chart-content {
     flex-direction: column;

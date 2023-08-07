@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tra soát giao dịch</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <style></style>
+  </head>
+
+  <body class="child-page page-background transaction-page">
+    <div id="loading"></div>
+
+    <div id="app" class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <menu-component></menu-component>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="#"> Chuyển tiền </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Tra soát giao dịch
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Tra soát giao dịch</h2>
+        </div>
+
+        <div class="card py-3 card-scroll">
+          <div class="container-flex d-grid gap-3 card-content">
+            <div class="fw-bolder fs-5 mt-2">Thông tin tra soát</div>
+
+            <div class="input-group label-transition mt-2">
+              <div class="form-label">
+                <input
+                  class="form-control fw-bolder text-center hascontent"
+                  value="chuyển tiền ngoài hệ thống"
+                />
+                <label required> Chủ đề </label>
+              </div>
+
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <a href="#">Kiểm tra</a>
+                </div>
+              </div>
+            </div>
+
+            <selector-component
+              placeholder="Loại dịch vụ"
+              v-model="serviceType"
+              :options="serviceTypes"
+              :required="true"
+              class="mt-2"
+            >
+              <template #selected="{option}">
+                <b>{{ option?.text }}</b>
+              </template>
+              <template #option="{option}">
+                <b class="d-block py-2">{{ option?.text }}</b>
+              </template>
+            </selector-component>
+
+            <div>
+              <b>Thông tin giao dịch</b>
+              <div class="transaction-details d-grid gap-2 py-2 px-3">
+                <dl>
+                  <dt>Số tham chiếu giao dịch</dt>
+                  <dd>00000332333</dd>
+                </dl>
+                <dl>
+                  <dt>Tài khoản nguồn</dt>
+                  <dd>11111333</dd>
+                </dl>
+                <dl>
+                  <dt>Tài khoản thụ hưởng</dt>
+                  <dd>03035689</dd>
+                </dl>
+                <dl>
+                  <dt>Người thụ hưởng</dt>
+                  <dd>NGUYEN VAN A</dd>
+                </dl>
+                <dl>
+                  <dt>Ngân hàng hưởng</dt>
+                  <dd>RB BANK</dd>
+                </dl>
+                <dl>
+                  <dt>Số tiền giao dịch</dt>
+                  <dd>30.000 RUB</dd>
+                </dl>
+                <dl>
+                  <dt>Thời gian giao dịch</dt>
+                  <dd>20/04/2023 10:33</dd>
+                </dl>
+              </div>
+            </div>
+
+            <div class="mt-2">
+              <selector-component
+                placeholder="Tài khoản thu phí"
+                v-model="sourceAccount"
+                :options="accountList"
+                :required="true"
+              >
+                <template #selected="{option}">
+                  <b>{{ option.number }}</b>
+                </template>
+                <template #option="{option}">
+                  <b class="d-block py-2"> {{ option.number }} </b>
+                </template>
+              </selector-component>
+
+              <div v-if="sourceAccount" class="available-balance text-end mt-2">
+                <span class="text-secondary me-1">
+                  Phí tra soát dự kiến (bao gồm VAT):
+                </span>
+                <b class="text-primary"> xxxx VND </b>
+              </div>
+            </div>
+
+            <div class="input-group label-transition mt-2">
+              <div class="form-label">
+                <input
+                  class="form-control fw-bolder hascontent"
+                  value="Tra soát"
+                />
+                <label required> Nội dung tra soát </label>
+              </div>
+
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <a href="#">Kiểm tra</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-file">
+              <div class="d-flex gap-2 align-items-center">
+                <label>Tệp đính kèm</label>
+                <label>
+                  <span class="btn btn-primary">Chọn tệp</span>
+                  <input type="file" class="d-none" />
+                </label>
+              </div>
+              <div class="input-description">
+                <div>Chưa có tệp tin nào được chọn</div>
+                <small>
+                  (Loại file hợp lệ: xls, slsx, doc, pfd, jpg... Dung lượng tối
+                  đa: 5MB)
+                </small>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <a href="transaction-2.html" class="btn btn-third"> Tiếp tục </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+    <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
+    <script src="./components/selector.js"></script>
+
+    <script>
+      hideLoading();
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+          menuComponent,
+          selectorComponent,
+        },
+
+        setup() {
+          const serviceTypes = [
+            {
+              id: "inter-system",
+              text: "Chuyển tiền ngoài hệ thống",
+            },
+            {
+              id: "international",
+              text: "Chuyển tiền quốc tế",
+            },
+          ];
+
+          const serviceType = ref(null);
+
+          const sourceAccount = ref(null);
+
+          const accountList = [
+            {
+              number: "05000210000471",
+              currency: "VND",
+            },
+            {
+              number: "05000210000123",
+              currency: "VND",
+            },
+          ];
+
+          function formatMoney(money) {
+            return new Intl.NumberFormat().format(money || 0) + " VND";
+          }
+
+          return {
+            serviceType,
+            serviceTypes,
+            sourceAccount,
+            accountList,
+            formatMoney,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
