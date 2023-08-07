@@ -1,0 +1,148 @@
+.notification-page .home-container {
+  margin: 100px auto !important;
+}
+
+.notification-page .group-button-bottom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.notification-page .page-content .btn-back {
+  font-weight: 700;
+  line-height: 20px;
+  padding: 14px 48px !important;
+}
+
+.notification-page .page-content .btn-submit {
+  padding: 12px 50px !important;
+}
+
+.notification-page .form-check-input {
+  width: 20px;
+  height: 20px;
+  appearance: auto !important;
+  font-size: 0px !important;
+  margin-right: 8px !important;
+}
+
+.notification-page .description {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #787878;
+  margin-top: 8px;
+}
+
+.notification-page #nav-tab-account-manager .nav-link {
+  width: 33%;
+}
+
+.notification-page .list-notificaion {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.notification-page .list-notificaion .notification-item {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.notification-page .list-notificaion .notification-item:hover {
+  background: #f4f7fe;
+}
+
+.notification-page .list-notificaion .notification-item .date {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  color: #787878;
+}
+
+.notification-page .list-notificaion .notification-item .message {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  color: #333333;
+}
+
+.notification-page .notification-detail {
+  padding: 16px;
+  color: #333333;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.notification-page .notification-detail .title {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  color: #333;
+}
+
+.notification-page .notification-detail .date {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  color: #787878;
+  padding: 10px 0 40px 0;
+}
+
+.notification-page .notification-detail p {
+  color: #333333;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.notification-page .notification-detail .content-image {
+  width: 100%;
+  text-align: center;
+  padding: 16px 0 24px 0;
+}
+
+.notification-page .notification-detail .content-image img {
+  width: 355px;
+}
+
+@media (max-width: 767px) {
+  .notification-page .group-button-bottom {
+    flex-direction: column-reverse;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .notification-page .group-button-bottom .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .notification-page .home-container {
+    margin: 90px auto !important;
+  }
+
+  .notification-page .card-content {
+    padding: 0;
+  }
+}

@@ -235,9 +235,18 @@ const menuComponent = {
       },
       {
         id: 10,
-        text: "Dịch ví điện tử",
+        text: "Tiện ích",
         link: "#",
-        child: [],
+        child: [
+          {
+            text: "Thông báo",
+            link: "notifications.html",
+          },
+          {
+            text: "Nhận thông báo từ ngân hàng",
+            link: "get-notifications.html",
+          },
+        ],
       },
       {
         id: 11,
