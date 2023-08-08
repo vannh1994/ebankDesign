@@ -168,6 +168,10 @@ const menuComponent = {
             text: "Mở Tài khoản số đẹp/Số điện thoại/iNick",
             link: "account-number.html",
           },
+          {
+            text: "Thông tin khách hàng",
+            link: "customer-info.html",
+          },
         ],
       },
       {
