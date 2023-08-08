@@ -1,0 +1,135 @@
+.transaction-lookup-page .home-container {
+  margin: 100px auto !important;
+}
+
+.transaction-lookup-page .search-block {
+  max-width: 820px;
+  padding: 24px;
+  margin: auto;
+}
+
+.transaction-lookup-page .table-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.transaction-lookup-page .table-actions .btn-export {
+  color: #002d85 !important;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.transaction-lookup-page .table-actions .btn-export:hover {
+  text-decoration: underline;
+}
+
+.transaction-lookup-page .table-actions .export-group {
+  display: flex;
+  align-items: center;
+}
+
+.transaction-lookup-page .pagination {
+  margin-bottom: 0;
+  justify-content: flex-start;
+}
+
+.transaction-lookup-page .pagination .page-link {
+  background: transparent;
+}
+
+.transaction-lookup-page .transaction-lookup-table {
+  background: var(--background-bg-web, #f1f2f2);
+}
+
+.transaction-lookup-page .transaction-lookup-table table {
+  background: white;
+}
+
+.transaction-lookup-page .transaction-lookup-table thead {
+  background: var(--background-background-1, #f4f7fe);
+}
+
+.transaction-lookup-page .transaction-lookup-table thead tr th {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .transaction-lookup-page .filter-actions {
+    flex-direction: column;
+  }
+
+  .transaction-lookup-page .filter-actions .btn {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .transaction-lookup-page .table {
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    border-collapse: separate;
+    background-color: transparent;
+  }
+
+  .transaction-lookup-page .table thead {
+    display: none;
+  }
+
+  .transaction-lookup-page .table tbody {
+    width: 100%;
+    display: block;
+  }
+
+  .transaction-lookup-page .table tr {
+    box-shadow: none;
+    border-width: 0;
+    max-width: 100%;
+    position: relative;
+    display: block;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 3px rgba(76, 73, 72, 0.1), 0 0 0 1px rgba(76, 73, 72, 0.1);
+    max-width: 100%;
+    position: relative;
+    display: block;
+  }
+
+  .transaction-lookup-page .table tr td {
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+    text-align: right;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .transaction-lookup-page .table tr td.actions {
+    justify-content: flex-end;
+  }
+
+  .transaction-lookup-page .table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    padding-right: 0.5em;
+    text-align: left;
+  }
+
+  .transaction-lookup-page .table-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 575px) {
+  .transaction-lookup-page .home-container {
+    margin: 90px auto !important;
+  }
+}

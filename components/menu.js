@@ -112,7 +112,7 @@ const menuComponent = {
             <li
             class="item"
             v-for="menuItem in menuList"
-            :class="{'active': activeMenuId == menuItem.id}"
+            :class="{'active': activeMenuId == menuItem.id || currentActive == getFirstRoute(menuItem.link) }"
             >
             <div class="item-content">
                 <menu-icons-component :id="menuItem.id"></menu-icons-component>
@@ -140,6 +140,17 @@ const menuComponent = {
     menuIconsComponent,
   },
   setup() {
+    function getFirstRoute(link) {
+      const url = new URL(window.location.origin + "/" + link);
+      return url.pathname
+        .replace(".html", "")
+        .split("/")
+        .filter((x) => x)
+        .shift();
+    }
+
+    const currentActive = getFirstRoute(window.location.pathname);
+
     const menuList = [
       {
         id: 1,
@@ -273,6 +284,10 @@ const menuComponent = {
             text: "Tạm ngừng dịch vụ NH số",
             link: "service-suspension.html",
           },
+          {
+            text: "Thay đổi mật khẩu",
+            link: "password-change.html",
+          },
         ],
       },
       {
@@ -285,8 +300,16 @@ const menuComponent = {
             link: "setting-transaction-limit-step-1.html",
           },
           {
-            text: "Tra cứu tra soát giao dịch",
+            text: "Tra soát giao dịch",
             link: "transaction.html",
+          },
+          {
+            text: "Tra cứu tra soát giao dịch",
+            link: "transaction-lookup.html",
+          },
+          {
+            text: "Lịch sử hoạt động",
+            link: "history.html",
           },
           {
             text: "Mẫu chuyển tiền",
@@ -314,10 +337,12 @@ const menuComponent = {
     };
 
     return {
+      currentActive,
       menuList,
       activeMenuId,
       gotoPage,
       activeMenu,
+      getFirstRoute,
     };
   },
 };

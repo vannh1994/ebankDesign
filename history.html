@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lịch sử hoạt động | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body class="child-page page-background transaction-lookup-page">
+    <div id="loading"></div>
+    <div class="page-content" id="app">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <menu-component></menu-component>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item">Hỗ trợ</li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Lịch sử hoạt động
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <div class="back" onclick="location.href = 'home.html';">
+            <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
+          </div>
+          <h2>Lịch sử hoạt động</h2>
+        </div>
+
+        <div class="card card-scroll p-0">
+          <div class="main-content card-content">
+            <div class="row search-block">
+              <div class="col-12 mt-3">
+                <selector-component
+                  placeholder="Loại giao dịch"
+                  v-model="transfer"
+                  :options="transferOptions"
+                  :required="true"
+                >
+                  <template #selected="{option}">
+                    <b> {{option.text}}</b>
+                  </template>
+                  <template #option="{option}">
+                    <b class="d-block py-2"> {{option.text}}</b>
+                  </template>
+                </selector-component>
+              </div>
+
+              <div class="col-12 mt-3">
+                <selector-component
+                  placeholder="Khoảng thời gian"
+                  v-model="time"
+                  :options="timeOptions"
+                  :required="true"
+                >
+                  <template #selected="{option}">
+                    <b> {{option.text}}</b>
+                  </template>
+                  <template #option="{option}">
+                    <b class="d-block py-2"> {{option.text}}</b>
+                  </template>
+                </selector-component>
+              </div>
+
+              <div class="col-12 col-md-6 mt-3" v-show="time && time.id == '4'">
+                <div class="input-group label-transition">
+                  <div class="calendar">
+                    <Datepicker
+                      ref="startAtCalendar"
+                      v-model="startAt"
+                      auto-apply
+                      hide-input-icon
+                      locale="vi"
+                      :day-names="dayName"
+                      :enable-time-picker="false"
+                      format="dd/MM/yyyy"
+                      input-class-name="opacity-0"
+                      @update:model-value="handleStartAt"
+                      @closed="focusElement('calendar-start-input')"
+                    />
+                  </div>
+
+                  <div class="form-label w-100">
+                    <input
+                      id="calendar-start-input"
+                      class="form-control fw-bold"
+                      v-model="startAt"
+                      @focus="openCalendar('start')"
+                    />
+                    <label for="time_number"> Từ ngày </label>
+                  </div>
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <i
+                        class="isax isax-calendar-1 fs-20 lh-19"
+                        @click="openCalendar('start')"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 mt-3" v-show="time && time.id == '4'">
+                <div class="input-group label-transition">
+                  <div class="calendar">
+                    <Datepicker
+                      ref="endAtCalendar"
+                      v-model="endAt"
+                      auto-apply
+                      hide-input-icon
+                      locale="vi"
+                      :day-names="dayName"
+                      :enable-time-picker="false"
+                      format="dd/MM/yyyy"
+                      input-class-name="opacity-0"
+                      @update:model-value="handleEndAt"
+                      @closed="focusElement('calendar-end-input')"
+                    />
+                  </div>
+
+                  <div class="form-label w-100">
+                    <input
+                      id="calendar-end-input"
+                      class="form-control fw-bold"
+                      v-model="endAt"
+                      @focus="openCalendar('end')"
+                    />
+                    <label for="time_number"> Đến ngày </label>
+                  </div>
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <i
+                        class="isax isax-calendar-1 fs-20 lh-19"
+                        @click="openCalendar('end')"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 mt-3 d-flex justify-content-center mt-4">
+                <button class="btn btn-third">Truy vấn</button>
+              </div>
+            </div>
+
+            <div class="transaction-lookup-table p-3">
+              <div class="table-log table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>STT</th>
+                      <th>Số tài khoản</th>
+                      <th>Chủ đề</th>
+                      <th>Loại giao dịch</th>
+                      <th>Số giao dịch</th>
+                      <th>Số tiền giao dịch</th>
+                      <th>Loại tiền</th>
+                      <th>Tệp đính kèm</th>
+                      <th>Ngày tra soát</th>
+                      <th>Trạng thái</th>
+                      <th>Chi tiết</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td data-label="STT">1</td>
+                      <td data-label="Số tài khoản">00112233</td>
+                      <td data-label="Chủ đề" class="mw-200">
+                        Tra soát giao dịch chuyển khoản trong hệ thống
+                      </td>
+                      <td data-label="Loại giao dịch">Ngoài hệ thống</td>
+                      <td data-label="Số giao dịch">FT123456789</td>
+                      <td data-label="Số tiền giao dịch">2.500.000</td>
+                      <td data-label="Loại tiền">VND</td>
+                      <td data-label="Tệp đính kèm" class="text-branding">
+                        ten file.doxc
+                      </td>
+                      <td data-label="Ngày tra soát">VND</td>
+                      <td data-label="Trạng thái">Đã xử lý</td>
+                      <td data-label="Chi tiết">
+                        <a href="#" class="text-branding">Chi tiết</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="STT">2</td>
+                      <td data-label="Số tài khoản">00112233</td>
+                      <td data-label="Chủ đề" class="mw-200">
+                        Tra soát giao dịch chuyển khoản trong hệ thống
+                      </td>
+                      <td data-label="Loại giao dịch">Ngoài hệ thống</td>
+                      <td data-label="Số giao dịch">FT123456789</td>
+                      <td data-label="Số tiền giao dịch">2.500.000</td>
+                      <td data-label="Loại tiền">VND</td>
+                      <td data-label="Tệp đính kèm" class="text-branding">
+                        ten file.doxc
+                      </td>
+                      <td data-label="Ngày tra soát">VND</td>
+                      <td data-label="Trạng thái">Đã xử lý</td>
+                      <td data-label="Chi tiết">
+                        <a href="#" class="text-branding">Chi tiết</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="STT">3</td>
+                      <td data-label="Số tài khoản">00112233</td>
+                      <td data-label="Chủ đề" class="mw-200">
+                        Tra soát giao dịch chuyển khoản trong hệ thống
+                      </td>
+                      <td data-label="Loại giao dịch">Ngoài hệ thống</td>
+                      <td data-label="Số giao dịch">FT123456789</td>
+                      <td data-label="Số tiền giao dịch">2.500.000</td>
+                      <td data-label="Loại tiền">VND</td>
+                      <td data-label="Tệp đính kèm" class="text-branding">
+                        ten file.doxc
+                      </td>
+                      <td data-label="Ngày tra soát">VND</td>
+                      <td data-label="Trạng thái">Đã xử lý</td>
+                      <td data-label="Chi tiết">
+                        <a href="#" class="text-branding">Chi tiết</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="STT">4</td>
+                      <td data-label="Số tài khoản">00112233</td>
+                      <td data-label="Chủ đề" class="mw-200">
+                        Tra soát giao dịch chuyển khoản trong hệ thống
+                      </td>
+                      <td data-label="Loại giao dịch">Ngoài hệ thống</td>
+                      <td data-label="Số giao dịch">FT123456789</td>
+                      <td data-label="Số tiền giao dịch">2.500.000</td>
+                      <td data-label="Loại tiền">VND</td>
+                      <td data-label="Tệp đính kèm" class="text-branding">
+                        ten file.doxc
+                      </td>
+                      <td data-label="Ngày tra soát">VND</td>
+                      <td data-label="Trạng thái">Đã xử lý</td>
+                      <td data-label="Chi tiết">
+                        <a href="#" class="text-branding">Chi tiết</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="table-actions">
+                <nav class="pagination-group flex-fill">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <i class="isax isax-arrow-left"></i>
+                      </a>
+                    </li>
+                    <li class="page-item active">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">...</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <i class="isax isax-arrow-right-1"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+
+                <div class="export-group">
+                  <button class="btn btn-export">
+                    Xuất PDF <img src="assets/icons/pdf.svg" alt="pdf" />
+                  </button>
+                  <button class="btn btn-export">
+                    Xuất excel <img src="assets/icons/excel.svg" alt="excel" />
+                  </button>
+                  <button class="btn btn-export">
+                    In chứng từ <img src="assets/icons/excel.svg" alt="excel" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+
+    <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
+
+    <script src="./components/selector.js"></script>
+
+    <script src="./assets/js/vue-datepicker.iife.js"></script>
+    <script src="./assets/js/moment.min.js"></script>
+
+    <script>
+      hideLoading();
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+          menuComponent,
+          selectorComponent,
+          Datepicker: VueDatePicker,
+        },
+        setup() {
+          const transfer = ref(null);
+          const transferOptions = [
+            {
+              id: "1",
+              text: "Đăng nhập/Đăng xuất",
+            },
+            {
+              id: "2",
+              text: "Chuyển khoản",
+            },
+            {
+              id: "3",
+              text: "Thay đổi mật khẩu",
+            },
+          ];
+
+          const time = ref(null);
+          const timeOptions = [
+            {
+              id: "1",
+              text: "3 ngày ngần đây",
+            },
+            {
+              id: "2",
+              text: "10 ngày ngần đây",
+            },
+            {
+              id: "3",
+              text: "1 tháng ngần đây",
+            },
+            {
+              id: "4",
+              text: "Khác",
+            },
+          ];
+
+          const status = ref(null);
+          const statusOptions = [
+            {
+              id: "1",
+              text: "05000210000471",
+            },
+            {
+              id: "2",
+              text: "05000210000123",
+            },
+          ];
+
+          const startAt = ref(null);
+          const endAt = ref(null);
+
+          const openCalendar = (point) => {
+            if (point == "start") {
+              startAtCalendar.value.openMenu();
+            } else {
+              endAtCalendar.value.openMenu();
+            }
+          };
+
+          const focusElement = (elementId) => {
+            const el = document.getElementById(elementId);
+            if (elementId == "calendar-start-input" && !!startAt.value) {
+              el.classList.add("hascontent");
+            }
+
+            if (elementId == "calendar-end-input" && !!endAt.value) {
+              el.classList.add("hascontent");
+            }
+          };
+
+          const handleStartAt = (modelData) => {
+            startAt.value = moment(modelData).format("DD/MM/YYYY");
+          };
+
+          const handleEndAt = (modelData) => {
+            endAt.value = moment(modelData).format("DD/MM/YYYY");
+          };
+
+          const dayName = [
+            "Thứ 2",
+            "Thứ 3",
+            "Thứ 4",
+            "Thứ 5",
+            "Thứ 6",
+            "Thứ 7",
+            "CN",
+          ];
+          const startAtCalendar = ref(null);
+          const endAtCalendar = ref(null);
+
+          const resetFilter = () => {
+            startAt.value = null;
+            endAt.value = null;
+          };
+
+          return {
+            transfer,
+            transferOptions,
+            time,
+            timeOptions,
+            status,
+            statusOptions,
+            startAt,
+            endAt,
+            startAtCalendar,
+            dayName,
+            endAtCalendar,
+            handleStartAt,
+            openCalendar,
+            focusElement,
+            handleEndAt,
+            resetFilter,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

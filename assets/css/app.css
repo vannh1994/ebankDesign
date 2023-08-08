@@ -21,6 +21,7 @@
 @import "service-suspension.css";
 @import "transaction.css";
 @import "account-number.css";
+@import "transaction-lookup.css";
 @import "vue-datepicker.css";
 @import "custom-calendar.css";
 @import "input-otp.css";

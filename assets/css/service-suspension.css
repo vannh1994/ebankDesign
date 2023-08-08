@@ -33,8 +33,33 @@
   cursor: pointer;
 }
 
+#modal-notice .modal-title {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  color: #002d85;
+}
+
+#modal-notice p {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #333333;
+  padding: 48px;
+}
+
+#modal-notice .modal-header img {
+  cursor: pointer;
+}
+
 @media (max-width: 575px) {
   .service-suspension-page .home-container {
     margin: 90px auto !important;
+  }
+
+  #modal-notice p {
+    padding: 16px;
   }
 }

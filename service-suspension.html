@@ -99,7 +99,11 @@
 
         <div class="card py-3 flex-fill content-min-height card-scroll">
           <div class="container-flex d-grid gap-3 card-content">
-            <div class="notice">
+            <div
+              class="notice"
+              data-bs-toggle="modal"
+              data-bs-target="#modal-notice"
+            >
               <i class="isax isax-info-circle"></i>
               <span> Lưu ý với Tạm dừng dịch vụ </span>
             </div>
@@ -231,6 +235,58 @@
                 <span class="phone"> 18006656 </span>
               </div>
             </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal notice -->
+      <div class="modal" id="modal-notice">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Lưu ý với Tạm dừng dịch vụ</h4>
+              <img src="assets/icons/control.svg" data-bs-dismiss="modal" />
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <p>
+                Đối với chuyển khoản VNĐ
+                <br />
+                <br />
+                + Tài khoản gửi: Không áp dụng với Tài khoản tiền gửi thanh toán
+                ngoại tệ <br />
+                + Tài khoản nhận:không áp dụng cho các tài khoản sau: <br />
+                - Tài khoản ngoại tệ <br />
+                - Tài khoản tiền gửi tiết kiệm, tài khoản vay. <br />
+                + Số tiền chuyển: <br />
+                - Phải lớn hơn 1.000 VND <br />
+                + Nội dung chuyển tiền: vui lòng nhập TIẾNG VIỆT KHÔNG DẤU,
+                không nhập quá 120 ký tự và ký tự đặc biệt. <br />
+                * Đối với chuyển khoản ngoại tệ: <br />
+                + Tài khoản gửi: không áp dụng cho các tài khoản đồng <br />
+                + Tài khoản nhận: không áp dụng cho các tài khoản tiền gửi tiết
+                kiệm, tài khoản vay <br />
+                + Số tiền chuyển: <br />
+                - Phải lớn hơn 1 USD <br />
+                + Nội dung chuyển tiền: vui lòng nhập TIẾNG VIỆT KHÔNG DẤU,
+                không nhập quá 120 ký tự và ký tự đặc biệt. <br />
+                + Trường hợp chuyển khoản từ TK ngoại tệ sang VND: vui lòng nhập
+                số tiền chuyển VND, hệ thống sẽ tự quy đổi số tiền ngoại tệ từ
+                tài khoản khách hàng với tỷ giá là tỷ giá mua ngoại tệ chuyển
+                khoản của VRB trong ngày giao dịch. <br />
+                + Trường hợp chuyển khoản từ TK ngoại tệ sang TK ngoại tệ: giao
+                dịch sẽ được kiểm tra tính pháp lý, tuân thủ quy định PCRT, Quản
+                lý ngoại hối hiện hành của VRB và NHNN trước khi Ghi có vào tài
+                khoản người hưởng. <br />
+                + Tỷ giá hiển thị chỉ mang tính chất tham khảo. Tỷ giá giao dịch
+                chính thức sẽ được xác định tại thời điểm xử lý giao dịch.
+                <br />
+                Lưu ý đối với CK RUB-VNĐ: Cho phép thực hiện từ 8:00 - 17:00 các
+                ngày làm việc trong tuần. <br />
+              </p>
+            </div>
           </div>
         </div>
       </div>
