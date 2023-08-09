@@ -312,6 +312,10 @@ const menuComponent = {
             link: "history.html",
           },
           {
+            text: "Liên hệ",
+            link: "contact.html",
+          },
+          {
             text: "Mẫu chuyển tiền",
             link: "contact-management.html",
           },

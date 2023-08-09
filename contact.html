@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Liên hệ | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link href="assets/css/contact.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="child-page page-background contact-page">
+    <div id="loading"></div>
+    <div class="page-content" id="app">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <menu-component></menu-component>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item">Hỗ trợ</li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Liên hệ
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <div class="back" onclick="location.href = 'home.html';">
+            <img src="assets/icons/arrow-left.svg" alt="arrow-left" />
+          </div>
+          <h2>Liên hệ</h2>
+        </div>
+
+        <div class="card card-scroll">
+          <div class="main-content card-content p-3">
+            <div class="contact-title">
+              <img src="assets/icons/logo-black-text.svg" alt="logo" />
+              Ngân hàng liên doanh Việt - Nga (VRB)
+            </div>
+
+            <div class="contact-content">
+              <div class="contact-info">
+                <div class="contact-info-item">
+                  <img src="assets/icons/phone.svg" alt="logo" />
+                  <div class="info">
+                    <div class="label">Hotline</div>
+                    <div class="value">18006656</div>
+                  </div>
+                </div>
+                <div class="contact-info-item">
+                  <i class="isax isax-mobile"></i>
+                  <div class="info">
+                    <div class="label">Số điện thoại Dịch vụ khách hàng</div>
+                    <div class="value">02439429365</div>
+                  </div>
+                </div>
+                <div class="contact-info-item">
+                  <i class="isax isax-sms"></i>
+                  <div class="info">
+                    <div class="label">Email</div>
+                    <div class="value">vrbhotline@vrbank.com.vn</div>
+                  </div>
+                </div>
+                <div class="contact-info-item">
+                  <i class="isax isax-map"></i>
+                  <div class="info">
+                    <div class="label">Hội sở chính:</div>
+                    <div class="value">
+                      Tòa nhà số 75 Trần Hưng Đạo, phường Trần Hưng Đạo, quận
+                      Hoàn Kiếm, Hà Nội, Việt Nam
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="banner">
+                <img src="assets/images/banner-contact.png" alt="banner" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+
+    <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
+
+    <script src="./components/selector.js"></script>
+
+    <script src="./assets/js/vue-datepicker.iife.js"></script>
+    <script src="./assets/js/moment.min.js"></script>
+
+    <script>
+      hideLoading();
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+          menuComponent,
+          selectorComponent,
+          Datepicker: VueDatePicker,
+        },
+        setup() {
+          const transfer = ref(null);
+          const transferOptions = [
+            {
+              id: "1",
+              text: "Đăng nhập/Đăng xuất",
+            },
+            {
+              id: "2",
+              text: "Chuyển khoản",
+            },
+            {
+              id: "3",
+              text: "Thay đổi mật khẩu",
+            },
+          ];
+
+          const time = ref(null);
+          const timeOptions = [
+            {
+              id: "1",
+              text: "3 ngày ngần đây",
+            },
+            {
+              id: "2",
+              text: "10 ngày ngần đây",
+            },
+            {
+              id: "3",
+              text: "1 tháng ngần đây",
+            },
+            {
+              id: "4",
+              text: "Khác",
+            },
+          ];
+
+          const status = ref(null);
+          const statusOptions = [
+            {
+              id: "1",
+              text: "05000210000471",
+            },
+            {
+              id: "2",
+              text: "05000210000123",
+            },
+          ];
+
+          const startAt = ref(null);
+          const endAt = ref(null);
+
+          const openCalendar = (point) => {
+            if (point == "start") {
+              startAtCalendar.value.openMenu();
+            } else {
+              endAtCalendar.value.openMenu();
+            }
+          };
+
+          const focusElement = (elementId) => {
+            const el = document.getElementById(elementId);
+            if (elementId == "calendar-start-input" && !!startAt.value) {
+              el.classList.add("hascontent");
+            }
+
+            if (elementId == "calendar-end-input" && !!endAt.value) {
+              el.classList.add("hascontent");
+            }
+          };
+
+          const handleStartAt = (modelData) => {
+            startAt.value = moment(modelData).format("DD/MM/YYYY");
+          };
+
+          const handleEndAt = (modelData) => {
+            endAt.value = moment(modelData).format("DD/MM/YYYY");
+          };
+
+          const dayName = [
+            "Thứ 2",
+            "Thứ 3",
+            "Thứ 4",
+            "Thứ 5",
+            "Thứ 6",
+            "Thứ 7",
+            "CN",
+          ];
+          const startAtCalendar = ref(null);
+          const endAtCalendar = ref(null);
+
+          const resetFilter = () => {
+            startAt.value = null;
+            endAt.value = null;
+          };
+
+          return {
+            transfer,
+            transferOptions,
+            time,
+            timeOptions,
+            status,
+            statusOptions,
+            startAt,
+            endAt,
+            startAtCalendar,
+            dayName,
+            endAtCalendar,
+            handleStartAt,
+            openCalendar,
+            focusElement,
+            handleEndAt,
+            resetFilter,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
