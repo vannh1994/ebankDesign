@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chuyển tiền ngoài VRB | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="child-page page-background account-page">
+    <div id="loading"></div>
+    <div id="app" class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <menu-component></menu-component>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Chuyển tiền
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="home.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Chuyển tiền ngoài VRB</h2>
+        </div>
+
+        <div class="card card-scroll">
+          <div class="card-body card-content p-0">
+            <div class="transfer-card">
+              <div class="transfer-area">
+                <div class="area-header">
+                  <div class="transfer-tabs">
+                    <div
+                      class="transfer-tab"
+                      onclick="location.href = 'transfer-inside.html';"
+                    >
+                      Trong VRB
+                    </div>
+                    <div class="transfer-tab active">Ngoài VRB</div>
+                  </div>
+                </div>
+                <div class="area-body">
+                  <div class="bank-method">
+                    <label class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="bankMethod"
+                        checked
+                      />
+                      <span class="form-check-label">Qua số tài khoản</span>
+                    </label>
+                    <label class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="bankMethod"
+                      />
+                      <span class="form-check-label">Qua số thẻ</span>
+                    </label>
+                  </div>
+                  <div class="bank-select">
+                    <div class="bank-selector" @click="showSelector = true">
+                      <!-- Khi chọn ngân hàng thụ hưởng thì render div này lên -->
+                      <div
+                        v-if="bankSelected"
+                        class="bank-selected"
+                        @click="showSelector = true"
+                      >
+                        <div class="bank-logo">
+                          <img :src="bankSelected.logo" />
+                        </div>
+                        <span>{{ bankSelected.name }}</span>
+                      </div>
+                      <!-- End -->
+                      <div class="bank-select-placeholder">
+                        Chọn ngân hàng thụ hưởng
+                      </div>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="isax"
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 25"
+                      fill="none"
+                      @click="showSelector = true"
+                    >
+                      <path
+                        d="M17.92 8.30957H11.69H6.07999C5.11999 8.30957 4.63999 9.46957 5.31999 10.1496L10.5 15.3296C11.33 16.1596 12.68 16.1596 13.51 15.3296L15.48 13.3596L18.69 10.1496C19.36 9.46957 18.88 8.30957 17.92 8.30957Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+
+                    <!-- Khi click vào khung chọn ngân hàng thụ hưởng thì hiển thị/render div này lên -->
+                    <transition>
+                      <div v-if="showSelector" class="bank-select-popup">
+                        <input
+                          v-model="searchQuery"
+                          class="bank-select-input"
+                          placeholder="Nhập tên ngân hàng"
+                        />
+                        <div class="bank-list">
+                          <div
+                            v-for="bank in filteredList"
+                            class="bank-item"
+                            @click="selectBank(bank); showSelector = false"
+                          >
+                            <div class="bank-logo">
+                              <img :src="bank.logo" />
+                            </div>
+                            <div class="bank-name">
+                              <b>{{ bank.name }}</b>
+                              <div class="text-secondary">
+                                {{ bank.fullname }}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </transition>
+                    <!-- End -->
+                  </div>
+                  <div class="bank-suggestion">
+                    <label>Gợi ý</label>
+                    <ul>
+                      <li
+                        v-for="bank in bankList"
+                        class="bank-logo"
+                        @click="selectBank(bank)"
+                      >
+                        <img :src="bank.logo" />
+                      </li>
+                    </ul>
+                  </div>
+                  <transition>
+                    <div v-if="bankSelected" class="quick-transfer">
+                      <label>
+                        <div class="title">Chuyển tiền nhanh</div>
+                        <div class="description">
+                          Là dịch vụ chuyển nhanh NAPAS 24/7
+                        </div>
+                      </label>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" />
+                      </div>
+                    </div>
+                  </transition>
+                  <transition>
+                    <div
+                      v-if="bankSelected"
+                      class="input-group label-transition"
+                    >
+                      <div class="form-label w-100">
+                        <input
+                          v-model="accountNumber"
+                          class="form-control fw-bold"
+                          :class="{ hascontent: !!accountNumber }"
+                          name="account_number"
+                          @input="onAccountNumberChange"
+                        />
+                        <label for="account_number">
+                          Số tài khoản thụ hưởng
+                        </label>
+                      </div>
+                    </div>
+                  </transition>
+                  <transition>
+                    <div
+                      v-if="bankSelected && accountName"
+                      class="input-group label-transition"
+                    >
+                      <div class="form-label w-100">
+                        <div
+                          class="hascontent py-2 account-name text-uppercase"
+                        >
+                          {{accountName}}
+                        </div>
+                        <label>Tên người nhận</label>
+                      </div>
+                    </div>
+                  </transition>
+                  <div class="d-flex justify-content-end">
+                    <button
+                      type="button"
+                      class="btn btn-third"
+                      onclick="location.href = 'inter-bank-step-1.html';"
+                    >
+                      Tiếp tục
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-area">
+                <div class="card">
+                  <div class="card-title d-sm-none">
+                    <h5>Quản lý danh bạ và mẫu</h5>
+                    <i
+                      class="isax isax-close-circle"
+                      onclick="hideContactArea()"
+                    ></i>
+                  </div>
+                  <div class="card-header">
+                    <ul>
+                      <li
+                        :class="{ active: activeIndex ===  0 }"
+                        @click="activeIndex = 0"
+                      >
+                        Danh sách NTH
+                      </li>
+                      <li
+                        :class="{ active: activeIndex ===  1 }"
+                        @click="activeIndex = 1"
+                      >
+                        Gần đây
+                      </li>
+                      <li
+                        :class="{ active: activeIndex ===  2 }"
+                        @click="activeIndex = 2"
+                      >
+                        Mẫu lưu
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-body" v-if="activeIndex ===  0">
+                    <div class="input-search">
+                      <i class="isax isax-search-normal-1"></i>
+                      <input
+                        v-model="contactSearch"
+                        placeholder="Tìm kiếm danh bạ"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="contact-list">
+                      <div
+                        v-for="contact in filteredContactList"
+                        class="contact-item"
+                        @click="selectContact(contact)"
+                      >
+                        <div class="contact-bank">
+                          <img :src="contact.bank.logo" />
+                        </div>
+                        <div class="contact-detail">
+                          <b class="text-uppercase">{{ contact.name }}</b>
+                          <b>{{ contact.number }}</b>
+                          <div class="text-muted">{{ contact.bank.name }}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn-third col-lg-12 mx-auto"
+                    >
+                      Quản lý danh bạ và mẫu
+                    </button>
+                  </div>
+                  <div class="card-body" v-if="activeIndex ===  1">
+                    <div class="input-search">
+                      <i class="isax isax-search-normal-1"></i>
+                      <input
+                        v-model="contactSearch"
+                        placeholder="Tìm kiếm danh bạ"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="contact-list">
+                      <div
+                        v-for="contact in filteredContactList.slice(0, 2)"
+                        class="contact-item"
+                        @click="selectContact(contact)"
+                      >
+                        <div class="contact-bank">
+                          <img :src="contact.bank.logo" />
+                        </div>
+                        <div class="contact-detail">
+                          <b class="text-uppercase">{{ contact.name }}</b>
+                          <b>{{ contact.number }}</b>
+                          <div class="text-muted">{{ contact.bank.name }}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn-third col-lg-12 mx-auto"
+                    >
+                      Quản lý danh bạ và mẫu
+                    </button>
+                  </div>
+                  <div class="card-body" v-if="activeIndex ===  2">
+                    <div class="input-search">
+                      <i class="isax isax-search-normal-1"></i>
+                      <input
+                        v-model="contactSearch"
+                        placeholder="Tìm kiếm danh bạ"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="contact-list">
+                      <div
+                        v-for="contact in filteredContactList.slice(0, 1)"
+                        class="contact-item"
+                        @click="selectContact(contact)"
+                      >
+                        <div class="contact-bank">
+                          <img :src="contact.bank.logo" />
+                        </div>
+                        <div class="contact-detail">
+                          <b class="text-uppercase">{{ contact.name }}</b>
+                          <b>{{ contact.number }}</b>
+                          <div class="text-muted">{{ contact.bank.name }}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn-third col-lg-12 mx-auto"
+                    >
+                      Quản lý danh bạ và mẫu
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sp-contact" onclick="showContactArea()">
+            <img src="assets/icons/book.svg" />
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      toggleContactArea();
+
+      window.addEventListener("resize", toggleContactArea);
+
+      function toggleContactArea() {
+        if (window.innerWidth < 576) {
+          hideContactArea();
+        } else {
+          showContactArea();
+        }
+      }
+
+      function showContactArea() {
+        const contactArea = document.querySelector(".contact-area");
+        contactArea.style.display = null;
+      }
+
+      function hideContactArea() {
+        const contactArea = document.querySelector(".contact-area");
+        contactArea.style.display = "none";
+      }
+    </script>
+
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+
+    <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
+
+    <script>
+      hideLoading();
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+          menuComponent,
+        },
+        setup() {
+          const showSelector = ref(false);
+          const popup = ref(null);
+          const bankSelected = ref(null);
+          const searchQuery = ref("");
+          const activeIndex = ref(0);
+          const accountNumber = ref(null);
+          const accountName = ref(null);
+
+          const showGlobalSearch = ref(false);
+          const searchGlobalQuery = ref("");
+          const contactSearch = ref("");
+
+          const bankList = [
+            {
+              logo: "assets/images/banks/vcb.svg",
+              name: "Vietcombank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/tpb.svg",
+              name: "Tien Phong Bank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/vpb.svg",
+              name: "VP Bank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/vcb.svg",
+              name: "Vietcombank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/tpb.svg",
+              name: "Tien Phong Bank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+            {
+              logo: "assets/images/banks/vpb.svg",
+              name: "VP Bank",
+              fullname: "Ngân hàng TMCP Ngoại thương Việt Nam",
+            },
+          ];
+
+          const featureGlobalList = [
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/loan-amount.svg",
+              text: "Cài đặt hạn mức",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/pay-bills.svg",
+              text: "Thanh toán hoá đơn",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/recharge.svg",
+              text: "Đăng ký hạn mức",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/loyal-customer.svg",
+              text: "Chuyển tiền quốc tế",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/account-number.svg",
+              text: "Quản lý chi tiêu",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/censorship.svg",
+              text: "Quản lý danh bạ",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/statement.svg",
+              text: "Sao kê tài khoản",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/transfer-money.svg",
+              text: "Smart Kids",
+            },
+          ];
+
+          const contactList = [
+            {
+              name: "Ngo Mai Trang",
+              number: "05000210000471",
+              bank: bankList[0],
+            },
+            {
+              name: "Nguyen Van An",
+              number: "05000210000123",
+              bank: bankList[1],
+            },
+            {
+              name: "Tran Dinh Binh",
+              number: "05000210000456",
+              bank: bankList[2],
+            },
+            {
+              name: "Luu Duc Trung",
+              number: "05000210000789",
+              bank: bankList[3],
+            },
+          ];
+
+          const filteredList = computed(() =>
+            bankList.filter((x) =>
+              x.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+            )
+          );
+
+          const filteredGlobalList = computed(() => {
+            const searchQuery = searchGlobalQuery.value.toLowerCase();
+            const filteredItems = featureGlobalList.filter((x) =>
+              x.text.toLowerCase().includes(searchQuery)
+            );
+            return filteredItems.slice(0, 4);
+          });
+
+          const filteredContactList = computed(() => {
+            const searchQuery = contactSearch.value.toLowerCase();
+            const filteredItems = contactList.filter(
+              (x) =>
+                x.name.toLowerCase().includes(searchQuery) ||
+                x.number.toLowerCase().includes(searchQuery)
+            );
+            return filteredItems;
+          });
+
+          const onClickOutside = (event) => {
+            const el = document.querySelector(".bank-select");
+            if (
+              !el ||
+              el === event.target ||
+              event.target.closest(".bank-select") === el
+            ) {
+              return;
+            }
+
+            showSelector.value = false;
+          };
+
+          const onClickOutsideGlobal = (event) => {
+            const el = document.querySelector(".feature-select");
+            if (
+              !el ||
+              el === event.target ||
+              event.target.closest(".feature-select") === el
+            ) {
+              return;
+            }
+
+            showGlobalSearch.value = false;
+          };
+
+          const selectBank = (bank) => {
+            if (bankSelected.value === bank) return;
+
+            bankSelected.value = bank;
+            accountNumber.value = "";
+            accountName.value = "";
+          };
+
+          const selectContact = (contact) => {
+            bankSelected.value = contact.bank;
+            accountNumber.value = contact.number;
+            accountName.value = contact.name;
+          };
+
+          onMounted(() => {
+            document.addEventListener("click", onClickOutside);
+            document.addEventListener("click", onClickOutsideGlobal);
+          });
+
+          onBeforeMount(() => {
+            document.removeEventListener("click", onClickOutside);
+            document.removeEventListener("click", onClickOutsideGlobal);
+          });
+
+          const onAccountNumberChange = useDebounceFn(() => {
+            accountName.value = accountNumber.value ? "Ngo Xuan Hai" : "";
+          }, 500);
+
+          return {
+            searchQuery,
+            showSelector,
+            popup,
+            bankList,
+            filteredList,
+            bankSelected,
+            activeIndex,
+            accountNumber,
+            accountName,
+            onAccountNumberChange,
+            showGlobalSearch,
+            searchGlobalQuery,
+            filteredGlobalList,
+            contactList,
+            filteredContactList,
+            contactSearch,
+            selectContact,
+            selectBank,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
