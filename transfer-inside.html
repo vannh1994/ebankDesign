@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Chuyển tiền trong VRB | VRB</title>
+    <title>Chuyển tiền trong nước | VRB</title>
     <meta name="viewport" content="width=375, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
@@ -65,7 +65,7 @@
                 </a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Chuyển tiền
+                Chuyển tiền trong nước
               </li>
             </ol>
           </nav>
@@ -75,7 +75,7 @@
           <a class="back" href="home.html">
             <i class="isax isax-arrow-left-2"></i>
           </a>
-          <h2>Chuyển tiền trong VRB</h2>
+          <h2>Chuyển tiền trong nước</h2>
         </div>
 
         <div class="card card-scroll">
@@ -114,36 +114,28 @@
                     </label>
                   </div>
 
-                  <div class="customer-input">
-                    <div class="input-group label-transition">
-                      <div class="form-label">
-                        <input
-                          v-model="accountNumber"
-                          class="form-control fw-bold"
-                          :class="{ hascontent: !!accountNumber }"
-                          name="account_number"
-                          @input="onAccountNumberChange"
-                        />
-                        <label for="username">Số tài khoản</label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <transition>
-                    <div
-                      v-if="accountName"
-                      class="input-group label-transition"
-                    >
-                      <div class="form-label w-100">
-                        <div
-                          class="hascontent py-2 account-name text-uppercase"
-                        >
-                          {{accountName}}
+                  <selector-component
+                    v-model="paymentSource"
+                    :options="paymentSources"
+                    placeholder="Tài khoản nguồn"
+                  >
+                    <template #selected="{option}">
+                      <b>{{option.accountNumber}} - VND</b>
+                    </template>
+                    <template #option="{option}">
+                      <div class="bank-name">
+                        <b>{{ option.accountNumber }}</b>
+                        <div class="large">
+                          <span class="text-secondary me-2">
+                            Số dư khả dụng:
+                          </span>
+                          <b class="text-primary">
+                            {{ formatMoney(option.balance) }}
+                          </b>
                         </div>
-                        <label>Tên người nhận</label>
                       </div>
-                    </div>
-                  </transition>
+                    </template>
+                  </selector-component>
 
                   <div class="d-flex justify-content-end">
                     <button
@@ -363,6 +355,128 @@
       }
     </script>
 
+    <script id="selector" type="text/template">
+      <div ref="popup" class="bank-select">
+        <div class="bank-selector" @click="showSelector = true">
+          <div
+            v-if="modelValue"
+            class="bank-selected"
+            @click="showSelector = true"
+          >
+            <slot name="selected" :option="selectedOption">
+              {{modelValue.name}}
+            </slot>
+          </div>
+          <!-- End -->
+          <div class="bank-select-placeholder">
+            {{ placeholder }}
+          </div>
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="isax"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 25"
+          fill="none"
+          @click="showSelector = true"
+        >
+          <path
+            d="M17.92 8.30957H11.69H6.07999C5.11999 8.30957 4.63999 9.46957 5.31999 10.1496L10.5 15.3296C11.33 16.1596 12.68 16.1596 13.51 15.3296L15.48 13.3596L18.69 10.1496C19.36 9.46957 18.88 8.30957 17.92 8.30957Z"
+            fill="currentColor"
+          />
+        </svg>
+
+        <!-- Khi click vào khung chọn ngân hàng thụ hưởng thì hiển thị/render div này lên -->
+        <transition>
+          <div v-if="showSelector" class="bank-select-popup">
+            <input
+              v-if="searchable"
+              v-model="searchQuery"
+              class="bank-select-input"
+              :placeholder="searchPlaceholder"
+            />
+            <div class="bank-list">
+              <div
+                v-for="option in filteredList"
+                class="bank-item"
+                @click="selectedOption = option; showSelector = false; $emit('update:modelValue', option)"
+              >
+                <slot name="option" :option="option">
+                  <div class="bank-name">
+                    <b>{{ option.name }}</b>
+                    <div class="text-secondary">
+                      {{ option.fullname }}
+                    </div>
+                  </div>
+                </slot>
+              </div>
+            </div>
+          </div>
+        </transition>
+        <!-- End -->
+      </div>
+    </script>
+
+    <script>
+      const selectorComponent = {
+        template: "#selector",
+        props: [
+          "modelValue",
+          "options",
+          "placeholder",
+          "searchPlaceholder",
+          "searchable",
+          "searchBy",
+        ],
+        emits: ["update:modelValue"],
+        setup(props) {
+          const showSelector = ref(false);
+          const popup = ref(null);
+          const selectedOption = ref(null);
+          const searchQuery = ref("");
+
+          const filteredList = computed(() => {
+            if (!props.searchBy) return props.options;
+            return (props.options || []).filter((x) =>
+              x[props.searchBy]
+                .toLowerCase()
+                .includes(searchQuery.value.toLowerCase())
+            );
+          });
+
+          const onClickOutside = (event) => {
+            const el = popup.value;
+            if (
+              !el ||
+              el === event.target ||
+              event.target.closest(".bank-select") === el
+            ) {
+              return;
+            }
+
+            showSelector.value = false;
+          };
+
+          onMounted(() => {
+            document.addEventListener("click", onClickOutside);
+          });
+
+          onBeforeMount(() => {
+            document.removeEventListener("click", onClickOutside);
+          });
+
+          return {
+            searchQuery,
+            showSelector,
+            popup,
+            filteredList,
+            selectedOption,
+          };
+        },
+      };
+    </script>
+
     <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
     <script src="./assets/js/vueuse_shared.min.js"></script>
     <script src="./assets//js/vueuse_core.js"></script>
@@ -378,6 +492,7 @@
         components: {
           headerComponent,
           menuComponent,
+          selectorComponent,
         },
 
         setup() {
@@ -386,12 +501,29 @@
           const bankSelected = ref(null);
           const searchQuery = ref("");
           const activeIndex = ref(0);
-          const accountNumber = ref(null);
+
           const accountName = ref(null);
+
+          const paymentSource = ref(null);
 
           const showGlobalSearch = ref(false);
           const searchGlobalQuery = ref("");
           const contactSearch = ref("");
+
+          const paymentSources = [
+            {
+              id: 1,
+              accountNumber: 1042345678999,
+              moneyType: "VND",
+              balance: 12000000,
+            },
+            {
+              id: 2,
+              accountNumber: 22118501567456,
+              moneyType: "RUB",
+              balance: 11000000,
+            },
+          ];
 
           const bankList = [
             {
@@ -561,6 +693,10 @@
             accountName.value = accountNumber.value ? "Ngo Xuan Hai" : "";
           }, 500);
 
+          function formatMoney(money) {
+            return new Intl.NumberFormat().format(money || 0) + " VND";
+          }
+
           return {
             searchQuery,
             showSelector,
@@ -569,7 +705,6 @@
             filteredList,
             bankSelected,
             activeIndex,
-            accountNumber,
             accountName,
             onAccountNumberChange,
             showGlobalSearch,
@@ -578,6 +713,9 @@
             contactList,
             filteredContactList,
             contactSearch,
+            paymentSource,
+            paymentSources,
+            formatMoney,
             selectContact,
           };
         },

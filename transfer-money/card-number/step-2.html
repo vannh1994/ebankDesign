@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chuyển tiền ngoài VRB đến số tài khoản | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="child-page page-background transaction-step-2-page">
+    <div id="loading"></div>
+    <div class="page-content" id="app">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <menu-component></menu-component>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li
+                onclick="location.href = 'transfer-inter.html';"
+                class="breadcrumb-item"
+                aria-current="page"
+              >
+                Chuyển tiền
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Chuyển tiền VRB đến số tài khoản
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="inter-bank-step-1.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Chuyển tiền ngoài VRB</h2>
+        </div>
+
+        <div class="transaction-step">
+          <div class="step-item active">
+            <div class="step">1</div>
+            <div class="text">Khởi tạo</div>
+          </div>
+          <div class="progress active"></div>
+          <div class="step-item active">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card content-min-height card-scroll">
+          <div class="card-body card-content p-3">
+            <div class="transfer-info">
+              <h2 class="title">Thông tin giao dịch</h2>
+
+              <div class="transfer-info-confirm-block">
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Tài khoản nguồn</div>
+                  <div class="value">00118508898</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Tài khoản thụ hưởng</div>
+                  <div class="value highlight">120919855</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Tên người thụ hưởng</div>
+                  <div class="value highlight">HA THI MIEN</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Ngân hàng thụ hưởng</div>
+                  <div class="value">VIETCOMBANK</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Hình thức chuyển tiền</div>
+                  <div class="value">Chuyển nhanh 24/7</div>
+                </div>
+              </div>
+
+              <div class="transfer-info-confirm-block mt-3">
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Số tiền</div>
+                  <div class="value highlight">100,000 VND</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Phí giao dịch</div>
+                  <div class="value">0 VND</div>
+                </div>
+              </div>
+
+              <div class="transfer-info-confirm-block mt-3">
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Ngày giao dịch</div>
+                  <div class="value highlight">12/06/2023 12:02:23</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Nội dung</div>
+                  <div class="value">NGO XUAN HAI chuyen tien</div>
+                </div>
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Hình thức xác nhận</div>
+                  <div class="value">Smart OTP</div>
+                </div>
+              </div>
+
+              <div class="qr-code-block">
+                <div class="qr-code-content">
+                  <div class="description">
+                    Giao dịch đang chờ xác thực bằng phương thức Smart OTP trên
+                    ứng dụng VRB bank kênh điện thoại của Quý khách
+                  </div>
+                  <div class="time-expired">
+                    Hiệu lực giao dịch còn <span>{{ timerCount }} giây</span>
+                  </div>
+                  <div class="qr-code">
+                    <img src="assets/images/cliparts/qr-code.svg" alt="qr" />
+                  </div>
+                  <div class="warning">
+                    Quý khách vui lòng KHÔNG tắt trình duyệt cho đến khi nhận
+                    được kết quả giao dịch trên Internet Banking. Xin cảm ơn!
+                  </div>
+
+                  <div class="input-group label-transition mt-2 mb-4">
+                    <div class="form-label">
+                      <input
+                        type="text"
+                        v-model="otpCode"
+                        id="otp-input"
+                        class="form-control input-text-bold"
+                        name="money"
+                      />
+                      <label for="money">Mã OTP</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="preview">
+                  <img src="assets/images/cliparts/phone.png" alt="phone" />
+                </div>
+              </div>
+
+              <div class="group-button-bottom">
+                <button
+                  class="btn btn-primary btn-back"
+                  onclick="location.href = 'inter-bank-step-1.html';"
+                >
+                  Quay lại
+                </button>
+
+                <button
+                  class="btn btn-third btn-submit"
+                  :disabled="!otpCode.length"
+                  onclick="location.href = 'inter-bank-step-3.html';"
+                >
+                  Chuyển tiền
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+
+    <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
+
+    <script>
+      hideLoading();
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+          menuComponent,
+        },
+        setup() {
+          const timerCount = ref(30);
+          const otpCode = ref("");
+
+          const showGlobalSearch = ref(false);
+          const searchGlobalQuery = ref("");
+
+          const featureList = [
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/loan-amount.svg",
+              text: "Cài đặt hạn mức",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/pay-bills.svg",
+              text: "Thanh toán hoá đơn",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/recharge.svg",
+              text: "Đăng ký hạn mức",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/loyal-customer.svg",
+              text: "Chuyển tiền quốc tế",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/account-number.svg",
+              text: "Quản lý chi tiêu",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/censorship.svg",
+              text: "Quản lý danh bạ",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/statement.svg",
+              text: "Sao kê tài khoản",
+            },
+            {
+              url: "transfer-inter.html",
+              image: "assets/images/feature/transfer-money.svg",
+              text: "Smart Kids",
+            },
+          ];
+
+          const filteredList = computed(() => {
+            const searchQuery = searchGlobalQuery.value.toLowerCase();
+            const filteredItems = featureList.filter((x) =>
+              x.text.toLowerCase().includes(searchQuery)
+            );
+            return filteredItems.slice(0, 4);
+          });
+
+          const onClickOutside = (event) => {
+            const el = document.querySelector(".feature-select");
+            if (
+              !el ||
+              el === event.target ||
+              event.target.closest(".feature-select") === el
+            ) {
+              return;
+            }
+
+            showGlobalSearch.value = false;
+          };
+
+          onMounted(() => {
+            document.addEventListener("click", onClickOutside);
+          });
+
+          onBeforeMount(() => {
+            document.removeEventListener("click", onClickOutside);
+          });
+
+          return {
+            timerCount,
+            otpCode,
+            showGlobalSearch,
+            searchGlobalQuery,
+            filteredList,
+          };
+        },
+
+        watch: {
+          timerCount: {
+            handler(value) {
+              if (value > 0) {
+                setTimeout(() => {
+                  this.timerCount--;
+                }, 1000);
+              } else {
+                window.location = "transaction-error.html";
+              }
+            },
+            immediate: true,
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
