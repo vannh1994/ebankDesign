@@ -3,7 +3,7 @@
 }
 
 .international-money-transfer-page .transfer-area .card-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 36px;
 }
@@ -19,7 +19,7 @@
 .international-money-transfer-page .balances {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 8px;
   margin-bottom: 16px;
 }
@@ -38,32 +38,58 @@
   cursor: pointer;
 }
 
+.international-money-transfer-page .note {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.international-money-transfer-page .note .text-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #002d85;
+  cursor: pointer;
+}
+
+.international-money-transfer-page .note .text-label span {
+  text-decoration: underline;
+}
+
 .international-money-transfer-page .balances-popup {
   border-radius: 8px;
-  background: var(--background-background-2, #fafafa);
+  background: #f4f7fe;
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.4),
     0px 4px 8px -2px rgba(0, 0, 0, 0.08);
   padding: 12px 16px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 16px;
 }
 
 .international-money-transfer-page .balances-popup .balances-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 4px;
 }
 
 .international-money-transfer-page .balances-popup .balances-item .label,
 .international-money-transfer-page .balances-popup .balances-item .value {
-  font-size: 12px;
+  font-size: 14px;
+  color: #333;
   font-weight: 400;
   line-height: 18px;
 }
 
 .international-money-transfer-page .balances-popup a:hover {
   text-decoration: underline !important;
+}
+
+.international-money-transfer-page .balances-popup .balances-item .value {
+  font-weight: 700;
 }
 
 .international-money-transfer-page
@@ -96,24 +122,12 @@
   transform: translateY(-1.5px) !important;
 }
 
-.international-money-transfer-page .transfer-card .save-contact {
-  padding: 8px 16px;
-  border-radius: 8px;
-  background: var(--background-background-2, #fafafa);
-}
-
-.international-money-transfer-page .transfer-card .save-contact span {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-}
-
 .international-money-transfer-page .transfer-card .sub-title {
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
   color: #333333;
-  margin-top: 8px;
+  margin-top: 12px;
   margin-bottom: 12px;
 }
 
@@ -128,8 +142,26 @@
   .transfer-card
   .file-attach
   .form-check-input {
+  width: 16px;
+  height: 16px;
+}
+
+.international-money-transfer-page
+  .transfer-card
+  .save-contact
+  .form-check-input {
   width: 20px;
   height: 20px;
+}
+
+.international-money-transfer-page
+  .transfer-card
+  .save-contact
+  .form-check-label {
+  margin-bottom: 0;
+  transform: translateY(3px);
+  font-size: 14px;
+  margin-left: 4px;
 }
 
 .international-money-transfer-page
@@ -138,7 +170,7 @@
   .form-check-label {
   margin-bottom: 0;
   transform: translateY(3px);
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .international-money-transfer-page .file-document {
@@ -148,27 +180,32 @@
 }
 
 .international-money-transfer-page .file-document .title-file-document {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 20px;
 }
 
 .international-money-transfer-page .file-document .sub-title-file {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
-  line-height: 18px;
-  color: #777777;
+  line-height: 16px;
+  color: #787878;
 }
 
 .international-money-transfer-page .transfer-card .file-document .btn {
-  padding: 8px 12px;
-  font-size: 12px;
-  font-weight: 500;
+  min-width: 82px;
+  padding: 8px 12px !important;
+  font-size: 12px !important;
+  font-weight: 700;
   line-height: 16px;
   letter-spacing: 0.6px;
+  color: white !important;
   border-radius: 8px !important;
-  border: 1px solid #013aa9 !important;
-  color: #013aa9 !important;
+  background: var(--branding-primary-color, #002d85) !important;
+}
+
+.international-money-transfer-page .transfer-card .file-border-left {
+  border-left: 1px solid #78787852 !important;
 }
 
 .international-money-transfer-page .form-select:focus {
@@ -181,7 +218,27 @@
   line-height: 18px;
 }
 
+.international-money-transfer-page #note .modal-title {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.international-money-transfer-page #note .close img {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.international-money-transfer-page .notice-block {
+  padding: 16px;
+}
+
 .international-money-transfer-page .notice-block ul {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
   padding-left: 20px;
   margin-bottom: 0;
 }
@@ -289,16 +346,17 @@
   box-shadow: unset;
 }
 
-.international-money-transfer-page .btn-back {
-  width: 200px;
+.international-money-transfer-page .group-button-bottom .btn-submit {
+  line-height: 24px;
+  padding: 12px 24px !important;
+  width: 150px;
+}
+
+.international-money-transfer-page .group-button-bottom .btn-back {
+  width: 150px;
   font-weight: 700;
   line-height: 20px;
   padding: 14px 24px !important;
-}
-
-.international-money-transfer-page .btn-submit {
-  padding: 12px 50px !important;
-  width: 200px;
 }
 
 .international-money-transfer-page .message-main {
@@ -362,6 +420,10 @@
   .international-money-transfer-card {
     padding: 32px 24px;
   }
+
+  .international-money-transfer-page .transfer-card .file-border-left {
+    border-left: unset !important;
+  }
 }
 
 @media (max-width: 575px) {
@@ -396,5 +458,13 @@
 
   .international-money-transfer-card {
     padding: 24px 12px;
+  }
+
+  .international-money-transfer-page .balances-popup .balances-item .label {
+    text-align: left;
+  }
+
+  .international-money-transfer-page .balances-popup .balances-item .value {
+    text-align: right;
   }
 }

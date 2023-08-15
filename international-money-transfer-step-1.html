@@ -64,7 +64,7 @@
                 </a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Chuyển tiền
+                Chuyển tiền quốc tế
               </li>
             </ol>
           </nav>
@@ -95,30 +95,68 @@
         </div>
 
         <div class="card content-min-height card-scroll">
-          <div class="card-body card-content p-0">
+          <div class="card-body container-flex card-content p-0">
             <div class="transfer-card">
               <div class="transfer-area p-4">
                 <div class="card-title">Tài khoản chuyển</div>
 
-                <div class="input-group label-transition">
-                  <div class="form-label">
-                    <input type="text" class="form-control input-text-bold" />
-                    <label>Tài khoản nguồn</label>
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <div>
+                      <selector-component
+                        placeholder="Tài khoản nguồn"
+                        v-model="sourceAccount"
+                        :options="accountList"
+                        :required="true"
+                      >
+                        <template #selected="{option}">
+                          <b>{{ option.number }} - {{option.currency}}</b>
+                        </template>
+                        <template #option="{option}">
+                          <b class="d-block py-2"
+                            >{{ option.number }} - {{option.currency}}</b
+                          >
+                        </template>
+                      </selector-component>
+
+                      <div
+                        v-if="sourceAccount"
+                        class="available-balance text-end mt-2"
+                      >
+                        <span class="me-1"> Số dư khả dụng: </span>
+                        <b class="text-branding">
+                          {{ formatMoney(10000000) }}
+                        </b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <div class="input-group label-transition mt-2">
+                      <div class="form-label">
+                        <input
+                          type="text"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Tên người chuyển*</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="input-group label-transition mt-2">
+                      <div class="form-label">
+                        <input
+                          type="text"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Địa chỉ người chuyển*</label>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div class="input-group label-transition mt-3">
-                  <div class="form-label">
-                    <input type="text" class="form-control input-text-bold" />
-                    <label>Địa chỉ người chuyển</label>
-                  </div>
-                </div>
-
-                <div class="sub-title">Số dư khả dụng</div>
                 <div class="balances">
-                  <span class="money">1,000,000.00 RUB</span>
                   <span class="limit" @click="isShowPopup = !isShowPopup">
-                    <i class="isax isax-info-circle"></i> Hạn mức
+                    <i class="isax isax-info-circle"></i> Kiểm tra hạn mức
                   </span>
                 </div>
 
@@ -135,10 +173,6 @@
                     <div class="label">Hạn mức tối đa lần giao dịch</div>
                     <div class="value">100.000 USD</div>
                   </div>
-
-                  <a href="setting-transaction-limit-step-1.html">
-                    Thay đổi hạn mức giao dịch
-                  </a>
                 </div>
 
                 <div
@@ -152,166 +186,7 @@
                   </button>
                 </div>
               </div>
-
-              <div class="contact-area">
-                <div class="card">
-                  <div class="card-title d-sm-none">
-                    <h5>Quản lý danh bạ và mẫu</h5>
-                    <i
-                      class="isax isax-close-circle"
-                      onclick="hideContactArea()"
-                    ></i>
-                  </div>
-                  <div class="card-header">
-                    <ul>
-                      <li
-                        :class="{ active: activeIndex ===  0 }"
-                        @click="activeIndex = 0"
-                      >
-                        Danh sách NTH
-                      </li>
-                      <li
-                        :class="{ active: activeIndex ===  1 }"
-                        @click="activeIndex = 1"
-                      >
-                        Gần đây
-                      </li>
-                      <li
-                        :class="{ active: activeIndex ===  2 }"
-                        @click="activeIndex = 2"
-                      >
-                        Mẫu lưu
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-body" v-if="activeIndex ===  0">
-                    <div class="input-search">
-                      <i class="isax isax-search-normal-1"></i>
-                      <input
-                        placeholder="Tìm kiếm danh bạ"
-                        class="form-control"
-                      />
-                    </div>
-                    <div class="contact-list">
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/icons/logo-dark.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">VRB</div>
-                        </div>
-                      </div>
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/images/banks/tpb.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">TIEN PHONG BANK</div>
-                        </div>
-                      </div>
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/images/banks/vcb.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">TIEN PHONG BANK</div>
-                        </div>
-                      </div>
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/images/banks/vpb.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">TIEN PHONG BANK</div>
-                        </div>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-third col-lg-12 mx-auto"
-                    >
-                      Quản lý danh bạ và mẫu
-                    </button>
-                  </div>
-                  <div class="card-body" v-if="activeIndex ===  1">
-                    <div class="input-search">
-                      <i class="isax isax-search-normal-1"></i>
-                      <input
-                        placeholder="Tìm kiếm danh bạ"
-                        class="form-control"
-                      />
-                    </div>
-                    <div class="contact-list">
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/icons/logo-dark.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">VRB</div>
-                        </div>
-                      </div>
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/images/banks/tpb.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">TIEN PHONG BANK</div>
-                        </div>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-third col-lg-12 mx-auto"
-                    >
-                      Quản lý danh bạ và mẫu
-                    </button>
-                  </div>
-                  <div class="card-body" v-if="activeIndex ===  2">
-                    <div class="input-search">
-                      <i class="isax isax-search-normal-1"></i>
-                      <input
-                        placeholder="Tìm kiếm danh bạ"
-                        class="form-control"
-                      />
-                    </div>
-                    <div class="contact-list">
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/icons/logo-dark.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">VRB</div>
-                        </div>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-third col-lg-12 mx-auto"
-                    >
-                      Quản lý danh bạ và mẫu
-                    </button>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-
-          <div class="sp-contact" onclick="showContactArea()">
-            <img src="assets/icons/book.svg" />
           </div>
         </div>
       </div>
@@ -360,36 +235,13 @@
     <!-- BS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-      toggleContactArea();
-
-      window.addEventListener("resize", toggleContactArea);
-
-      function toggleContactArea() {
-        if (window.innerWidth < 576) {
-          hideContactArea();
-        } else {
-          showContactArea();
-        }
-      }
-
-      function showContactArea() {
-        const contactArea = document.querySelector(".contact-area");
-        contactArea.style.display = null;
-      }
-
-      function hideContactArea() {
-        const contactArea = document.querySelector(".contact-area");
-        contactArea.style.display = "none";
-      }
-    </script>
-
     <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
     <script src="./assets/js/vueuse_shared.min.js"></script>
     <script src="./assets//js/vueuse_core.js"></script>
 
     <script src="./components/header-component.js"></script>
     <script src="./components/menu.js"></script>
+    <script src="./components/selector.js"></script>
 
     <script>
       hideLoading();
@@ -400,6 +252,7 @@
         components: {
           headerComponent,
           menuComponent,
+          selectorComponent,
         },
         setup() {
           const showSelector = ref(false);
@@ -544,6 +397,23 @@
             accountName.value = accountNumber.value ? "Ngo Xuan Hai" : "";
           }, 500);
 
+          const sourceAccount = ref(null);
+
+          const accountList = [
+            {
+              number: "05000210000471",
+              currency: "VND",
+            },
+            {
+              number: "05000210000123",
+              currency: "VND",
+            },
+          ];
+
+          function formatMoney(money) {
+            return new Intl.NumberFormat().format(money || 0) + " VND";
+          }
+
           return {
             searchQuery,
             showSelector,
@@ -559,6 +429,9 @@
             showGlobalSearch,
             searchGlobalQuery,
             filteredGlobalList,
+            sourceAccount,
+            accountList,
+            formatMoney,
           };
         },
       }).mount("#app");

@@ -196,7 +196,7 @@ const menuComponent = {
           },
           {
             text: "Chuyển tiền quốc tế",
-            link: "transfer-inter.html",
+            link: "international-money-transfer-step-1.html",
           },
           {
             text: "Đăng ký/thay đổi hạn mức chuyển tiền quốc tế",

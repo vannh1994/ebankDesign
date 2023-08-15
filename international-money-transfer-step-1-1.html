@@ -64,7 +64,7 @@
                 </a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Chuyển tiền
+                Chuyển tiền quốc tế
               </li>
             </ol>
           </nav>
@@ -95,10 +95,87 @@
         </div>
 
         <div class="card content-min-height card-scroll">
-          <div class="card-body card-content p-0">
+          <div class="card-body container-flex card-content p-0">
             <div class="transfer-card">
               <div class="transfer-area p-4">
-                <div class="card-title">Người thụ hưởng</div>
+                <div class="card-title">Tài khoản chuyển</div>
+
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <div>
+                      <selector-component
+                        placeholder="Tài khoản nguồn"
+                        v-model="sourceAccount"
+                        :options="accountList"
+                        :required="true"
+                      >
+                        <template #selected="{option}">
+                          <b>{{ option.number }} - {{option.currency}}</b>
+                        </template>
+                        <template #option="{option}">
+                          <b class="d-block py-2"
+                            >{{ option.number }} - {{option.currency}}</b
+                          >
+                        </template>
+                      </selector-component>
+
+                      <div
+                        v-if="sourceAccount"
+                        class="available-balance text-end mt-2"
+                      >
+                        <span class="me-1"> Số dư khả dụng: </span>
+                        <b class="text-branding">
+                          {{ formatMoney(10000000) }}
+                        </b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <div class="input-group label-transition mt-2">
+                      <div class="form-label">
+                        <input
+                          type="text"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Tên người chuyển*</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="input-group label-transition mt-2">
+                      <div class="form-label">
+                        <input
+                          type="text"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Địa chỉ người chuyển*</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="balances">
+                  <span class="limit" @click="isShowPopup = !isShowPopup">
+                    <i class="isax isax-info-circle"></i> Hạn mức
+                  </span>
+                </div>
+
+                <div class="balances-popup" :class="{'d-none': isShowPopup}">
+                  <div class="balances-item">
+                    <div class="label">Hạn mức tối đa còn lại trong ngày</div>
+                    <div class="value">300.000 USD</div>
+                  </div>
+                  <div class="balances-item">
+                    <div class="label">Hạn mức được cấp còn lại</div>
+                    <div class="value">500.000 USD</div>
+                  </div>
+                  <div class="balances-item">
+                    <div class="label">Hạn mức tối đa lần giao dịch</div>
+                    <div class="value">100.000 USD</div>
+                  </div>
+                </div>
+
+                <div class="card-title mt-3">Thông tin tài khoản nhận</div>
 
                 <div class="row">
                   <div class="col-12 col-md-6">
@@ -108,11 +185,11 @@
                           type="text"
                           class="form-control input-text-bold"
                         />
-                        <label>Tài khoản thụ hưởng</label>
+                        <label>Tài khoản thụ hưởng*</label>
                       </div>
                       <div class="input-group-append">
                         <div class="input-group-text">
-                          <i class="isax isax-book-1"></i>
+                          <i class="isax isax-book-1 text-branding"></i>
                         </div>
                       </div>
                     </div>
@@ -124,7 +201,7 @@
                           type="text"
                           class="form-control input-text-bold"
                         />
-                        <label>Tên người thụ hưởng</label>
+                        <label>Tên người thụ hưởng*</label>
                       </div>
                     </div>
                   </div>
@@ -135,7 +212,7 @@
                           type="text"
                           class="form-control input-text-bold"
                         />
-                        <label>Mã số thuế INM</label>
+                        <label>Mã số thuế INM*</label>
                       </div>
                     </div>
                   </div>
@@ -146,7 +223,7 @@
                           type="text"
                           class="form-control input-text-bold"
                         />
-                        <label>Mã số ĐK thuế KPP</label>
+                        <label>Mã số ĐK thuế KPP*</label>
                       </div>
                     </div>
                   </div>
@@ -157,7 +234,35 @@
                           type="text"
                           class="form-control input-text-bold"
                         />
-                        <label>Địa chỉ người thụ hưởng</label>
+                        <label>Địa chỉ người thụ hưởng*</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 mt-4">
+                    <div>
+                      <input-autocomplete-component
+                        placeholder="Mã BIK"
+                        v-model="bikCode"
+                        :options="bikCodeList"
+                        :required="true"
+                      >
+                        <template #option="{option}">
+                          <b class="d-block">{{ option.value }}</b>
+                          <div class="description">
+                            {{ option.description }}
+                          </div>
+                        </template>
+                      </input-autocomplete-component>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 mt-4">
+                    <div class="input-group label-transition">
+                      <div class="form-label">
+                        <input
+                          type="text"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Tên người thụ hưởng*</label>
                       </div>
                     </div>
                   </div>
@@ -168,34 +273,7 @@
                           type="text"
                           class="form-control input-text-bold"
                         />
-                        <label>Mã BIK</label>
-                      </div>
-                      <div class="input-group-append">
-                        <div class="input-group-text">
-                          <i class="isax isax-search-status"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-6 mt-4">
-                    <div class="input-group label-transition">
-                      <div class="form-label">
-                        <input
-                          type="text"
-                          class="form-control input-text-bold"
-                        />
-                        <label>Tên người thụ hưởng</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-6 mt-4">
-                    <div class="input-group label-transition">
-                      <div class="form-label">
-                        <input
-                          type="text"
-                          class="form-control input-text-bold"
-                        />
-                        <label>Địa chỉ NH thụ hưởng</label>
+                        <label>Địa chỉ NH thụ hưởng*</label>
                       </div>
                     </div>
                   </div>
@@ -243,60 +321,42 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-12 col-md-6 mt-4">
+                  <div class="col-12 col-md-12 mt-4">
                     <div class="input-group label-transition">
                       <div class="form-label">
                         <input
                           type="text"
                           class="form-control input-text-bold"
                         />
-                        <label>Số tiền chuyển</label>
+                        <label>Số tiền chuyển*</label>
                       </div>
                       <div class="input-group-append custom">
-                        <div class="input-group-text">VND</div>
+                        <div class="input-group-text">RUB</div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-12 col-md-6 mt-4">
-                    <select class="form-select">
-                      <option selected>Mã phí chuyển tiền</option>
-                      <option value="1">1234</option>
-                      <option value="2">3456</option>
-                      <option value="3">5678</option>
-                    </select>
-                  </div>
-                  <div class="col-12 col-md-6 mt-4">
-                    <select class="form-select">
-                      <option selected>Mục đích chuyển</option>
-                      <option value="1">1234</option>
-                      <option value="2">3456</option>
-                      <option value="3">5678</option>
-                    </select>
-                  </div>
-                  <div class="col-12 col-md-6 mt-4">
-                    <div class="input-group label-transition">
-                      <div class="form-label">
-                        <input
-                          type="text"
-                          class="form-control input-text-bold"
-                        />
-                        <label>Phí chuyển tiền (Có VAT)</label>
-                      </div>
-                    </div>
+                  <div class="col-12 col-md-12 mt-4">
+                    <selector-component
+                      placeholder="Mã phí chuyển tiền"
+                      v-model="transferCode"
+                      :options="transferCodeList"
+                      :required="true"
+                    >
+                      <template #selected="{option}">
+                        <b>{{ option.text }}</b>
+                      </template>
+                      <template #option="{option}">
+                        <b class="d-block py-2">{{ option.text }}</b>
+                      </template>
+                    </selector-component>
                   </div>
 
-                  <div class="col-12 mt-4 mb-4 save-contact">
-                    <div
-                      class="d-flex w-100 align-items-center justify-content-between"
-                    >
-                      <span>Lưu danh bạ thụ hưởng</span>
-                      <div class="form-check form-switch">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="flexSwitchCheckDefault"
-                        />
-                      </div>
+                  <div class="col-12 mt-4 mb-4">
+                    <div class="save-contact">
+                      <input class="form-check-input" type="checkbox" />
+                      <label class="form-check-label">
+                        Lưu danh bạ thụ hưởng
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -309,270 +369,110 @@
                   <div class="col-12 col-md-6">
                     <div class="file-attach">
                       <input class="form-check-input" type="checkbox" />
-                      <label class="form-check-label"> Bảng lương </label>
+                      <label class="form-check-label"> Bảng lương * </label>
                     </div>
                     <div class="file-attach">
                       <input class="form-check-input" type="checkbox" />
                       <label class="form-check-label">
-                        Hợp đồng lao động
+                        Hợp đồng lao động *
                       </label>
                     </div>
                     <div class="file-attach">
                       <input class="form-check-input" type="checkbox" />
-                      <label class="form-check-label"> Giấy tờ khác </label>
+                      <label class="form-check-label"> Giấy tờ khác * </label>
                     </div>
                   </div>
 
-                  <div class="col-12 col-md-6">
+                  <div class="col-12 col-md-6 file-border-left">
                     <div class="file-document">
                       <div class="title-file-document">File chứng từ</div>
-                      <div>
-                        <button class="btn" onclick="openFile()">
+                      <div class="d-flex gap-1 align-items-center">
+                        <button class="btn btn-primary" @click="openFile">
                           Chọn tệp
                         </button>
                         <span class="sub-title-file">
-                          Chưa có tệp tin nào được chọn
+                          Loại file hợp lệ: xls, slsx, doc, pfd, jpg... Dung
+                          lượng tối đa: 5MB
                         </span>
                         <input class="d-none" id="file-input" type="file" />
                       </div>
-                      <span class="sub-title-file">
-                        (Loại file hợp lệ: xls, slsx, doc, pfd, jpg... Dung
-                        lượng tối đa: 5MB)
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 mt-4">
+                    <selector-component
+                      placeholder="Mã mục đích VO code"
+                      v-model="voCode"
+                      :options="voCodeList"
+                      :required="false"
+                    >
+                      <template #selected="{option}">
+                        <b>{{ option.text }}</b>
+                      </template>
+                      <template #option="{option}">
+                        <b class="d-block py-2">{{ option.text }}</b>
+                      </template>
+                    </selector-component>
+                  </div>
+
+                  <div class="col-12 col-md-6 mt-4">
+                    <selector-component
+                      placeholder="Mức độ ưu tiên"
+                      v-model="priority"
+                      :options="priorityList"
+                      :required="false"
+                    >
+                      <template #selected="{option}">
+                        <b>{{ option.text }}</b>
+                      </template>
+                      <template #option="{option}">
+                        <b class="d-block py-2">{{ option.text }}</b>
+                      </template>
+                    </selector-component>
+                  </div>
+
+                  <div class="col-12 mt-4">
+                    <div class="input-group label-transition">
+                      <div class="form-label">
+                        <input
+                          type="text"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Nội dung chuyển tiền*</label>
+                      </div>
+                    </div>
+                    <div class="note">
+                      <span
+                        class="text-label"
+                        data-bs-toggle="modal"
+                        data-bs-target="#note"
+                      >
+                        <i class="isax isax-info-circle"></i>
+                        <span>Ghi chú</span>
                       </span>
-                    </div>
-                  </div>
-
-                  <div class="col-12 col-md-6 mt-4">
-                    <div class="input-group label-transition">
-                      <div class="form-label">
-                        <input
-                          type="text"
-                          class="form-control input-text-bold"
-                        />
-                        <label>Mã mục đích VO code</label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-12 col-md-6 mt-4">
-                    <select class="form-select">
-                      <option selected>Mức độ ưu tiên</option>
-                      <option value="1">Mức độ 1</option>
-                      <option value="2">Mức độ 2</option>
-                      <option value="3">Mức độ 3</option>
-                    </select>
-                  </div>
-
-                  <div class="col-12 mt-4">
-                    <div class="input-group label-transition">
-                      <div class="form-label">
-                        <input
-                          type="text"
-                          class="form-control input-text-bold"
-                        />
-                        <label>Nội dung chuyển tiền</label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-12 mt-4">
-                    <div class="notice-block">
-                      <label for="">Ghi chú </label>
-                      <ul>
-                        <li>
-                          Giờ giao dịch CTQT từ 08:00 - 15:30, từ thứ 2-6 hàng
-                          tuần (trừ ngày lễ tết);
-                        </li>
-                        <li>
-                          Trong trường hợp KH tạo lệnh giao dịch khi đã hết thời
-                          gian chuyển tiền hệ thống sẽ lưu lệnh sang ngày làm
-                          việc tiếp theo để tiếp tục chuyển;
-                        </li>
-                        <li>
-                          Tất cả các thông tin KH nhập trên màn hình khởi tạo
-                          lện chuyển là các ký tự không có dấu đặc biệt (ví dụ:
-                          !, @, #,$,%,^,&...)
-                        </li>
-                        <li>
-                          Ngày giao dịch có giá trị là ngày hệ thống VRB trích
-                          nợ tài khoản chuyển đi và thực hiện giao dịch
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </div>
 
                 <div
-                  class="mt-5 d-flex align-items-center justify-content-center"
+                  class="group-button-bottom"
                 >
+                <button
+                  class="btn btn-primary btn-back"
+                  onclick="location.href = 'international-money-transfer-step-1.html';"
+                >
+                  Quay lại
+                </button>
+
                   <button
-                    class="btn btn-third btn-next"
+                    class="btn btn-third btn-submit"
                     onclick="location.href = 'international-money-transfer-step-2.html';"
                   >
                     Tiếp tục
                   </button>
                 </div>
               </div>
-
-              <div class="contact-area">
-                <div class="card">
-                  <div class="card-title d-sm-none">
-                    <h5>Quản lý danh bạ và mẫu</h5>
-                    <i
-                      class="isax isax-close-circle"
-                      onclick="hideContactArea()"
-                    ></i>
-                  </div>
-                  <div class="card-header">
-                    <ul>
-                      <li
-                        :class="{ active: activeIndex ===  0 }"
-                        @click="activeIndex = 0"
-                      >
-                        Danh sách NTH
-                      </li>
-                      <li
-                        :class="{ active: activeIndex ===  1 }"
-                        @click="activeIndex = 1"
-                      >
-                        Gần đây
-                      </li>
-                      <li
-                        :class="{ active: activeIndex ===  2 }"
-                        @click="activeIndex = 2"
-                      >
-                        Mẫu lưu
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-body" v-if="activeIndex ===  0">
-                    <div class="input-search">
-                      <i class="isax isax-search-normal-1"></i>
-                      <input
-                        placeholder="Tìm kiếm danh bạ"
-                        class="form-control"
-                      />
-                    </div>
-                    <div class="contact-list">
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/icons/logo-dark.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">VRB</div>
-                        </div>
-                      </div>
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/images/banks/tpb.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">TIEN PHONG BANK</div>
-                        </div>
-                      </div>
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/images/banks/vcb.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">TIEN PHONG BANK</div>
-                        </div>
-                      </div>
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/images/banks/vpb.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">TIEN PHONG BANK</div>
-                        </div>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-third col-lg-12 mx-auto"
-                    >
-                      Quản lý danh bạ và mẫu
-                    </button>
-                  </div>
-                  <div class="card-body" v-if="activeIndex ===  1">
-                    <div class="input-search">
-                      <i class="isax isax-search-normal-1"></i>
-                      <input
-                        placeholder="Tìm kiếm danh bạ"
-                        class="form-control"
-                      />
-                    </div>
-                    <div class="contact-list">
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/icons/logo-dark.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">VRB</div>
-                        </div>
-                      </div>
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/images/banks/tpb.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">TIEN PHONG BANK</div>
-                        </div>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-third col-lg-12 mx-auto"
-                    >
-                      Quản lý danh bạ và mẫu
-                    </button>
-                  </div>
-                  <div class="card-body" v-if="activeIndex ===  2">
-                    <div class="input-search">
-                      <i class="isax isax-search-normal-1"></i>
-                      <input
-                        placeholder="Tìm kiếm danh bạ"
-                        class="form-control"
-                      />
-                    </div>
-                    <div class="contact-list">
-                      <div class="contact-item">
-                        <div class="contact-bank">
-                          <img src="assets/icons/logo-dark.svg" />
-                        </div>
-                        <div class="contact-detail">
-                          <b>NGO MAI TRANG</b>
-                          <b>05000210000471</b>
-                          <div class="text-muted">VRB</div>
-                        </div>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-third col-lg-12 mx-auto"
-                    >
-                      Quản lý danh bạ và mẫu
-                    </button>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-
-          <div class="sp-contact" onclick="showContactArea()">
-            <img src="assets/icons/book.svg" />
           </div>
         </div>
       </div>
@@ -613,6 +513,44 @@
           </div>
         </div>
       </div>
+
+      <div class="modal" id="note">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h5 class="modal-title">Ghi chú</h5>
+              <span class="close" data-bs-dismiss="modal">
+                <img src="assets/icons/control.svg" />
+              </span>
+            </div>
+
+              <div class="notice-block">
+                <ul>
+                  <li>
+                    Giờ giao dịch CTQT từ 08:00 - 15:30, từ thứ 2-6 hàng tuần
+                    (trừ ngày lễ tết);
+                  </li>
+                  <li>
+                    Trong trường hợp KH tạo lệnh giao dịch khi đã hết thời gian
+                    chuyển tiền hệ thống sẽ lưu lệnh sang ngày làm việc tiếp
+                    theo để tiếp tục chuyển;
+                  </li>
+                  <li>
+                    Tất cả các thông tin KH nhập trên màn hình khởi tạo lện
+                    chuyển là các ký tự không có dấu đặc biệt (ví dụ: !, @,
+                    #,$,%,^,&...)
+                  </li>
+                  <li>
+                    Ngày giao dịch có giá trị là ngày hệ thống VRB trích nợ tài
+                    khoản chuyển đi và thực hiện giao dịch
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- App js -->
@@ -621,40 +559,14 @@
     <!-- BS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-      toggleContactArea();
-
-      window.addEventListener("resize", toggleContactArea);
-
-      function toggleContactArea() {
-        if (window.innerWidth < 576) {
-          hideContactArea();
-        } else {
-          showContactArea();
-        }
-      }
-
-      function showContactArea() {
-        const contactArea = document.querySelector(".contact-area");
-        contactArea.style.display = null;
-      }
-
-      function hideContactArea() {
-        const contactArea = document.querySelector(".contact-area");
-        contactArea.style.display = "none";
-      }
-
-      function openFile() {
-        document.getElementById("file-input").click();
-      }
-    </script>
-
     <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
     <script src="./assets/js/vueuse_shared.min.js"></script>
     <script src="./assets//js/vueuse_core.js"></script>
 
     <script src="./components/header-component.js"></script>
     <script src="./components/menu.js"></script>
+    <script src="./components/selector.js"></script>
+    <script src="./components/input-autocomplete.js"></script>
 
     <script>
       hideLoading();
@@ -665,10 +577,11 @@
         components: {
           headerComponent,
           menuComponent,
+          selectorComponent,
+          inputAutocompleteComponent,
         },
         setup() {
           const showSelector = ref(false);
-          const popup = ref(null);
           const bankSelected = ref(null);
           const searchQuery = ref("");
           const activeIndex = ref(0);
@@ -714,32 +627,6 @@
               x.name.toLowerCase().includes(searchQuery.value.toLowerCase())
             )
           );
-
-          const onClickOutside = (event) => {
-            const el = document.querySelector(".bank-select");
-            if (
-              !el ||
-              el === event.target ||
-              event.target.closest(".bank-select") === el
-            ) {
-              return;
-            }
-
-            showSelector.value = false;
-          };
-
-          const onClickOutsideGlobal = (event) => {
-            const el = document.querySelector(".feature-select");
-            if (
-              !el ||
-              el === event.target ||
-              event.target.closest(".feature-select") === el
-            ) {
-              return;
-            }
-
-            showGlobalSearch.value = false;
-          };
 
           const showGlobalSearch = ref(false);
           const searchGlobalQuery = ref("");
@@ -795,6 +682,32 @@
             return filteredItems.slice(0, 4);
           });
 
+          const onClickOutside = (event) => {
+            const el = document.querySelector(".bank-select");
+            if (
+              !el ||
+              el === event.target ||
+              event.target.closest(".bank-select") === el
+            ) {
+              return;
+            }
+
+            showSelector.value = false;
+          };
+
+          const onClickOutsideGlobal = (event) => {
+            const el = document.querySelector(".feature-select");
+            if (
+              !el ||
+              el === event.target ||
+              event.target.closest(".feature-select") === el
+            ) {
+              return;
+            }
+
+            showGlobalSearch.value = false;
+          };
+
           onMounted(() => {
             document.addEventListener("click", onClickOutside);
             document.addEventListener("click", onClickOutsideGlobal);
@@ -809,10 +722,90 @@
             accountName.value = accountNumber.value ? "Ngo Xuan Hai" : "";
           }, 500);
 
+          const sourceAccount = ref(null);
+          const bikCode = ref(null);
+          const transferCode = ref(null);
+          const voCode = ref(null);
+          const priority = ref(null);
+
+          const accountList = [
+            {
+              number: "05000210000471",
+              currency: "RUB",
+            },
+            {
+              number: "05000210000123",
+              currency: "RUB",
+            },
+          ];
+          const bikCodeList = [
+            {
+              value: "012345678",
+              description: "Vietnam Bank for Agriculture and Rural Development",
+            },
+            {
+              value: "0123456",
+              description: "Vietnam Bank for Agriculture and Rural Development",
+            },
+            {
+              value: "01234",
+              description: "Vietnam Bank for Agriculture and Rural Development",
+            },
+          ];
+          const transferCodeList = [
+            {
+              value: "1",
+              text: "SHA - Người chuyển chịu phí trong nước",
+            },
+            {
+              value: "2",
+              text: "SHA - Người nhận chịu phí trong nước",
+            },
+            {
+              value: "3",
+              text: "SHA - Người chuyển chịu phí ngoài nước",
+            },
+          ];
+          const voCodeList = [
+            {
+              value: "1",
+              text: "0010",
+            },
+            {
+              value: "2",
+              text: "0020",
+            },
+            {
+              value: "3",
+              text: "00330",
+            },
+          ];
+          const priorityList = [
+            {
+              value: "1",
+              text: "Cao",
+            },
+            {
+              value: "2",
+              text: "Thường",
+            },
+            {
+              value: "3",
+              text: "Thấp",
+            },
+          ];
+
+          function formatMoney(money) {
+            return new Intl.NumberFormat().format(money || 0) + " RUB";
+          }
+
+          const openFile = () => {
+            document.getElementById("file-input").click();
+          };
+
           return {
             searchQuery,
             showSelector,
-            popup,
             bankList,
             filteredList,
             bankSelected,
@@ -824,6 +817,18 @@
             showGlobalSearch,
             searchGlobalQuery,
             filteredGlobalList,
+            sourceAccount,
+            accountList,
+            bikCodeList,
+            bikCode,
+            transferCode,
+            transferCodeList,
+            voCode,
+            voCodeList,
+            priority,
+            priorityList,
+            formatMoney,
+            openFile,
           };
         },
       }).mount("#app");
