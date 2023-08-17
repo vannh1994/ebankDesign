@@ -30,7 +30,9 @@
     <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
   </head>
 
-  <body class="child-page page-background international-money-transfer-page">
+  <body
+    class="child-page page-background international-money-transfer-page international-money-transfer-step-3-page"
+  >
     <div id="loading"></div>
     <div class="page-content" id="app">
       <div class="list-small-icons">
@@ -102,39 +104,33 @@
               </div>
 
               <p class="message-main">
-                Cảm ơn quý khách đã tin tưởng sử dụng dịch vụ!
+                <img src="assets/icons/success.svg" alt="success" />
+                Khởi tạo giao dịch thành công
               </p>
 
               <p class="message">
-                Ngân hàng đã tiếp nhận giao dịch và sẽ xử lý phản hồi trong thời
-                gian sớm nhất theo quy định
+                Ngân hàng đã tiếp nhận và sẽ xử lý giao dịch trong thời gian sớm
+                nhất theo quy định.
               </p>
 
-              <div class="dotted-border"></div>
-
-              <div class="notice-success-page">
-                <div class="title">Ghi chú</div>
-                <ul>
-                  <li>
-                    Trong trường hợp giao dịch được chấp nhận xử lý, đề ghị quý
-                    khách gửi hồ sơ gốc về chi nhanh mở tài khoản trong vòng 5
-                    ngày làm việc
-                  </li>
-                </ul>
-              </div>
+              <p class="message">
+                Trường hợp giao dịch được chấp nhận xử lý, đề nghị Quý khách gửi
+                hồ sơ gốc về Chi nhánh mở tài khoản trong vòng 5 ngày làm việc
+              </p>
 
               <div class="group-button-bottom">
+                <button
+                  class="btn btn-primary btn-back"
+                  onclick="location.href = 'home.html';"
+                >
+                  Về trang chủ
+                </button>
+
                 <button
                   class="btn btn-third"
                   onclick="location.href = 'international-money-transfer-step-1.html';"
                 >
                   Tạo giao dịch mới
-                </button>
-                <button
-                  class="btn btn-primary btn-back-to-home"
-                  onclick="location.href = 'home.html';"
-                >
-                  Về trang chủ
                 </button>
               </div>
             </div>

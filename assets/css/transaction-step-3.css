@@ -165,6 +165,10 @@
   margin-top: 24px;
 }
 
+.international-money-transfer-step-3-page .transfer-success .message {
+  font-size: 14px;
+}
+
 @media (max-width: 767px) {
   .transfer-success .btn-third {
     padding: 12px 24px !important;

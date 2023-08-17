@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Danh sách người thụ hưởng | VRB</title>
+    <title>Chuyển tiền VRB đến số tài khoản | VRB</title>
     <meta name="viewport" content="width=375, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
@@ -30,7 +30,7 @@
     <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
   </head>
 
-  <body class="child-page page-background transaction-step-2-page">
+  <body class="child-page page-background transaction-step-3-page">
     <div id="loading"></div>
     <div class="page-content" id="app">
       <div class="list-small-icons">
@@ -63,106 +63,102 @@
                   Trang chủ
                 </a>
               </li>
-
+              <li
+                onclick="location.href = 'transfer-inter.html';"
+                class="breadcrumb-item"
+                aria-current="page"
+              >
+                Chuyển tiền
+              </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Danh sách người thụ hưởng
+                Chuyển tiền VRB đến số tài khoản
               </li>
             </ol>
           </nav>
         </div>
 
         <div class="page-title">
-          <a class="back" href="inter-bank-step-1.html">
+          <a class="back" href="transfer-24-7-step-1.html">
             <i class="isax isax-arrow-left-2"></i>
           </a>
-          <h2>Danh sách người thụ hưởng</h2>
+          <h2>Chuyển tiền VRB đến số tài khoản</h2>
+          <h2 class="title-sp">Chuyển tiền ngoài VRB</h2>
         </div>
 
-        <div class="card card-scroll beneficiaries">
-          <div class="card-body card-content p-3">
-            <div class="transfer-info">
-              <h2 class="title">Thông tin người thụ hưởng</h2>
+        <div class="transaction-step">
+          <div class="step-item active">
+            <div class="step">1</div>
+            <div class="text">Khởi tạo</div>
+          </div>
+          <div class="progress active"></div>
+          <div class="step-item active">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress active"></div>
+          <div class="step-item active">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
 
-              <div class="transfer-info-confirm-block">
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Loại giao dịch</div>
-                  <div class="value">Chuyển tiền quốc tế</div>
+        <div class="card content-min-height card-scroll">
+          <div class="card-body card-content p-3">
+            <div class="transfer-success">
+              <div class="logo-bank">
+                <img src="assets/icons/logo.svg" alt="logo" />
+              </div>
+              <div class="transaction-success">
+                <img src="assets/icons/success.svg" alt="success" />
+                <div class="title">Giao dịch thành công</div>
+              </div>
+              <div class="time">27/04/2023 14:05:36</div>
+              <p class="message">
+                Chuyển thành công đến
+                <span class="name">VU THI PHUONG </span> số tiền
+                <span class="money">100,000 VND</span>
+                <br />
+                ngân hàng <span class="bank">Vietcombank.</span> Nội dung
+                <span class="content">NGO XUAN HAI chuyen tien</span>
+              </p>
+
+              <div class="dotted-border"></div>
+
+              <div class="transfer-code">
+                Số tham chiếu: <span class="code">358654455</span>
+              </div>
+
+              <div class="bottom-list">
+                <div class="list-item">
+                  <i class="isax isax-gallery"></i>
+                  <span>Lưu ảnh</span>
                 </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Loại tiền</div>
-                  <div class="value">RUB</div>
+                <div class="list-item">
+                  <i class="isax isax-share"></i>
+                  <span>Chia sẻ</span>
                 </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Số tài khoản</div>
-                  <div class="value">0000001110033</div>
+                <div class="list-item">
+                  <i class="isax isax-ticket-star"></i>
+                  <span>Lưu mẫu</span>
                 </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Tên người thụ hưởng</div>
-                  <div class="value highlight">Nguyen Van A</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Địa chỉ người thụ hưởng</div>
-                  <div class="value highlight">Quang Trung - Ha Noi</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Mã số thuế INN</div>
-                  <div class="value">101010101</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Hình thức chuyển tiền</div>
-                  <div class="value">Chuyển nhanh 24/7</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Mã số ĐK thuế KPP</div>
-                  <div class="value">12345678</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Mã BIK</div>
-                  <div class="value">0000001110033</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Tên ngân hàng</div>
-                  <div class="value">RB BANK</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Địa chỉ ngân hàng</div>
-                  <div class="value">UL.SOVETSKAYA 19</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Số TK tại NH trung gian</div>
-                  <div class="value"></div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Ngân hàng trung gian</div>
-                  <div class="value"></div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Mục đích VO code</div>
-                  <div class="value"></div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Loại phí</div>
-                  <div class="value"></div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Tên gợi nhớ</div>
-                  <div class="value"></div>
+                <div class="list-item">
+                  <i class="isax isax-add-circle"></i>
+                  <span>Thêm chi tiêu</span>
                 </div>
               </div>
 
               <div class="group-button-bottom">
                 <button
-                  class="btn btn-primary btn-back"
-                  onclick="location.href = 'inter-bank-step-other-rub-1.html';"
+                  class="btn btn-third"
+                  onclick="location.href = 'transfer-24-7.html';"
                 >
-                  Quay lại
+                  Tạo giao dịch mới
                 </button>
-
                 <button
-                  class="btn btn-third btn-submit"
-                  onclick="location.href = 'inter-bank-step-other-rub-3.html';"
+                  class="btn btn-primary btn-back-to-home"
+                  onclick="location.href = 'home.html';"
                 >
-                  Tiếp tục
+                  Về trang chủ
                 </button>
               </div>
             </div>
@@ -232,9 +228,6 @@
           menuComponent,
         },
         setup() {
-          const timerCount = ref(30);
-          const otpCode = ref("");
-
           const showGlobalSearch = ref(false);
           const searchGlobalQuery = ref("");
 
@@ -311,27 +304,10 @@
           });
 
           return {
-            timerCount,
-            otpCode,
             showGlobalSearch,
             searchGlobalQuery,
             filteredList,
           };
-        },
-
-        watch: {
-          timerCount: {
-            handler(value) {
-              if (value > 0) {
-                setTimeout(() => {
-                  this.timerCount--;
-                }, 1000);
-              } else {
-                window.location = "transaction-error.html";
-              }
-            },
-            immediate: true,
-          },
         },
       }).mount("#app");
     </script>

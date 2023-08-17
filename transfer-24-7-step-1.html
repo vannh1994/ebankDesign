@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Danh sách người thụ hưởng | VRB</title>
+    <title>Chuyển tiền ngoài VRB đến số tài khoản | VRB</title>
     <meta name="viewport" content="width=375, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
@@ -63,9 +63,15 @@
                   Trang chủ
                 </a>
               </li>
-
+              <li
+                class="breadcrumb-item"
+                aria-current="page"
+                onclick="location.href = 'transfer-inter.html';"
+              >
+                Chuyển tiền
+              </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Danh sách người thụ hưởng
+                Chuyển tiền VRB đến số tài khoản
               </li>
             </ol>
           </nav>
@@ -75,177 +81,182 @@
           <a class="back" href="home.html">
             <i class="isax isax-arrow-left-2"></i>
           </a>
-          <h2>Danh sách người thụ hưởng</h2>
+          <h2>Chuyển tiền ngoài VRB</h2>
         </div>
 
-        <div class="card card-scroll">
+        <div class="transaction-step">
+          <div class="step-item active">
+            <div class="step">1</div>
+            <div class="text">Khởi tạo</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card content-min-height card-scroll">
           <div class="card-body card-content p-3">
-            <div class="transfer-info pt-1">
-              <h2 class="title">Thông tin người thụ hưởng</h2>
-              <div class="input-group label-transition">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Loại giao dịch</label>
+            <div class="transfer-card-info">
+              <div class="transfer-account">
+                <div class="bank">
+                  <img src="assets/images/banks/vrb.svg" />
+                </div>
+                <div class="account-info">
+                  <div class="account-number">{{ accountNumber }}</div>
+                  <div class="money">120,000,000</div>
+                </div>
+                <i
+                  class="isax isax-card-edit"
+                  data-bs-toggle="modal"
+                  data-bs-target="#changeAccountModal"
+                ></i>
+              </div>
+              <div class="receiving-account">
+                <div class="account-info">
+                  <div class="account-name">VU THI PHUONG</div>
+                  <div class="account-number">00118506098</div>
+                  <div class="bank-name">Vietcombank</div>
+                </div>
+                <div class="bank">
+                  <img src="assets/images/banks/vcb.svg" />
                 </div>
               </div>
+            </div>
+
+            <div class="transfer-info">
+              <h2 class="title">Thông tin giao dịch</h2>
               <div class="input-group label-transition mt-4">
                 <div class="form-label">
                   <input
                     type="text"
+                    v-model="amount"
                     id="amount-input"
                     class="form-control input-text-bold"
                     name="money"
                   />
-                  <label for="money">Loại Tiền</label>
+                  <label for="money">Số tiền</label>
+                </div>
+                <div class="input-group-append">
+                  <div class="input-group-text">VND</div>
                 </div>
               </div>
+
+              <div class="money-suggestion">
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(100000)"
+                >
+                  100,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(200000)"
+                >
+                  200,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(300000)"
+                >
+                  500,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(1000000)"
+                >
+                  1,000,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(5000000)"
+                >
+                  5,000,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(10000000)"
+                >
+                  10,000,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(20000000)"
+                >
+                  20,000,000
+                </div>
+                <div
+                  class="money-suggestion-item"
+                  @click="selectAmount(30000000)"
+                >
+                  30,000,000
+                </div>
+              </div>
+
+              <div class="limit">
+                <span onclick="showLimit()">
+                  <i class="isax isax-info-circle"></i>
+                  Hạn mức
+                </span>
+              </div>
+
+              <div class="limit-popup" id="limit">
+                <p>
+                  Hạn mức tố đa còn lại trong ngày của Quý Khách là XXX VND. Hạn
+                  mức lần giao dịch là YYY VND.
+                </p>
+                <a href="#">
+                  Thay đổi hạn mức giao dịch
+                  <img src="assets/icons/arrow-down.svg" alt="arrow-down" />
+                </a>
+              </div>
+
+              <div class="transfer-fee">Phí chuyển khoản</div>
+              <div class="select-account-transfer-fee">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="account-transfer-fee"
+                    checked
+                  />
+                  <label class="form-check-label"> Người chuyển trả phí </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="account-transfer-fee"
+                  />
+                  <label class="form-check-label"> Người nhận trả phí </label>
+                </div>
+              </div>
+
               <div class="input-group label-transition mt-4">
+                <label class="max-length-count"
+                  >{{ content.length }}/160 ký tự</label
+                >
                 <div class="form-label">
                   <input
                     type="text"
-                    id="amount-input"
+                    v-model="content"
                     class="form-control input-text-bold"
-                    name="money"
+                    name="content"
+                    maxlength="160"
                   />
-                  <label for="money">Số tài khoản thụ hưởng</label>
+                  <label for="content">Nội dung</label>
                 </div>
               </div>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Tên người thụ hưởng</label>
-                </div>
-              </div>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Địa chỉ người thụ hưởng</label>
-                </div>
-              </div>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Mã số thuế INN</label>
-                </div>
-              </div>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Mã số ĐK thuế KPP</label>
-                </div>
-              </div>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Mã BIK</label>
-                </div>
-              </div>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Tên ngân hàng</label>
-                </div>
-              </div>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Địa chỉ ngân hàng</label>
-                </div>
-              </div>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Số tài khoản NH trung gian</label>
-                </div>
-              </div>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Ngân hàng trung gian</label>
-                </div>
-              </div>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Mã mục đích VO code</label>
-                </div>
-              </div>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Loại phí</label>
-                </div>
-              </div>
-              <div class="input-group label-transition mt-4">
-                <div class="form-label">
-                  <input
-                    type="text"
-                    id="amount-input"
-                    class="form-control input-text-bold"
-                    name="money"
-                  />
-                  <label for="money">Tên gợi nhớ</label>
-                </div>
+
+              <div class="save-contact mt-4">
+                <input class="form-check-input" value="" type="checkbox" />
+                <span class="form-check-label"> Lưu danh bạ thụ hưởng </span>
               </div>
 
               <div
@@ -253,7 +264,7 @@
               >
                 <button
                   class="btn btn-third btn-next"
-                  onclick="location.href = 'inter-bank-step-rub-2.html';"
+                  onclick="location.href = 'transfer-24-7-step-2.html';"
                 >
                   Tiếp tục
                 </button>

@@ -191,8 +191,12 @@ const menuComponent = {
         link: "transfer-inside.html",
         child: [
           {
-            text: "Chuyển tiền trong nước",
+            text: "Chuyển tiền trong VRB",
             link: "transfer-inside.html",
+          },
+          {
+            text: "Chuyển tiền ngoài VRB",
+            link: "transfer-inter.html",
           },
           {
             text: "Chuyển tiền quốc tế",

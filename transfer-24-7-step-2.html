@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Danh sách người thụ hưởng | VRB</title>
+    <title>Chuyển tiền ngoài VRB đến số tài khoản | VRB</title>
     <meta name="viewport" content="width=375, initial-scale=1.0" />
     <meta content="VRB" name="description" />
     <meta content="VRB" name="author" />
@@ -63,106 +63,147 @@
                   Trang chủ
                 </a>
               </li>
-
+              <li
+                onclick="location.href = 'transfer-inter.html';"
+                class="breadcrumb-item"
+                aria-current="page"
+              >
+                Chuyển tiền
+              </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Danh sách người thụ hưởng
+                Chuyển tiền VRB đến số tài khoản
               </li>
             </ol>
           </nav>
         </div>
 
         <div class="page-title">
-          <a class="back" href="inter-bank-step-1.html">
+          <a class="back" href="transfer-24-7-step-1.html">
             <i class="isax isax-arrow-left-2"></i>
           </a>
-          <h2>Danh sách người thụ hưởng</h2>
+          <h2>Chuyển tiền ngoài VRB</h2>
         </div>
 
-        <div class="card card-scroll beneficiaries">
+        <div class="transaction-step">
+          <div class="step-item active">
+            <div class="step">1</div>
+            <div class="text">Khởi tạo</div>
+          </div>
+          <div class="progress active"></div>
+          <div class="step-item active">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card content-min-height card-scroll">
           <div class="card-body card-content p-3">
             <div class="transfer-info">
-              <h2 class="title">Thông tin người thụ hưởng</h2>
+              <h2 class="title">Thông tin giao dịch</h2>
 
               <div class="transfer-info-confirm-block">
                 <div class="transfer-info-confirm-item">
-                  <div class="title">Loại giao dịch</div>
-                  <div class="value">Chuyển tiền quốc tế</div>
+                  <div class="title">Tài khoản nguồn</div>
+                  <div class="value">00118508898</div>
                 </div>
                 <div class="transfer-info-confirm-item">
-                  <div class="title">Loại tiền</div>
-                  <div class="value">RUB</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Số tài khoản</div>
-                  <div class="value">0000001110033</div>
+                  <div class="title">Tài khoản thụ hưởng</div>
+                  <div class="value highlight">120919855</div>
                 </div>
                 <div class="transfer-info-confirm-item">
                   <div class="title">Tên người thụ hưởng</div>
-                  <div class="value highlight">Nguyen Van A</div>
+                  <div class="value highlight">HA THI MIEN</div>
                 </div>
                 <div class="transfer-info-confirm-item">
-                  <div class="title">Địa chỉ người thụ hưởng</div>
-                  <div class="value highlight">Quang Trung - Ha Noi</div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Mã số thuế INN</div>
-                  <div class="value">101010101</div>
+                  <div class="title">Ngân hàng thụ hưởng</div>
+                  <div class="value">VIETCOMBANK</div>
                 </div>
                 <div class="transfer-info-confirm-item">
                   <div class="title">Hình thức chuyển tiền</div>
                   <div class="value">Chuyển nhanh 24/7</div>
                 </div>
+              </div>
+
+              <div class="transfer-info-confirm-block mt-3">
                 <div class="transfer-info-confirm-item">
-                  <div class="title">Mã số ĐK thuế KPP</div>
-                  <div class="value">12345678</div>
+                  <div class="title">Số tiền</div>
+                  <div class="value highlight">100,000 VND</div>
                 </div>
                 <div class="transfer-info-confirm-item">
-                  <div class="title">Mã BIK</div>
-                  <div class="value">0000001110033</div>
+                  <div class="title">Phí giao dịch</div>
+                  <div class="value">0 VND</div>
+                </div>
+              </div>
+
+              <div class="transfer-info-confirm-block mt-3">
+                <div class="transfer-info-confirm-item">
+                  <div class="title">Ngày giao dịch</div>
+                  <div class="value highlight">12/06/2023 12:02:23</div>
                 </div>
                 <div class="transfer-info-confirm-item">
-                  <div class="title">Tên ngân hàng</div>
-                  <div class="value">RB BANK</div>
+                  <div class="title">Nội dung</div>
+                  <div class="value">NGO XUAN HAI chuyen tien</div>
                 </div>
                 <div class="transfer-info-confirm-item">
-                  <div class="title">Địa chỉ ngân hàng</div>
-                  <div class="value">UL.SOVETSKAYA 19</div>
+                  <div class="title">Hình thức xác nhận</div>
+                  <div class="value">Smart OTP</div>
                 </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Số TK tại NH trung gian</div>
-                  <div class="value"></div>
+              </div>
+
+              <div class="qr-code-block">
+                <div class="qr-code-content">
+                  <div class="description">
+                    Giao dịch đang chờ xác thực bằng phương thức Smart OTP trên
+                    ứng dụng VRB bank kênh điện thoại của Quý khách
+                  </div>
+                  <div class="time-expired">
+                    Hiệu lực giao dịch còn <span>{{ timerCount }} giây</span>
+                  </div>
+                  <div class="qr-code">
+                    <img src="assets/images/cliparts/qr-code.svg" alt="qr" />
+                  </div>
+                  <div class="warning">
+                    Quý khách vui lòng KHÔNG tắt trình duyệt cho đến khi nhận
+                    được kết quả giao dịch trên Internet Banking. Xin cảm ơn!
+                  </div>
+
+                  <div class="input-group label-transition mt-2 mb-4">
+                    <div class="form-label">
+                      <input
+                        type="text"
+                        v-model="otpCode"
+                        id="otp-input"
+                        class="form-control input-text-bold"
+                        name="money"
+                      />
+                      <label for="money">Mã OTP</label>
+                    </div>
+                  </div>
                 </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Ngân hàng trung gian</div>
-                  <div class="value"></div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Mục đích VO code</div>
-                  <div class="value"></div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Loại phí</div>
-                  <div class="value"></div>
-                </div>
-                <div class="transfer-info-confirm-item">
-                  <div class="title">Tên gợi nhớ</div>
-                  <div class="value"></div>
+                <div class="preview">
+                  <img src="assets/images/cliparts/phone.png" alt="phone" />
                 </div>
               </div>
 
               <div class="group-button-bottom">
                 <button
                   class="btn btn-primary btn-back"
-                  onclick="location.href = 'inter-bank-step-other-rub-1.html';"
+                  onclick="location.href = 'inter-bank-step-1.html';"
                 >
                   Quay lại
                 </button>
 
                 <button
                   class="btn btn-third btn-submit"
-                  onclick="location.href = 'inter-bank-step-other-rub-3.html';"
+                  :disabled="!otpCode.length"
+                  onclick="location.href = 'transfer-24-7-step-3.html';"
                 >
-                  Tiếp tục
+                  Chuyển tiền
                 </button>
               </div>
             </div>

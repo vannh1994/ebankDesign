@@ -285,7 +285,7 @@
 
 .international-money-transfer-page .transfer-info .title {
   color: #333;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 36px;
   text-align: left;
@@ -403,6 +403,32 @@
   padding: 16px;
 }
 
+.international-money-transfer-step-2-page
+  .transfer-info-confirm-block
+  .transfer-info-confirm-item
+  .title {
+  font-size: 14px;
+}
+
+.international-money-transfer-step-2-page
+  .transfer-info-confirm-block
+  .transfer-info-confirm-item
+  .value {
+  font-size: 14px;
+  text-align: right;
+}
+
+.international-money-transfer-step-2-page
+  .transfer-info-confirm-block
+  .transfer-info-confirm-item
+  .value
+  span {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  color: #333333;
+}
+
 @media (max-width: 991px) {
   .international-money-transfer-page .international-money-confirm .input-code {
     flex-direction: column;
@@ -466,5 +492,25 @@
 
   .international-money-transfer-page .balances-popup .balances-item .value {
     text-align: right;
+  }
+
+  .international-money-transfer-page.international-money-transfer-step-2-page
+    .transfer-info-confirm-block
+    .transfer-info-confirm-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .international-money-transfer-page
+    .transfer-info-confirm-block
+    .transfer-info-confirm-item
+    .value {
+    text-align: left;
+  }
+
+  .international-money-transfer-page.international-money-transfer-step-2-page
+    .transfer-info-confirm-block {
+    gap: 16px !important;
   }
 }
