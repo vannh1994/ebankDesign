@@ -62,6 +62,7 @@ const selectorComponent = {
     "searchable",
     "searchBy",
     "required",
+    "default",
   ],
   emits: ["update:modelValue"],
   setup(props) {
@@ -94,6 +95,7 @@ const selectorComponent = {
 
     onMounted(() => {
       document.addEventListener("click", onClickOutside);
+      selectedOption.value = props.default;
     });
 
     onBeforeMount(() => {

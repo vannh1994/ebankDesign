@@ -134,9 +134,12 @@
                     v-model="sourceAccount"
                     :options="accountList"
                     :required="true"
+                    :default="sourceAccountDefault"
                   >
                     <template #selected="{option}">
-                      <b>{{ option.number }} - {{option.currency}}</b>
+                      <b v-if="option"
+                        >{{ option.number }} - {{option.currency}}</b
+                      >
                     </template>
                     <template #option="{option}">
                       <b class="d-block py-2">
@@ -150,6 +153,47 @@
                     <b class="text-branding"> {{ formatMoney(10000000) }} </b>
                   </div>
                 </div>
+
+                <div
+                  class="d-flex align-items-center justify-content-center mt-4"
+                >
+                  <div class="month-filter">
+                    <i class="isax isax-arrow-left-2"></i>
+                    <div class="calendar">
+                      <Datepicker
+                        ref="filterTimeCalendar"
+                        v-model="filterTime"
+                        auto-apply
+                        time-picker
+                        hide-input-icon
+                        locale="vi"
+                        format="HH:mm"
+                        input-class-name="opacity-0"
+                        :start-time="startTime"
+                        @update:model-value="handleFilterTime"
+                      />
+                    </div>
+
+                    <div class="form-label w-100">
+                      <input
+                        id="calendar-filter-time-input"
+                        class="form-control fw-bold"
+                        v-model="filterTimeDisplay"
+                        @focus="openCalendar('filter-time')"
+                      />
+                    </div>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <i
+                          class="isax isax-calendar-1"
+                          @click="openCalendar('filter-time')"
+                        ></i>
+                      </div>
+                    </div>
+                    <i class="isax isax-arrow-right-3"></i>
+                  </div>
+                </div>
+
                 <div class="chart-content">
                   <div class="card card-chart">
                     <div class="filter-section">
@@ -586,6 +630,10 @@
           });
 
           const sourceAccount = ref(null);
+          const sourceAccountDefault = ref({
+            number: "05000210000123",
+            currency: "VND",
+          });
           const connectionAccount = ref(null);
           const accountList = [
             {
@@ -616,13 +664,18 @@
           };
 
           const filterMonth = ref("08/2023");
+          const filterTime = ref("00:00");
           const filterMonthSpending = ref("08/2023");
           const filterMonthTax = ref("08/2023");
           const filterYear = ref("2023");
           const filterMonthCalendar = ref(null);
+          const filterTimeCalendar = ref(null);
           const filterMonthSpendingCalendar = ref(null);
           const filterMonthTaxCalendar = ref(null);
           const filterYearCalendar = ref(null);
+
+          const startTime = ref({ hours: 0, minutes: 0 });
+          const filterTimeDisplay = ref(moment().format("HH:mm"));
 
           const openCalendar = (point) => {
             if (point == "filter-month") {
@@ -631,6 +684,8 @@
               filterMonthSpendingCalendar.value.openMenu();
             } else if (point == "filter-month-tax") {
               filterMonthTaxCalendar.value.openMenu();
+            } else if (point == "filter-time") {
+              filterTimeCalendar.value.openMenu();
             } else {
               filterYearCalendar.value.openMenu();
             }
@@ -655,8 +710,13 @@
             filterYear.value = modelData;
           };
 
+          const handleFilterTime = (modelData) => {
+            filterTimeDisplay.value = moment(modelData).format("HH:mm");
+          };
+
           onMounted(() => {
             document.addEventListener("click", onClickOutside);
+            sourceAccount.value = sourceAccountDefault.value;
           });
 
           onBeforeMount(() => {
@@ -671,18 +731,24 @@
             connectionAccount,
             accountList,
             filterMonthCalendar,
+            filterTimeCalendar,
             filterYearCalendar,
+            filterTime,
             filterMonth,
             filterYear,
+            filterTimeDisplay,
             sourceAccountSpendingDetail,
             filterMonthSpending,
             filterMonthSpendingCalendar,
             sourceAccountTax,
             filterMonthTax,
             filterMonthTaxCalendar,
+            sourceAccountDefault,
+            startTime,
             handleFilterMonthTax,
             formatMoney,
             openCalendar,
+            handleFilterTime,
             handleFilterMonth,
             handleFilterMonthSpending,
             handleFilterYear,

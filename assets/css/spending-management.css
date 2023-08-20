@@ -234,6 +234,7 @@
 }
 
 .spending-management-page .month-filter #calendar-filter-month-input,
+.spending-management-page .month-filter #calendar-filter-time-input,
 .spending-management-page .month-filter #calendar-filter-year-input,
 .spending-management-page .month-filter #calendar-filter-month-spending-input,
 .spending-management-page .month-filter #calendar-filter-month-tax-input {
