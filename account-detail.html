@@ -178,7 +178,6 @@
                         id="calendar-start-input"
                         class="form-control fw-bold"
                         v-model="startAt"
-                        @focus="openCalendar('start')"
                       />
                       <label for="account_number"> Từ ngày </label>
                     </div>
@@ -213,7 +212,6 @@
                         id="calendar-end-input"
                         class="form-control fw-bold"
                         v-model="endAt"
-                        @focus="openCalendar('end')"
                       />
                       <label for="account_number"> Đến ngày </label>
                     </div>
@@ -1320,8 +1318,25 @@
             showGlobalSearch.value = false;
           };
 
+          const focusDatePicker = (event) => {
+            event.target.setAttribute("type", "date");
+          };
+
+          const focusoutDatePicker = (event) => {
+            event.target.setAttribute("type", "text");
+          };
+
           onMounted(() => {
             document.addEventListener("click", onClickOutside);
+            const startElement = document.getElementById(
+              "calendar-start-input"
+            );
+            const endElement = document.getElementById("calendar-end-input");
+            startElement.addEventListener("focus", focusDatePicker);
+            startElement.addEventListener("focusout", focusoutDatePicker);
+
+            endElement.addEventListener("focus", focusDatePicker);
+            endElement.addEventListener("focusout", focusoutDatePicker);
           });
 
           onBeforeMount(() => {
