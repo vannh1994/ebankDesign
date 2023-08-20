@@ -289,6 +289,11 @@
   left: 55px !important;
 }
 
+.dp-custom-calendar.dp__menu.dp__menu_index.dp__theme_light {
+  top: 32px !important;
+  left: 54px !important;
+}
+
 @media (max-width: 1365px) {
   .spending-management-page
     .spending-detail-filter
