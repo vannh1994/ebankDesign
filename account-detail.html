@@ -176,7 +176,7 @@
                     <div class="form-label w-100">
                       <input
                         id="calendar-start-input"
-                        class="form-control fw-bold"
+                        class="form-control fw-bold disable-hover"
                         v-model="startAt"
                       />
                       <label for="account_number"> Từ ngày </label>
@@ -210,7 +210,7 @@
                     <div class="form-label w-100">
                       <input
                         id="calendar-end-input"
-                        class="form-control fw-bold"
+                        class="form-control fw-bold disable-hover"
                         v-model="endAt"
                       />
                       <label for="account_number"> Đến ngày </label>
@@ -1235,6 +1235,7 @@
     <script src="./components/menu.js"></script>
     <script src="./assets/js/vue-datepicker.iife.js"></script>
     <script src="./assets/js/moment.min.js"></script>
+    <script src="./assets/js/inputmask.js"></script>
 
     <script>
       hideLoading();
@@ -1328,15 +1329,6 @@
 
           onMounted(() => {
             document.addEventListener("click", onClickOutside);
-            const startElement = document.getElementById(
-              "calendar-start-input"
-            );
-            const endElement = document.getElementById("calendar-end-input");
-            startElement.addEventListener("focus", focusDatePicker);
-            startElement.addEventListener("focusout", focusoutDatePicker);
-
-            endElement.addEventListener("focus", focusDatePicker);
-            endElement.addEventListener("focusout", focusoutDatePicker);
           });
 
           onBeforeMount(() => {
@@ -1449,6 +1441,22 @@
           };
         },
       }).mount("#app");
+    </script>
+
+    <script>
+      const inputStart = document.getElementById("calendar-start-input");
+      const inputmaskStart = new Inputmask({
+        alias: "datetime",
+        inputFormat: "dd/mm/yyyy",
+      });
+      inputmaskStart.mask(inputStart);
+
+      const inputEnd = document.getElementById("calendar-end-input");
+      const inputmaskEnd = new Inputmask({
+        alias: "datetime",
+        inputFormat: "dd/mm/yyyy",
+      });
+      inputmaskEnd.mask(inputEnd);
     </script>
   </body>
 </html>

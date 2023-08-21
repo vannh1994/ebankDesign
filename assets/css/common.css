@@ -742,3 +742,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
 }
+
+.disable-hover::placeholder {
+  opacity: 0;
+}
+
+:not(.disable-hover)::placeholder {
+  opacity: 1;
+}
