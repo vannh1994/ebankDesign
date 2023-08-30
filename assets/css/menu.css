@@ -70,7 +70,7 @@
 .left-menu ul li.item .item-content {
   padding: 16px;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 18px;
   color: #333333;
   display: flex;
@@ -115,7 +115,7 @@
 
 .left-menu ul li.item .sub-menu .sub-menu-item {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 18px;
   color: #333333;
   display: flex;

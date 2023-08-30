@@ -97,9 +97,9 @@
           </div>
         </div>
 
-        <div class="card py-3 flex-fill content-min-height card-scroll">
+        <div class="card p-4 flex-fill content-min-height card-scroll">
           <div class="container-flex d-grid gap-3 card-content">
-            <div class="fw-bolder fs-5">Thông tin tài khoản</div>
+            <div class="page-card-title">Thông tin tài khoản</div>
 
             <div>
               <selector-component
@@ -160,7 +160,10 @@
                 class="d-flex align-items-center gap-3"
               >
                 <div class="d-flex align-items-center gap-2">
-                  <div :class="{ 'fw-bolder': selectedAccountNumber }">
+                  <div
+                    class="nice-digital-account"
+                    :class="{ 'fw-bolder': selectedAccountNumber }"
+                  >
                     Tài khoản số đẹp
                   </div>
                   <b v-if="selectedAccountNumber">
@@ -255,12 +258,14 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title">Danh sách tài khoản số đẹp</h5>
-                <span class="close" data-bs-dismiss="modal">Đóng</span>
+                <span class="close" data-bs-dismiss="modal">
+                  <img src="assets/icons/control.svg" />
+                </span>
               </div>
 
               <div class="modal-body">
-                <div class="input-search input-reverse my-2">
-                  <i class="isax isax-search-normal-1"></i>
+                <div class="input-search input-reverse">
+                  <img class="icon-search" src="assets/images/search.png" />
                   <input
                     v-model="searchForAccountNumber"
                     placeholder="Tìm kiếm danh sách"
@@ -269,39 +274,36 @@
                   />
                 </div>
 
-                <div class="text-muted text-center fs-6">
+                <div class="mb-3 text-notification">
                   Quý khách nhập 2-7 số mong muốn
                 </div>
-              </div>
 
-              <table class="table text-center mb-0">
-                <thead>
-                  <tr>
-                    <th>Tài khoản số đẹp</th>
-                    <th>Phí mở tài khoản</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="account in filteredSuggestedAccountList">
-                    <td>{{account.number}}</td>
-                    <td>{{formatMoney(account.fee)}}</td>
-                    <td>
-                      <span
-                        role="button"
-                        class="button"
-                        data-bs-dismiss="modal"
-                        @click="selectedAccountNumber = account"
-                      >
-                        Chọn
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                <table class="table text-center mb-0">
+                  <thead>
+                    <tr>
+                      <th>Tài khoản số đẹp</th>
+                      <th>Phí mở tài khoản</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="account in filteredSuggestedAccountList">
+                      <td>{{account.number}}</td>
+                      <td>{{formatMoney(account.fee)}}</td>
+                      <td>
+                        <span
+                          class="btn-select"
+                          data-bs-dismiss="modal"
+                          @click="selectedAccountNumber = account"
+                        >
+                          Chọn
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
 
-              <div class="modal-footer">
-                <div class="text-end text-muted fs-6">
+                <div class="text-end text-result">
                   Hiển thị 1 đến {{filteredSuggestedAccountList.length}} trong
                   {{filteredSuggestedAccountList.length}} kết quả
                 </div>

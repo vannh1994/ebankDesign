@@ -4,7 +4,6 @@
 
 .transfer-area {
   flex: 1 0;
-  padding: 16px;
 }
 
 .transfer-area .bank-logo {
@@ -257,7 +256,12 @@
 }
 
 .contact-area {
-  padding: 16px 16px 16px 8px;
+  padding: 0 0 0 16px;
+  width: 275px;
+}
+
+.contact-area .btn-third {
+  padding: 12px !important;
 }
 
 .contact-area .card {
@@ -378,6 +382,10 @@
 .transfer-inside-page .input-group.label-transition .input-group-prepend,
 .transfer-inside-page .input-group.label-transition .input-group-append {
   transform: translateY(-2.5px);
+}
+
+.transfer-inside-page .card-content {
+  border-radius: 0 !important;
 }
 
 @media (max-width: 1300px) {

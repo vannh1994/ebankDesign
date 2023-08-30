@@ -355,7 +355,7 @@ input[type="search"]::-webkit-input-placeholder {
 }
 
 .input-group.label-transition {
-  padding-top: 18px;
+  padding-top: 15px;
 }
 
 .input-group.label-transition .form-label {
@@ -531,7 +531,7 @@ input[type="number"] {
   display: flex;
   align-items: flex-end;
   gap: 4px;
-  height: 58px;
+  height: 54px;
   padding-bottom: 6px;
   border-bottom: 1px solid #c4c4c6;
   cursor: pointer;

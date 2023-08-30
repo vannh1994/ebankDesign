@@ -191,19 +191,15 @@ const menuComponent = {
         link: "transfer-inside.html",
         child: [
           {
-            text: "Chuyển tiền trong VRB",
+            text: "Chuyển tiền trong nước",
             link: "transfer-inside.html",
           },
           {
-            text: "Chuyển tiền ngoài VRB",
+            text: "Chuyển tiền quốc tế",
             link: "transfer-inter.html",
           },
           {
-            text: "Chuyển tiền quốc tế",
-            link: "international-money-transfer-step-1.html",
-          },
-          {
-            text: "Đăng ký/thay đổi hạn mức chuyển tiền quốc tế",
+            text: "Đăng ký/ thay đổi hạn mức chuyển tiền quốc tế",
             link: "register-international-money-transfer-step-1.html",
           },
           {
@@ -211,8 +207,12 @@ const menuComponent = {
             link: "direct-transfer-log.html",
           },
           {
-            text: "Tài khoản thủ hưởng",
+            text: "Danh sách người thụ hưởng",
             link: "beneficiaries-step-1.html",
+          },
+          {
+            text: "Mẫu chuyển tiền",
+            link: "contact-management.html",
           },
         ],
       },
@@ -254,18 +254,9 @@ const menuComponent = {
       },
       {
         id: 10,
-        text: "Tiện ích",
+        text: "Dịch vụ ví điện tử",
         link: "#",
-        child: [
-          {
-            text: "Thông báo",
-            link: "notifications.html",
-          },
-          {
-            text: "Nhận thông báo từ ngân hàng",
-            link: "get-notifications.html",
-          },
-        ],
+        child: [],
       },
       {
         id: 11,
@@ -275,7 +266,7 @@ const menuComponent = {
       },
       {
         id: 12,
-        text: "Đăng ký dịch vụ",
+        text: "Tiện ích",
         link: "#",
         child: [],
       },
@@ -283,16 +274,7 @@ const menuComponent = {
         id: 13,
         text: "Bảo mật",
         link: "#",
-        child: [
-          {
-            text: "Tạm ngừng dịch vụ NH số",
-            link: "service-suspension.html",
-          },
-          {
-            text: "Thay đổi mật khẩu",
-            link: "password-change.html",
-          },
-        ],
+        child: [],
       },
       {
         id: 14,
@@ -300,28 +282,32 @@ const menuComponent = {
         link: "#",
         child: [
           {
-            text: "Thay đổi hạn mức giao dịch",
-            link: "setting-transaction-limit-step-1.html",
+            text: "Đặt lịch hẹn",
+            link: "#",
           },
           {
-            text: "Tra soát giao dịch",
-            link: "transaction.html",
+            text: "Hỏi đáp về sản phẩm dịch vụ",
+            link: "#",
           },
           {
-            text: "Tra cứu tra soát giao dịch",
-            link: "transaction-lookup.html",
+            text: "Địa điểm ATM/ Chi nhánh",
+            link: "#",
           },
           {
-            text: "Lịch sử hoạt động",
-            link: "history.html",
+            text: "Tỷ giá",
+            link: "#",
           },
           {
             text: "Liên hệ",
             link: "contact.html",
           },
           {
-            text: "Mẫu chuyển tiền",
-            link: "contact-management.html",
+            text: "Lịch sử hoạt động",
+            link: "history.html",
+          },
+          {
+            text: "Tra cứu tra soát giao dịch",
+            link: "transaction-lookup.html",
           },
         ],
       },
