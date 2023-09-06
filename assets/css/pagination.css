@@ -15,16 +15,20 @@
   border-radius: 8px;
 }
 
-.pagination .page-link:hover {
+.pagination .page-item:not(.disable) .page-link:hover {
   color: #fff;
-  background-color: #0c65ce;
-  border-color: #0c65ce;
+  background-color: #002d85;
+  border-color: #002d85;
 }
 
 .pagination .page-item.active .page-link {
   color: #fff;
-  background-color: #556ee6;
-  border-color: #556ee6;
+  background-color: #002d85;
+  border-color: #002d85;
+}
+
+.pagination .page-item.disable .page-link {
+  color: #787878;
 }
 
 .page-item:last-child .page-link {

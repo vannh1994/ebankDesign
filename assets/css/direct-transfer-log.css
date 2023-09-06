@@ -2,76 +2,38 @@
   margin: 100px auto !important;
 }
 
-.direct-transfer-log-page .input-search-select {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+.direct-transfer-log-page .search-block {
+  max-width: 868px;
+  padding: 24px 24px 16px;
+  margin: auto;
 }
 
-.direct-transfer-log-page .input-search-select label {
-  width: 25%;
-  margin-bottom: 0;
-  font-weight: 500;
+.direct-transfer-log-page .search-block .col-12.col-md-6:nth-child(even) {
+  padding-left: 16px;
+  padding-right: 0;
 }
 
-.direct-transfer-log-page .input-search-select select {
-  width: 75%;
+.direct-transfer-log-page .search-block .col-12.col-md-6:nth-child(odd) {
+  padding-left: 0;
+  padding-right: 16px;
 }
 
-.direct-transfer-log-page .input-search-range {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.direct-transfer-log-page .input-search-range label {
-  width: 25%;
-  min-width: 25%;
-  margin-bottom: 0;
-  font-weight: 500;
-}
-
-.direct-transfer-log-page .filter-actions {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 16px;
-}
-
-.direct-transfer-log-page .filter-actions .btn {
-  margin-top: 16px;
-  padding: 8px 32px !important;
-  height: 40px;
-}
-
-.direct-transfer-log-page table td.actions {
-  text-align: center;
-}
-
-.direct-transfer-log-page table td.actions i {
-  font-size: 16px;
-  cursor: pointer;
-  color: #002d85;
-  margin-right: 8px;
+.direct-transfer-log-page .search-block .col-12.col-md-3 {
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .direct-transfer-log-page .table-actions {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  border-bottom: 1px solid #ced4da;
-  padding-bottom: 10px;
   gap: 8px;
-  margin-top: 16px;
 }
 
-.direct-transfer-log-page .table-actions .btn-action {
+.direct-transfer-log-page .table-actions .btn-export {
   color: #002d85 !important;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 18px;
   display: flex;
   align-items: center;
@@ -79,8 +41,109 @@
   gap: 4px;
 }
 
-.direct-transfer-log-page .table-actions .btn-action:hover {
+.direct-transfer-log-page .table-actions .btn-export:hover {
   text-decoration: underline;
+}
+
+.direct-transfer-log-page .table-actions .export-group {
+  display: flex;
+  align-items: center;
+}
+
+.direct-transfer-log-page .pagination {
+  margin-bottom: 0;
+  justify-content: flex-start;
+}
+
+.direct-transfer-log-page .pagination .page-link {
+  background: transparent;
+}
+
+.direct-transfer-log-page .transaction-lookup-table {
+  background: var(--background-bg-web, #f1f2f2);
+}
+
+.direct-transfer-log-page .transaction-lookup-table table {
+  background: white;
+}
+
+.direct-transfer-log-page .transaction-lookup-table thead {
+  background: var(--background-background-1, #f4f7fe);
+}
+
+.direct-transfer-log-page .transaction-lookup-table thead tr th {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.direct-transfer-log-page .pl-0 {
+  padding-left: 0 !important;
+}
+
+.direct-transfer-log-page .pr-0 {
+  padding-right: 0 !important;
+}
+
+.direct-transfer-log-page .btn-reset {
+  border-radius: 12px;
+  border: 1px solid rgba(0, 45, 133, 0.2);
+  background: #f4f7fe;
+  padding: 12px 48px;
+  margin-right: 8px;
+  color: #002d85 !important;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.direct-transfer-log-page .account-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 16px;
+  padding: 16px;
+  padding-left: 0;
+}
+
+.direct-transfer-log-page .account-info .info-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 4px;
+}
+
+.direct-transfer-log-page .account-info .title {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: #333333;
+  padding-top: 0;
+}
+
+.direct-transfer-log-page .account-info .info {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  color: #333333;
+  text-align: right;
+}
+
+.direct-transfer-log-page .modal-lg {
+  max-width: 752px !important;
+}
+
+@media (max-width: 1201px) {
+  .direct-transfer-log-page .table-actions {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 767px) {
@@ -91,9 +154,6 @@
   .direct-transfer-log-page .filter-actions .btn {
     width: 100%;
     margin-top: 0;
-  }
-  .pay-bills-page .home-container {
-    max-width: 600px !important;
   }
 
   .direct-transfer-log-page .table {
@@ -144,10 +204,34 @@
     padding-right: 0.5em;
     text-align: left;
   }
+
+  .direct-transfer-log-page .search-block .col-12.col-md-6:nth-child(even) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .direct-transfer-log-page .search-block .col-12.col-md-6:nth-child(odd) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .direct-transfer-log-page .search-block .col-12.col-md-3 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .direct-transfer-log-page .modal-lg {
+    max-width: 500px !important;
+  }
 }
 
 @media (max-width: 575px) {
   .direct-transfer-log-page .home-container {
-    margin: 96px auto !important;
+    margin: 90px auto !important;
+  }
+
+  .direct-transfer-log-page .table-actions .export-group {
+    flex-direction: column;
+    gap: 8px;
   }
 }

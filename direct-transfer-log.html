@@ -75,229 +75,469 @@
           <h2>Nhật ký chuyển khoản trực tiếp</h2>
         </div>
 
-        <div class="card card-scroll">
+        <div class="card card-scroll p-0">
           <div class="main-content card-content">
-            <div class="row">
-              <div class="col-12">
-                <div
-                  class="tab-pane fade show active contact-area"
-                  id="nav-all"
-                  role="tabpanel"
-                  aria-labelledby="nav-all-tab"
+            <div class="row search-block">
+              <div class="col-12 col-md-6 mt-3">
+                <selector-component
+                  placeholder="Số Tài khoản"
+                  v-model="account"
+                  :options="accountOptions"
+                  :required="false"
                 >
-                  <div class="row">
-                    <div class="col-12 col-md-6 mt-3">
-                      <div class="input-search-select">
-                        <label>Số tài khoản</label>
-                        <select class="form-select">
-                          <option value=""></option>
-                          <option value="111122223333">111122223333</option>
-                          <option value="111122223333">111122223333</option>
-                          <option value="111122223333">111122223333</option>
-                        </select>
-                      </div>
-                    </div>
+                  <template #selected="{option}">
+                    <b> {{option.text}}</b>
+                  </template>
+                  <template #option="{option}">
+                    <b class="d-block py-2"> {{option.text}}</b>
+                  </template>
+                </selector-component>
+              </div>
 
-                    <div class="col-12 col-md-6 mt-3">
-                      <div class="input-search-select">
-                        <label>Loại giao dịch</label>
-                        <select class="form-select">
-                          <option value=""></option>
-                          <option value="Chuyển tiền">Chuyển tiền</option>
-                          <option value="Nhận tiền">Nhận tiền</option>
-                          <option value="Thanh toán hoá đơn">
-                            Thanh toán hoá đơn
-                          </option>
-                        </select>
-                      </div>
-                    </div>
+              <div class="col-12 col-md-6 mt-3">
+                <selector-component
+                  placeholder="Loại giao dịch"
+                  v-model="serviceType"
+                  :options="serviceTypeOptions"
+                  :required="false"
+                >
+                  <template #selected="{option}">
+                    <b> {{option.text}}</b>
+                  </template>
+                  <template #option="{option}">
+                    <b class="d-block py-2"> {{option.text}}</b>
+                  </template>
+                </selector-component>
+              </div>
 
-                    <div class="col-12 col-md-6 mt-3">
-                      <div class="input-search-select">
-                        <label>Loại tiền</label>
-                        <select class="form-select">
-                          <option value=""></option>
-                          <option value="">VND</option>
-                          <option value="">USD</option>
-                          <option value="">RUB</option>
-                        </select>
-                      </div>
-                    </div>
+              <div class="col-12 col-md-6 mt-3">
+                <selector-component
+                  placeholder="Loại tiền"
+                  v-model="moneyType"
+                  :options="moneyTypeOptions"
+                  :required="false"
+                >
+                  <template #selected="{option}">
+                    <b> {{option.text}}</b>
+                  </template>
+                  <template #option="{option}">
+                    <b class="d-block py-2"> {{option.text}}</b>
+                  </template>
+                </selector-component>
+              </div>
 
-                    <div class="col-12 col-md-6 mt-3">
-                      <div class="input-search-select">
-                        <label>Trạng thái</label>
-                        <select class="form-select">
-                          <option value=""></option>
-                          <option value="">Thành công</option>
-                          <option value="">Thất bại</option>
-                          <option value="">Huỷ</option>
-                        </select>
-                      </div>
-                    </div>
+              <div class="col-12 col-md-6 mt-3">
+                <selector-component
+                  placeholder="Trạng thái"
+                  v-model="status"
+                  :options="statusOptions"
+                  :required="false"
+                >
+                  <template #selected="{option}">
+                    <b> {{option.text}}</b>
+                  </template>
+                  <template #option="{option}">
+                    <b class="d-block py-2"> {{option.text}}</b>
+                  </template>
+                </selector-component>
+              </div>
 
-                    <div class="col-12 col-md-6 mt-3">
-                      <div class="input-search-range">
-                        <label>Ngày giao dịch</label>
-                        <input type="date" class="form-control" />
-                        <span>~</span>
-                        <input type="date" class="form-control" />
-                      </div>
-                    </div>
-
-                    <div class="col-12 col-md-6 mt-3">
-                      <div class="input-search-range">
-                        <label>Số tiền từ</label>
-                        <input type="number" value="0" class="form-control" />
-                        <span>~</span>
-                        <input type="number" value="0" class="form-control" />
-                      </div>
-                    </div>
-
-                    <div class="col-12 mt-3">
-                      <div class="filter-actions">
-                        <button class="btn btn-primary btn-clear">
-                          Làm mới điều kiện
-                        </button>
-                        <button class="btn btn-third">Tìm kiếm</button>
-                      </div>
-                    </div>
+              <div class="col-12 col-md-3 mt-3 pl-0">
+                <div class="input-group label-transition">
+                  <div class="calendar">
+                    <Datepicker
+                      ref="startAtCalendar"
+                      v-model="startAt"
+                      auto-apply
+                      hide-input-icon
+                      locale="vi"
+                      :day-names="dayName"
+                      :enable-time-picker="false"
+                      format="dd/MM/yyyy"
+                      input-class-name="opacity-0"
+                      @update:model-value="handleStartAt"
+                      @closed="focusElement('calendar-start-input')"
+                    />
                   </div>
 
-                  <div class="table-actions">
-                    <button class="btn btn-action">
-                      Xuất PDF <i class="isax isax-document-download"></i>
-                    </button>
-                    <button class="btn btn-action">
-                      Xuất excel <i class="isax isax-document-download"></i>
-                    </button>
-                    <button class="btn btn-action">
-                      In chứng từ <i class="isax isax-document-download"></i>
-                    </button>
+                  <div class="form-label w-100">
+                    <input
+                      id="calendar-start-input"
+                      class="form-control fw-bold"
+                      v-model="startAt"
+                      @focus="openCalendar('start')"
+                    />
+                    <label for="account_number"> Từ ngày </label>
                   </div>
-
-                  <div class="table-log table-responsive mt-2">
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>
-                            <input
-                              type="checkbox"
-                              class="select-all checkbox"
-                              name="select-all"
-                            />
-                          </th>
-                          <th>Tài khoản nguồn</th>
-                          <th>Số trace</th>
-                          <th>Loại giao dịch</th>
-                          <th>Số giao dịch</th>
-                          <th>Ngày giao dịch</th>
-                          <th>Tài khoản thụ hưởng</th>
-                          <th>Số tiền</th>
-                          <th>Loại tiền</th>
-                          <th>Trạng thái</th>
-                          <th>Hành động</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td data-label="" class="active">
-                            <input
-                              type="checkbox"
-                              class="select-item checkbox"
-                              name="select-item"
-                              value="1000"
-                            />
-                          </td>
-                          <td data-label="Tài khoản nguồn">111122223333</td>
-                          <td data-label="Số trace">1234</td>
-                          <td data-label="Loại giao dịch">Ngoài hệ thống</td>
-                          <td data-label="Số giao dịch">FT123456789</td>
-                          <td data-label="Ngày giao dịch">17/04/2023</td>
-                          <td data-label="Tài khoản thụ hưởng">111000234143</td>
-                          <td data-label="Số tiền">2.500.000</td>
-                          <td data-label="Loại tiền">VND</td>
-                          <td data-label="Trạng thái">Thành công</td>
-                          <td class="actions">
-                            <i class="isax isax-message-edit"></i>
-                            <i class="isax isax-message-text-1 ml-2"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td data-label="" class="active">
-                            <input
-                              type="checkbox"
-                              class="select-item checkbox"
-                              name="select-item"
-                              value="1000"
-                            />
-                          </td>
-                          <td data-label="Tài khoản nguồn">111122223333</td>
-                          <td data-label="Số trace">1234</td>
-                          <td data-label="Loại giao dịch">Ngoài hệ thống</td>
-                          <td data-label="Số giao dịch">FT123456789</td>
-                          <td data-label="Ngày giao dịch">17/04/2023</td>
-                          <td data-label="Tài khoản thụ hưởng">111000234143</td>
-                          <td data-label="Số tiền">2.500.000</td>
-                          <td data-label="Loại tiền">VND</td>
-                          <td data-label="Trạng thái">Thất bại</td>
-                          <td class="actions">
-                            <i class="isax isax-message-edit"></i>
-                            <i class="isax isax-message-text-1 ml-2"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td data-label="" class="active">
-                            <input
-                              type="checkbox"
-                              class="select-item checkbox"
-                              name="select-item"
-                              value="1000"
-                            />
-                          </td>
-                          <td data-label="Tài khoản nguồn">111122223333</td>
-                          <td data-label="Số trace">1234</td>
-                          <td data-label="Loại giao dịch">Ngoài hệ thống</td>
-                          <td data-label="Số giao dịch">FT123456789</td>
-                          <td data-label="Ngày giao dịch">17/04/2023</td>
-                          <td data-label="Tài khoản thụ hưởng">111000234143</td>
-                          <td data-label="Số tiền">2.500.000</td>
-                          <td data-label="Loại tiền">VND</td>
-                          <td data-label="Trạng thái">Huỷ</td>
-                          <td class="actions">
-                            <i class="isax isax-message-edit"></i>
-                            <i class="isax isax-message-text-1 ml-2"></i>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <i
+                        class="isax isax-calendar-1 fs-20 lh-19"
+                        @click="openCalendar('start')"
+                      ></i>
+                    </div>
                   </div>
-
-                  <nav class="pagination-group mt-3">
-                    <ul class="pagination">
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                          <i class="isax isax-arrow-left"></i>
-                        </a>
-                      </li>
-                      <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                          <i class="isax isax-arrow-right-1"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
                 </div>
               </div>
+
+              <div class="col-12 col-md-3 mt-3">
+                <div class="input-group label-transition">
+                  <div class="calendar">
+                    <Datepicker
+                      ref="endAtCalendar"
+                      v-model="endAt"
+                      auto-apply
+                      hide-input-icon
+                      locale="vi"
+                      :day-names="dayName"
+                      :enable-time-picker="false"
+                      format="dd/MM/yyyy"
+                      input-class-name="opacity-0"
+                      @update:model-value="handleEndAt"
+                      @closed="focusElement('calendar-end-input')"
+                    />
+                  </div>
+
+                  <div class="form-label w-100">
+                    <input
+                      id="calendar-end-input"
+                      class="form-control fw-bold"
+                      v-model="endAt"
+                      @focus="openCalendar('end')"
+                    />
+                    <label for="account_number"> Đến ngày* </label>
+                  </div>
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <i
+                        class="isax isax-calendar-1 fs-20 lh-19"
+                        @click="openCalendar('end')"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-3 mt-3">
+                <div class="input-group label-transition">
+                  <div class="form-label">
+                    <input type="text" class="form-control input-text-bold" />
+                    <label>Số tiền từ</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-3 mt-3 pr-0">
+                <div class="input-group label-transition">
+                  <div class="form-label">
+                    <input type="text" class="form-control input-text-bold" />
+                    <label>Số tiền đến</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 mt-3 d-flex justify-content-center mt-4">
+                <button class="btn btn-reset">Làm mới</button>
+                <button class="btn btn-third">Truy vấn</button>
+              </div>
+            </div>
+
+            <div class="transaction-lookup-table p-3">
+              <div class="table-log table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Chọn</th>
+                      <th>Tài khoản nguồn</th>
+                      <th>Số Trace</th>
+                      <th>Loại giao dịch</th>
+                      <th>Số giao dịch</th>
+                      <th>Ngày giao dịch</th>
+                      <th>Tài khoản người thụ hưởng</th>
+                      <th>Tên người thụ hưởng</th>
+                      <th>Số tiền</th>
+                      <th>Loại tiền</th>
+                      <th>FCC revert</th>
+                      <th>Trạng thái</th>
+                      <th>Lý do từ chối</th>
+                      <th>Tra soát</th>
+                      <th>Chi tiết</th>
+                      <th>File</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td data-label="Chọn">
+                        <label class="form-check">
+                          <input
+                            class="form-check-input hascontent"
+                            type="radio"
+                            name="select"
+                          />
+                        </label>
+                      </td>
+                      <td data-label="Tài khoản nguồn">12132</td>
+                      <td data-label="Số Trace">001</td>
+                      <td data-label="Loại giao dịch">Ngoài hệ thống</td>
+                      <td data-label="Số giao dịch">FT123456789</td>
+                      <td data-label="Ngày giao dịch">12/09/2023</td>
+                      <td data-label="Tài khoản người thụ hưởng">00112233</td>
+                      <td data-label="Tên người thụ hưởng">Ngo Xuan Hai</td>
+                      <td data-label="Số tiền">2.500.000</td>
+                      <td data-label="Loại tiền">VND</td>
+                      <td data-label="FCC revert"></td>
+                      <td data-label="Trạng thái">Thành công</td>
+                      <td data-label="Lý do từ chối">ABC</td>
+                      <td data-label="Tra soát">
+                        <a href="#" class="text-branding">Tra soát</a>
+                      </td>
+                      <td data-label="Chi tiết">
+                        <a
+                          href="#"
+                          class="text-branding"
+                          data-bs-toggle="modal"
+                          data-bs-target="#transfer-detail"
+                          >Chi tiết</a
+                        >
+                      </td>
+                      <td data-label="File">
+                        <a href="#" class="text-branding"> ten file.doxc</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="Chọn">
+                        <label class="form-check">
+                          <input
+                            class="form-check-input hascontent"
+                            type="radio"
+                            name="select"
+                          />
+                        </label>
+                      </td>
+                      <td data-label="Tài khoản nguồn">12132</td>
+                      <td data-label="Số Trace">001</td>
+                      <td data-label="Loại giao dịch">Ngoài hệ thống</td>
+                      <td data-label="Số giao dịch">FT123456789</td>
+                      <td data-label="Ngày giao dịch">12/09/2023</td>
+                      <td data-label="Tài khoản người thụ hưởng">00112233</td>
+                      <td data-label="Tên người thụ hưởng">Ngo Xuan Hai</td>
+                      <td data-label="Số tiền">2.500.000</td>
+                      <td data-label="Loại tiền">VND</td>
+                      <td data-label="FCC revert"></td>
+                      <td data-label="Trạng thái">Thành công</td>
+                      <td data-label="Lý do từ chối">ABC</td>
+                      <td data-label="Tra soát">
+                        <a href="#" class="text-branding">Tra soát</a>
+                      </td>
+                      <td data-label="Chi tiết">
+                        <a
+                          href="#"
+                          class="text-branding"
+                          data-bs-toggle="modal"
+                          data-bs-target="#transfer-detail"
+                          >Chi tiết</a
+                        >
+                      </td>
+                      <td data-label="File">
+                        <a href="#" class="text-branding"> ten file.doxc</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="Chọn">
+                        <label class="form-check">
+                          <input
+                            class="form-check-input hascontent"
+                            type="radio"
+                            name="select"
+                          />
+                        </label>
+                      </td>
+                      <td data-label="Tài khoản nguồn">12132</td>
+                      <td data-label="Số Trace">001</td>
+                      <td data-label="Loại giao dịch">Ngoài hệ thống</td>
+                      <td data-label="Số giao dịch">FT123456789</td>
+                      <td data-label="Ngày giao dịch">12/09/2023</td>
+                      <td data-label="Tài khoản người thụ hưởng">00112233</td>
+                      <td data-label="Tên người thụ hưởng">Ngo Xuan Hai</td>
+                      <td data-label="Số tiền">2.500.000</td>
+                      <td data-label="Loại tiền">VND</td>
+                      <td data-label="FCC revert"></td>
+                      <td data-label="Trạng thái">Thành công</td>
+                      <td data-label="Lý do từ chối">ABC</td>
+                      <td data-label="Tra soát">
+                        <a href="#" class="text-branding">Tra soát</a>
+                      </td>
+                      <td data-label="Chi tiết">
+                        <a
+                          href="#"
+                          class="text-branding"
+                          data-bs-toggle="modal"
+                          data-bs-target="#transfer-detail"
+                          >Chi tiết</a
+                        >
+                      </td>
+                      <td data-label="File">
+                        <a href="#" class="text-branding"> ten file.doxc</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="Chọn">
+                        <label class="form-check">
+                          <input
+                            class="form-check-input hascontent"
+                            type="radio"
+                            name="select"
+                          />
+                        </label>
+                      </td>
+                      <td data-label="Tài khoản nguồn">12132</td>
+                      <td data-label="Số Trace">001</td>
+                      <td data-label="Loại giao dịch">Ngoài hệ thống</td>
+                      <td data-label="Số giao dịch">FT123456789</td>
+                      <td data-label="Ngày giao dịch">12/09/2023</td>
+                      <td data-label="Tài khoản người thụ hưởng">00112233</td>
+                      <td data-label="Tên người thụ hưởng">Ngo Xuan Hai</td>
+                      <td data-label="Số tiền">2.500.000</td>
+                      <td data-label="Loại tiền">VND</td>
+                      <td data-label="FCC revert"></td>
+                      <td data-label="Trạng thái">Thành công</td>
+                      <td data-label="Lý do từ chối">ABC</td>
+                      <td data-label="Tra soát">
+                        <a href="#" class="text-branding">Tra soát</a>
+                      </td>
+                      <td data-label="Chi tiết">
+                        <a
+                          href="#"
+                          class="text-branding"
+                          data-bs-toggle="modal"
+                          data-bs-target="#transfer-detail"
+                          >Chi tiết</a
+                        >
+                      </td>
+                      <td data-label="File">
+                        <a href="#" class="text-branding"> ten file.doxc</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="Chọn">
+                        <label class="form-check">
+                          <input
+                            class="form-check-input hascontent"
+                            type="radio"
+                            name="select"
+                          />
+                        </label>
+                      </td>
+                      <td data-label="Tài khoản nguồn">12132</td>
+                      <td data-label="Số Trace">001</td>
+                      <td data-label="Loại giao dịch">Ngoài hệ thống</td>
+                      <td data-label="Số giao dịch">FT123456789</td>
+                      <td data-label="Ngày giao dịch">12/09/2023</td>
+                      <td data-label="Tài khoản người thụ hưởng">00112233</td>
+                      <td data-label="Tên người thụ hưởng">Ngo Xuan Hai</td>
+                      <td data-label="Số tiền">2.500.000</td>
+                      <td data-label="Loại tiền">VND</td>
+                      <td data-label="FCC revert"></td>
+                      <td data-label="Trạng thái">Thành công</td>
+                      <td data-label="Lý do từ chối">ABC</td>
+                      <td data-label="Tra soát">
+                        <a href="#" class="text-branding">Tra soát</a>
+                      </td>
+                      <td data-label="Chi tiết">
+                        <a
+                          href="#"
+                          class="text-branding"
+                          data-bs-toggle="modal"
+                          data-bs-target="#transfer-detail"
+                          >Chi tiết</a
+                        >
+                      </td>
+                      <td data-label="File">
+                        <a href="#" class="text-branding"> ten file.doxc</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="table-actions mt-2">
+                <nav class="pagination-group flex-fill">
+                  <ul class="pagination">
+                    <li class="page-item disable">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <i class="isax isax-arrow-left"></i>
+                      </a>
+                    </li>
+                    <li class="page-item active">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">...</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">6</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <i class="isax isax-arrow-right-1"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+
+                <div class="export-group">
+                  <button class="btn btn-export">
+                    <img src="assets/icons/pdf.svg" alt="pdf" /> Xuất PDF
+                  </button>
+                  <button class="btn btn-export">
+                    <img src="assets/icons/excel.svg" alt="excel" /> Xuất excel
+                  </button>
+                  <button class="btn btn-export">
+                    <img src="assets/icons/print.svg" alt="excel" /> In
+                  </button>
+                  <button class="btn btn-third">In chứng từ</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer footer-responsive-height">
+          <div class="footer-container">
+            <div class="footer-menu d-lg-flex flex-column gap-1">
+              <ul>
+                <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+                <li><a href="#">Hướng dẫn sử dụng</a></li>
+                <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+              </ul>
+              <div class="copyright">
+                <span class="copyright-name">
+                  ©2023 Ngân hàng Liên doanh Việt - Nga
+                </span>
+                <span class="divider">|</span>
+                <span class="copyright-web">www.vrbank.com.vn</span>
+              </div>
+            </div>
+            <div class="sns">
+              <a href="#">
+                <img src="assets/icons/google-play.svg" alt="google-play" />
+              </a>
+              <a href="#">
+                <img src="assets/icons/fb.svg" alt="fb" />
+              </a>
+              <a href="#">
+                <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+              </a>
+              <a class="hotline">
+                <img src="assets/icons/call.svg" alt="hotline" />
+                <div class="d-flex flex-column">
+                  <span class="title"> Hotline </span>
+                  <span class="phone"> 18006656 </span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -339,6 +579,83 @@
           </div>
         </div>
       </div>
+
+      <!-- Modal transfer detail -->
+      <div class="modal" id="transfer-detail">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Chi tiết giao dịch</h4>
+              <span class="close" data-bs-dismiss="modal">
+                <img src="assets/icons/control.svg" />
+              </span>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body p-3">
+              <div class="account-info">
+                <div class="info-item">
+                  <div class="title">Loại giao dịch</div>
+                  <div class="info">Ngoài hệ thống</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Kênh giao dịch</div>
+                  <div class="info">Internet Banking</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Tài khoản nguồn</div>
+                  <div class="info">0001113326999</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Tài khoản thụ hưởng</div>
+                  <div class="info">0001113326578</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Tên người thụ hưởng</div>
+                  <div class="info">TECHCOMBANK</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Số tiền chuyển</div>
+                  <div class="info">2,500, 000</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Loại tiền chuyển</div>
+                  <div class="info">VND</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Phí</div>
+                  <div class="info">3,300</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Nội dung</div>
+                  <div class="info">NGO XUAN HAI Chuyen tien</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Ngày giao dịch</div>
+                  <div class="info">14/07/2023</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Trạng thái</div>
+                  <div class="info">Thành công</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Lý do từ chối</div>
+                  <div class="info">ABC</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Số giao dịch</div>
+                  <div class="info">FT546478888</div>
+                </div>
+                <div class="info-item">
+                  <div class="title">Số trace</div>
+                  <div class="info">001133</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- App js -->
@@ -354,6 +671,11 @@
     <script src="./components/header-component.js"></script>
     <script src="./components/menu.js"></script>
 
+    <script src="./components/selector.js"></script>
+
+    <script src="./assets/js/vue-datepicker.iife.js"></script>
+    <script src="./assets/js/moment.min.js"></script>
+
     <script>
       hideLoading();
       const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
@@ -363,87 +685,128 @@
         components: {
           headerComponent,
           menuComponent,
+          selectorComponent,
+          Datepicker: VueDatePicker,
         },
         setup() {
-          const showGlobalSearch = ref(false);
-          const searchGlobalQuery = ref("");
-
-          const featureList = [
+          const serviceType = ref(null);
+          const serviceTypeOptions = [
             {
-              url: "transfer-inter.html",
-              image: "assets/images/feature/loan-amount.svg",
-              text: "Cài đặt hạn mức",
+              id: "1",
+              text: "Chuyển khoản trong hệ thống",
             },
             {
-              url: "transfer-inter.html",
-              image: "assets/images/feature/pay-bills.svg",
-              text: "Thanh toán hoá đơn",
+              id: "2",
+              text: "Chuyển khoản ngoài hệ thống",
             },
             {
-              url: "transfer-inter.html",
-              image: "assets/images/feature/recharge.svg",
-              text: "Đăng ký hạn mức",
-            },
-            {
-              url: "transfer-inter.html",
-              image: "assets/images/feature/loyal-customer.svg",
-              text: "Chuyển tiền quốc tế",
-            },
-            {
-              url: "transfer-inter.html",
-              image: "assets/images/feature/account-number.svg",
-              text: "Quản lý chi tiêu",
-            },
-            {
-              url: "transfer-inter.html",
-              image: "assets/images/feature/censorship.svg",
-              text: "Quản lý danh bạ",
-            },
-            {
-              url: "transfer-inter.html",
-              image: "assets/images/feature/statement.svg",
-              text: "Sao kê tài khoản",
-            },
-            {
-              url: "transfer-inter.html",
-              image: "assets/images/feature/transfer-money.svg",
-              text: "Smart Kids",
+              id: "3",
+              text: "Tra soát giao dịch",
             },
           ];
 
-          const filteredList = computed(() => {
-            const searchQuery = searchGlobalQuery.value.toLowerCase();
-            const filteredItems = featureList.filter((x) =>
-              x.text.toLowerCase().includes(searchQuery)
-            );
-            return filteredItems.slice(0, 4);
-          });
+          const moneyType = ref(null);
+          const moneyTypeOptions = [
+            {
+              id: "1",
+              text: "RUB",
+            },
+            {
+              id: "2",
+              text: "VND",
+            },
+          ];
 
-          const onClickOutside = (event) => {
-            const el = document.querySelector(".feature-select");
-            if (
-              !el ||
-              el === event.target ||
-              event.target.closest(".feature-select") === el
-            ) {
-              return;
+          const account = ref(null);
+          const accountOptions = [
+            {
+              id: "1",
+              text: "05000210000471",
+            },
+            {
+              id: "2",
+              text: "05000210000123",
+            },
+          ];
+
+          const status = ref(null);
+          const statusOptions = [
+            {
+              id: "1",
+              text: "05000210000471",
+            },
+            {
+              id: "2",
+              text: "05000210000123",
+            },
+          ];
+
+          const startAt = ref(null);
+          const endAt = ref(null);
+
+          const openCalendar = (point) => {
+            if (point == "start") {
+              startAtCalendar.value.openMenu();
+            } else {
+              endAtCalendar.value.openMenu();
             }
-
-            showGlobalSearch.value = false;
           };
 
-          onMounted(() => {
-            document.addEventListener("click", onClickOutside);
-          });
+          const focusElement = (elementId) => {
+            const el = document.getElementById(elementId);
+            if (elementId == "calendar-start-input" && !!startAt.value) {
+              el.classList.add("hascontent");
+            }
 
-          onBeforeMount(() => {
-            document.removeEventListener("click", onClickOutside);
-          });
+            if (elementId == "calendar-end-input" && !!endAt.value) {
+              el.classList.add("hascontent");
+            }
+          };
+
+          const handleStartAt = (modelData) => {
+            startAt.value = moment(modelData).format("DD/MM/YYYY");
+          };
+
+          const handleEndAt = (modelData) => {
+            endAt.value = moment(modelData).format("DD/MM/YYYY");
+          };
+
+          const dayName = [
+            "Thứ 2",
+            "Thứ 3",
+            "Thứ 4",
+            "Thứ 5",
+            "Thứ 6",
+            "Thứ 7",
+            "CN",
+          ];
+          const startAtCalendar = ref(null);
+          const endAtCalendar = ref(null);
+
+          const resetFilter = () => {
+            startAt.value = null;
+            endAt.value = null;
+          };
 
           return {
-            showGlobalSearch,
-            searchGlobalQuery,
-            filteredList,
+            serviceType,
+            serviceTypeOptions,
+            moneyType,
+            moneyTypeOptions,
+            account,
+            accountOptions,
+            status,
+            statusOptions,
+            startAt,
+            endAt,
+            startAtCalendar,
+            dayName,
+            endAtCalendar,
+            handleStartAt,
+            openCalendar,
+            focusElement,
+            handleEndAt,
+            resetFilter,
           };
         },
       }).mount("#app");
