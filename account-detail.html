@@ -160,7 +160,7 @@
                     <div class="calendar">
                       <Datepicker
                         ref="startAtCalendar"
-                        v-model="startAt"
+                        v-model="startAtMapper"
                         auto-apply
                         hide-input-icon
                         locale="vi"
@@ -194,7 +194,7 @@
                     <div class="calendar">
                       <Datepicker
                         ref="endAtCalendar"
-                        v-model="endAt"
+                        v-model="endAtMapper"
                         auto-apply
                         hide-input-icon
                         locale="vi"
@@ -1276,7 +1276,7 @@
 
     <script>
       hideLoading();
-      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { createApp, ref, computed, onMounted, onBeforeMount, watch } = Vue;
       const { useDebounceFn } = VueUse;
 
       createApp({
@@ -1289,7 +1289,9 @@
           const showGlobalSearch = ref(false);
           const searchGlobalQuery = ref("");
           const startAt = ref(null);
+          const startAtMapper = ref(null);
           const endAt = ref(null);
+          const endAtMapper = ref(null);
           const typeFilter = ref(null);
 
           const featureList = [
@@ -1459,6 +1461,20 @@
             endAt.value = null;
           };
 
+          watch(startAt, (value) => {
+            if (value) {
+              const date = moment(value, "DD/MM/yyyy").toDate();
+              startAtMapper.value = moment(date).format("MM/DD/yyyy");
+            }
+          });
+
+          watch(endAt, (value) => {
+            if (value) {
+              const date = moment(value, "DD/MM/yyyy").toDate();
+              endAtMapper.value = moment(date).format("MM/DD/yyyy");
+            }
+          });
+
           return {
             showGlobalSearch,
             searchGlobalQuery,
@@ -1469,6 +1485,8 @@
             dayName,
             endAtCalendar,
             typeFilter,
+            startAtMapper,
+            endAtMapper,
             handleStartAt,
             openCalendar,
             focusElement,

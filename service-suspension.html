@@ -125,7 +125,7 @@
               <div class="calendar">
                 <Datepicker
                   ref="startAtCalendar"
-                  v-model="startAt"
+                  v-model="startAtMapper"
                   auto-apply
                   hide-input-icon
                   locale="vi"
@@ -161,7 +161,7 @@
               <div class="calendar">
                 <Datepicker
                   ref="endAtCalendar"
-                  v-model="endAt"
+                  v-model="endAtMapper"
                   auto-apply
                   hide-input-icon
                   locale="vi"
@@ -346,7 +346,7 @@
 
     <script>
       hideLoading();
-      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { createApp, ref, computed, onMounted, onBeforeMount, watch } = Vue;
       const { useDebounceFn } = VueUse;
 
       createApp({
@@ -361,6 +361,9 @@
           const suspensionType = ref(null);
           const startAt = ref(null);
           const endAt = ref(null);
+
+          const startAtMapper = ref(null);
+          const endAtMapper = ref(null);
 
           const suspensionList = [
             {
@@ -418,6 +421,20 @@
             endAt.value = null;
           };
 
+          watch(startAt, (value) => {
+            if (value) {
+              const date = moment(value, "DD/MM/yyyy").toDate();
+              startAtMapper.value = moment(date).format("MM/DD/yyyy");
+            }
+          });
+
+          watch(endAt, (value) => {
+            if (value) {
+              const date = moment(value, "DD/MM/yyyy").toDate();
+              endAtMapper.value = moment(date).format("MM/DD/yyyy");
+            }
+          });
+
           return {
             suspensionList,
             suspensionType,
@@ -426,6 +443,8 @@
             startAtCalendar,
             dayName,
             endAtCalendar,
+            startAtMapper,
+            endAtMapper,
             handleStartAt,
             openCalendar,
             focusElement,
