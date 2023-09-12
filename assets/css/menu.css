@@ -57,7 +57,7 @@
 }
 
 .left-menu ul li.item:hover .item-content::before,
-.left-menu ul li.item:active .item-content::before {
+.left-menu ul li.item.active .item-content::before {
   content: "";
   width: 4px;
   height: 100%;
@@ -213,12 +213,12 @@
 }
 
 .card-scroll {
-  height: calc(100% - 84px);
+  height: calc(100% - 74px);
   padding: 16px;
 }
 
 .content-min-height.card-scroll {
-  height: calc(100% - 170px) !important;
+  height: calc(100% - 134px) !important;
 }
 
 .card-content {
