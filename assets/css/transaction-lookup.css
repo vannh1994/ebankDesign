@@ -46,6 +46,7 @@
 
 .transaction-lookup-page .transaction-lookup-table {
   background: var(--background-bg-web, #f1f2f2);
+  border-radius: 16px;
 }
 
 .transaction-lookup-page .transaction-lookup-table table {
