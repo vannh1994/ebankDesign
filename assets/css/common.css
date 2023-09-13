@@ -750,3 +750,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 :not(.disable-hover)::placeholder {
   opacity: 1;
 }
+
+.card-can-hidden {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-can-hidden .custom-selector-wrapper {
+  flex: 1;
+}
+
+.card-can-hidden i {
+  font-size: 24px;
+  color: #002d85;
+  cursor: pointer;
+}

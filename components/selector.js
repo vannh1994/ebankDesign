@@ -7,7 +7,8 @@ const selectorComponent = {
           class="option-selected"
           @click="showSelector = true"
         >
-          <slot name="selected" :option="selectedOption">
+          <span v-if="hiddenValue"> {{hiddenValueText}}</span>
+          <slot v-else name="selected" :option="selectedOption">
             {{modelValue.name}}
           </slot>
         </div>
@@ -30,6 +31,8 @@ const selectorComponent = {
           fill="currentColor"
         />
       </svg>
+
+
 
       <transition>
         <div v-if="showSelector" class="custom-selector-popup">
@@ -63,6 +66,7 @@ const selectorComponent = {
     "searchBy",
     "required",
     "default",
+    "hiddenValue",
   ],
   emits: ["update:modelValue"],
   setup(props) {
@@ -78,6 +82,15 @@ const selectorComponent = {
           .toLowerCase()
           .includes(searchQuery.value.toLowerCase())
       );
+    });
+
+    const hiddenValueText = computed(() => {
+      if (typeof props.modelValue.name !== "string") {
+        return "";
+      }
+
+      const starsString = "*".repeat(props.modelValue.name.length);
+      return starsString;
     });
 
     const onClickOutside = (event) => {
@@ -108,6 +121,7 @@ const selectorComponent = {
       popup,
       filteredList,
       selectedOption,
+      hiddenValueText,
     };
   },
 };
