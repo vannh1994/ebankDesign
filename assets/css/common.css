@@ -767,3 +767,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #002d85;
   cursor: pointer;
 }
+
+/* datepicker */
+.dp__outer_menu_wrap .dp__btn {
+  font-size: 14px;
+}
+
+.dp__outer_menu_wrap .dp__calendar_header_item {
+  font-size: 12px;
+}
+
+.dp__outer_menu_wrap .dp__cell_inner {
+  font-size: 14px;
+  width: 24px;
+  height: 24px;
+}
