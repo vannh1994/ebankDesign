@@ -250,7 +250,16 @@ const menuComponent = {
         id: 9,
         text: "Dịch vụ thẻ",
         link: "#",
-        child: [],
+        child: [
+          {
+            text: "Thông tin thẻ",
+            link: "card-information.html",
+          },
+          {
+            text: "Thay đổi thông tin thẻ",
+            link: "change-card-information.html",
+          },
+        ],
       },
       {
         id: 10,

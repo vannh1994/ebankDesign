@@ -1,3 +1,7 @@
+.account-detail-page .home-container .main-content {
+  overflow: auto;
+}
+
 .account-detail-page .contact-area .input-search {
   display: flex;
   align-items: center;
@@ -385,6 +389,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  padding-bottom: 16px;
 }
 
 .account-detail-page .action-group .btn {

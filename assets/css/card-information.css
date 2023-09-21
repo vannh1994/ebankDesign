@@ -1,0 +1,324 @@
+.card-information-page #nav-tab-account-manager .nav-link {
+  width: 50%;
+}
+
+.card-information-page .expiration-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.card-information-page .expiration-date .text {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  color: #787878;
+}
+
+.card-information-page .expiration-date .value {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  color: #333333;
+}
+
+.card-information-page .account-item .right {
+  gap: 16px;
+}
+
+.card-detail-page.account-detail-page .account-card {
+  flex-direction: column;
+}
+
+.card-detail-page.account-detail-page .card-info {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.card-detail-page.account-detail-page .card-info:first-child {
+  border-bottom: 1px solid rgba(241, 242, 242, 0.2);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.card-detail-page.account-detail-page .card-info .left .text-label {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: white;
+}
+
+.card-detail-page.account-detail-page .card-info .left .text-label:first-child {
+  padding-bottom: 6px;
+}
+
+.card-detail-page.account-detail-page .card-info .right .btn-detail {
+  padding: 3px 8px;
+  cursor: pointer;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 14px;
+}
+
+.card-detail-page.account-detail-page .card-info .right .btn-detail:hover {
+  opacity: 0.8;
+}
+
+.card-detail-page.account-detail-page .card-info .right .text-value {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  color: white;
+  text-align: right;
+}
+
+.card-detail-page.account-detail-page
+  .card-info
+  .right
+  .text-value:first-child {
+  padding-bottom: 6px;
+}
+
+.card-detail-page .card-select .custom-selector-placeholder {
+  color: white;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+.card-detail-page .card-select .custom-selector-wrapper svg {
+  color: white;
+  transform: translateY(-2px);
+  margin-left: 8px;
+}
+
+.card-detail-page .card-select .custom-selector-wrapper {
+  border-bottom: unset;
+}
+
+.card-detail-page .card-select .custom-selector .option-selected {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  color: white;
+}
+
+.card-detail-page .custom-selector-popup .option-list .option-item .bank-name {
+  padding: 4px 0;
+  font-size: 16px;
+  color: #002d85;
+}
+
+.card-detail-page .card-filter {
+  border-radius: 12px;
+  border: 1px solid var(--branding-line, #e9e9e9);
+  background: var(--background-background-2, #fafafa);
+  padding: 16px;
+}
+
+.card-detail-page .input-range .form-control.fw-bold,
+.card-detail-page .input-range .input-group-text {
+  background: transparent;
+}
+
+.card-detail-page .btn-search {
+  padding: 12px 24px !important;
+}
+
+.border-left-gray {
+  border-left: 1px solid var(--branding-line, #e9e9e9);
+}
+
+.card-detail-page.account-detail-page
+  .account-histories
+  .history-item
+  .title-item {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  color: #333333;
+}
+
+.card-detail-page.account-detail-page .account-histories .history-item {
+  align-items: center;
+}
+
+.card-detail-page.account-detail-page .account-histories .history-item .icon i {
+  color: #787878;
+}
+
+.card-detail-page.account-detail-page
+  .account-histories
+  .history-item
+  .bill
+  .invest {
+  color: #002d85;
+  cursor: pointer;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.card-detail-page.account-detail-page
+  .account-histories
+  .history-item
+  .bill
+  .invest:hover {
+  text-decoration: underline;
+}
+
+.card-detail-page.account-detail-page .title-account-detail {
+  margin-bottom: 0;
+}
+
+.card-detail-page.account-detail-page .account-info .title {
+  color: #333333;
+}
+
+.card-detail-page .card-method {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 8px;
+}
+
+.card-detail-page .method-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  cursor: pointer;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.card-detail-page .method-item:hover {
+  background: #f4f7fe;
+}
+
+.card-detail-page .method-item .icon {
+  padding: 8px;
+  border-radius: 8px;
+  background: #f4f7fe;
+}
+
+.card-detail-page .method-item .title {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+}
+
+.card-detail-page.account-detail-page .action-group .btn {
+  min-width: unset;
+  color: #002d85 !important;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 16px 4px;
+  word-break: keep-all;
+  text-wrap: nowrap;
+  box-shadow: unset;
+}
+
+.card-detail-page.account-detail-page .action-group .btn img {
+  margin-right: 4px;
+}
+
+.record-count {
+  padding: 0 16px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #787878;
+}
+
+.card-detail-page #transfer-detail .modal-body .btn-back {
+  width: unset;
+  padding: 12px 48px !important;
+}
+
+#card-detail .close {
+  cursor: pointer;
+}
+
+#card-detail .modal-title {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  color: #333333;
+}
+
+#card-detail .otp-text {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  color: #333333;
+}
+
+#card-detail .otp-description {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  color: #333333;
+}
+
+@media (max-width: 1600px) {
+  .record-count {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 991px) {
+  .record-count {
+    text-align: left;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .record-count {
+    text-align: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .card-information-page .account-item {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .card-information-page .account-item .to-detail {
+    transform: unset;
+  }
+
+  .card-information-page .account-item .right {
+    justify-content: flex-end;
+  }
+
+  .card-detail-page.account-detail-page .account-histories .history-item .bill {
+    align-items: center;
+    flex-direction: column;
+  }
+}
