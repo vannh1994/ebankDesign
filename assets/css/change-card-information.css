@@ -1,0 +1,109 @@
+.change-card-information-page .page-card-title {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  color: #333333;
+}
+
+.change-card-information-page .accept-block {
+  border-radius: 12px;
+  border: 1px solid var(--branding-line, #e9e9e9);
+  background: var(--background-background-2, #fafafa);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.change-card-information-page input.form-check-input {
+  width: 20px;
+  height: 20px;
+}
+
+.change-card-information-page .form-check-label {
+  flex: 1;
+  padding-left: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #333333;
+}
+
+.change-card-information-page .accept-block .form-check-label {
+  padding-left: 16px;
+}
+
+.change-card-information-page .tariff-detail {
+  color: var(--branding-primary-color, #002d85);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  text-decoration: underline !important;
+}
+
+.change-card-information-page .btn-back {
+  border-radius: 12px;
+  border: 1px solid rgba(0, 45, 133, 0.2);
+  background: #f4f7fe;
+  margin-right: 12px;
+}
+
+.change-card-information-page .transfer-success .transaction-success {
+  align-items: flex-start;
+}
+
+.change-card-information-page .transfer-success .message {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: #333333;
+  margin-bottom: 24px !important;
+}
+
+.selector-with-border {
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.input-with-border input {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0 !important;
+}
+
+.selector-with-border.custom-selector-wrapper svg {
+  transform: translateY(1px);
+}
+
+.stop-debit {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: #333333;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 575px) {
+  .change-card-information-page .container-flex {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .action-group {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .change-card-information-page .btn-back {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 16px;
+  }
+}

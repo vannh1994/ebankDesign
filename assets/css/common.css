@@ -782,3 +782,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 24px;
   height: 24px;
 }
+
+/* checkbox */
+.form-check-input:checked {
+  background-color: #002d85;
+  border-color: #002d85;
+}

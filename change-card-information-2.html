@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Thay đổi thông tin thẻ | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body
+    class="child-page page-background account-page account-number-page change-card-information-page"
+  >
+    <div id="loading"></div>
+
+    <div id="app" class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <menu-component></menu-component>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="#"> Dịch vụ thẻ </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Thay đổi thông tin thẻ
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="change-card-information.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Thay đổi thông tin thẻ</h2>
+        </div>
+
+        <div class="transaction-step">
+          <div class="step-item active">
+            <div class="step">1</div>
+            <div class="text">Khởi tạo</div>
+          </div>
+          <div class="progress active"></div>
+          <div class="step-item active">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card p-4 flex-fill content-min-height card-scroll">
+          <div class="container-flex d-grid gap-2 card-content">
+            <div class="fw-bolder fs-5">Thông tin thẻ</div>
+
+            <div class="d-grid gap-2 p-3 bill-details">
+              <dl>
+                <dt>Loại sản phẩm</dt>
+                <dd>{{productTypes[type]}}</dd>
+              </dl>
+              <dl>
+                <dt>Số thẻ</dt>
+                <dd>{{number}}</dd>
+              </dl>
+              <template v-if="type == 'domestic-debit-card'">
+                <dl>
+                  <dt>Thay đổi tài khoản liên kết thẻ</dt>
+                  <dd class="fw-bolder">102345678988</dd>
+                </dl>
+                <dl>
+                  <dt>Ngày giờ giao dịch</dt>
+                  <dd class="fw-bolder">20/07/2023 10:30</dd>
+                </dl>
+              </template>
+
+              <template v-if="type == 'international-debit-card'">
+                <dl>
+                  <dt>Đăng ký/Hủy thanh toán online</dt>
+                  <dd class="fw-bolder">Đăng ký thanh toán online</dd>
+                </dl>
+              </template>
+
+              <template v-if="type == 'international-credit-card'">
+                <dl>
+                  <dt>Trích nợ tự động</dt>
+                  <dd class="fw-bolder">Thay đổi số tài khoản trích nợ</dd>
+                </dl>
+                <dl>
+                  <dt>Số tài khoản trích nợ</dt>
+                  <dd class="fw-bolder">1017055877</dd>
+                </dl>
+                <dl>
+                  <dt>Mở /Khóa thanh toán online</dt>
+                  <dd class="fw-bolder">Khoá</dd>
+                </dl>
+                <dl>
+                  <dt>Thay đổi SĐT nhận thông báo GD</dt>
+                  <dd class="fw-bolder">0377648990</dd>
+                </dl>
+              </template>
+
+              <dl>
+                <dt>Hình thức xác thực</dt>
+                <dd>SMS OTP</dd>
+              </dl>
+            </div>
+
+            <div class="otp-card p-0 mb-3 mt-2">
+              <div class="flex-fill text-center">
+                <div class="fw-bolder otp-text">Nhập mã PIN SMS OTP</div>
+                <div class="otp-description">
+                  Qúy khách vui lòng nhập mã OTP đã được gửi về số điện thoại
+                  <b class="text-branding">097***025</b>
+                </div>
+                <div>
+                  <v-otp-input
+                    class="otp-box"
+                    input-classes="otp-input"
+                    :num-inputs="6"
+                    separator=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="d-flex justify-content-center action-group"
+            >
+              <a
+                href="change-card-information.html"
+                class="btn btn-primary btn-back"
+              >
+                Quay lại
+              </a>
+
+              <a href="change-card-information-3.html" class="btn btn-third">
+                Tiếp tục
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer footer-responsive-height">
+          <div class="footer-container">
+            <div class="footer-menu d-lg-flex flex-column gap-1">
+              <ul>
+                <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+                <li><a href="#">Hướng dẫn sử dụng</a></li>
+                <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+              </ul>
+              <div class="copyright">
+                <span class="copyright-name">
+                  ©2023 Ngân hàng Liên doanh Việt - Nga
+                </span>
+                <span class="divider">|</span>
+                <span class="copyright-web">www.vrbank.com.vn</span>
+              </div>
+            </div>
+            <div class="sns">
+              <a href="#">
+                <img src="assets/icons/google-play.svg" alt="google-play" />
+              </a>
+              <a href="#">
+                <img src="assets/icons/fb.svg" alt="fb" />
+              </a>
+              <a href="#">
+                <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+              </a>
+              <a class="hotline">
+                <img src="assets/icons/call.svg" alt="hotline" />
+                <div class="d-flex flex-column">
+                  <span class="title"> Hotline </span>
+                  <span class="phone"> 18006656 </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+    <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
+    <script src="assets/js/vue3-otp-input.min.js"></script>
+
+    <script>
+      hideLoading();
+      const { createApp, ref, computed, onMounted, onBeforeMount } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+          menuComponent,
+          vOtpInput: Vue3OtpInput,
+        },
+
+        setup() {
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          const type = urlParams.get("type");
+          const number = urlParams.get("number");
+
+          const productTypes = {
+            "domestic-debit-card": "Thẻ ghi nợ nội địa",
+            "international-debit-card": "Thẻ ghi nợ quốc tế",
+            "international-credit-card": "Thẻ tín dụng quốc tế",
+          };
+
+          function formatMoney(money) {
+            return new Intl.NumberFormat().format(money || 0) + " VND";
+          }
+
+          return {
+            type,
+            number,
+            productTypes,
+            formatMoney,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
