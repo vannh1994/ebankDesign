@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Đăng ký mua ngoại tệ | VRB</title>
+    <meta name="viewport" content="width=375, initial-scale=1.0" />
+    <meta content="VRB" name="description" />
+    <meta content="VRB" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      id="bootstrap-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App Css-->
+    <link
+      href="assets/css/app.css"
+      id="app-style"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/transfer.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="child-page page-background register-buy-foreign-currency-page">
+    <div id="loading"></div>
+    <div id="app" class="page-content">
+      <div class="list-small-icons">
+        <div class="item">
+          <img src="assets/icons/dollar-circle.svg" alt="dollar-circle" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/map.svg" alt="map" />
+        </div>
+        <div class="item">
+          <img src="assets/icons/message-question.svg" alt="message-question" />
+        </div>
+      </div>
+
+      <header-component></header-component>
+
+      <menu-component></menu-component>
+
+      <div class="page-background">
+        <img src="assets/images/cliparts/bg-right.svg" alt="bg-right" />
+      </div>
+
+      <div class="container home-container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="home.html">
+                  <i class="isax isax-home-2"></i>
+                  Trang chủ
+                </a>
+              </li>
+              <li class="breadcrumb-item" aria-current="page">
+                Mua bán ngoại tệ
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Đăng ký lịch mua
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="page-title">
+          <a class="back" href="international-money-transfer-step-1.html">
+            <i class="isax isax-arrow-left-2"></i>
+          </a>
+          <h2>Đăng ký lịch mua ngoại tệ</h2>
+        </div>
+
+        <div class="transaction-step">
+          <div class="step-item active">
+            <div class="step">1</div>
+            <div class="text">Khởi tạo</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">2</div>
+            <div class="text">Xác nhận</div>
+          </div>
+          <div class="progress"></div>
+          <div class="step-item">
+            <div class="step">3</div>
+            <div class="text">Kết quả</div>
+          </div>
+        </div>
+
+        <div class="card content-min-height card-scroll">
+          <div class="card-body container-flex card-content px-0 px-md-3">
+            <div class="transfer-card">
+              <div class="transfer-area p-1">
+                <div class="card-title">Thông tin đăng ký mua</div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <div class="note">
+                      <span @click="isShowPopup = false">
+                        <i class="isax isax-info-circle"></i> Lưu ý
+                      </span>
+                    </div>
+
+                    <div class="note-popup" :class="{'d-none': isShowPopup}">
+                      <h5>
+                        <span>Quý khách lưu ý:</span>
+                        <img
+                          @click="isShowPopup = true"
+                          src="assets/icons/control.svg"
+                        />
+                      </h5>
+                      <p>
+                        Việc bán ngoại tệ cho khách hàng dựa trên nhu cầu, hồ sơ
+                        hợp lý, hợp lệ, phù hợp với quy định pháp luật
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                    <div class="pt-10">
+                      <selector-component
+                        placeholder="Loại tiền cần mua"
+                        v-model="sourceCurrency"
+                        :options="currencyList"
+                        :required="true"
+                      >
+                        <template #selected="{option}">
+                          <b>{{ option.label }}</b>
+                        </template>
+                        <template #option="{option}">
+                          <b class="d-block py-2">{{ option.label }}</b>
+                        </template>
+                      </selector-component>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 mt-3">
+                    <div class="input-group label-transition">
+                      <div class="form-label">
+                        <input
+                          type="number"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Số tiền ngoại tệ KH đăng ký mua*</label>
+                      </div>
+                    </div>
+                    <p class="amount-of-money">Mười đô la mỹ</p>
+                  </div>
+
+                  <div class="col-12 col-sm-6 mt-3">
+                    <div class="input-group label-transition">
+                      <div class="form-label">
+                        <input
+                          type="number"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Loại tiền thanh toán*</label>
+                      </div>
+                      <div class="input-group-append">
+                        <div class="input-group-text lh-19">VND</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                    <div class="pt-10">
+                      <selector-component
+                        placeholder="Phương thức thanh toán"
+                        v-model="paymentMethod"
+                        :options="paymentMethodList"
+                        :required="true"
+                      >
+                        <template #selected="{option}">
+                          <b>{{ option.label }}</b>
+                        </template>
+                        <template #option="{option}">
+                          <b class="d-block py-2">{{ option.label }}</b>
+                        </template>
+                      </selector-component>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                    <div class="pt-10">
+                      <selector-component
+                        placeholder="Mục đích mua ngoại tệ"
+                        v-model="reason"
+                        :options="reasonList"
+                        :required="true"
+                      >
+                        <template #selected="{option}">
+                          <b>{{ option.label }}</b>
+                        </template>
+                        <template #option="{option}">
+                          <b class="d-block py-2">{{ option.label }}</b>
+                        </template>
+                      </selector-component>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <div class="input-group label-transition mt-3">
+                      <div class="form-label">
+                        <input
+                          type="number"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Mục đích khác*</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-title mt-5">
+                  Thời gian đến giao dịch dự kiến
+                </div>
+
+                <div class="row">
+                  <div class="col-12 col-sm-4 input-range">
+                    <div class="input-group label-transition">
+                      <div class="calendar">
+                        <Datepicker
+                          ref="startAtCalendar"
+                          v-model="startAtMapper"
+                          auto-apply
+                          hide-input-icon
+                          locale="vi"
+                          :day-names="dayName"
+                          :enable-time-picker="false"
+                          :auto-position="false"
+                          format="dd/MM/yyyy"
+                          input-class-name="opacity-0"
+                          @update:model-value="handleStartAt"
+                          @closed="focusElement('calendar-start-input')"
+                        />
+                      </div>
+
+                      <div class="form-label w-100">
+                        <input
+                          id="calendar-start-input"
+                          class="form-control fw-bold disable-hover"
+                          v-model="startAt"
+                        />
+                        <label for="account_number"> Từ ngày </label>
+                      </div>
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <i
+                            class="isax isax-calendar-1"
+                            @click="openCalendar('start')"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-sm-4 input-range">
+                    <div class="input-group label-transition">
+                      <div class="calendar">
+                        <Datepicker
+                          ref="endAtCalendar"
+                          v-model="endAtMapper"
+                          auto-apply
+                          hide-input-icon
+                          locale="vi"
+                          :day-names="dayName"
+                          :enable-time-picker="false"
+                          :auto-position="false"
+                          format="dd/MM/yyyy"
+                          input-class-name="opacity-0"
+                          @update:model-value="handleEndAt"
+                          @closed="focusElement('calendar-end-input')"
+                        />
+                      </div>
+
+                      <div class="form-label w-100">
+                        <input
+                          id="calendar-end-input"
+                          class="form-control fw-bold disable-hover"
+                          v-model="endAt"
+                        />
+                        <label for="account_number"> Đến ngày </label>
+                      </div>
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <i
+                            class="isax isax-calendar-1"
+                            @click="openCalendar('end')"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-sm-4">
+                    <div class="time-select">
+                      <div class="calendar">
+                        <Datepicker
+                          ref="filterTimeCalendar"
+                          v-model="filterTime"
+                          auto-apply
+                          time-picker
+                          hide-input-icon
+                          locale="vi"
+                          format="HH:mm"
+                          input-class-name="opacity-0"
+                          menu-class-name="dp-custom-calendar"
+                          :auto-position="false"
+                          :start-time="startTime"
+                          @update:model-value="handleFilterTime"
+                        />
+                      </div>
+
+                      <div class="form-label w-100">
+                        <input
+                          id="calendar-filter-time-input"
+                          class="form-control fw-bold"
+                          v-model="filterTimeDisplay"
+                          @focus="openCalendar('filter-time')"
+                        />
+                      </div>
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <i
+                            class="isax isax-clock"
+                            @click="openCalendar('filter-time')"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-title mt-5">
+                  Chi nhánh thực hiện và thông tin khác
+                </div>
+
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <div class="pt-10">
+                      <selector-component
+                        placeholder="Chi nhánh thực hiện"
+                        v-model="branch"
+                        :options="branchList"
+                        :required="true"
+                      >
+                        <template #selected="{option}">
+                          <b>{{ option.label }}</b>
+                        </template>
+                        <template #option="{option}">
+                          <b class="d-block py-2">{{ option.label }}</b>
+                        </template>
+                      </selector-component>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                    <div class="pt-10">
+                      <selector-component
+                        placeholder="Phòng giao dịch"
+                        v-model="room"
+                        :options="roomList"
+                        :required="true"
+                      >
+                        <template #selected="{option}">
+                          <b>{{ option.label }}</b>
+                        </template>
+                        <template #option="{option}">
+                          <b class="d-block py-2">{{ option.label }}</b>
+                        </template>
+                      </selector-component>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                    <div class="pt-10">
+                      <selector-component
+                        placeholder="Loại giao dịch"
+                        v-model="transferType"
+                        :options="transferTypeList"
+                        :required="true"
+                      >
+                        <template #selected="{option}">
+                          <b>{{ option.label }}</b>
+                        </template>
+                        <template #option="{option}">
+                          <b class="d-block py-2">{{ option.label }}</b>
+                        </template>
+                      </selector-component>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6 mt-3">
+                    <div class="input-group label-transition">
+                      <div class="form-label">
+                        <input
+                          type="number"
+                          class="form-control input-text-bold"
+                        />
+                        <label>Yêu cầu khác</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 mt-3">
+                    <div class="file-document">
+                      <div class="title-file-document">File chứng từ</div>
+                      <div class="d-flex gap-1 align-items-center">
+                        <button class="btn btn-primary" @click="openFile">
+                          Chọn tệp
+                        </button>
+                        <span class="sub-title-file">
+                          Loại file hợp lệ: jpg, png, jpeg, doc, docx, pdf, xls,
+                          xlsx. Dung lượng tối đa: 5MB
+                        </span>
+                        <input class="d-none" id="file-input" type="file" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 mt-4 mb-4">
+                    <div class="term">
+                      <input
+                        v-model="term"
+                        class="form-check-input"
+                        type="checkbox"
+                      />
+                      <label class="form-check-label">
+                        Tôi cam kết thông tin trên là hoàn toàn đúng. Nếu sai
+                        tôi xin chịu trách nhiệm trước pháp luật và Ngân hàng có
+                        quyền hủy giao dịch mà không ràng buộc trách nhiệm về
+                        phía Ngân hàng.
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="group-button-bottom">
+                  <button class="btn btn-primary btn-back">
+                    Thiết lập lại
+                  </button>
+
+                  <button :disabled="!term" class="btn btn-third btn-submit">Tiếp tục</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer footer-responsive-height">
+          <div class="footer-container">
+            <div class="footer-menu d-lg-flex flex-column gap-1">
+              <ul>
+                <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+                <li><a href="#">Hướng dẫn sử dụng</a></li>
+                <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+              </ul>
+              <div class="copyright">
+                <span class="copyright-name">
+                  ©2023 Ngân hàng Liên doanh Việt - Nga
+                </span>
+                <span class="divider">|</span>
+                <span class="copyright-web">www.vrbank.com.vn</span>
+              </div>
+            </div>
+            <div class="sns">
+              <a href="#">
+                <img src="assets/icons/google-play.svg" alt="google-play" />
+              </a>
+              <a href="#">
+                <img src="assets/icons/fb.svg" alt="fb" />
+              </a>
+              <a href="#">
+                <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+              </a>
+              <a class="hotline">
+                <img src="assets/icons/call.svg" alt="hotline" />
+                <div class="d-flex flex-column">
+                  <span class="title"> Hotline </span>
+                  <span class="phone"> 18006656 </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-container">
+          <div class="footer-menu d-lg-flex flex-column gap-1">
+            <ul>
+              <li><a href="#">Hướng dẫn giao dịch an toàn</a></li>
+              <li><a href="#">Hướng dẫn sử dụng</a></li>
+              <li><a href="#">Hướng dẫn kích hoạt soft token</a></li>
+            </ul>
+            <div class="copyright">
+              <span class="copyright-name">
+                ©2023 Ngân hàng Liên doanh Việt - Nga
+              </span>
+              <span class="divider">|</span>
+              <span class="copyright-web">www.vrbank.com.vn</span>
+            </div>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img src="assets/icons/google-play.svg" alt="google-play" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/fb.svg" alt="fb" />
+            </a>
+            <a href="#">
+              <img src="assets/icons/appstore-fill.svg" alt="appstore" />
+            </a>
+            <a class="hotline">
+              <img src="assets/icons/call.svg" alt="hotline" />
+              <div class="d-flex flex-column">
+                <span class="title"> Hotline </span>
+                <span class="phone"> 18006656 </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- BS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    <script src="./assets/js/vueuse_shared.min.js"></script>
+    <script src="./assets//js/vueuse_core.js"></script>
+
+    <script src="./components/header-component.js"></script>
+    <script src="./components/menu.js"></script>
+    <script src="./components/selector.js"></script>
+    <script src="./components/input-autocomplete.js"></script>
+    <script src="./assets/js/vue-datepicker.iife.js"></script>
+    <script src="./assets/js/moment.min.js"></script>
+    <script src="./assets/js/inputmask.js"></script>
+
+    <script>
+      hideLoading();
+      const { createApp, ref, computed, onMounted, onBeforeMount, watch } = Vue;
+      const { useDebounceFn } = VueUse;
+
+      createApp({
+        components: {
+          headerComponent,
+          menuComponent,
+          selectorComponent,
+          inputAutocompleteComponent,
+          Datepicker: VueDatePicker,
+        },
+        setup() {
+          const isShowPopup = ref(true);
+
+          onMounted(() => {});
+
+          onBeforeMount(() => {});
+
+          const sourceCurrency = ref(null);
+          const paymentMethod = ref(null);
+          const reason = ref(null);
+          const branch = ref(null);
+          const room = ref(null);
+          const transferType = ref(null);
+          const bikCode = ref(null);
+          const transferCode = ref(null);
+          const voCode = ref(null);
+          const priority = ref(null);
+
+          const currencyList = [
+            {
+              id: "1",
+              label: "RUB",
+            },
+            {
+              id: "2",
+              label: "VDN",
+            },
+          ];
+          const paymentMethodList = [
+            {
+              id: "1",
+              label: "Tiền mặt",
+            },
+            {
+              id: "2",
+              label: "Thẻ ngân hàng",
+            },
+          ];
+          const reasonList = [
+            {
+              id: "1",
+              label: "Du lịch",
+            },
+            {
+              id: "2",
+              label: "Trả tiền nhà",
+            },
+            {
+              id: "3",
+              label: "Mục đích khác",
+            },
+          ];
+          const branchList = [
+            {
+              id: "1",
+              label: "HOI SO CHINH",
+            },
+            {
+              id: "2",
+              label: "HOI SO PHU",
+            },
+          ];
+          const roomList = [
+            {
+              id: "1",
+              label: "TRAN HUNG DAO",
+            },
+            {
+              id: "2",
+              label: "CAU GIAY",
+            },
+          ];
+          const transferTypeList = [
+            {
+              id: "1",
+              label: "Giao ngay",
+            },
+            {
+              id: "2",
+              label: "Giao chậm",
+            },
+          ];
+
+          const openFile = () => {
+            document.getElementById("file-input").click();
+          };
+
+          const startAt = ref(null);
+          const startAtMapper = ref(null);
+          const endAt = ref(null);
+          const endAtMapper = ref(null);
+
+          const openCalendar = (point) => {
+            if (point == "start") {
+              startAtCalendar.value.openMenu();
+            } else if (point == "filter-time") {
+              filterTimeCalendar.value.openMenu();
+            } else {
+              endAtCalendar.value.openMenu();
+            }
+          };
+
+          const focusElement = (elementId) => {
+            const el = document.getElementById(elementId);
+            if (elementId == "calendar-start-input" && !!startAt.value) {
+              el.classList.add("hascontent");
+            }
+
+            if (elementId == "calendar-end-input" && !!endAt.value) {
+              el.classList.add("hascontent");
+            }
+          };
+
+          const handleStartAt = (modelData) => {
+            startAt.value = moment(modelData).format("DD/MM/YYYY");
+          };
+
+          const handleEndAt = (modelData) => {
+            endAt.value = moment(modelData).format("DD/MM/YYYY");
+          };
+
+          watch(startAt, (value) => {
+            if (value) {
+              const date = moment(value, "DD/MM/yyyy").toDate();
+              startAtMapper.value = moment(date).format("MM/DD/yyyy");
+            }
+          });
+
+          watch(endAt, (value) => {
+            if (value) {
+              const date = moment(value, "DD/MM/yyyy").toDate();
+              endAtMapper.value = moment(date).format("MM/DD/yyyy");
+            }
+          });
+
+          const dayName = [
+            "Thứ 2",
+            "Thứ 3",
+            "Thứ 4",
+            "Thứ 5",
+            "Thứ 6",
+            "Thứ 7",
+            "CN",
+          ];
+          const startAtCalendar = ref(null);
+          const endAtCalendar = ref(null);
+
+          const handleFilterTime = (modelData) => {
+            filterTimeDisplay.value = moment(modelData).format("HH:mm");
+          };
+
+          const filterTime = ref("00:00");
+          const filterTimeDisplay = ref(moment().format("HH:mm"));
+          const filterTimeCalendar = ref(null);
+
+          const term = ref(false);
+
+          return {
+            isShowPopup,
+            sourceCurrency,
+            currencyList,
+            paymentMethod,
+            paymentMethodList,
+            reason,
+            reasonList,
+            transferType,
+            transferTypeList,
+            branch,
+            branchList,
+            room,
+            roomList,
+            startAt,
+            endAt,
+            startAtCalendar,
+            dayName,
+            endAtCalendar,
+            startAtMapper,
+            endAtMapper,
+            filterTimeCalendar,
+            filterTime,
+            filterTimeDisplay,
+            term,
+            handleStartAt,
+            openCalendar,
+            focusElement,
+            handleEndAt,
+            openFile,
+            handleFilterTime,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

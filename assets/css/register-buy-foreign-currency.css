@@ -1,0 +1,266 @@
+.register-buy-foreign-currency-page .home-container {
+  margin: 100px auto !important;
+}
+
+.register-buy-foreign-currency-page .transfer-area .card-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.register-buy-foreign-currency-page .transfer-card .form-select {
+  border: unset;
+  border-bottom: 1px solid #c4c4c6 !important;
+  border-radius: unset;
+  font-size: 16px;
+  padding-bottom: 2px;
+  padding-left: 0;
+  color: #000000;
+  margin-top: 18px;
+}
+
+.register-buy-foreign-currency-page .transfer-card .file-attach {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.register-buy-foreign-currency-page
+  .transfer-card
+  .file-attach
+  .form-check-input {
+  width: 16px;
+  height: 16px;
+}
+
+.register-buy-foreign-currency-page .transfer-card .term .form-check-input {
+  width: 20px;
+  height: 20px;
+}
+
+.register-buy-foreign-currency-page .transfer-card .term .form-check-label {
+  margin-bottom: 0;
+  transform: translateY(3px);
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.register-buy-foreign-currency-page
+  .transfer-card
+  .file-attach
+  .form-check-label {
+  margin-bottom: 0;
+  transform: translateY(3px);
+  font-size: 14px;
+}
+
+.register-buy-foreign-currency-page .file-document {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.register-buy-foreign-currency-page .file-document .title-file-document {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.register-buy-foreign-currency-page .file-document .sub-title-file {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #787878;
+}
+
+.register-buy-foreign-currency-page .transfer-card .file-document .btn {
+  min-width: 82px;
+  padding: 8px 12px !important;
+  font-size: 12px !important;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  color: white !important;
+  border-radius: 8px !important;
+  background: var(--branding-primary-color, #002d85) !important;
+}
+
+.register-buy-foreign-currency-page .form-select:focus {
+  box-shadow: unset;
+}
+
+.register-buy-foreign-currency-page .notice-block label {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.register-buy-foreign-currency-page .group-button-bottom {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.register-buy-foreign-currency-page .group-button-bottom .btn-submit {
+  line-height: 24px;
+  padding: 12px 24px !important;
+  width: 150px;
+}
+
+.register-buy-foreign-currency-page .group-button-bottom .btn-back {
+  width: 150px;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 14px 24px !important;
+}
+
+.pt-10 {
+  padding-top: 10px !important;
+}
+
+.register-buy-foreign-currency-page .note {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #002d85;
+}
+
+.register-buy-foreign-currency-page .note span {
+  display: inline-flex;
+  gap: 4px;
+  cursor: pointer;
+  padding-top: 12px;
+}
+
+.register-buy-foreign-currency-page .note i {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.register-buy-foreign-currency-page .note-popup {
+  padding: 16px;
+  border-radius: 8px;
+  background: #f4f7fe;
+  color: #333333;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.register-buy-foreign-currency-page .note-popup h5 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+.register-buy-foreign-currency-page .note-popup h5 img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.register-buy-foreign-currency-page .note-popup p {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  padding-top: 4px;
+  margin-bottom: 0;
+  padding-right: 52px;
+}
+
+.register-buy-foreign-currency-page .amount-of-money {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  padding-top: 3px;
+  margin-bottom: 0;
+}
+
+.register-buy-foreign-currency-page .input-range {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 16px;
+}
+
+.register-buy-foreign-currency-page .input-range span {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-buy-foreign-currency-page .input-range .isax-calendar-1 {
+  font-size: 19px;
+}
+
+.time-select {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #c4c4c6;
+  padding-top: 10px;
+}
+
+.time-select input {
+  border: unset;
+  padding: 0;
+}
+
+.time-select .input-group-text {
+  background: unset;
+  border: unset;
+  font-size: 20px;
+}
+
+.term {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--branding-line, #e9e9e9);
+  background: var(--background-background-2, #fafafa);
+  padding: 16px;
+}
+
+.term .form-check-label {
+  flex: 1;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+@media (max-width: 991px) {
+}
+
+@media (max-width: 767px) {
+  .register-buy-foreign-currency-page .file-document .title-file-document {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 575px) {
+  .register-buy-foreign-currency-page .home-container {
+    margin: 96px auto !important;
+  }
+
+  .register-buy-foreign-currency-page .group-button-bottom {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .register-buy-foreign-currency-page .group-button-bottom .btn {
+    width: 100%;
+  }
+}
