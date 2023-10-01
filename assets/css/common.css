@@ -399,6 +399,15 @@ input[type="search"]::-webkit-input-placeholder {
   transform: translateY(-2px);
 }
 
+.input-group.label-transition.two-line label {
+  top: -100%;
+}
+
+.input-group.label-transition.two-line input:focus ~ label,
+.input-group.label-transition.two-line .hascontent ~ label {
+  top: -150%;
+}
+
 .page-content {
   position: relative;
   display: flex;

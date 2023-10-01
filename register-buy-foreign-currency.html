@@ -126,7 +126,7 @@
                     </div>
                   </div>
 
-                  <div class="col-12 col-sm-6">
+                  <div class="col-12 col-sm-6 mt-3">
                     <div class="pt-10">
                       <selector-component
                         placeholder="Loại tiền cần mua"
@@ -143,26 +143,29 @@
                       </selector-component>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-6 mt-3">
-                    <div class="input-group label-transition">
+                  <div class="col-12 col-sm-6 mt-33">
+                    <div
+                      class="input-group label-transition"
+                      :class="{'two-line': lang == 'en' }"
+                    >
                       <div class="form-label">
                         <input
                           type="number"
                           class="form-control input-text-bold"
                         />
-                        <label>Số tiền ngoại tệ KH đăng ký mua*</label>
+                        <label v-if="lang == 'en'"
+                          >The amount of foreign currency the customer registers
+                          to purchase*</label
+                        >
+                        <label v-else>Số tiền ngoại tệ KH đăng ký mua*</label>
                       </div>
                     </div>
                     <p class="amount-of-money">Mười đô la mỹ</p>
                   </div>
 
-                  <div class="col-12 col-sm-6 mt-3">
+                  <div class="col-12 col-sm-6 mt-34">
                     <div class="input-group label-transition">
-                      <div class="form-label">
-                        <input
-                          type="number"
-                          class="form-control input-text-bold"
-                        />
+                      <div class="form-label label-not-input">
                         <label>Loại tiền thanh toán*</label>
                       </div>
                       <div class="input-group-append">
@@ -171,7 +174,7 @@
                     </div>
                   </div>
 
-                  <div class="col-12 col-sm-6">
+                  <div class="col-12 col-sm-6 mt-18">
                     <div class="pt-10">
                       <selector-component
                         placeholder="Phương thức thanh toán"
@@ -189,7 +192,7 @@
                     </div>
                   </div>
 
-                  <div class="col-12 col-sm-6">
+                  <div class="col-12 col-sm-6 mt-4">
                     <div class="pt-10">
                       <selector-component
                         placeholder="Mục đích mua ngoại tệ"
@@ -206,7 +209,7 @@
                       </selector-component>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-6">
+                  <div class="col-12 col-sm-6 mt-4">
                     <div class="input-group label-transition mt-3">
                       <div class="form-label">
                         <input
@@ -225,7 +228,10 @@
 
                 <div class="row">
                   <div class="col-12 col-sm-4 input-range">
-                    <div class="input-group label-transition">
+                    <div
+                      class="input-group label-transition"
+                      :class="{'two-line': lang == 'en' }"
+                    >
                       <div class="calendar">
                         <Datepicker
                           ref="startAtCalendar"
@@ -249,7 +255,10 @@
                           class="form-control fw-bold disable-hover"
                           v-model="startAt"
                         />
-                        <label for="account_number"> Từ ngày </label>
+                        <label v-if="lang == 'en'" for="account_number">
+                          Expected transaction date
+                        </label>
+                        <label v-else for="account_number"> Từ ngày </label>
                       </div>
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -381,24 +390,14 @@
                   </div>
 
                   <div class="col-12 col-sm-6">
-                    <div class="pt-10">
-                      <selector-component
-                        placeholder="Loại giao dịch"
-                        v-model="transferType"
-                        :options="transferTypeList"
-                        :required="true"
+                    <div class="mt-44">
+                      <label for=""
+                        >Loại giao dịch: <strong>Giao ngay</strong></label
                       >
-                        <template #selected="{option}">
-                          <b>{{ option.label }}</b>
-                        </template>
-                        <template #option="{option}">
-                          <b class="d-block py-2">{{ option.label }}</b>
-                        </template>
-                      </selector-component>
                     </div>
                   </div>
 
-                  <div class="col-12 col-sm-6 mt-3">
+                  <div class="col-12 col-sm-6 mt-4">
                     <div class="input-group label-transition">
                       <div class="form-label">
                         <input
@@ -448,7 +447,9 @@
                     Thiết lập lại
                   </button>
 
-                  <button :disabled="!term" class="btn btn-third btn-submit">Tiếp tục</button>
+                  <button :disabled="!term" class="btn btn-third btn-submit">
+                    Tiếp tục
+                  </button>
                 </div>
               </div>
             </div>
@@ -719,6 +720,8 @@
 
           const term = ref(false);
 
+          const lang = ref("en");
+
           return {
             isShowPopup,
             sourceCurrency,
@@ -744,6 +747,7 @@
             filterTime,
             filterTimeDisplay,
             term,
+            lang,
             handleStartAt,
             openCalendar,
             focusElement,
